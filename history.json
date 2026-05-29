@@ -15,7 +15,7 @@
       "repo": "colbymchenry/codegraph",
       "url": "https://github.com/colbymchenry/codegraph",
       "language": "TypeScript",
-      "title": "CodeGraph：给 AI 编程助手装上"代码地图"，省 70% Token",
+      "title": "CodeGraph：给 AI 编程助手装上「代码地图」，省 70% Token",
       "category": "AI 工程化 / 代码知识图谱 / MCP",
       "file": "2026-05-27-codegraph.html",
       "stars": 26600,
@@ -31,39 +31,6 @@
       "file": "2026-05-28-webwright.html",
       "stars": 30716,
       "threshold": "total 30.7k > 10000"
-    },
-    {
-      "date": "2026-05-29",
-      "repo": "microsoft/markitdown",
-      "url": "https://github.com/microsoft/markitdown",
-      "language": "Python",
-      "title": "microsoft/markitdown：把任意文件变成 LLM 可消化的 Markdown",
-      "category": "AI 工程化 / 文档预处理 / RAG",
-      "file": "2026-05-29-daily.html",
-      "stars": 91000,
-      "threshold": "total 91k > 10000"
-    },
-    {
-      "date": "2026-05-29",
-      "repo": "Lum1104/Understand-Anything",
-      "url": "https://github.com/Lum1104/Understand-Anything",
-      "language": "Python / TypeScript",
-      "title": "Understand-Anything：用多 Agent 流水线把代码库变成可交互知识图谱",
-      "category": "AI 工具 / 代码理解 / 知识图谱",
-      "file": "2026-05-29-daily.html",
-      "stars": 38000,
-      "threshold": "total 38k > 10000"
-    },
-    {
-      "date": "2026-05-29",
-      "repo": "obra/superpowers",
-      "url": "https://github.com/obra/superpowers",
-      "language": "Markdown / Shell",
-      "title": "obra/superpowers：给 AI 编程 Agent 装上工程纪律的技能框架",
-      "category": "Agent 方法论 / AI 编程 / Skills 框架",
-      "file": "2026-05-29-daily.html",
-      "stars": 60600,
-      "threshold": "total 60.6k > 10000"
     },
     {
       "date": "2026-05-29",
