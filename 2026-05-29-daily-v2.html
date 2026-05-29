@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-05-29</title>
+<style>
+  :root {
+    --bg: #f4f6fa;
+    --card: #ffffff;
+    --accent: #4f46e5;
+    --accent2: #0ea5e9;
+    --accent3: #10b981;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --tag-bg: #eff6ff;
+    --tag-color: #3b82f6;
+    --code-bg: #1e293b;
+    --code-text: #e2e8f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    padding: 0 0 60px;
+  }
+  .header {
+    background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+    color: #fff;
+    padding: 36px 24px 32px;
+    text-align: center;
+  }
+  .header h1 { font-size: 1.6rem; font-weight: 800; letter-spacing: 0.01em; }
+  .header .date { font-size: 0.9rem; opacity: 0.85; margin-top: 6px; }
+  .header .lead {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    opacity: 0.92;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 10px 16px;
+  }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+  .section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 36px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, var(--accent), transparent);
+    border-radius: 2px;
+  }
+  .card {
+    background: var(--card);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .card-index {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .card-index.green { background: var(--accent3); }
+  .card-index.sky { background: var(--accent2); }
+  .card-title-group { flex: 1; min-width: 0; }
+  .card-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .card-title a { color: inherit; text-decoration: none; border-bottom: 2px solid var(--accent); }
+  .card-title a:hover { color: var(--accent); }
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .badge {
+    font-size: 0.75rem;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    background: var(--tag-bg);
+    color: var(--tag-color);
+    border: 1px solid #bfdbfe;
+  }
+  .badge.lang { background: #f0fdf4; color: #16a34a; border-color: #bbf7d0; }
+  .badge.stars { background: #fffbeb; color: #b45309; border-color: #fde68a; }
+  .badge.cat { background: #fdf4ff; color: #7c3aed; border-color: #e9d5ff; }
+  .tagline {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+    padding-left: 4px;
+    border-left: 3px solid var(--accent);
+    padding-left: 10px;
+  }
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 16px 0 6px;
+  }
+  .card p { color: #334155; font-size: 0.95rem; margin-bottom: 10px; }
+  .card ul { padding-left: 20px; margin-bottom: 10px; }
+  .card ul li { color: #334155; font-size: 0.95rem; margin-bottom: 5px; }
+  .highlight { color: var(--accent); font-weight: 600; }
+  .highlight2 { color: var(--accent2); font-weight: 600; }
+  .highlight3 { color: var(--accent3); font-weight: 600; }
+  .analogy-box {
+    background: #f8fafc;
+    border-left: 4px solid var(--accent2);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 0.92rem;
+    color: #475569;
+  }
+  .analogy-box strong { color: var(--text); }
+  code {
+    font-family: "SF Mono", "Fira Code", Consolas, monospace;
+    background: #f1f5f9;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.88em;
+    color: #7c3aed;
+  }
+  pre {
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 16px 18px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 0.88rem;
+    font-family: "SF Mono", "Fira Code", Consolas, monospace;
+    margin: 12px 0;
+    line-height: 1.6;
+  }
+  pre .comment { color: #64748b; }
+  pre .cmd { color: #34d399; }
+  pre .str { color: #fbbf24; }
+  .learn-card {
+    background: linear-gradient(135deg, #f0f9ff 0%, #faf5ff 100%);
+    border: 1.5px solid #bae6fd;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .learn-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ext-links { margin-top: 16px; }
+  .ext-links a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 0.88rem;
+    color: var(--accent2);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px dashed var(--accent2);
+  }
+  .ext-links a:hover { color: var(--accent); }
+  .footer-card {
+    background: var(--card);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .footer-tags span {
+    font-size: 0.8rem;
+    padding: 3px 12px;
+    border-radius: 20px;
+    background: var(--tag-bg);
+    color: var(--tag-color);
+  }
+  .footer-summary { font-size: 0.88rem; color: var(--muted); font-style: italic; }
+  @media (max-width: 600px) {
+    .card { padding: 16px; }
+    .card-header { gap: 10px; }
+    .header h1 { font-size: 1.3rem; }
+    pre { font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🗂 每日开源精选 · GitHub 热榜 + 学习日报</h1>
+  <div class="date">2026 年 5 月 29 日 · 第二期</div>
+  <div class="lead">
+    今日三选：① 开源 AI 设计生成工具 open-design · ② 给 AI 编程 Agent 装上"浏览器眼睛"的 chrome-devtools-mcp · ③ 190k ⭐ 工作流自动化平台 n8n<br>
+    今日学一招：<strong>Codex CLI 安装与初次上手</strong>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-title">🔥 精选项目 · A 区</div>
+
+  <!-- 项目 1: open-design -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-index">1</div>
+      <div class="card-title-group">
+        <div class="card-title">
+          <a href="https://github.com/nexu-io/open-design" target="_blank">nexu-io / open-design</a>
+        </div>
+        <div class="card-meta">
+          <span class="badge lang">TypeScript / Node.js</span>
+          <span class="badge stars">⭐ 54.8k</span>
+          <span class="badge cat">AI 设计工具 / 本地优先</span>
+        </div>
+      </div>
+    </div>
+    <div class="tagline">把 Claude Code、Codex、Cursor 等 AI 编程助手变成"AI 设计师"的本地开源平台</div>
+
+    <div class="section-label">它是什么 · 解决什么问题</div>
+    <p>2026 年 4 月，Anthropic 推出了一款叫 <strong>Claude Design</strong> 的付费闭源工具，能让 AI 直接输出网页原型、PPT、图片等设计成品，一度刷爆推特。但它是云端付费的，必须用 Anthropic 的模型，不能自托管，也不能插入自己的工作流。</p>
+    <p><strong>open-design</strong> 就是针对这个痛点做的开源替代方案：它不是一个 AI 模型，而是一个<span class="highlight">本地设计工作台</span>。它把你电脑上已安装的 Claude Code / Codex / Cursor / Qwen 等 AI 编程 CLI 工具"接管"过来，通过一套叫做 <strong>Skills（技能包）</strong> 的模板体系，引导这些 AI 按照设计流程生成网页、移动端原型、幻灯片、图片甚至视频，输出成 HTML / PDF / PPTX / MP4 等文件。</p>
+
+    <div class="analogy-box">
+      <strong>生活类比：</strong>想象一下，你家里有一位能干的助理（AI 编程工具），平时只负责写代码。open-design 给他一本"设计工作手册"（Skills），里面写明了设计师怎么问需求、怎么看品牌色、怎么排版——助理按着手册干，就能帮你设计网页和 PPT，而不只是敲代码了。
+    </div>
+
+    <div class="section-label">亮点 / 技术看点</div>
+    <ul>
+      <li><span class="highlight">259+ Skills（技能包）+ 142 个品牌设计系统</span>：每个 Skill 是一个 <code>SKILL.md</code> 文件夹，描述"这个任务的设计流程"。比如"生成登录页"、"制作商务 PPT"——只要新加一个文件夹，工作台里立刻多一项技能。</li>
+      <li><span class="highlight">BYOK（自带 Agent）</span>：不绑定任何 AI 厂商，支持 Claude Code、Codex、Cursor、Copilot、Gemini CLI、Qwen、Kimi 等 17+ CLI 工具。谁便宜用谁，数据不出本地。</li>
+      <li><span class="highlight">HyperFrames（超帧）技术</span>：可以在同一页面里组合多个设计场景，像 PPT 幻灯片一样切换，同时生成交互式原型。</li>
+      <li><span class="highlight">DESIGN.md 系统提示词</span>：类似 Claude Code 的 CLAUDE.md，你可以在项目里放一个 <code>DESIGN.md</code>，写明品牌色、字体、设计偏好——AI 每次生成设计时都会先读这份文件，输出结果更符合你公司的风格。</li>
+      <li><span class="highlight">沙箱预览</span>：所有生成结果在本地沙箱里实时渲染，不会把你的设计稿传到外部云。</li>
+    </ul>
+
+    <div class="section-label">学习要点</div>
+    <ul>
+      <li><strong>开发同学：</strong>理解 Skills 协议（一个 <code>SKILL.md</code> + <code>assets/</code> 文件夹）就能扩展新功能，自定义技能门槛极低。</li>
+      <li><strong>设计同学：</strong>写好 DESIGN.md（品牌色、字体、设计语言）能大幅提升 AI 生成质量，把它当成"AI 版设计规范文档"来维护。</li>
+      <li><strong>产品同学：</strong>用 open-design 快速生成低保真原型给需求方确认，比用 Figma 画图再扔给 AI 更快一步。</li>
+      <li><strong>运维同学：</strong>整个平台可以 Docker 一键部署在内网，私有化部署，数据完全自控。</li>
+    </ul>
+  </div>
+
+  <!-- 项目 2: chrome-devtools-mcp -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-index sky">2</div>
+      <div class="card-title-group">
+        <div class="card-title">
+          <a href="https://github.com/ChromeDevTools/chrome-devtools-mcp" target="_blank">ChromeDevTools / chrome-devtools-mcp</a>
+        </div>
+        <div class="card-meta">
+          <span class="badge lang">TypeScript</span>
+          <span class="badge stars">⭐ 41.8k</span>
+          <span class="badge cat">开发工具 / MCP / 浏览器调试</span>
+        </div>
+      </div>
+    </div>
+    <div class="tagline">Chrome 官方出品的 MCP 服务器——给 AI 编程 Agent 装上"浏览器眼睛"，让它自己调试前端 Bug</div>
+
+    <div class="section-label">它是什么 · 解决什么问题</div>
+    <p>AI 编程助手（Claude、Copilot、Gemini 等）有一个根本性的盲点：<strong>它能写代码，但看不到代码在浏览器里跑起来是什么样的</strong>。你让它修一个 CSS 布局问题，它写完代码自己根本不知道对不对，只能靠你去开浏览器看、再复制错误信息粘回来——这个来回循环可能要重复很多次。</p>
+    <p><strong>chrome-devtools-mcp</strong> 是 Google Chrome DevTools 官方团队做的一个 MCP 服务器（<em>MCP = Model Context Protocol，一种让 AI 调用外部工具的标准协议</em>）。它把 Chrome 的调试能力——查看 DOM、读 Console 报错、抓网络请求、截图、跑 Lighthouse 性能分析——全部暴露成 AI 可以直接调用的"工具"，彻底打通了"AI 写代码 → 浏览器运行 → AI 看结果 → AI 修代码"这个闭环。</p>
+
+    <div class="analogy-box">
+      <strong>生活类比：</strong>以前 AI 程序员就像一位戴着眼罩做菜的厨师，只能靠你描述"这道菜太咸了"来调整。chrome-devtools-mcp 把眼罩摘了，现在厨师可以自己尝味道、看颜色、闻香气——发现问题立刻自己改，不用你转述了。
+    </div>
+
+    <div class="section-label">亮点 / 技术看点</div>
+    <ul>
+      <li><span class="highlight2">26 个调试工具，6 大类</span>：包括输入自动化（点击/填表/上传）、页面导航、DOM 快照、Console 日志读取、截图、Lighthouse 性能审计、网络请求监控等——基本上打开 Chrome 开发者工具能做的事，AI 都能做了。</li>
+      <li><span class="highlight2">基于 Chrome DevTools Protocol（CDP）</span>：CDP 是 Chrome 的原生调试协议，稳定、权威，Playwright/Puppeteer 都在用。MCP 服务器用 Puppeteer 封装了 CDP，可靠性有保证。</li>
+      <li><span class="highlight2">调试闭环（Closed Debugging Loop）</span>：AI 写完代码后自动打开浏览器检查，读取 Console 报错和网络错误，定位问题并修复，全程无需人工介入——对于"改了代码不知道有没有用"的循环烦恼，这个工具是最直接的解法。</li>
+      <li><span class="highlight2">性能洞察</span>：可以录制浏览器性能 Trace，提取页面首屏时间、卡顿帧、内存占用等指标，让 AI 输出优化建议，相当于把前端性能分析流程也自动化了。</li>
+    </ul>
+
+    <div class="section-label">学习要点</div>
+    <ul>
+      <li><strong>前端开发：</strong>将 chrome-devtools-mcp 配置到 Claude Code / Cursor 里，改完代码让 AI 自动截图验证，可以大幅缩短调试回路。</li>
+      <li><strong>测试同学：</strong>26 个工具里包含表单填写、点击、上传等操作，结合 AI 可以快速生成端到端测试场景，甚至让 AI 帮你写自动化测试用例。</li>
+      <li><strong>产品同学：</strong>理解"MCP = 给 AI 的插件接口"这个概念——越来越多工具在接入 MCP，未来 AI 能调用的能力边界会越来越宽。</li>
+      <li><strong>所有人：</strong>配置方法很简单，在 Claude Desktop / Claude Code 的 MCP 配置里加一行 <code>npx @chrome-devtools/mcp@latest</code> 即可启用。</li>
+    </ul>
+  </div>
+
+  <!-- 项目 3: n8n -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-index green">3</div>
+      <div class="card-title-group">
+        <div class="card-title">
+          <a href="https://github.com/n8n-io/n8n" target="_blank">n8n-io / n8n</a>
+        </div>
+        <div class="card-meta">
+          <span class="badge lang">TypeScript / Node.js</span>
+          <span class="badge stars">⭐ 190k</span>
+          <span class="badge cat">工作流自动化 / AI Agent / 自托管</span>
+        </div>
+      </div>
+    </div>
+    <div class="tagline">190k ⭐ 的可自托管工作流自动化平台，连接 400+ 服务，原生支持 AI Agent 和 MCP</div>
+
+    <div class="section-label">它是什么 · 解决什么问题</div>
+    <p>你有没有做过这种事：每天早上手动把某个系统的数据复制到表格里；或者某个审批通过后需要分别发邮件、在 Slack 通知、更新数据库？这类"跨系统搬运数据、按条件触发动作"的重复工作，就是 <strong>工作流自动化</strong> 要解决的问题。</p>
+    <p><strong>n8n</strong>（念作"nodemation"）是目前 GitHub 上最受欢迎的开源工作流自动化工具之一，190k ⭐，积累了超过 400 个服务节点（Slack、Notion、GitHub、MySQL、OpenAI、Google Sheets……），用可视化拖拽画板来编排"当 A 发生时，做 B，然后做 C"这样的流程。与 Zapier/Make 等付费 SaaS 相比，它的最大优势是<span class="highlight3">完全可以自托管</span>，数据不出公司内网，且没有按执行次数收费的限制。</p>
+
+    <div class="analogy-box">
+      <strong>生活类比：</strong>n8n 就像一条工厂流水线的"中控大脑"——你把各个车间（Slack、数据库、邮件、AI）用传送带连起来，设定好规则，之后中控大脑自动协调运转，不需要每次都有工人手动搬运。
+    </div>
+
+    <div class="section-label">亮点 / 技术看点</div>
+    <ul>
+      <li><span class="highlight3">原生 AI Agent 节点</span>：有专门的"AI Agent"节点，可以在流程图里嵌入一个有记忆、有工具调用能力的 AI 智能体。它不只是简单调 OpenAI 接口，而是能根据目标自己决定下一步用哪个工具——更接近真正的"自动化决策"。</li>
+      <li><span class="highlight3">MCP 支持（2026 新特性）</span>：新增了 MCP Server Trigger 和 MCP Client Tool 两个节点。这意味着 n8n 里的工作流可以<em>被</em> Claude / GPT 等 AI 作为工具调用，也可以<em>调用</em>外部 MCP 服务器——n8n 正在成为 AI 时代的自动化"中间层"。</li>
+      <li><span class="highlight3">Fair-code 开源协议</span>：n8n 用的是自创的 "fair-code" 协议，比 MIT 稍有限制（不能做云服务转售），但对自用和内部部署完全免费，代码完全开放。</li>
+      <li><span class="highlight3">可视化 + 代码双模式</span>：不会写代码的同事可以用拖拽节点配置流程；需要复杂逻辑时，也可以在节点里直接写 JavaScript / Python，两者无缝切换。</li>
+    </ul>
+
+    <div class="section-label">学习要点</div>
+    <ul>
+      <li><strong>运维同学：</strong>Docker 一键部署，5 分钟上手。先用官方的 n8n Cloud 试试，确认流程对了再迁到自托管。</li>
+      <li><strong>开发同学：</strong>探索 AI Agent 节点 + MCP 组合——把公司内部系统包装成 MCP 工具，让 n8n 里的 AI 智能体能调用，这是未来企业 AI 自动化的典型架构。</li>
+      <li><strong>产品/运营同学：</strong>从一个简单场景入手，比如"GitHub 新 Issue → 自动发 Slack 通知 + 打标签"，理解节点触发、条件分支的概念，之后再逐步加入 AI 节点。</li>
+      <li><strong>测试同学：</strong>n8n 可以用来做接口自动化测试的编排——定时触发、断言判断、结果推送，比 Postman 脚本更直观。</li>
+    </ul>
+  </div>
+
+  <!-- B 区：学习主题 -->
+  <div class="section-title">📚 今日学一招 · B 区</div>
+
+  <div class="learn-card">
+    <div class="learn-title">⚡ Codex CLI 安装与初次上手</div>
+
+    <p style="font-size:0.97rem; font-weight:600; color:#4f46e5; margin-bottom:12px;">
+      学完这篇，你能在 5 分钟内在终端里运行第一个 Codex CLI 命令，让 AI 帮你写代码、改代码、回答技术问题——不需要打开任何网页界面。
+    </p>
+
+    <div class="section-label">Codex CLI 是什么？</div>
+    <p><strong>Codex CLI</strong> 是 OpenAI 推出的一款命令行 AI 编程助手（CLI = Command Line Interface，命令行界面工具）。和在网页上聊天不同，Codex CLI 活在你的终端里，能直接读写你电脑上的文件、运行命令，理解你的代码库结构，帮你做真正的编程工作——而不只是生成一段代码让你复制粘贴。</p>
+    <p>可以把它想象成一位住在你终端里的程序员同事，你直接用自然语言告诉他"帮我给这个函数加单元测试"，他会自己打开文件、写好测试、甚至跑一遍确认通过。</p>
+
+    <div class="section-label">前置条件</div>
+    <ul>
+      <li>Node.js 22+ （在终端运行 <code>node -v</code> 确认）</li>
+      <li>一个 OpenAI API Key（登录 platform.openai.com 获取）</li>
+      <li>macOS / Linux / WSL（Windows Subsystem for Linux）</li>
+    </ul>
+
+    <div class="section-label">第一步：安装</div>
+    <pre><span class="comment"># 全局安装 Codex CLI（-g = global，安装后在任何目录都能用）</span>
+<span class="cmd">npm install -g @openai/codex</span>
+
+<span class="comment"># 验证安装成功</span>
+<span class="cmd">codex --version</span></pre>
+
+    <div class="section-label">第二步：配置 API Key</div>
+    <pre><span class="comment"># 方式一：写入环境变量（推荐，重启终端后永久生效）</span>
+<span class="cmd">echo 'export OPENAI_API_KEY="sk-你的key"' >> ~/.zshrc && source ~/.zshrc</span>
+
+<span class="comment"># 方式二：每次临时指定（只在当前终端会话有效）</span>
+<span class="cmd">export OPENAI_API_KEY="sk-你的key"</span></pre>
+
+    <div class="section-label">第三步：运行第一个命令</div>
+    <pre><span class="comment"># 进入你的项目目录</span>
+<span class="cmd">cd /path/to/your/project</span>
+
+<span class="comment"># 最简单的用法：直接提问</span>
+<span class="cmd">codex "解释一下这个项目的目录结构"</span>
+
+<span class="comment"># 让它帮你改代码（会进入交互模式，修改前会让你确认）</span>
+<span class="cmd">codex "给 src/utils.js 里的 formatDate 函数加上 JSDoc 注释"</span>
+
+<span class="comment"># 全自动模式（--approval-mode full-auto）：直接执行，不需要逐步确认</span>
+<span class="comment"># 注意：全自动模式会直接修改文件，在重要项目上谨慎使用</span>
+<span class="cmd">codex --approval-mode full-auto "列出所有没有写测试的函数"</span></pre>
+
+    <div class="section-label">几个入门要领</div>
+    <ul>
+      <li>第一次跑时，Codex CLI 会让你登录 OpenAI 账号并确认权限——跟着提示走就行。</li>
+      <li>默认模式是 <code>suggest</code>（建议模式）：Codex 会先展示它想做什么，等你按 <kbd>y</kbd> 确认后才真正修改文件。这是安全的起点。</li>
+      <li>在项目根目录放一个 <code>AGENTS.md</code> 文件（后续专题会讲），可以告诉 Codex 这个项目的约定，让它的回答更贴合你的代码库。</li>
+      <li>不是开发岗的同学：可以在临时文件夹里试验，让它帮你写一个 Python 小脚本处理表格，体验一下"自然语言→代码"的流程。</li>
+    </ul>
+
+    <div class="ext-links">
+      <strong style="font-size:0.85rem; color:var(--muted);">延伸阅读：</strong>
+      <a href="https://github.com/openai/codex" target="_blank">Codex CLI GitHub 仓库</a>
+      <a href="https://platform.openai.com/docs/codex" target="_blank">OpenAI 官方文档</a>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-card">
+    <div class="footer-tags">
+      <span>AI 设计工具</span>
+      <span>浏览器调试 MCP</span>
+      <span>工作流自动化</span>
+      <span>Codex CLI</span>
+      <span>开源效率工具</span>
+    </div>
+    <div class="footer-summary">今日一句：AI 工具不是替代你的工作，而是把"重复搬砖"自动化，让你有更多时间做真正需要判断力的事。</div>
+  </div>
+
+</div>
+</body>
+</html>

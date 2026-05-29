@@ -64,6 +64,39 @@
       "file": "2026-05-29-daily.html",
       "stars": 60600,
       "threshold": "total 60.6k > 10000"
+    },
+    {
+      "date": "2026-05-29",
+      "repo": "nexu-io/open-design",
+      "url": "https://github.com/nexu-io/open-design",
+      "language": "TypeScript",
+      "title": "nexu-io/open-design：把 AI 编程 CLI 变成 AI 设计工作台的开源平台",
+      "category": "AI 设计工具 / 本地优先 / Skills",
+      "file": "2026-05-29-daily-v2.html",
+      "stars": 54800,
+      "threshold": "total 54.8k > 10000"
+    },
+    {
+      "date": "2026-05-29",
+      "repo": "ChromeDevTools/chrome-devtools-mcp",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "language": "TypeScript",
+      "title": "ChromeDevTools/chrome-devtools-mcp：给 AI 编程 Agent 装上浏览器调试眼睛",
+      "category": "开发工具 / MCP / 浏览器调试",
+      "file": "2026-05-29-daily-v2.html",
+      "stars": 41800,
+      "threshold": "total 41.8k > 10000"
+    },
+    {
+      "date": "2026-05-29",
+      "repo": "n8n-io/n8n",
+      "url": "https://github.com/n8n-io/n8n",
+      "language": "TypeScript",
+      "title": "n8n-io/n8n：190k⭐ 可自托管工作流自动化平台，原生支持 AI Agent 和 MCP",
+      "category": "工作流自动化 / AI Agent / 自托管",
+      "file": "2026-05-29-daily-v2.html",
+      "stars": 190000,
+      "threshold": "total 190k > 10000"
     }
   ]
 }

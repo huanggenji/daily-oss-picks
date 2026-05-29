@@ -1,0 +1,16 @@
+{
+  "description": "每日学习板块的主题去重记录。Cowork 每天生成前读取此文件，从未讲过的主题中挑选当天主题；生成后追加。主题方向：Codex 系列（CLI/应用/集成）为主 ~70%，AI 基础（向量/Embedding/提示词/RAG/Token/微调等）为辅 ~30%。",
+  "weights": {
+    "codex": 0.7,
+    "ai_basics": 0.3
+  },
+  "covered": [
+    {
+      "date": "2026-05-29",
+      "topic_id": "codex-cli-install",
+      "category": "codex",
+      "title": "Codex CLI 安装与初次上手",
+      "file": "2026-05-29-daily-v2.html"
+    }
+  ]
+}
