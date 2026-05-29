@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-05-27 · CodeGraph</title>
+<style>
+  :root{
+    --bg:#f5f6f8; --card:#ffffff; --ink:#1a1a1a; --sub:#5b6470;
+    --line:#e8eaed; --brand:#0b8457; --brand-soft:#e6f4ee;
+    --code-bg:#0f172a; --code-ink:#e2e8f0; --accent:#c2410c; --accent-soft:#fdeede;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.85; font-size:16px;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:32px 20px 80px;}
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:13px; color:var(--sub); margin-bottom:18px; letter-spacing:.3px;
+  }
+  .topbar .badge{background:var(--brand-soft); color:var(--brand); padding:4px 12px; border-radius:999px; font-weight:600;}
+  h1{font-size:30px; line-height:1.35; margin:6px 0 4px; letter-spacing:.2px;}
+  .subtitle{color:var(--sub); font-size:15px; margin-bottom:22px;}
+  .meta{
+    display:flex; flex-wrap:wrap; gap:8px; margin:0 0 26px;
+  }
+  .meta span{
+    font-size:12.5px; background:#fff; border:1px solid var(--line);
+    padding:5px 11px; border-radius:8px; color:var(--sub);
+  }
+  .meta span b{color:var(--ink); font-weight:600;}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:26px 28px; margin:0 0 20px; box-shadow:0 1px 3px rgba(16,24,40,.04);
+  }
+  h2{
+    font-size:20px; margin:4px 0 14px; padding-left:13px; position:relative;
+  }
+  h2::before{
+    content:""; position:absolute; left:0; top:4px; bottom:4px; width:5px;
+    border-radius:3px; background:var(--brand);
+  }
+  h3{font-size:16.5px; margin:20px 0 8px; color:#0d2a3d;}
+  p{margin:10px 0;}
+  ul{margin:10px 0; padding-left:22px;}
+  li{margin:7px 0;}
+  a{color:var(--brand); text-decoration:none; border-bottom:1px solid var(--brand-soft);}
+  a:hover{border-bottom-color:var(--brand);}
+  code{
+    background:#eef1f4; color:#b5305f; padding:2px 7px; border-radius:6px;
+    font-family:"SF Mono",Menlo,Consolas,monospace; font-size:13.5px;
+  }
+  pre{
+    background:var(--code-bg); color:var(--code-ink); padding:16px 18px;
+    border-radius:12px; overflow-x:auto; font-size:13.5px; line-height:1.7;
+    font-family:"SF Mono",Menlo,Consolas,monospace;
+  }
+  pre code{background:none; color:inherit; padding:0;}
+  .callout{
+    background:var(--accent-soft); border-left:4px solid var(--accent);
+    padding:14px 18px; border-radius:0 10px 10px 0; margin:16px 0; font-size:15px;
+  }
+  .callout b{color:var(--accent);}
+  .kv{display:grid; grid-template-columns:118px 1fr; gap:6px 14px; font-size:15px; margin:8px 0;}
+  .kv .k{color:var(--sub);}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14.5px;}
+  th,td{border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top;}
+  th{background:#f0f2f5; font-weight:600;}
+  .takeaway{
+    background:var(--brand-soft); border:1px solid #cde7da; border-radius:14px;
+    padding:20px 24px; margin-top:8px;
+  }
+  .takeaway h2::before{background:var(--brand);}
+  .footer{text-align:center; color:#9aa3ad; font-size:12.5px; margin-top:40px; line-height:1.7;}
+  .tag{display:inline-block; background:var(--brand-soft); color:var(--brand); font-size:12px; padding:3px 9px; border-radius:6px; margin:2px 4px 2px 0;}
+  .flow{
+    background:var(--code-bg); color:var(--code-ink); border-radius:14px;
+    padding:20px 22px; font-family:"SF Mono",Menlo,Consolas,monospace;
+    font-size:13px; line-height:1.9; overflow-x:auto; margin:14px 0;
+  }
+  .flow .arrow{color:#64748b;}
+  .flow .box{color:#7dd3fc;}
+  .flow .label{color:#86efac;}
+  .stats-row{
+    display:flex; flex-wrap:wrap; gap:12px; margin:14px 0;
+  }
+  .stat-card{
+    flex:1; min-width:130px; background:#f8fafc; border:1px solid var(--line);
+    border-radius:12px; padding:14px 16px; text-align:center;
+  }
+  .stat-card .num{font-size:26px; font-weight:700; color:var(--brand); line-height:1.2;}
+  .stat-card .desc{font-size:12.5px; color:var(--sub); margin-top:4px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span>每日开源精选 · GitHub Trending</span>
+    <span class="badge">No.002</span>
+  </div>
+
+  <h1>CodeGraph：给 AI 编程助手装上"代码地图"，省 70% Token</h1>
+  <p class="subtitle">用知识图谱把任意代码库预索引成结构化语义图，让 Claude Code / Cursor / Codex 查图而非扫文件</p>
+
+  <div class="meta">
+    <span><b>日期</b> 2026-05-27（周三）</span>
+    <span><b>项目</b> colbymchenry/codegraph</span>
+    <span><b>语言</b> TypeScript</span>
+    <span><b>定位</b> AI Agent 代码知识图谱 / 本地 MCP 服务器</span>
+    <span><b>仓库</b> <a href="https://github.com/colbymchenry/codegraph">github.com/colbymchenry/codegraph</a></span>
+    <span><b>⭐ 总 Star</b> ~26.6k（本周新增 +14k，满足热度门槛：周榜 +14k &gt; 5000）</span>
+  </div>
+
+  <div class="card">
+    <h2>一句话定位</h2>
+    <p>CodeGraph 是一个<b>本地优先的代码智能工具</b>：它用 tree-sitter 解析你的代码库，把所有符号、调用边、继承关系存入本地 SQLite，再通过 <b>MCP 协议</b>把这张"代码知识图"暴露给 Claude Code、Cursor、Codex 等 AI 助手——让 AI 直接查图谱而不是反复 grep / Read，一次索引，持续省钱省时。</p>
+  </div>
+
+  <div class="card">
+    <h2>它解决了什么问题</h2>
+    <p>当 AI 编程助手处理一个中大型项目时，大量时间与 Token 都花在<b>发现阶段</b>——反复调用 <code>grep</code>、<code>glob</code>、<code>Read</code> 来搞清楚代码是怎么组织的。典型场景是：</p>
+    <ul>
+      <li>「这个函数被谁调用了？」→ AI 要扫 N 个文件</li>
+      <li>「修改这个类会影响哪些下游模块？」→ AI 要从头追溯依赖链</li>
+      <li>「这个接口在哪里实现？」→ AI 要逐文件全文搜索</li>
+    </ul>
+    <p>CodeGraph 把这一切"提前做好"：一次性把整个代码库的结构关系索引到本地 SQLite，后续 AI 查一次图谱即可得到精确答案，无需再读文件。</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="num">35%↓</div>
+        <div class="desc">API 调用费用</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">57%↓</div>
+        <div class="desc">Token 消耗</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">46%↓</div>
+        <div class="desc">任务完成耗时</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">71%↓</div>
+        <div class="desc">工具调用次数</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--sub);">以上数据来自 7 个真实开源项目基准测试（每项取 4 次中位数），大型仓库效果更显著——AI 可完全不读文件，直接从图谱回答。</p>
+  </div>
+
+  <div class="card">
+    <h2>核心架构（架构师视角重点）</h2>
+
+    <h3>整体流水线</h3>
+    <div class="flow">
+<span class="label">源码文件</span>
+  <span class="arrow">→</span> <span class="box">Extraction（tree-sitter AST 解析）</span>
+  <span class="arrow">→</span> <span class="box">Storage（SQLite / FTS5）</span>
+  <span class="arrow">↓</span>
+<span class="label">           Resolution（引用解析 + 框架模式识别）</span>
+  <span class="arrow">↓</span>
+<span class="label">           Graph Queries（callers / callees / impact radius）</span>
+  <span class="arrow">↓</span>
+<span class="label">           Context Building（Markdown / JSON → AI 消费）</span>
+    </div>
+
+    <h3>1. Extraction：AST 驱动，绝不靠 LLM 猜</h3>
+    <p>CodeGraph 用 <code>tree-sitter</code>（多语言 AST 解析器）提取符号，而非用 LLM 总结代码。这意味着抽取结果是<b>确定性的</b>（同一代码永远产出相同图谱）、高速的（纯本地计算），且不消耗任何 Token。支持 20+ 语言，包括 Java、TypeScript、Python、Go、Rust 等。</p>
+
+    <h3>2. Storage：SQLite + FTS5 的极简选择</h3>
+    <p>所有节点（函数、类、方法、类型）与边（调用、导入、继承、实现）都存入本地 <code>.codegraph/codegraph.db</code>，使用 SQLite 的 <b>FTS5 全文索引</b>模块加速模糊查找。这个选型非常务实：无需独立数据库进程，无运维负担，单文件即可备份和迁移，对只读查询有很好的性能。</p>
+
+    <h3>3. Resolution：处理动态特性与框架惯例</h3>
+    <p>纯 AST 解析只能看到静态结构，无法处理动态派发、回调、React 重渲染等模式。CodeGraph 在 Resolution 阶段额外引入了<b>框架合成器（Synthesizers）</b>，专门识别 Spring / Express / Next.js 等框架的路由注解、依赖注入等惯例，把这些"隐式边"补入图谱，让调用链从头到尾连通。</p>
+
+    <h3>4. MCP Server + Auto-sync：增量、实时</h3>
+    <p>CodeGraph 作为一个 MCP Server 运行，常驻后台，通过系统原生文件事件（FSEvents / inotify）监听代码变更，增量重索引变动文件，让图谱始终与代码同步。AI 助手通过标准 MCP 协议查询，不需要任何特殊配置。</p>
+
+    <h3>5. 多 Agent 集成架构</h3>
+    <p>CodeGraph 提供统一的 MCP 接口，同一个本地图谱可以同时服务 Claude Code、Cursor、Codex CLI、opencode、Hermes Agent。安装时通过 <code>targets/</code> 插件体系自动写入对应 Agent 的配置文件，做到一次安装多端共享。</p>
+
+    <div class="callout">
+      <b>架构亮点：</b>这是一个典型的"索引换查询"（Index-for-Query）设计模式——通过提前构建结构化索引，把运行时的 O(n) 扫描转化为 O(1) 图查询，本质和数据库索引、搜索引擎倒排索引、Elasticsearch 是同一套思想。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>适用场景</h2>
+    <ul>
+      <li><b>大型单体 / 微服务项目</b>：代码库越大，AI 扫文件的开销越高，CodeGraph 节省越明显。对 Java 微服务项目（几十个模块、数千个类）尤其适合。</li>
+      <li><b>AI 辅助重构</b>：在重命名、提取接口、调整包结构前，让 AI 先查 Impact Analysis（影响半径），评估改动波及哪些调用链。</li>
+      <li><b>新人 Onboarding</b>：用 AI + CodeGraph 快速建立对陌生大型代码库的结构认知，替代人工阅读文档。</li>
+      <li><b>CI 中的精准测试选择</b>：通过 impact 图谱只跑被改动代码影响到的测试集，大幅减少 CI 时间（官方文档有专门 Guide）。</li>
+      <li><b>代码审查辅助</b>：AI 用图谱快速追溯 PR 改动的上下游影响范围。</li>
+    </ul>
+  </div>
+
+  <div class="card takeaway">
+    <h2>给你的学习要点</h2>
+
+    <h3>🏗️ 可迁移的架构思想</h3>
+    <ul>
+      <li><b>索引优先（Index-first）设计</b>：任何需要"频繁查询大量数据"的场景，都应该先问自己"能不能提前建索引？"。CodeGraph 把 AI 的 Runtime 发现成本转移到 Build-time 索引成本，这是系统设计中「空间换时间」思想的经典应用。Java 生态里的 Spring Boot 启动时扫描 Bean、MyBatis 启动时解析 Mapper XML，都是同一套思路。</li>
+      <li><b>确定性胜过智能</b>：提取符号用 tree-sitter AST，而非 LLM 总结——这是一个刻意的架构决策。确定性意味着可测试、可 diff、可信赖。在 AI 时代，越是核心的基础设施层，越要保持确定性，用 AI 做高层推理而非低层解析。</li>
+      <li><b>协议标准化带来的生态红利</b>：CodeGraph 通过支持 MCP 协议，一次性接入了所有支持 MCP 的 AI 助手。这和 JDBC、OpenAPI、gRPC 的逻辑是一样的——定义标准接口，生态自然汇聚。</li>
+      <li><b>轻量存储选型</b>：选 SQLite 而非 PostgreSQL 或 ElasticSearch，是因为它的使用场景就是"单机、低并发、读多写少"——选型与场景匹配，才是好的工程决策，而不是总用最重的武器。</li>
+    </ul>
+
+    <h3>💡 动手建议</h3>
+    <p>如果你正在用 Claude Code 或 Cursor 处理一个 Java 项目，可以立刻试一把：</p>
+    <pre><code># 进入你的 Java 项目根目录
+cd /your/java-project
+
+# 一条命令安装并索引
+npx @colbymchenry/codegraph
+
+# 索引完成后，重启你的 AI Agent 即可生效
+# 之后让 AI 回答"哪些类实现了 UserService？"之类的问题
+# 对比没有 CodeGraph 时的 Token 消耗，感受差异</code></pre>
+    <p>重点观察：AI 是否从 <code>grep/Read</code> 模式切换到了 <code>codegraph_query</code> 模式，以及完成同一个任务花费的 Token 差异。</p>
+  </div>
+
+  <div style="margin-top:6px;">
+    <span class="tag">AI Agent</span>
+    <span class="tag">知识图谱</span>
+    <span class="tag">MCP</span>
+    <span class="tag">代码智能</span>
+    <span class="tag">Token 优化</span>
+    <span class="tag">tree-sitter</span>
+    <span class="tag">SQLite</span>
+    <span class="tag">本地优先</span>
+    <span class="tag">AI 工程化</span>
+  </div>
+
+  <div class="footer">
+    每日开源精选 · 为 Java 架构师在 AI 时代持续学习而制<br>
+    数据来源：GitHub Trending · Trendshift · 官方文档 · 2026-05-27
+  </div>
+
+</div>
+</body>
+</html>

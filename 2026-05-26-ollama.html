@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-05-26 · Ollama</title>
+<style>
+  :root{
+    --bg:#f5f6f8; --card:#ffffff; --ink:#1a1a1a; --sub:#5b6470;
+    --line:#e8eaed; --brand:#0b8457; --brand-soft:#e6f4ee;
+    --code-bg:#0f172a; --code-ink:#e2e8f0; --accent:#c2410c; --accent-soft:#fdeede;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.85; font-size:16px;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:32px 20px 80px;}
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:13px; color:var(--sub); margin-bottom:18px; letter-spacing:.3px;
+  }
+  .topbar .badge{background:var(--brand-soft); color:var(--brand); padding:4px 12px; border-radius:999px; font-weight:600;}
+  h1{font-size:30px; line-height:1.35; margin:6px 0 4px; letter-spacing:.2px;}
+  .subtitle{color:var(--sub); font-size:15px; margin-bottom:22px;}
+  .meta{
+    display:flex; flex-wrap:wrap; gap:8px; margin:0 0 26px;
+  }
+  .meta span{
+    font-size:12.5px; background:#fff; border:1px solid var(--line);
+    padding:5px 11px; border-radius:8px; color:var(--sub);
+  }
+  .meta span b{color:var(--ink); font-weight:600;}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:26px 28px; margin:0 0 20px; box-shadow:0 1px 3px rgba(16,24,40,.04);
+  }
+  h2{
+    font-size:20px; margin:4px 0 14px; padding-left:13px; position:relative;
+  }
+  h2::before{
+    content:""; position:absolute; left:0; top:4px; bottom:4px; width:5px;
+    border-radius:3px; background:var(--brand);
+  }
+  h3{font-size:16.5px; margin:20px 0 8px; color:#0d2a3d;}
+  p{margin:10px 0;}
+  ul{margin:10px 0; padding-left:22px;}
+  li{margin:7px 0;}
+  a{color:var(--brand); text-decoration:none; border-bottom:1px solid var(--brand-soft);}
+  a:hover{border-bottom-color:var(--brand);}
+  code{
+    background:#eef1f4; color:#b5305f; padding:2px 7px; border-radius:6px;
+    font-family:"SF Mono",Menlo,Consolas,monospace; font-size:13.5px;
+  }
+  pre{
+    background:var(--code-bg); color:var(--code-ink); padding:16px 18px;
+    border-radius:12px; overflow-x:auto; font-size:13.5px; line-height:1.7;
+    font-family:"SF Mono",Menlo,Consolas,monospace;
+  }
+  pre code{background:none; color:inherit; padding:0;}
+  .callout{
+    background:var(--accent-soft); border-left:4px solid var(--accent);
+    padding:14px 18px; border-radius:0 10px 10px 0; margin:16px 0; font-size:15px;
+  }
+  .callout b{color:var(--accent);}
+  .kv{display:grid; grid-template-columns:118px 1fr; gap:6px 14px; font-size:15px; margin:8px 0;}
+  .kv .k{color:var(--sub);}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14.5px;}
+  th,td{border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top;}
+  th{background:#f0f2f5; font-weight:600;}
+  .takeaway{
+    background:var(--brand-soft); border:1px solid #cde7da; border-radius:14px;
+    padding:20px 24px; margin-top:8px;
+  }
+  .takeaway h2::before{background:var(--brand);}
+  .footer{text-align:center; color:#9aa3ad; font-size:12.5px; margin-top:40px; line-height:1.7;}
+  .tag{display:inline-block; background:var(--brand-soft); color:var(--brand); font-size:12px; padding:3px 9px; border-radius:6px; margin:2px 4px 2px 0;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span>每日开源精选 · GitHub Trending</span>
+    <span class="badge">No.001</span>
+  </div>
+
+  <h1>Ollama：把大模型变成一个本地 HTTP 服务</h1>
+  <p class="subtitle">一个用 Go 写的本地 LLM 运行与服务框架 —— 给架构师的「模型即服务」范本</p>
+
+  <div class="meta">
+    <span><b>日期</b> 2026-05-26（周二）</span>
+    <span><b>项目</b> ollama/ollama</span>
+    <span><b>语言</b> Go</span>
+    <span><b>定位</b> 本地大模型运行时</span>
+    <span><b>仓库</b> <a href="https://github.com/ollama/ollama">github.com/ollama/ollama</a></span>
+  </div>
+
+  <div class="card">
+    <h2>一句话定位</h2>
+    <p>Ollama 让你用一条命令就能在自己的机器上跑起 Llama、Qwen、Gemma、DeepSeek、gpt-oss 等开源大模型，并自动把模型包装成一个标准的本地 HTTP 服务（默认监听 <code>localhost:11434</code>）。对开发者来说，它把"下载权重、配置推理引擎、管理显存、暴露 API"这一整套繁琐工作，收敛成了 <code>ollama run qwen</code> 这样的极简体验——很像当年 Docker 把"跑一个应用"变成 <code>docker run</code> 所做的事。</p>
+  </div>
+
+  <div class="card">
+    <h2>它解决了什么问题</h2>
+    <p>在它出现之前，本地跑一个开源大模型的门槛相当高：你要自己编译 llama.cpp、手动处理 GGUF 权重格式、根据硬件挑量化等级、写一层 API 包装、还要操心多请求时的显存与并发。Ollama 把这些全部封装掉，并给出三个关键价值：</p>
+    <ul>
+      <li><b>开箱即用</b>：一条命令完成"拉取模型 → 加载 → 提供服务"，本地隐私数据不出机器。</li>
+      <li><b>统一接口</b>：对外暴露一套稳定的 REST API（并兼容 OpenAI API 格式），上层应用无需关心底层用的是哪个推理引擎、哪个模型。</li>
+      <li><b>模型分发标准化</b>：用类似 Dockerfile 的 <code>Modelfile</code> 描述模型（基础权重、参数、System Prompt、模板），可复制、可版本化、可分享。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>核心架构（架构师视角重点）</h2>
+    <p>Ollama 最值得学习的，恰恰是它的工程架构而非算法。整体是经典的<b>客户端 / 服务端分离</b>：</p>
+
+    <h3>1. CLI 只是个"瘦客户端"</h3>
+    <p>当你敲 <code>ollama run llama3</code> 时，CLI <b>并不直接加载模型</b>，而是向本地后台的 Ollama Server 发一个 HTTP 请求，由服务端完成全部重活。这种"命令行只负责发请求、真正的能力沉淀在常驻服务里"的设计，让 CLI、Web UI、第三方应用可以共享同一个后端，是非常干净的解耦。</p>
+
+    <h3>2. 常驻 Go 服务 + REST API</h3>
+    <p>后端是一个用 Go 写的常驻 HTTP 服务，负责路由请求、管理模型生命周期（加载/卸载/缓存）、调度推理引擎、做流式响应。Go 的轻量协程与原生并发模型，正好适合"多请求、长连接、流式输出 token"这类场景。</p>
+
+    <div class="callout">
+      <b>对 Java 架构师的镜像：</b>这套结构和我们熟悉的"控制器层 → 服务层 → 资源/引擎层"几乎一一对应。区别在于它把"模型"当成了一种<b>带状态、消耗显存的重资源</b>来管理——加载慢、占用大、需要按需驻留与淘汰，这和连接池、缓存预热、资源隔离的思路相通。
+    </div>
+
+    <h3>3. 可插拔的双推理引擎</h3>
+    <p>这是 Ollama 架构里最漂亮的一笔。它在服务端抽象出统一的推理接口，背后挂着两个可替换的实现：</p>
+    <table>
+      <tr><th>引擎</th><th>实现方式</th><th>特点</th></tr>
+      <tr><td>llamaServer</td><td>通过 CGo 绑定 C++ 的 <code>llama.cpp</code></td><td>兼容最广，支持多模态、thinking 模型；量化（如 <code>llama_model_quantize()</code>）也走它</td></tr>
+      <tr><td>ollamaServer</td><td>纯 Go 实现的推理引擎</td><td>更易维护、更可控，目前主要支持纯文本模型</td></tr>
+    </table>
+    <p>上层只依赖抽象接口，底层换引擎对调用方透明——这就是<b>策略模式 / 依赖倒置</b>在真实大项目里的样子。它既借力了 C++ 生态最成熟的 llama.cpp（用 CGo 桥接），又给出了一条逐步用 Go 自研、摆脱 C 依赖的演进路线，是非常务实的"既要又要"工程取舍。</p>
+
+    <h3>4. 一次请求的完整链路</h3>
+    <pre><code>ollama run qwen
+      │
+      ▼  CLI 发 HTTP 请求
+  Ollama Server (Go, :11434)
+      │  路由 / 加载模型 / 选引擎
+      ▼
+  Inference Engine (llama.cpp 或 纯 Go)
+      │  逐 token 推理
+      ▼
+  流式返回 token  ──►  CLI / 应用</code></pre>
+  </div>
+
+  <div class="card">
+    <h2>适用场景</h2>
+    <ul>
+      <li><b>本地 / 私有化 AI 应用</b>：数据敏感、不能上公有云大模型时，用 Ollama 在内网起服务。</li>
+      <li><b>开发与原型阶段</b>：本地零成本调试 Prompt、对比不同模型，再无缝切到生产。</li>
+      <li><b>给后端应用做 AI 能力底座</b>：因为它兼容 OpenAI API 格式，Java/Spring 应用可以几乎零改造地把请求指向本地 Ollama。</li>
+      <li><b>边缘与离线部署</b>：自动探测 GPU/CPU/内存，挑合适的量化版本运行。</li>
+    </ul>
+  </div>
+
+  <div class="takeaway card">
+    <h2>给你的学习要点</h2>
+    <p>作为正在补 AI 的 Java 架构师，这个项目最该带走的不是"怎么用"，而是几条可迁移的架构思想：</p>
+    <ul>
+      <li><b>把复杂能力封装成标准服务</b>：Ollama 用"模型即服务 + 统一 REST API"屏蔽底层复杂度，和我们做中台、做能力网关的思路完全一致。</li>
+      <li><b>抽象 + 多实现的可插拔设计</b>：双推理引擎是依赖倒置的范本，思考一下你系统里哪些"重组件"也该这样抽象，以便日后平滑替换。</li>
+      <li><b>务实的渐进式演进</b>：先用 CGo 桥接成熟的 C++ 库快速可用，再逐步用 Go 自研替换——对遗留系统改造极有借鉴意义。</li>
+      <li><b>把模型当"有状态重资源"来治理</b>：加载、缓存、淘汰、并发隔离，本质和连接池、缓存治理同源，这是 AI 时代后端架构的新课题。</li>
+    </ul>
+    <p style="margin-bottom:0;"><b>动手建议：</b>装一个 Ollama，用 <code>curl localhost:11434/api/generate</code> 直接调它的 REST 接口看流式返回；再翻一翻仓库里 <code>llm/server.go</code>，看它如何拉起底层引擎进程——半小时就能把"模型即服务"这件事彻底想明白。</p>
+  </div>
+
+  <div class="card" style="padding-top:20px;">
+    <h2 style="margin-bottom:10px;">标签</h2>
+    <span class="tag">本地大模型</span><span class="tag">Go</span><span class="tag">模型即服务</span>
+    <span class="tag">llama.cpp</span><span class="tag">推理引擎</span><span class="tag">REST API</span>
+    <span class="tag">可插拔架构</span><span class="tag">私有化部署</span>
+  </div>
+
+  <div class="footer">
+    每日从 GitHub Trending (daily) 中，以「Java 架构师 + AI 学习」视角精选一个项目<br>
+    本期来源：GitHub Trending / Trendshift / 项目官方仓库 &nbsp;·&nbsp; 已记入去重历史，后续不再重复推送
+  </div>
+
+</div>
+</body>
+</html>

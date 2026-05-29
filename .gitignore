@@ -1,0 +1,14 @@
+# 敏感：含企业微信 Webhook key，绝不能公开
+push_to_wecom.py
+com.hao.wecom-push.plist
+
+# 运行时产物
+wecom-push.log
+.push_state
+.write_test
+
+# 企微摘要为推送用的中间产物，不需要进归档（如需归档可移除此行）
+latest-wecom.md
+
+# 系统文件
+.DS_Store

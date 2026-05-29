@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-05-27 · RTK</title>
+<style>
+  :root{
+    --bg:#f5f6f8; --card:#ffffff; --ink:#1a1a1a; --sub:#5b6470;
+    --line:#e8eaed; --brand:#0b8457; --brand-soft:#e6f4ee;
+    --code-bg:#0f172a; --code-ink:#e2e8f0; --accent:#c2410c; --accent-soft:#fdeede;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.85; font-size:16px;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:32px 20px 80px;}
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:13px; color:var(--sub); margin-bottom:18px; letter-spacing:.3px;
+  }
+  .topbar .badge{background:var(--brand-soft); color:var(--brand); padding:4px 12px; border-radius:999px; font-weight:600;}
+  h1{font-size:30px; line-height:1.35; margin:6px 0 4px; letter-spacing:.2px;}
+  .subtitle{color:var(--sub); font-size:15px; margin-bottom:22px;}
+  .meta{
+    display:flex; flex-wrap:wrap; gap:8px; margin:0 0 26px;
+  }
+  .meta span{
+    font-size:12.5px; background:#fff; border:1px solid var(--line);
+    padding:5px 11px; border-radius:8px; color:var(--sub);
+  }
+  .meta span b{color:var(--ink); font-weight:600;}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:26px 28px; margin:0 0 20px; box-shadow:0 1px 3px rgba(16,24,40,.04);
+  }
+  h2{
+    font-size:20px; margin:4px 0 14px; padding-left:13px; position:relative;
+  }
+  h2::before{
+    content:""; position:absolute; left:0; top:4px; bottom:4px; width:5px;
+    border-radius:3px; background:var(--brand);
+  }
+  h3{font-size:16.5px; margin:20px 0 8px; color:#0d2a3d;}
+  p{margin:10px 0;}
+  ul{margin:10px 0; padding-left:22px;}
+  li{margin:7px 0;}
+  a{color:var(--brand); text-decoration:none; border-bottom:1px solid var(--brand-soft);}
+  a:hover{border-bottom-color:var(--brand);}
+  code{
+    background:#eef1f4; color:#b5305f; padding:2px 7px; border-radius:6px;
+    font-family:"SF Mono",Menlo,Consolas,monospace; font-size:13.5px;
+  }
+  pre{
+    background:var(--code-bg); color:var(--code-ink); padding:16px 18px;
+    border-radius:12px; overflow-x:auto; font-size:13.5px; line-height:1.7;
+    font-family:"SF Mono",Menlo,Consolas,monospace;
+  }
+  pre code{background:none; color:inherit; padding:0;}
+  .callout{
+    background:var(--accent-soft); border-left:4px solid var(--accent);
+    padding:14px 18px; border-radius:0 10px 10px 0; margin:16px 0; font-size:15px;
+  }
+  .callout b{color:var(--accent);}
+  .callout-blue{
+    background:#eff6ff; border-left:4px solid #3b82f6;
+    padding:14px 18px; border-radius:0 10px 10px 0; margin:16px 0; font-size:15px;
+  }
+  .callout-blue b{color:#1d4ed8;}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14.5px;}
+  th,td{border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top;}
+  th{background:#f0f2f5; font-weight:600;}
+  .takeaway{
+    background:var(--brand-soft); border:1px solid #cde7da; border-radius:14px;
+    padding:20px 24px; margin-top:8px;
+  }
+  .takeaway h2::before{background:var(--brand);}
+  .footer{text-align:center; color:#9aa3ad; font-size:12.5px; margin-top:40px; line-height:1.7;}
+  .tag{display:inline-block; background:var(--brand-soft); color:var(--brand); font-size:12px; padding:3px 9px; border-radius:6px; margin:2px 4px 2px 0;}
+  .stat-row{display:flex; flex-wrap:wrap; gap:12px; margin:14px 0;}
+  .stat-box{
+    flex:1; min-width:130px; background:#f8fafc; border:1px solid var(--line);
+    border-radius:10px; padding:12px 16px; text-align:center;
+  }
+  .stat-box .num{font-size:26px; font-weight:700; color:var(--brand); line-height:1.2;}
+  .stat-box .lbl{font-size:12px; color:var(--sub); margin-top:3px;}
+  .cmd-compare{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 0;}
+  .cmd-before,.cmd-after{border-radius:10px; padding:14px 16px; font-size:13px; font-family:"SF Mono",Menlo,Consolas,monospace; line-height:1.6;}
+  .cmd-before{background:#fff5f5; border:1px solid #fecaca; color:#7f1d1d;}
+  .cmd-after{background:#f0fdf4; border:1px solid #86efac; color:#14532d;}
+  .cmd-before .head,.cmd-after .head{font-weight:700; font-size:12px; margin-bottom:6px; letter-spacing:.5px;}
+  .cmd-before .head{color:#dc2626;}
+  .cmd-after .head{color:#16a34a;}
+  @media(max-width:600px){
+    h1{font-size:22px;}
+    .cmd-compare{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span>每日开源精选 · GitHub Trending</span>
+    <span class="badge">No.003</span>
+  </div>
+
+  <h1>RTK：给 AI 编程 Agent 装上"降噪滤镜"，省掉 89% 的 CLI 噪声</h1>
+  <p class="subtitle">一个 Rust 写的 CLI 代理工具 —— 在终端输出进入 LLM 上下文窗口之前把它压缩干净</p>
+
+  <div class="meta">
+    <span><b>日期</b> 2026-05-27（周三）</span>
+    <span><b>项目</b> rtk-ai/rtk</span>
+    <span><b>语言</b> Rust</span>
+    <span><b>定位</b> AI 基础设施 / Token 经济优化</span>
+    <span><b>热度</b> ⭐ 53.8k 总 star（4 个月内，当日 Trendshift 日榜 Top 25）</span>
+    <span><b>仓库</b> <a href="https://github.com/rtk-ai/rtk">github.com/rtk-ai/rtk</a></span>
+  </div>
+
+  <!-- 数据总览 -->
+  <div class="stat-row">
+    <div class="stat-box"><div class="num">89%</div><div class="lbl">平均噪声消除率</div></div>
+    <div class="stat-box"><div class="num">3×</div><div class="lbl">Session 时长延长</div></div>
+    <div class="stat-box"><div class="num">30+</div><div class="lbl">支持的 CLI 命令</div></div>
+    <div class="stat-box"><div class="num">53.8k</div><div class="lbl">GitHub Stars（4 个月）</div></div>
+  </div>
+
+  <div class="card">
+    <h2>一句话定位</h2>
+    <p>RTK（Rust Token Killer）是一个透明的 CLI 代理层：它坐在你的终端命令和 AI Agent 的上下文窗口之间，在命令输出进入 LLM 之前，把冗余的样板信息、重复行、无关元数据一并压缩掉。对 AI 编程工具（Claude Code、Cursor、Aider、Gemini CLI 等）来说，效果相当于给上下文窗口装了一个"降噪滤镜"。</p>
+    <p>一个真实的例子：<code>cargo test</code> 正常输出 4823 个 token，用 RTK 处理后只剩 <b>11 个 token</b>（节省 99.8%），同时测试结果完整保留。</p>
+  </div>
+
+  <div class="card">
+    <h2>它解决了什么问题</h2>
+
+    <h3>AI 编程时代的"上下文污染"</h3>
+    <p>现代 AI 编程 Agent 的工作方式是：每执行一条 Bash 命令，就把命令的完整输出塞进对话上下文。这带来了三个具体的工程问题：</p>
+    <ul>
+      <li><b>上下文窗口被噪声占满</b>：一个 <code>cargo test</code> 就能输出 5000 个 token 的编译警告、测试样板、空行。200K 的上下文窗口看似很大，但一个"脏"的 <code>git diff</code> 就能吃掉一万多 token。</li>
+      <li><b>Session 过短，频繁中断</b>：上下文满了，Agent 就得重启一轮，之前建立的"理解"全部清空，开发效率大打折扣。</li>
+      <li><b>API 成本快速爆炸</b>：按 token 计费的场景下（Aider + 自有 Key、Gemini CLI），70% 的账单花在了 LLM 根本不需要细读的"环境噪声"上。RTK 官方测算：10 人团队每月约浪费 $1,750。</li>
+    </ul>
+
+    <div class="callout">
+      <b>核心洞察：</b>命令的"原始输出"是给人看的，而 AI Agent 只需要结构化的"有效摘要"。大量输出行（编译警告行号、对齐空格、全量测试名称列表）对 LLM 推理没有任何增量价值，却在持续消耗宝贵的上下文预算。
+    </div>
+
+    <h3>RTK 的量化效果（来自 2,900+ 条真实命令实测）</h3>
+    <table>
+      <tr><th>命令</th><th>原始 Token</th><th>RTK 后 Token</th><th>节省比例</th></tr>
+      <tr><td><code>cargo test</code></td><td>~4,823</td><td>~11</td><td>99.8%</td></tr>
+      <tr><td><code>git diff HEAD~1</code></td><td>~21,500</td><td>~1,259</td><td>94%</td></tr>
+      <tr><td><code>git status</code></td><td>~120</td><td>~30</td><td>75%</td></tr>
+      <tr><td><code>find . -name "*.rs"</code></td><td>~276</td><td>~149</td><td>46%</td></tr>
+      <tr><td><code>cat src/main.rs</code></td><td>~10,176</td><td>~504</td><td>95%</td></tr>
+      <tr><td><b>综合平均</b></td><td>—</td><td>—</td><td><b>89%</b></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>核心架构（架构师视角重点）</h2>
+
+    <h3>1. 透明代理模式（Transparent Proxy）</h3>
+    <p>RTK 的核心架构决策是"透明代理"：它不改变你的工作流，只在 Bash 命令和 LLM 上下文之间插入一个过滤层。通过 <code>rtk init --claude-code</code>，RTK 会在 Claude Code 的 <code>settings.json</code> 里注入一个 <b>PreToolUse Hook</b>——每次 Agent 想执行 Bash 命令时，这个 Hook 自动把 <code>ls src/</code> 改写成 <code>rtk ls src/</code>，用户和 Agent 都感知不到这个替换发生了。</p>
+
+    <pre><code># 原始 Agent 调用
+Bash("ls -la src/")
+      │
+      ▼  PreToolUse Hook 自动改写
+Bash("rtk ls src/")
+      │
+      ▼  RTK 执行原始命令 + 压缩输出
+摘要输出（token 减少 80%）
+      │
+      ▼  进入 LLM 上下文窗口
+LLM 获得干净、信噪比更高的上下文</code></pre>
+
+    <div class="callout-blue">
+      <b>架构师视角：</b>这是"拦截器/过滤器"模式（Interceptor/Filter Pattern）的典型落地——和 Java Servlet Filter、Spring AOP、Netty ChannelHandler 同属一族。核心思想是：在数据流的边界处插入横切逻辑，对核心业务零侵入。这种模式在 AI 时代同样适用。
+    </div>
+
+    <h3>2. 命令感知的差异化压缩策略</h3>
+    <p>RTK 不是简单的"截断输出"，而是针对每类命令定制专门的压缩逻辑：</p>
+    <ul>
+      <li><b>测试类</b>（<code>cargo test</code>、<code>pytest</code>、<code>go test</code>）：只保留通过/失败计数和失败详情，剔除所有通过的测试名和编译警告行。</li>
+      <li><b>Git 类</b>（<code>git diff</code>、<code>git log</code>、<code>git status</code>）：差异只显示有实际变更的上下文行，删除无变更填充行；log 只保留哈希和提交信息。</li>
+      <li><b>文件读取</b>（<code>read</code>）：支持 <code>-l aggressive</code> 模式，只输出函数签名和结构骨架，略去函数体。</li>
+      <li><b>搜索类</b>（<code>grep</code>、<code>find</code>、<code>ls</code>）：按文件分组显示，剔除全路径冗余、隐藏 target 目录等构建产物。</li>
+    </ul>
+
+    <div class="callout">
+      <b>设计思想：</b>不同类型的数据，其"信息密度"的分布是截然不同的。一个通过的测试行对 LLM 的价值约等于零；但一个失败的测试行的价值是极高的。这种"按语义差异化处理"的思路，比粗暴截断高明得多，也是 RTK 能做到 89% 压缩同时不损失关键信息的根本原因。
+    </div>
+
+    <h3>3. 单一 Rust 二进制 + 零依赖的工程选择</h3>
+    <p>RTK 是一个单文件 Rust 二进制，安装方式：<code>brew install rtk</code> 或 <code>curl | sh</code>，不需要 Python 运行时、不需要 Node.js，无任何后台进程，无遥测，无 API Key。</p>
+    <p>这个技术选型本身就是一个值得思考的架构决策：工具类软件的"零运行时依赖"极大降低了采纳门槛，在 CI/CD 环境、容器镜像中尤其重要。Rust 的性能确保了即便每次命令都经过 RTK 过滤，用户完全感知不到额外延迟。</p>
+
+    <h3>4. 完整的数据闭环：<code>rtk gain</code></h3>
+    <p>RTK 内置了一个 SQLite 数据库，持久化记录每条命令的原始 token 数和压缩后 token 数。通过 <code>rtk gain</code> 命令可以随时查看日/周/月的节省统计，按命令类型分解，形成一个完整的"可观测性闭环"——一位社区用户 15720 条命令后，累计节省了 1.38 亿个 token。</p>
+
+    <pre><code>📊 RTK Token Savings
+════════════════════════════════════════
+Total commands: 2,927
+Input tokens:  11.6M
+Output tokens:  1.4M
+Tokens saved:  10.3M  (89.2%)
+
+By Command:
+Command        Count   Saved    Avg%
+rtk find         324   6.8M    78.3%
+rtk git status   215   1.4M    80.8%
+rtk grep         227  786.7K   49.5%
+rtk cargo test    16   50.1K   91.8%</code></pre>
+
+  </div>
+
+  <div class="card">
+    <h2>适用场景</h2>
+    <ul>
+      <li><b>日常 AI 辅助开发</b>：使用 Claude Code、Cursor、Aider、Gemini CLI 写代码，无需改变任何习惯，自动延长每个 Session。</li>
+      <li><b>按量计费的 API 调用场景</b>：使用自有 API Key 的项目，直接按比例削减 Token 账单。</li>
+      <li><b>大型 Java/Rust/Go 项目</b>：大项目的构建输出、测试输出体积巨大，压缩比例往往更高。</li>
+      <li><b>CI/CD 中的 AI 任务</b>：在 CI 流水线中跑 AI 代码审查、自动修复等任务，单 Rust 二进制易于集成，无环境依赖。</li>
+      <li><b>团队统一采纳</b>：RTK Cloud（即将推出）将提供团队维度的 Token 消费分析和成本看板。</li>
+    </ul>
+  </div>
+
+  <div class="takeaway card">
+    <h2>给你的学习要点</h2>
+    <p>RTK 对一位 Java 架构师的价值，不只是"一个好用的工具"，更是几条高度可迁移的架构思想：</p>
+    <ul>
+      <li><b>AI 系统也需要"输出治理"</b>：在设计 Agent 系统、RAG 系统时，输入 LLM 的信息不是越完整越好，而是信噪比越高越好。过度喂数据会稀释 LLM 的注意力——这和数据库查询不应 SELECT * 是同一个道理。</li>
+      <li><b>拦截器模式在 AI 工程化中大有可为</b>：RTK 的 PreToolUse Hook 本质是 AOP；在你的 AI Agent 系统里，同样可以在 Tool Call 层、RAG 检索层插入压缩/过滤/增强逻辑，而不必修改 Agent 核心流程。</li>
+      <li><b>按语义理解数据、差异化处理</b>：RTK 为每种命令类型定制压缩规则，这比通用截断高明。迁移到 RAG 系统设计：不同类型的文档块（代码、表格、叙述段）的分块和索引策略也应该差异化，而不是统一 chunk_size。</li>
+      <li><b>"Token 经济学"是 AI 架构的新成本维度</b>：就像过去我们会 profile 数据库查询次数、网络 RTT，现在要把 Token 消耗也纳入系统设计的考量坐标轴里。RTK 的 <code>rtk gain</code> 看板给出了一个很好的"可观测性"范本。</li>
+    </ul>
+    <p style="margin-bottom:0;"><b>动手建议：</b>如果你在用 Claude Code，<code>brew install rtk &amp;&amp; rtk init --claude-code</code> 两条命令，10 秒钟安装激活，下次跑 <code>mvn test</code> 或 <code>gradle build</code 时就能直观看到节省效果。一周后 <code>rtk gain</code> 查看累计节省，对 Token 经济学会有非常具体的感受。</p>
+  </div>
+
+  <div class="card" style="padding-top:20px;">
+    <h2 style="margin-bottom:10px;">标签</h2>
+    <span class="tag">AI 基础设施</span><span class="tag">Token 优化</span><span class="tag">Rust</span>
+    <span class="tag">CLI 代理</span><span class="tag">透明代理模式</span><span class="tag">拦截器</span>
+    <span class="tag">上下文窗口治理</span><span class="tag">AI 工程化</span><span class="tag">成本优化</span>
+  </div>
+
+  <div class="footer">
+    每日从 GitHub Trending (daily) 中，以「Java 架构师 + AI 学习」视角精选一个项目<br>
+    本期来源：GitHub Trending / Trendshift / rtk-ai.app &nbsp;·&nbsp; 已记入去重历史，后续不再重复推送<br>
+    热度验证：总 star 53.8k（Trendshift 同步），创建 4 个月，满足"总 star > 10k"门槛
+  </div>
+
+</div>
+</body>
+</html>

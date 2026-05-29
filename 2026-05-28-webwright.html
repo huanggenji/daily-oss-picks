@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-05-28 · Microsoft Webwright</title>
+<style>
+  :root{
+    --bg:#f5f6f8; --card:#ffffff; --ink:#1a1a1a; --sub:#5b6470;
+    --line:#e8eaed; --brand:#0b8457; --brand-soft:#e6f4ee;
+    --code-bg:#0f172a; --code-ink:#e2e8f0; --accent:#c2410c; --accent-soft:#fdeede;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.85; font-size:16px;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:32px 20px 80px;}
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:13px; color:var(--sub); margin-bottom:18px; letter-spacing:.3px;
+  }
+  .topbar .badge{background:var(--brand-soft); color:var(--brand); padding:4px 12px; border-radius:999px; font-weight:600;}
+  h1{font-size:30px; line-height:1.35; margin:6px 0 4px; letter-spacing:.2px;}
+  .subtitle{color:var(--sub); font-size:15px; margin-bottom:22px;}
+  .meta{
+    display:flex; flex-wrap:wrap; gap:8px; margin:0 0 26px;
+  }
+  .meta span{
+    font-size:12.5px; background:#fff; border:1px solid var(--line);
+    padding:5px 11px; border-radius:8px; color:var(--sub);
+  }
+  .meta span b{color:var(--ink); font-weight:600;}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:26px 28px; margin:0 0 20px; box-shadow:0 1px 3px rgba(16,24,40,.04);
+  }
+  h2{
+    font-size:20px; margin:4px 0 14px; padding-left:13px; position:relative;
+  }
+  h2::before{
+    content:""; position:absolute; left:0; top:4px; bottom:4px; width:5px;
+    border-radius:3px; background:var(--brand);
+  }
+  h3{font-size:16.5px; margin:20px 0 8px; color:#0d2a3d;}
+  p{margin:10px 0;}
+  ul{margin:10px 0; padding-left:22px;}
+  li{margin:7px 0;}
+  a{color:var(--brand); text-decoration:none; border-bottom:1px solid var(--brand-soft);}
+  a:hover{border-bottom-color:var(--brand);}
+  code{
+    background:#eef1f4; color:#b5305f; padding:2px 7px; border-radius:6px;
+    font-family:"SF Mono",Menlo,Consolas,monospace; font-size:13.5px;
+  }
+  pre{
+    background:var(--code-bg); color:var(--code-ink); padding:16px 18px;
+    border-radius:12px; overflow-x:auto; font-size:13.5px; line-height:1.7;
+    font-family:"SF Mono",Menlo,Consolas,monospace;
+  }
+  pre code{background:none; color:inherit; padding:0;}
+  .callout{
+    background:var(--accent-soft); border-left:4px solid var(--accent);
+    padding:14px 18px; border-radius:0 10px 10px 0; margin:16px 0; font-size:15px;
+  }
+  .callout b{color:var(--accent);}
+  .kv{display:grid; grid-template-columns:130px 1fr; gap:6px 14px; font-size:15px; margin:8px 0;}
+  .kv .k{color:var(--sub);}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14.5px;}
+  th,td{border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top;}
+  th{background:#f0f2f5; font-weight:600;}
+  .takeaway{
+    background:var(--brand-soft); border:1px solid #cde7da; border-radius:14px;
+    padding:20px 24px; margin-top:8px;
+  }
+  .takeaway h2::before{background:var(--brand);}
+  .footer{text-align:center; color:#9aa3ad; font-size:12.5px; margin-top:40px; line-height:1.7;}
+  .tag{display:inline-block; background:var(--brand-soft); color:var(--brand); font-size:12px; padding:3px 9px; border-radius:6px; margin:2px 4px 2px 0;}
+  .arch-box{
+    background:#f8fafc; border:1px solid var(--line); border-radius:12px;
+    padding:18px 22px; margin:14px 0; font-family:"SF Mono",Menlo,Consolas,monospace;
+    font-size:13px; line-height:1.9; color:#1e293b;
+  }
+  .score-row{display:flex; gap:12px; flex-wrap:wrap; margin:14px 0;}
+  .score-card{flex:1; min-width:160px; background:#f8fafc; border:1px solid var(--line); border-radius:12px; padding:14px 16px; text-align:center;}
+  .score-card .num{font-size:28px; font-weight:700; color:var(--brand);}
+  .score-card .label{font-size:12px; color:var(--sub); margin-top:4px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span>📅 2026-05-28 · 每日开源精选</span>
+    <span class="badge">AI Agent · 架构</span>
+  </div>
+
+  <h1>Microsoft Webwright</h1>
+  <p class="subtitle">用一个终端取代一整套 Web Agent 框架 —— 让 AI 写代码控制浏览器，而不是逐步预测点击坐标</p>
+
+  <div class="meta">
+    <span>🌐 <b>语言</b> Python</span>
+    <span>⭐ <b>累计 Stars</b> 30,716</span>
+    <span>🏷️ <b>来源</b> Trendshift 日榜 #5</span>
+    <span>🔥 <b>热度门槛</b> 总 Stars > 10,000 ✓</span>
+    <span>🔗 <a href="https://github.com/microsoft/Webwright" target="_blank">microsoft/Webwright</a></span>
+    <span>📄 <b>作者</b> Microsoft Research · AI Frontiers Lab</span>
+    <span>📅 <b>发布</b> 2026 年 5 月</span>
+  </div>
+
+  <!-- 一句话定位 -->
+  <div class="card">
+    <h2>一句话定位</h2>
+    <p>
+      Webwright 是微软研究院发布的终端原生 Web Agent 框架。它不让 AI 在浏览器上一步步点击，而是把一个"终端"交给 AI —— AI 自己写 Playwright 代码来操控浏览器，像工程师写 RPA 脚本一样完成任务。结果是：在长任务 Odysseys 基准上取得 60.1% 的成绩，比此前最优提升 35%；在 Online-Mind2Web 上以 86.7% 拿下开源方案第一。
+    </p>
+    <div class="callout">
+      <b>核心主张：</b> 随着 LLM 代码能力的增强，过度工程化的 Agent 框架正在成为约束而非助力。一个 ~1000 行代码的极简终端循环，反而能释放模型的全部潜力。
+    </div>
+  </div>
+
+  <!-- 它解决了什么问题 -->
+  <div class="card">
+    <h2>它解决了什么问题</h2>
+    <p>
+      当前主流的 Web Agent 框架（包括 SoM、DOM-text agent 等）有一个共同的设计范式：把浏览器会话作为 Agent 的"工作空间"，每一步让模型预测下一个原子动作 —— click(x, y)、type("xxx")、scroll()。这种设计在模型推理能力弱的时代很合理，但如今已成瓶颈：
+    </p>
+    <ul>
+      <li><b>表达能力受限：</b>每步只能执行一个原子操作，填一张多字段表单需要数十步，误差累积严重。</li>
+      <li><b>会话状态脆弱：</b>浏览器 DOM 动态变化，像素坐标一旦漂移，整个 session 就废了。</li>
+      <li><b>不可复用：</b>每次新任务都从零重新"感知-行动"，没有可复用的工件。</li>
+      <li><b>上下文爆炸：</b>截图 + DOM 文本堆满 context window，成本高、速度慢。</li>
+    </ul>
+    <p>
+      Webwright 的答案是：<strong>把浏览器从"工作空间"降级为"工具"</strong>，让 AI 退到终端里写代码 —— 一段 Playwright 脚本可以在一步之内完成几十个原子操作，产物是可以反复调用的 CLI 工具，而不是一次性的点击序列。
+    </p>
+  </div>
+
+  <!-- 核心架构 -->
+  <div class="card">
+    <h2>核心架构（架构师视角）</h2>
+
+    <h3>极简的三模块设计</h3>
+    <p>整个框架只有约 1000 行代码，三个模块，一个 Agent 循环，没有多 Agent 编排：</p>
+
+    <div class="arch-box">
+┌─────────────────────────────────────────────────────────────┐
+│                       Webwright Agent Loop                  │
+│                                                             │
+│  ┌──────────┐    任务 + 上下文     ┌─────────────────────┐  │
+│  │  Runner  │ ──────────────────► │  Model Endpoint     │  │
+│  │ ~150 行  │                     │  (GPT-5.4 / Opus)   │  │
+│  │          │ ◄──────────────── │  ~550 行             │  │
+│  │          │  thinking + bash命令 └─────────────────────┘  │
+│  │          │                                               │
+│  │          │  执行 bash / Playwright                       │
+│  │          │ ──────────────────► ┌─────────────────────┐  │
+│  │          │                     │  Terminal Env        │  │
+│  │          │ ◄───────────────── │  ~300 行             │  │
+│  └──────────┘  终端输出/截图/日志  └─────────────────────┘  │
+│                                                             │
+│  本地 Workspace: 代码文件、日志、截图、可复用 CLI 工具         │
+└─────────────────────────────────────────────────────────────┘
+    </div>
+
+    <h3>两个关键工程决策</h3>
+
+    <p><strong>① 自我反思门控（Self-Reflection Gate）</strong></p>
+    <p>
+      开放式 bash 环境的最大问题是 AI 容易"假完成" —— 宣称任务 done 但实际没做到。Webwright 的解法是在发出 <code>done: true</code> 之前强制走一个验证门：
+    </p>
+    <ul>
+      <li>Agent 生成一份 self-reflection 配置</li>
+      <li>在全新的文件夹里运行最终脚本，捕获日志和截图</li>
+      <li>自判断 success/failure，通过才允许结束，否则重试</li>
+    </ul>
+    <p>
+      这和后端服务里的 <strong>幂等性校验 + 终态确认</strong> 是同一种思想：不相信自己的声明，只相信可验证的状态。
+    </p>
+
+    <p><strong>② 上下文压缩（Context Compaction）</strong></p>
+    <p>
+      长编码轨迹很快就撑爆 context window。解法是每 20 步将历史压缩为一份摘要，继续向前。这和分布式日志系统里的 <strong>日志快照（snapshot）+ 增量回放</strong> 是同构的 —— 牺牲细节保留关键状态，防止存储无限增长。
+    </p>
+
+    <h3>"代码作为动作空间"的核心范式转变</h3>
+    <p>
+      Webwright 最根本的架构洞察是：<strong>把 AI 的 action space 从"原子操作序列"升级为"代码程序"</strong>。
+    </p>
+    <table>
+      <tr><th>维度</th><th>传统 Action Agent</th><th>Webwright（Code Agent）</th></tr>
+      <tr><td>动作粒度</td><td>每步一个原子操作</td><td>每步一段程序（含循环/函数）</td></tr>
+      <tr><td>错误恢复</td><td>重新 predict，状态难还原</td><td>重跑脚本，日志可追溯</td></tr>
+      <tr><td>复用性</td><td>无复用，每次从零</td><td>产出可参数化的 CLI 工具</td></tr>
+      <tr><td>跨平台</td><td>绑定特定 harness</td><td>脚本可在 Claude Code/Codex 复用</td></tr>
+      <tr><td>小模型表现</td><td>差</td><td>Qwen3.5-9B 有工具库时达 66.2%</td></tr>
+    </table>
+  </div>
+
+  <!-- 基准成绩 -->
+  <div class="card">
+    <h2>基准成绩</h2>
+    <div class="score-row">
+      <div class="score-card">
+        <div class="num">86.7%</div>
+        <div class="label">Online-Mind2Web<br>开源方案第一</div>
+      </div>
+      <div class="score-card">
+        <div class="num">60.1%</div>
+        <div class="label">Odysseys 长任务<br>超越上个 SOTA 35%</div>
+      </div>
+      <div class="score-card">
+        <div class="num">$2.37</div>
+        <div class="label">GPT-5.4 平均每任务成本<br>（Claude Opus 4.7 为 $6.09）</div>
+      </div>
+      <div class="score-card">
+        <div class="num">66.2%</div>
+        <div class="label">Qwen3.5-9B (9B参数)<br>有工具库时的表现</div>
+      </div>
+    </div>
+    <p>
+      Odysseys 基准专门评测跨多个网站、平均 272 字指令的长任务。此前最优是 Claude Opus 4.6 的 44.5 分，Webwright + GPT-5.4 直接跳到 60.1，相对提升 35.1%。这说明"代码动作空间"在长任务上的优势尤为突出 —— 越长的任务，越需要抽象和复用而不是逐步预测。
+    </p>
+  </div>
+
+  <!-- 适用场景 -->
+  <div class="card">
+    <h2>适用场景</h2>
+    <ul>
+      <li><b>自动化 Web 测试与 E2E 流程：</b>生成可复用的 Playwright 脚本，比人工维护的 Selenium/Playwright 测试更自适应。</li>
+      <li><b>企业 RPA 替代方案：</b>以 LLM 动态生成脚本替代硬编码 UiPath/Automation Anywhere 流程，适用于 UI 频繁变化的业务系统。</li>
+      <li><b>AI Agent 的 Web 工具层：</b>作为更大 Agent 系统的 Web 能力模块，任务脚本可沉淀为工具库，小模型也能驱动。</li>
+      <li><b>内部运营自动化：</b>填报审批系统、抓取竞品价格、定时提交报表 —— 一次 craft，重复 run。</li>
+      <li><b>无障碍辅助：</b>论文本身提到，Webwright 可检测网页无障碍问题（缺失 ARIA 标签、破损导航），生成修复脚本。</li>
+    </ul>
+  </div>
+
+  <!-- 给你的学习要点 -->
+  <div class="card takeaway">
+    <h2>给架构师的学习要点</h2>
+
+    <h3>🔑 1. "代码作为接口"——比原子操作更强大的抽象层</h3>
+    <p>
+      Webwright 的核心洞察可以直接迁移到你设计 AI 系统时的"动作空间设计"决策：<strong>给 AI 更高层的抽象接口，而不是细粒度的原子操作</strong>。这和微服务里"暴露业务 API 而非数据库行操作"是同一个设计哲学。当 LLM 具备足够强的代码生成能力时，给它一个终端远比给它 50 种工具调用更有效。
+    </p>
+
+    <h3>🔑 2. 极简架构 vs 过度工程化</h3>
+    <p>
+      1000 行代码，三个模块，单一 Agent 循环，没有多 Agent 编排 —— 却在两个权威基准上拿下 SOTA。这再次验证了 Unix 哲学在 AI 时代的生命力：<strong>模型能力提升后，原来"必须"的架构复杂度往往可以大幅消减</strong>。在设计 AI 系统时，要定期重新评估现有 orchestration 层的必要性，避免"为编排而编排"。
+    </p>
+
+    <h3>🔑 3. 可复用工件 —— 从"任务执行"到"能力沉淀"</h3>
+    <p>
+      每次任务都产出一个参数化的 CLI 工具，可以在后续任务中直接调用 —— 这就是从"一次性服务"到"可复用能力库"的演进。对应到业务系统设计：<strong>让 AI 的每次成功都变成可索引、可复用的资产，而不是一次性消耗</strong>。Webwright 的工具库机制让 Qwen3.5-9B（9B 参数的小模型）在有工具加持时达到 66.2%，这对于降本提效极具参考价值。
+    </p>
+
+    <h3>🔑 4. 自我验证闭环 —— Agent 可信度的工程保障</h3>
+    <p>
+      "声称完成"和"真正完成"之间的鸿沟，是生产环境 AI Agent 最大的可靠性问题。Webwright 的 Self-Reflection Gate 提供了一个可借鉴的模式：<strong>在 Agent 的输出管道上插入强制验证节点</strong>，像测试断言一样，不接受自我声明，只接受可观察的状态证明。这对你设计任何生产 Agent 系统都是关键的工程约束。
+    </p>
+
+    <h3>💡 动手建议</h3>
+    <div class="callout">
+      <b>本周可做：</b>克隆 <code>microsoft/Webwright</code>，用它完成一个你日常在公司内网系统上手动操作的流程（如提交报销、抓取报表），体验"craft 一次，参数化复用"的工作流。重点观察它生成的 Playwright 脚本的结构，对比你以前手写的 RPA 脚本，思考 AI 生成代码在哪些地方比你更优，在哪些地方还需要人工审核。
+    </div>
+  </div>
+
+  <!-- 快速上手 -->
+  <div class="card">
+    <h2>快速上手（30 秒）</h2>
+    <pre><code># 1. 克隆并安装
+git clone https://github.com/microsoft/Webwright
+cd Webwright
+pip install -e .
+playwright install chromium
+
+# 2. 配置模型 Key（支持 OpenAI / Anthropic / OpenRouter）
+export OPENAI_API_KEY="sk-..."
+
+# 3. 跑一个任务
+python -m webwright.run.cli \
+  -c base.yaml -c model_openai.yaml \
+  -t "查找上海到北京明天最便宜的高铁票" \
+  --start-url https://www.12306.cn \
+  --task-id demo \
+  -o outputs/default
+
+# 4. 生成可复用工具（craft 模式）
+# /webwright:craft 在 12306 查询 {出发城市} 到 {目的城市} 的火车票</code></pre>
+  </div>
+
+  <!-- 标签 -->
+  <div style="margin-top:8px;">
+    <span class="tag">AI Agent</span>
+    <span class="tag">Web Automation</span>
+    <span class="tag">Playwright</span>
+    <span class="tag">Microsoft Research</span>
+    <span class="tag">RPA</span>
+    <span class="tag">代码动作空间</span>
+    <span class="tag">LLM 工程化</span>
+    <span class="tag">SOTA</span>
+  </div>
+
+  <div class="footer">
+    每日开源精选 · 为 Java 架构师量身定制的 AI &amp; 架构学习清单<br>
+    数据来源：<a href="https://trendshift.io/" target="_blank">Trendshift</a> ·
+    官方仓库：<a href="https://github.com/microsoft/Webwright" target="_blank">github.com/microsoft/Webwright</a> ·
+    论文：<a href="https://www.microsoft.com/en-us/research/articles/webwright-a-terminal-is-all-you-need-for-web-agents/" target="_blank">Microsoft Research</a>
+  </div>
+
+</div>
+</body>
+</html>

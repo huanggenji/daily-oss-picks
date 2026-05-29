@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-05-29 · 今日三选</title>
+<style>
+  :root{
+    --bg:#f5f6f8; --card:#ffffff; --ink:#1a1a1a; --sub:#5b6470;
+    --line:#e8eaed; --brand:#0b8457; --brand-soft:#e6f4ee;
+    --code-bg:#0f172a; --code-ink:#e2e8f0; --accent:#c2410c; --accent-soft:#fdeede;
+    --blue:#1d4ed8; --blue-soft:#dbeafe;
+    --purple:#7c3aed; --purple-soft:#ede9fe;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.85; font-size:16px;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:32px 20px 80px;}
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:13px; color:var(--sub); margin-bottom:18px; letter-spacing:.3px;
+  }
+  .topbar .badge{background:var(--brand-soft); color:var(--brand); padding:4px 12px; border-radius:999px; font-weight:600;}
+  .page-title{font-size:28px; font-weight:700; line-height:1.3; margin:6px 0 6px; letter-spacing:.2px;}
+  .page-subtitle{color:var(--sub); font-size:15px; margin-bottom:26px;}
+
+  /* 导航索引卡片 */
+  .nav-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:36px;}
+  @media(max-width:560px){.nav-grid{grid-template-columns:1fr;}}
+  .nav-card{
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:16px 18px; text-decoration:none; border-bottom:none;
+    display:block; transition:box-shadow .18s;
+  }
+  .nav-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08); border-bottom:none;}
+  .nav-num{font-size:12px; color:var(--sub); margin-bottom:4px; font-weight:500;}
+  .nav-name{font-size:14px; font-weight:700; color:var(--ink); margin-bottom:4px; line-height:1.3;}
+  .nav-tag{font-size:11.5px; color:var(--brand);}
+
+  /* 分区分割线 */
+  .section-divider{
+    display:flex; align-items:center; gap:14px; margin:44px 0 28px;
+    font-size:13px; color:var(--sub); font-weight:500; letter-spacing:.4px;
+  }
+  .section-divider::before,.section-divider::after{
+    content:""; flex:1; height:1px; background:var(--line);
+  }
+
+  .meta{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px;}
+  .meta span{
+    font-size:12.5px; background:#fff; border:1px solid var(--line);
+    padding:5px 11px; border-radius:8px; color:var(--sub);
+  }
+  .meta span b{color:var(--ink); font-weight:600;}
+  .project-title{font-size:24px; font-weight:700; margin:0 0 6px; line-height:1.3;}
+  .project-subtitle{color:var(--sub); font-size:15px; margin-bottom:20px;}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:24px 26px; margin:0 0 18px; box-shadow:0 1px 3px rgba(16,24,40,.04);
+  }
+  h2{
+    font-size:19px; margin:4px 0 13px; padding-left:13px; position:relative;
+  }
+  h2::before{
+    content:""; position:absolute; left:0; top:4px; bottom:4px; width:4px;
+    border-radius:3px; background:var(--brand);
+  }
+  h3{font-size:16px; margin:20px 0 8px; color:#0d2a3d; font-weight:600;}
+  p{margin:10px 0;}
+  ul{margin:10px 0; padding-left:22px;}
+  li{margin:7px 0;}
+  a{color:var(--brand); text-decoration:none; border-bottom:1px solid var(--brand-soft);}
+  a:hover{border-bottom-color:var(--brand);}
+  code{
+    background:#eef1f4; color:#b5305f; padding:2px 7px; border-radius:6px;
+    font-family:"SF Mono",Menlo,Consolas,monospace; font-size:13.5px;
+  }
+  pre{
+    background:var(--code-bg); color:var(--code-ink); padding:16px 18px;
+    border-radius:12px; overflow-x:auto; font-size:13.5px; line-height:1.7;
+    font-family:"SF Mono",Menlo,Consolas,monospace;
+  }
+  pre code{background:none; color:inherit; padding:0;}
+  .callout{
+    background:var(--accent-soft); border-left:4px solid var(--accent);
+    padding:14px 18px; border-radius:0 10px 10px 0; margin:16px 0; font-size:15px;
+  }
+  .callout b{color:var(--accent);}
+  .callout-blue{
+    background:var(--blue-soft); border-left:4px solid var(--blue);
+    padding:14px 18px; border-radius:0 10px 10px 0; margin:16px 0; font-size:15px;
+  }
+  .callout-blue b{color:var(--blue);}
+  .callout-purple{
+    background:var(--purple-soft); border-left:4px solid var(--purple);
+    padding:14px 18px; border-radius:0 10px 10px 0; margin:16px 0; font-size:15px;
+  }
+  .callout-purple b{color:var(--purple);}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14.5px;}
+  th,td{border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top;}
+  th{background:#f0f2f5; font-weight:600;}
+  .takeaway{
+    background:var(--brand-soft); border:1px solid #cde7da; border-radius:14px;
+    padding:20px 24px; margin-top:8px;
+  }
+  .takeaway h2::before{background:var(--brand);}
+  .tag{display:inline-block; background:var(--brand-soft); color:var(--brand); font-size:12px; padding:3px 9px; border-radius:6px; margin:2px 4px 2px 0;}
+  .tag-blue{background:var(--blue-soft); color:var(--blue);}
+  .tag-purple{background:var(--purple-soft); color:var(--purple);}
+  .summary-card{
+    background:linear-gradient(135deg,#0b8457 0%,#1d6a4a 100%); color:#fff;
+    border-radius:18px; padding:28px 30px; margin-top:48px;
+  }
+  .summary-card h2{color:#fff; font-size:20px;}
+  .summary-card h2::before{background:#fff;}
+  .summary-card p{color:rgba(255,255,255,.9); margin:10px 0;}
+  .footer{text-align:center; color:#9aa3ad; font-size:12.5px; margin-top:32px; line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span>每日开源精选 · GitHub Trending</span>
+    <span class="badge">2026-05-29 · 今日三选</span>
+  </div>
+
+  <div class="page-title">今日三选：文档管道 · 代码图谱 · Agent 方法论</div>
+  <p class="page-subtitle">为 Java 架构师精选 —— 覆盖 AI 工程化三个核心方向：数据预处理 · 系统认知 · 智能体工程</p>
+
+  <!-- 导航索引 -->
+  <div class="nav-grid">
+    <a class="nav-card" href="#proj-1">
+      <div class="nav-num">No.1 · AI 工程化</div>
+      <div class="nav-name">microsoft / markitdown</div>
+      <div class="nav-tag">文档 → Markdown → RAG</div>
+    </a>
+    <a class="nav-card" href="#proj-2">
+      <div class="nav-num">No.2 · 代码理解</div>
+      <div class="nav-name">Lum1104 / Understand-Anything</div>
+      <div class="nav-tag">多 Agent 知识图谱</div>
+    </a>
+    <a class="nav-card" href="#proj-3">
+      <div class="nav-num">No.3 · Agent 方法论</div>
+      <div class="nav-name">obra / superpowers</div>
+      <div class="nav-tag">Agent 技能框架与工程纪律</div>
+    </a>
+  </div>
+
+  <!-- ===== 项目一 ===== -->
+  <div id="proj-1"></div>
+  <div class="section-divider">No.1 · AI 工程化</div>
+
+  <div class="project-title">microsoft / markitdown</div>
+  <p class="project-subtitle">把任意文件变成 LLM 可消化的 Markdown —— RAG 管道的官方标准预处理器</p>
+
+  <div class="meta">
+    <span><b>日期</b> 2026-05-29</span>
+    <span><b>仓库</b> <a href="https://github.com/microsoft/markitdown">github.com/microsoft/markitdown</a></span>
+    <span><b>语言</b> Python</span>
+    <span><b>⭐ 总 Stars</b> ~91,000+</span>
+    <span><b>热度</b> Trendshift 今日日榜 Top 4，total stars 满足门槛</span>
+  </div>
+
+  <div class="card">
+    <h2>一句话定位</h2>
+    <p>MarkItDown 是 Microsoft 开源的多格式文档转 Markdown 工具，起源于 AutoGen 项目内部，专为 RAG 管道和 LLM 前处理而生。它把 PDF、Word、Excel、PowerPoint、HTML、图片（含 OCR）、音频、RSS、YouTube 字幕等 15+ 种格式，统一输出成结构化的 Markdown 字符串，让后续的向量化与检索步骤有稳定、干净的输入。</p>
+  </div>
+
+  <div class="card">
+    <h2>它解决了什么问题</h2>
+    <p>在大量企业 RAG 场景中，文档格式是最大的"脏活"：PDF 有多列乱序、Word 有样式污染、Excel 有合并单元格、PowerPoint 有图文混排。把这些文档喂给 LLM 之前，开发者往往要为每种格式单独写解析器，然后还要手动处理编码、图片 OCR、表格对齐等杂活。</p>
+    <p>MarkItDown 把这一套全部标准化：</p>
+    <ul>
+      <li><b>统一出口</b>：无论输入什么格式，输出永远是 Markdown 字符串，上游管道无需分支处理。</li>
+      <li><b>全内存操作</b>：所有转换在内存中完成，无临时文件，适合流式处理和容器化部署。</li>
+      <li><b>可插拔扩展</b>：内置 Azure Document Intelligence（高精度 OCR + 结构提取）和 LLM 图像描述（将截图自动配文字）两条增强链路，也支持第三方插件注册新格式。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>核心架构（架构师视角）</h2>
+
+    <h3>1. 插件注册 + 策略模式的转换器体系</h3>
+    <p>整个系统的核心是一个 <code>DocumentConverter</code> 抽象基类，每种文件格式都有对应的子类实现（<code>PdfConverter</code>、<code>DocxConverter</code>、<code>XlsxConverter</code>……）。运行时通过一个<b>优先级队列式的注册表</b>（<code>converter_registry</code>）按格式匹配转换器，MIME type 与扩展名双重识别。</p>
+
+    <pre><code># 简化示意：注册表工作原理
+registry = ConverterRegistry()
+registry.register(PdfConverter(), priority=10)
+registry.register(DocxConverter(), priority=10)
+
+result = registry.convert("report.pdf")  # 自动路由到 PdfConverter
+</code></pre>
+
+    <div class="callout">
+      <b>架构师对照：</b>这是教科书级的策略模式（Strategy Pattern）+ 责任链（Chain of Responsibility）组合——注册表按优先级遍历，第一个 <code>accepts()</code> 返回 True 的转换器接手。对 Java 开发者来说，等价于 Spring 里的 <code>HttpMessageConverter</code> 列表：框架根据 MediaType 自动选转换器，业务代码不感知具体实现。
+    </div>
+
+    <h3>2. 三层转换链路</h3>
+    <table>
+      <tr><th>层级</th><th>能力</th><th>适用场景</th></tr>
+      <tr><td>基础层</td><td>纯本地转换，无外部依赖，速度最快</td><td>CI/CD 内、离线环境</td></tr>
+      <tr><td>增强层</td><td>接入 Azure Document Intelligence，精度最高</td><td>扫描件 PDF、复杂表格</td></tr>
+      <tr><td>AI 层</td><td>调用 LLM 为图片生成文字描述</td><td>截图、图表、手写稿</td></tr>
+    </table>
+    <p>三层可以独立开启或组合，用环境变量或代码参数控制，不需要改核心代码。</p>
+
+    <h3>3. 插件体系与 Entry Point 机制</h3>
+    <p>第三方开发者可以通过 Python 的 <code>entry_points</code> 机制注册新格式转换器，用户只需 <code>pip install markitdown-plugin-xxx</code> 并在实例化时传入 <code>enable_plugins=True</code>，插件就会自动发现并注册，对核心代码零侵入。</p>
+
+    <div class="callout-blue">
+      <b>工程价值：</b>这套插件机制复刻了 Eclipse 插件体系、Pytest 插件体系的核心思路——通过平台标准（Entry Points）实现"开放封闭"，框架稳定，生态扩展。对 Java 开发者，这等同于 SPI（Service Provider Interface）：只要在 <code>META-INF/services/</code> 注册，框架就能自动发现实现类。
+    </div>
+
+    <h3>4. 与 AutoGen / RAG 管道的集成</h3>
+    <p>MarkItDown 从 AutoGen 项目脱胎，天然与 Microsoft 的多 Agent 框架深度集成。在 RAG 流水线里，它充当"数据摄入层"的统一接口：任意格式文档进来，Markdown 字符串出去，下游的向量化（Embedding）、分块（Chunking）、检索（Retrieval）步骤可以完全不关心原始格式。</p>
+  </div>
+
+  <div class="card">
+    <h2>适用场景</h2>
+    <ul>
+      <li>企业知识库 RAG 系统的文档预处理层（替换 N 个散装解析库）</li>
+      <li>AI 助手需要"理解"用户上传的任意附件时（Word 报告、Excel 数据、PDF 合同）</li>
+      <li>内容分析流水线：批量提取文档结构用于分类、摘要、问答</li>
+      <li>需要对接 AutoGen 多 Agent 框架的项目</li>
+    </ul>
+  </div>
+
+  <div class="takeaway card">
+    <h2>给你的学习要点</h2>
+    <p>MarkItDown 是一个"接口设计比算法更重要"的典型案例。它的核心贡献不是某个解析算法，而是<b>一个稳定的抽象边界</b>：无论上游是什么格式，下游永远收到 Markdown。这正是 Java 体系里"面向接口编程"的精髓——<code>HttpMessageConverter</code>、<code>HandlerMethodArgumentResolver</code>、JDK 的 <code>Charset</code> SPI 都是同一个哲学。</p>
+    <div class="callout">
+      <b>🛠 动手建议：</b>用 MarkItDown 搭一个最简 RAG 原型：<code>markitdown("your-doc.pdf")</code> → 文本切块 → <code>text-embedding-3-small</code> → 存向量库 → 检索 → GPT 回答。整个流程 50 行 Python 以内，能让你对"LLM 怎么读文档"建立非常直观的认知。
+    </div>
+    <div style="margin-top:10px;">
+      <span class="tag">RAG</span>
+      <span class="tag">文档预处理</span>
+      <span class="tag">策略模式</span>
+      <span class="tag tag-blue">SPI / 插件体系</span>
+      <span class="tag">Microsoft AutoGen</span>
+      <span class="tag">AI 工程化</span>
+    </div>
+  </div>
+
+  <!-- ===== 项目二 ===== -->
+  <div id="proj-2"></div>
+  <div class="section-divider">No.2 · 代码理解</div>
+
+  <div class="project-title">Lum1104 / Understand-Anything</div>
+  <p class="project-subtitle">用多 Agent 流水线把任意代码库变成可交互知识图谱 —— 架构师的"X 光机"</p>
+
+  <div class="meta">
+    <span><b>日期</b> 2026-05-29</span>
+    <span><b>仓库</b> <a href="https://github.com/Lum1104/Understand-Anything">github.com/Lum1104/Understand-Anything</a></span>
+    <span><b>语言</b> Python / TypeScript</span>
+    <span><b>⭐ 总 Stars</b> ~38,000+</span>
+    <span><b>热度</b> Trendshift 今日日榜 Top 20，total stars 满足门槛</span>
+  </div>
+
+  <div class="card">
+    <h2>一句话定位</h2>
+    <p>Understand-Anything 是一个 Claude Code 插件，它用一条多 Agent 流水线扫描整个代码仓库，提取所有文件、函数、类、依赖关系，构建成一份 <code>knowledge-graph.json</code>，再渲染成一个可交互的 React 可视化仪表板——你可以在图里点击节点、模糊搜索符号、问自然语言问题（"哪里处理了用户鉴权？"），还可以让它自动生成代码库的导览路线。口号是"Graphs that teach > graphs that impress"（能教你东西的图，比好看的图更有价值）。</p>
+  </div>
+
+  <div class="card">
+    <h2>它解决了什么问题</h2>
+    <p>接手一个 20 万行的老系统是架构师最头疼的场景之一：文档过时、命名混乱、模块边界模糊。传统方法要么靠人肉阅读（太慢），要么靠静态分析工具（输出不可读）。而直接把大量代码丢给 LLM，又会超出 context window，或者让 AI 凭空推断出错误的依赖关系。</p>
+    <p>Understand-Anything 的解法是：<b>先让 AI 把代码理解成结构化图谱，再用图谱回答问题</b>，绕开了"塞不下"和"幻觉"两个问题。</p>
+    <ul>
+      <li><b>绕开 context 限制</b>：不是把所有代码一次性喂给 LLM，而是并发地让多个 Agent 各自分析一个文件，最后汇总成图谱。</li>
+      <li><b>降低幻觉概率</b>：依赖关系来自静态分析 + AI 提取的双重验证，不依赖 LLM 对代码逻辑的猜测。</li>
+      <li><b>增量更新</b>：提交了知识图谱 JSON 到 Git，后续只重新分析变动过的文件，不用每次全跑。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>核心架构（架构师视角）</h2>
+
+    <h3>1. 五阶段多 Agent 流水线</h3>
+    <p>整个分析过程由五类 Agent 串行+并行编排完成：</p>
+    <table>
+      <tr><th>阶段</th><th>Agent 角色</th><th>工作内容</th><th>并发</th></tr>
+      <tr><td>1</td><td>project-scanner</td><td>发现所有文件，识别语言与框架</td><td>单例</td></tr>
+      <tr><td>2</td><td>file-analyzer</td><td>逐文件提取函数、类、导入关系</td><td>最多 3 并发</td></tr>
+      <tr><td>3</td><td>architecture-analyzer</td><td>识别分层结构（API/Service/Data/UI）</td><td>单例</td></tr>
+      <tr><td>4</td><td>tour-builder</td><td>生成可导览的"参观路线"</td><td>单例</td></tr>
+      <tr><td>5</td><td>graph-reviewer</td><td>最终校验，修正错误关系</td><td>单例</td></tr>
+    </table>
+
+    <div class="callout">
+      <b>架构师对照：</b>这个五阶段流水线，本质上是一个<b>有向无环图（DAG）调度器</b>，和 Flink/Spark 的 Stage 划分、Jenkins Pipeline 的 Stage-Step 模型、Airflow 的 DAG 是同构的。"先扫描再分析再校验"这个顺序保证了依赖安全，而阶段 2 的并发则是 Map 阶段——这个经典 MapReduce 结构在 AI Agent 编排里依然奏效。
+    </div>
+
+    <h3>2. 知识图谱的数据结构</h3>
+    <p>所有分析结果都被持久化到 <code>.understand-anything/knowledge-graph.json</code>，结构是一个标准的图（Nodes + Edges）：</p>
+    <pre><code>{
+  "nodes": [
+    {
+      "id": "src/service/UserService.java",
+      "type": "class",
+      "layer": "Service",
+      "summary": "处理用户注册、登录、权限校验",
+      "patterns": ["singleton", "dependency-injection"]
+    }
+  ],
+  "edges": [
+    { "from": "UserController", "to": "UserService", "relation": "calls" },
+    { "from": "UserService", "to": "UserRepository", "relation": "depends" }
+  ]
+}
+</code></pre>
+    <p>这份 JSON 建议 commit 进 Git，团队成员 clone 后可跳过全量分析，直接打开仪表板——相当于把"系统理解"像代码一样纳入版本控制。</p>
+
+    <h3>3. 交互仪表板的前端架构</h3>
+    <p>仪表板是一个 React + React Flow 应用，按架构层（API / Service / Data / UI / Utility）自动分组并着色，支持模糊搜索、语义搜索（问自然语言）、节点详情弹窗（显示函数签名 + AI 生成的摘要）。设计思路更像一个"代码地图"App，而非传统 IDE 的 Call Hierarchy 树。</p>
+
+    <div class="callout-blue">
+      <b>为什么对 Java 架构师特别有价值：</b>Java 企业项目往往层多、模块多、依赖图复杂。把 Spring Boot 项目丢进 Understand-Anything，几分钟就能得到一张自动标注了 Controller / Service / Repository / Config 分层的可交互图，比手画系统架构图快 10 倍——特别适合做技术评审、新人 Onboarding、或接手遗留系统时的快速摸底。
+    </div>
+
+    <h3>4. 平台兼容性</h3>
+    <p>目前支持 Claude Code、Codex CLI、Cursor、VS Code + GitHub Copilot、Gemini CLI、OpenCode 等主流 AI 编程工具，作为标准 Skill 安装，无需改动任何项目文件。</p>
+  </div>
+
+  <div class="card">
+    <h2>适用场景</h2>
+    <ul>
+      <li>接手遗留系统时，快速建立对代码库的全局认知</li>
+      <li>架构评审前，自动生成可分享的系统依赖图</li>
+      <li>新人 Onboarding：让新成员通过图谱自主探索代码库，而不是靠口口相传</li>
+      <li>重构计划制定：先看清楚当前的依赖关系，再规划打包边界与模块拆分</li>
+    </ul>
+  </div>
+
+  <div class="takeaway card">
+    <h2>给你的学习要点</h2>
+    <p>Understand-Anything 最值得学习的是它的<b>分治 + 汇聚</b>思路——把一个"理解 20 万行代码"这种对单个 LLM 来说无解的任务，拆解成大量"理解一个 200 行文件"的小任务，并发执行后再汇总。这不是 AI 专有的思维，而是所有大规模系统设计的底层逻辑：分而治之、并发处理、聚合结果。</p>
+    <p>同时，它把"分析结果"序列化成 JSON 持久化，而非每次重新计算，体现了<b>计算与展现分离</b>的工程成熟度——这和 CQRS 里把写模型（Event Log）和读模型（物化视图）分开的思想完全一致。</p>
+    <div class="callout-blue">
+      <b>🛠 动手建议：</b>把自己最熟悉的一个 Spring Boot 项目丢进去跑一遍，然后重点看它识别出的模块分层与依赖关系是否与你脑海中的"心智模型"一致。如果有出入，值得深想一下：是 AI 错了，还是代码里确实有隐式依赖你之前没意识到？
+    </div>
+    <div style="margin-top:10px;">
+      <span class="tag">知识图谱</span>
+      <span class="tag">多 Agent 编排</span>
+      <span class="tag tag-blue">分治 / MapReduce</span>
+      <span class="tag">代码理解</span>
+      <span class="tag">CQRS</span>
+      <span class="tag">架构可视化</span>
+    </div>
+  </div>
+
+  <!-- ===== 项目三 ===== -->
+  <div id="proj-3"></div>
+  <div class="section-divider">No.3 · Agent 方法论</div>
+
+  <div class="project-title">obra / superpowers</div>
+  <p class="project-subtitle">给 AI 编程 Agent 装上工程纪律 —— 一套让 Agent 先想清楚再动手的开发方法论</p>
+
+  <div class="meta">
+    <span><b>日期</b> 2026-05-29</span>
+    <span><b>仓库</b> <a href="https://github.com/obra/superpowers">github.com/obra/superpowers</a></span>
+    <span><b>语言</b> Markdown / Shell</span>
+    <span><b>⭐ 总 Stars</b> ~60,600</span>
+    <span><b>热度</b> Trendshift 今日日榜 Top 5，total stars 满足门槛</span>
+  </div>
+
+  <div class="card">
+    <h2>一句话定位</h2>
+    <p>Superpowers 是一个"AI 编程 Agent 的工程方法论框架"——它不是一个编程库，而是一套可安装到各主流 AI 编程工具（Claude Code、Codex、Cursor、Gemini CLI 等）的<b>结构化技能（Skills）集合</b>，用来约束 Agent 的行为：先澄清需求、再出设计、再写测试、最后才写代码。作者的核心洞察是：AI Agent 最大的问题不是能力不够，而是<b>急于动手、不经设计就开始写代码</b>，导致越改越乱。</p>
+  </div>
+
+  <div class="card">
+    <h2>它解决了什么问题</h2>
+    <p>用过 AI 编程工具的人都遇到过这个问题：你说"帮我加一个用户注册功能"，Agent 立刻开始改文件，写了一堆代码，表面上看很完整，但接口设计不合理、没有错误处理、测试覆盖为零——而且你没法轻易回退，因为它已经改了七八个文件。</p>
+    <p>Superpowers 的解决思路是：<b>在 Agent 开始写代码之前，强制插入一个"软件工程流程"</b>：</p>
+    <ul>
+      <li><b>头脑风暴（brainstorm）</b>：Agent 先从对话中提取真实需求，通过提问澄清模糊点，分块输出设计方案供用户确认。</li>
+      <li><b>实现计划（plan）</b>：方案确认后，生成一份清晰到"给一个初级工程师都能执行"的实现计划。</li>
+      <li><b>TDD 驱动实现</b>：先写测试，再写实现，保证每步都有可验证的检查点。</li>
+      <li><b>Git Worktree 隔离</b>：在独立分支和工作目录里开发，避免直接污染主线。</li>
+      <li><b>子 Agent 协作</b>：复杂任务由主 Agent 分解，派生多个子 Agent 并发执行子任务。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>核心架构（架构师视角）</h2>
+
+    <h3>1. Skills 即"可注入的行为约束"</h3>
+    <p>Superpowers 的核心机制是"Skill"——每个 Skill 是一个 <code>SKILL.md</code> 文件，用结构化自然语言定义了"触发条件"（什么时候激活）、"行为指南"（该做什么、不该做什么）和"输出模板"。当 Agent 运行时，会先读取这些 Skill 文件，将它们作为行为约束加载进上下文，相当于给 Agent 注入了"工程师的行为规范"。</p>
+
+    <div class="callout-purple">
+      <b>架构类比：</b>这非常像 AOP（面向切面编程）——你在不修改业务逻辑（Agent 的核心能力）的情况下，通过切面（Skills）织入横切关注点（代码评审、测试、设计文档）。Spring 的 <code>@Transactional</code>、<code>@Cacheable</code> 就是这种思想：业务方法不知道自己被增强了，但增强行为已经发生。
+    </div>
+
+    <h3>2. 五个核心 Skill 的编排逻辑</h3>
+    <table>
+      <tr><th>Skill</th><th>触发时机</th><th>作用</th></tr>
+      <tr><td>brainstorming</td><td>用户要求构建新功能时</td><td>强制澄清需求，分块输出设计</td></tr>
+      <tr><td>using-git-worktrees</td><td>设计确认后</td><td>创建隔离工作区，避免污染主分支</td></tr>
+      <tr><td>subagent-driven-development</td><td>任务复杂度超过单 Agent 时</td><td>主 Agent 分解任务，派生子 Agent 并发执行</td></tr>
+      <tr><td>test-driven-development</td><td>开始编码前</td><td>先写测试，红绿循环，保证质量</td></tr>
+      <tr><td>code-review</td><td>实现完成后</td><td>自动代码评审，覆盖安全、性能、可维护性</td></tr>
+    </table>
+
+    <h3>3. "方法论即代码"的哲学</h3>
+    <p>Superpowers 最有意思的地方，是它把"软件工程方法论"本身做成了可版本化、可 fork、可定制的代码资产。你可以 fork 这个仓库，修改某个 Skill 的行为规范，发布自己团队的"工程规范包"，让团队所有人的 AI Agent 都遵循同一套标准。</p>
+
+    <div class="callout-purple">
+      <b>前瞻思考：</b>这预示着一个新的工程角色——<b>Agent 架构师</b>：不再只是设计系统架构，而是设计"AI Agent 应该如何工作的工作流架构"，制定 Skill 规范、编排约束、质量门禁。这和今天 Java 团队里架构师制定编码规范、Code Review 流程的职责是同构的——只不过执行者从人换成了 Agent。
+    </div>
+
+    <h3>4. 兼容性与安装方式</h3>
+    <p>Superpowers 支持所有主流 AI 编程工具，安装只需把 Skills 目录拷贝到 Agent 的配置路径，或通过 Playbooks 市场一键安装。不绑定任何特定的 LLM 或编程语言，是一套纯"方法论层"的框架。</p>
+  </div>
+
+  <div class="card">
+    <h2>适用场景</h2>
+    <ul>
+      <li>个人用 AI 编程工具做复杂功能时，避免"写了一堆不可控代码"的混乱</li>
+      <li>团队统一 AI 辅助编程的工程规范，让所有成员的 Agent 都遵守同一套流程</li>
+      <li>技术负责人希望在引入 AI 编程的同时保持代码质量和可维护性</li>
+      <li>研究"Agent 工程方法论"的开发者，理解如何用 Skills 约束 Agent 行为</li>
+    </ul>
+  </div>
+
+  <div class="takeaway card">
+    <h2>给你的学习要点</h2>
+    <p>Superpowers 传递的核心洞察是：<b>AI Agent 的问题不是智力不足，而是缺乏工程纪律</b>。这和"聪明的程序员写烂代码"是同一个问题——能力不等于流程，流程才能保障质量。Superpowers 用 Skills 把"好的工程习惯"编码化、可安装化，让 Agent 自动遵守，而不是每次都靠提示词临时约束。</p>
+    <p>对 Java 架构师的迁移价值：当你给团队引入 AI 编程工具时，不要只想着"让 AI 写代码更快"，更要思考"怎么让 AI 写代码的方式符合团队的工程规范"。Superpowers 给出了一个具体答案——用 Skills 框架把规范固化下来。</p>
+    <div class="callout-purple">
+      <b>🛠 动手建议：</b>读一下 <a href="https://github.com/obra/superpowers/blob/main/skills/brainstorming/SKILL.md">brainstorming/SKILL.md</a> 的原文，看看它是如何用结构化自然语言定义 Agent 行为的。然后思考：如果让你写一份"Java 架构评审 Skill"，你会在里面约定哪些必查项？这个思考过程本身就是在建立你对 Agent 工程化的直觉。
+    </div>
+    <div style="margin-top:10px;">
+      <span class="tag tag-purple">Agent 方法论</span>
+      <span class="tag tag-purple">Skills 框架</span>
+      <span class="tag tag-purple">AOP</span>
+      <span class="tag">TDD</span>
+      <span class="tag">工程规范</span>
+      <span class="tag">多 Agent 协作</span>
+    </div>
+  </div>
+
+  <!-- ===== 今日总结 ===== -->
+  <div class="summary-card">
+    <h2>今日三选总结</h2>
+    <p>今天三个项目恰好串联成一条完整的 AI 工程链路：<b>MarkItDown</b> 负责把世界上各种格式的文档"喂给"LLM（数据入口）；<b>Understand-Anything</b> 负责让 LLM 真正理解一个大型代码库的结构与依赖（认知中枢）；<b>Superpowers</b> 则负责约束 LLM Agent 以正确的工程方式使用这些理解成果去写代码（行为纪律）。三者的共同主题是：<b>如何让 AI 在真实工程场景中可信赖、可控制、可持续地工作</b>——这比"让 AI 写更多代码"重要得多，也是 2026 年 AI 工程化的核心议题。</p>
+  </div>
+
+  <div class="footer">
+    每日开源精选 · 为 Java 架构师打造 · 2026-05-29<br>
+    数据来源：GitHub Trending · Trendshift · 项目官方文档
+  </div>
+
+</div>
+</body>
+</html>
