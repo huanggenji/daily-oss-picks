@@ -11,6 +11,13 @@
       "category": "codex",
       "title": "Codex CLI 安装与初次上手",
       "file": "2026-05-29-daily-v2.html"
+    },
+    {
+      "date": "2026-05-30",
+      "topic_id": "codex-cli-config",
+      "category": "codex",
+      "title": "Codex CLI 配置文件与模型切换",
+      "file": "2026-05-30-daily.html"
     }
   ]
 }

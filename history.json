@@ -64,6 +64,39 @@
       "file": "2026-05-29-daily-v2.html",
       "stars": 190000,
       "threshold": "total 190k > 10000"
+    },
+    {
+      "date": "2026-05-30",
+      "repo": "OpenBMB/VoxCPM",
+      "url": "https://github.com/OpenBMB/VoxCPM",
+      "language": "Python",
+      "title": "OpenBMB/VoxCPM：无需分词就能开口说话的开源 TTS 大模型",
+      "category": "AI 语音合成 / TTS / 多语言",
+      "file": "2026-05-30-daily.html",
+      "stars": 84772,
+      "threshold": "total 84.7k > 10000"
+    },
+    {
+      "date": "2026-05-30",
+      "repo": "microsoft/markitdown",
+      "url": "https://github.com/microsoft/markitdown",
+      "language": "Python",
+      "title": "microsoft/markitdown：把任意格式文件转成 LLM 可直接读取的 Markdown",
+      "category": "开发效率 / 文档处理 / RAG 工程",
+      "file": "2026-05-30-daily.html",
+      "stars": 51350,
+      "threshold": "total 51.3k > 10000"
+    },
+    {
+      "date": "2026-05-30",
+      "repo": "unclecode/crawl4ai",
+      "url": "https://github.com/unclecode/crawl4ai",
+      "language": "Python",
+      "title": "unclecode/crawl4ai：专为 LLM 而生的网页爬虫，抓回来就是干净 Markdown",
+      "category": "数据 / 网页爬虫 / LLM 工程",
+      "file": "2026-05-30-daily.html",
+      "stars": 20412,
+      "threshold": "total 20.4k > 10000"
     }
   ]
 }
