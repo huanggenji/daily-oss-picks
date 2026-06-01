@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-05-31</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.7;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    padding: 40px 24px 32px;
+    text-align: center;
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .header .date {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 18px;
+  }
+  .header .intro {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 15px;
+    opacity: 0.9;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 14px 20px;
+  }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 900px;
+    margin: 32px auto 16px;
+    padding: 0 20px;
+  }
+  .section-label .icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-label .icon.projects { background: #e8f4fd; }
+  .section-label .icon.learn { background: #f0faf0; }
+  .section-label h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+  .section-label .sub { font-size: 13px; color: #666; margin-top: 1px; }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 48px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #e8e8f0;
+  }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .card-num.n2 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+  .card-num.n3 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+  .card-title-block { flex: 1; }
+  .card-title-block h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .card-title-block h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title-block h3 a:hover { color: #667eea; }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f4f4fa;
+    border: 1px solid #e0e0ee;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+  }
+  .tag.lang { background: #fff3e0; border-color: #ffcc80; color: #e65100; }
+  .tag.stars { background: #fffde7; border-color: #fff176; color: #c6a700; }
+  .tag.cat { background: #e8f5e9; border-color: #a5d6a7; color: #2e7d32; }
+  .tagline {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    background: linear-gradient(90deg, #667eea15, transparent);
+    border-left: 3px solid #667eea;
+    padding: 8px 14px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 18px;
+  }
+  .section-block {
+    margin-bottom: 20px;
+  }
+  .section-block h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .section-block p, .section-block ul { font-size: 15px; color: #444; }
+  .section-block ul { padding-left: 20px; }
+  .section-block ul li { margin-bottom: 5px; }
+  .divider {
+    height: 1px;
+    background: #f0f0f5;
+    margin: 16px 0;
+  }
+  .highlight-box {
+    background: #f8f9ff;
+    border: 1px solid #e0e4ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box code {
+    background: #e8eaff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-family: "SF Mono", Consolas, monospace;
+    font-size: 13px;
+    color: #3949ab;
+  }
+  /* Learn card */
+  .learn-card {
+    background: linear-gradient(135deg, #f0faf4, #e8f5e9);
+    border: 1px solid #c8e6c9;
+  }
+  .learn-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .learn-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .learn-title h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1b5e20;
+    line-height: 1.3;
+  }
+  .learn-title .sub { font-size: 13px; color: #555; margin-top: 2px; }
+  pre {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-family: "SF Mono", Consolas, "Courier New", monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    margin: 12px 0;
+    line-height: 1.6;
+  }
+  pre .comment { color: #6c7086; }
+  pre .cmd { color: #89dceb; }
+  pre .val { color: #a6e3a1; }
+  pre .key { color: #f38ba8; }
+  pre .heading { color: #cba6f7; }
+  .ref-links {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed #c8e6c9;
+  }
+  .ref-links h4 { font-size: 13px; color: #555; margin-bottom: 8px; font-weight: 600; }
+  .ref-links a {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #a5d6a7;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 13px;
+    color: #2e7d32;
+    text-decoration: none;
+    margin-right: 8px;
+    margin-bottom: 6px;
+  }
+  .ref-links a:hover { background: #e8f5e9; }
+  .footer {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .footer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .footer-tag {
+    background: #fff;
+    border: 1px solid #e0e0ee;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #666;
+  }
+  .footer-summary {
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+  }
+  @media (max-width: 600px) {
+    .header h1 { font-size: 22px; }
+    .card { padding: 20px; }
+    .card-title-block h3 { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">每日开源精选 · Daily OSS Picks</div>
+  <h1>GitHub 开源精选 + AI 学习日报</h1>
+  <div class="date">2026年5月31日 星期日</div>
+  <div class="intro">
+    今天精选：🎬 AI 一键生成短视频（内容创作） · 📡 WiFi 信号感知人体（隐私IoT） · 🗺️ 代码库变知识图谱（AI编程）<br>
+    今日学一招：<strong>Codex CLI 系列第 3 期——给项目写 AGENTS.md</strong>——让 Codex 读懂你的代码库上下文
+  </div>
+</div>
+
+<div class="section-label">
+  <div class="icon projects">🔥</div>
+  <div>
+    <h2>今日精选项目</h2>
+    <div class="sub">共 3 个，覆盖 AI 视频生成 / 硬件IoT / AI 编程工具三大方向</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Project 1: MoneyPrinterTurbo -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n1">1</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank">harry0703 / MoneyPrinterTurbo</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🐍 Python</span>
+      <span class="tag stars">⭐ 80,985+</span>
+      <span class="tag cat">AI 视频生成</span>
+      <span class="tag cat">内容创作自动化</span>
+    </div>
+    <div class="tagline">输入一个主题，AI 自动配素材、配音、加字幕——一键搞定高清短视频</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        做短视频最繁琐的不是拍摄，而是后期：找素材、写文案、生成配音、加字幕、剪辑合成……每一步都要开不同的软件，花好几个小时。<br><br>
+        <strong>MoneyPrinterTurbo</strong> 把整条流水线打通了：你只需输入一个主题或关键词（比如"健身减脂的 5 个误区"），它就能自动完成文案生成、视频素材匹配、AI 配音合成、字幕嵌入、视频剪辑，最终输出一段带声音、带字幕的完整短视频——整个过程可以控制在几分钟内。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>接入 100+ AI 模型</strong>：通过 LiteLLM 统一接口，支持 OpenAI、Claude、本地 Ollama 等几乎所有主流大模型——用哪个模型生成文案，随你选，不绑定单一供应商。
+        </li>
+        <li>
+          <strong>WebUI + Docker 双入口</strong>：提供图形界面，不懂命令行也能操作；Docker 一行命令部署，运维成本极低；还有 Windows 一键安装包，非技术同学直接上手。
+        </li>
+        <li>
+          <strong>素材库灵活接入</strong>：内置 Pexels / Pixabay 素材源（免费授权），也可以接入本地素材文件夹，不依赖某一个平台。
+        </li>
+        <li>
+          <strong>多语言配音与字幕</strong>：支持中文、英文等多语言配音，字幕可自定义字体、大小、颜色，适配不同平台的发布规范（竖屏/横屏均支持）。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：以前做一期短视频相当于手工缝一件衬衫——选布料、裁剪、缝制、熨烫每步都要手动完成。MoneyPrinterTurbo 相当于一台全自动服装工厂流水线，你只需说"我要一件蓝色衬衫"，流水线自动完成全部步骤。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>内容/运营同学</strong>：可以用来快速批量生产知识科普类、产品介绍类短视频，验证选题，不必等视频剪辑资源排期。
+        </li>
+        <li>
+          <strong>开发/测试同学</strong>：关注它如何把"文本→语音→视频"多个异构 AI 服务串联成一条可靠管道，这是很典型的 AI 工作流编排模式，值得借鉴。
+        </li>
+        <li>
+          <strong>通用视角</strong>："一键生成"背后的核心逻辑是把若干个 AI 模型的能力组合起来，每个模型只做一件事，但串联起来就能完成复杂任务。这正是 AI Agent 的基本思路：分工明确，通过编排产生乘数效应。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 2: RuView -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n2">2</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/ruvnet/RuView" target="_blank">ruvnet / RuView</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🐍 Python</span>
+      <span class="tag stars">⭐ 34,156+</span>
+      <span class="tag cat">硬件 / IoT</span>
+      <span class="tag cat">隐私感知</span>
+      <span class="tag cat">边缘 AI</span>
+    </div>
+    <div class="tagline">不用摄像头，用 WiFi 信号"看见"人——检测呼吸、心率、跌倒，$9 硬件就能跑</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        想监测老人是否跌倒、感知会议室里有多少人、或者分析睡眠时的呼吸状态——但又不想在私密空间安装摄像头。有没有办法在保护隐私的同时做到这些？<br><br>
+        <strong>RuView</strong> 给出了一个反直觉的答案：用 WiFi 信号。人体在空间内移动、呼吸，会微妙地改变无线电波的传播路径（这个信号叫 <strong>CSI：信道状态信息</strong>）。RuView 通过分析这些细微扰动，就能推断出：人在不在？在哪里？呼吸是否规律？有没有突然跌倒？——全程无需摄像头，不存储任何图像，天然保护隐私。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>$9 硬件起步（ESP32）</strong>：基于 ESP32 开发板，这是全球最常见的 IoT 芯片之一，在某宝上几十块钱就能买到。整套感知系统的硬件成本极低，人人可复现。
+        </li>
+        <li>
+          <strong>CSI 信号分析</strong>：WiFi 信号包含振幅和相位两个维度，人体活动引起的微小变化（比如胸腔起伏带来的毫米级位移）都会留下痕迹。边缘 AI 模型在设备本地实时处理，不需要把数据上传到云端。
+        </li>
+        <li>
+          <strong>多种感知能力</strong>：人员在场检测（有没有人）、位置定位（人在哪个区域）、生命体征监测（呼吸频率、心率估算）、跌倒检测——这几项能力在传统方案里需要不同种类的传感器，RuView 用一套 WiFi 设备统一实现。
+        </li>
+        <li>
+          <strong>完整 Python 框架</strong>：提供数据采集、模型训练、实时推理的完整代码，方便在此基础上自定义场景。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：想象你在黑暗中听到有人走路——即使看不见，你也能通过脚步声判断"有人，在左边，步伐急促"。RuView 让 WiFi 信号扮演了这双"耳朵"，而 AI 模型负责把信号的细微变化翻译成有意义的感知结论——既不用开灯（不需要摄像头），又能"知道发生了什么"。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>对硬件/IoT 感兴趣的同学</strong>：ESP32 是入门嵌入式/IoT 的好平台，这个项目展示了如何从硬件采集原始信号到 AI 推理的完整链路，是很好的学习案例。
+        </li>
+        <li>
+          <strong>产品/设计同学</strong>：这类"非侵入式感知"技术代表了一个重要方向——在不采集生物特征图像的前提下实现智能感知，对隐私保护要求高的场景（养老院、医院、家庭）很有落地价值。
+        </li>
+        <li>
+          <strong>通用视角</strong>：现代 AI 的边界已经延伸到感知层。我们平时觉得 AI 只是"回答问题的工具"，但它正在越来越多地接管各类传感器数据的解读工作——这正是"边缘 AI"的核心价值：让智能在数据产生的地方就完成推理，而不是把所有数据都传到云端。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 3: Understand-Anything -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n3">3</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/Lum1104/Understand-Anything" target="_blank">Lum1104 / Understand-Anything</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🐍 Python</span>
+      <span class="tag stars">⭐ 63,481+</span>
+      <span class="tag cat">AI 编程工具</span>
+      <span class="tag cat">代码理解</span>
+      <span class="tag cat">知识图谱</span>
+    </div>
+    <div class="tagline">把任意代码库或知识库变成可交互的知识图谱——搜索、提问、探索，一气呵成</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        接手一个陌生的大型代码仓库，最痛苦的不是写代码，而是"搞不清楚这里的文件之间是什么关系"、"这个函数从哪里来、被谁调用"、"这个模块负责什么"……翻文档、grep 搜索、逐文件读，往往要花好几天才能建立基本认知。<br><br>
+        <strong>Understand-Anything</strong> 用 5 阶段 Agent 流水线自动完成这件事：扫描代码库 → 分析结构 → 分层归类 → 生成导览 → 校验准确性，最终输出一个<strong>可交互的知识图谱</strong>。你可以在 React 仪表板上模糊搜索任意模块，也可以用自然语言提问，比如"这个项目的认证流程是怎样的"。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>5 阶段 Agent 流水线</strong>：扫描（Scan）→ 分析（Analyze）→ 分层（Hierarchize）→ 导览（Navigate）→ 校验（Validate），每一阶段职责分离，形成可靠的流水线而不是一次性黑盒输出。
+        </li>
+        <li>
+          <strong>输出 JSON 可进 Git</strong>：生成的知识图谱数据以 JSON 格式保存，可以 commit 进代码仓库，随代码一起演进——团队所有成员都能受益，而不是只有运行过工具的那个人。
+        </li>
+        <li>
+          <strong>React 仪表板可视化</strong>：内置前端界面，支持模糊搜索、节点展开、层级浏览和自然语言问答，不需要打开 IDE 就能快速定位知识点。
+        </li>
+        <li>
+          <strong>兼容主流 AI 编程工具</strong>：支持 Claude Code、OpenAI Codex、Cursor 等，可以把生成的知识图谱作为上下文输入，让 AI 编程助手更准确地理解你的代码库背景。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：进入一个新公司，老员工通常要花几周才能搞清楚组织架构和各部门职责。Understand-Anything 就像一个超级全面的"公司百科"：谁负责什么、哪两个部门有协作关系、某个流程从哪里开始到哪里结束——查一下立刻清楚，还能直接问它问题。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>开发同学</strong>：可以在 onboarding 新项目时用它快速建立代码地图，也可以在做 Code Review 前用它快速定位相关模块的上下文；与 Claude Code / Cursor 结合，AI 提建议时会更少"瞎说"。
+        </li>
+        <li>
+          <strong>测试同学</strong>：知识图谱能帮助快速识别高耦合模块（牵一发动全身的地方），在回归测试和影响范围分析时非常有用。
+        </li>
+        <li>
+          <strong>通用视角</strong>：这个工具背后的核心思路——把隐性知识显性化、把分散信息结构化——不仅适用于代码，也适用于文档库、产品知识库、内部流程库。理解"知识图谱"这个概念，能帮助你在不同场景下辨认同类工具和方案。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- Learning Section -->
+<div class="section-label">
+  <div class="icon learn">📚</div>
+  <div>
+    <h2>今日学一招</h2>
+    <div class="sub">Codex CLI 系列 · 第 3 期</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card learn-card">
+    <div class="learn-title">
+      <div class="learn-icon">📋</div>
+      <div>
+        <h3>给项目写 AGENTS.md——让 Codex 读懂你的代码库</h3>
+        <div class="sub">学完本篇，Codex 进入你的项目就像来了个读过"入职手册"的新同事</div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h4>今天学什么</h4>
+      <p>
+        上期我们学了如何用 <code>config.toml</code> 固化 Codex 的模型和运行参数。但参数只是"行为偏好"，Codex 对你项目本身一无所知——它不知道你的项目用什么框架、测试怎么跑、哪些目录不能动、代码风格是什么要求。<br><br>
+        今天要学的 <strong>AGENTS.md</strong> 正是为了解决这个问题。把它放在项目根目录，Codex 进入这个项目时会自动读取，从此就"懂"这个代码库了。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>AGENTS.md 是什么</h4>
+      <p>
+        AGENTS.md 是一个普通的 Markdown 文件，放在项目根目录（或任意子目录）。它的作用是告诉 Codex（以及其他 AI Agent）：
+      </p>
+      <ul style="margin-top: 10px;">
+        <li>这个项目是做什么的、用什么技术栈</li>
+        <li>常用命令怎么跑（测试、构建、格式化）</li>
+        <li>代码风格和命名约定是什么</li>
+        <li>哪些文件/目录是禁区，不要随便改动</li>
+        <li>有哪些已知问题或特殊注意事项</li>
+      </ul>
+      <p style="margin-top: 10px;">你可以把它理解为写给 AI 助手的"入职手册"，写一次，之后每次 Codex 进来都自动读取。</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>一个典型的 AGENTS.md 示例</h4>
+
+<pre><span class="heading"># AGENTS.md</span>
+
+<span class="heading">## 项目概览</span>
+<span class="val">这是一个用 FastAPI + PostgreSQL 构建的内部任务管理 API 服务。</span>
+<span class="val">前端是独立的 React 仓库，本仓库只包含后端。</span>
+
+<span class="heading">## 技术栈</span>
+<span class="val">- Python 3.11 / FastAPI / SQLAlchemy 2.0</span>
+<span class="val">- PostgreSQL 15（本地开发用 Docker Compose 启动）</span>
+<span class="val">- 测试框架：pytest + httpx</span>
+
+<span class="heading">## 常用命令</span>
+<span class="comment"># 启动本地开发环境</span>
+<span class="cmd">docker compose up -d</span>
+<span class="cmd">uvicorn app.main:app --reload</span>
+
+<span class="comment"># 运行所有测试（必须在提 PR 前通过）</span>
+<span class="cmd">pytest tests/ -v</span>
+
+<span class="comment"># 代码格式化</span>
+<span class="cmd">ruff format . && ruff check . --fix</span>
+
+<span class="heading">## 代码约定</span>
+<span class="val">- 所有 API 路由放在 app/routers/ 下，按资源名命名（如 tasks.py）</span>
+<span class="val">- 数据库模型放在 app/models/，Pydantic schema 放在 app/schemas/</span>
+<span class="val">- 函数和变量名用 snake_case，类名用 PascalCase</span>
+<span class="val">- 新增功能必须附带对应的 pytest 测试用例</span>
+
+<span class="heading">## 禁区（不要修改）</span>
+<span class="val">- alembic/versions/ 目录下的迁移文件，除非明确被要求</span>
+<span class="val">- app/core/security.py，涉及鉴权逻辑，改动需专门 Review</span>
+
+<span class="heading">## 已知问题</span>
+<span class="val">- tests/test_export.py 中有 2 个已知 flaky test，偶尔超时，可以忽略</span></pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>子目录也可以有自己的 AGENTS.md</h4>
+      <p>
+        如果你的仓库是 monorepo，不同子模块有不同约定，可以在子目录里放各自的 AGENTS.md。Codex 会按"就近原则"读取——在哪个目录里操作，就读取该目录（及其父目录）的 AGENTS.md，离得越近的优先级越高。
+      </p>
+      <div class="highlight-box">
+        <strong>实际效果对比：</strong>没有 AGENTS.md 时，你可能需要在每次对话开始时花几百字向 Codex 解释"我们项目用 pytest，测试跑 pytest tests/ -v，格式化用 ruff"。有了 AGENTS.md，这些信息 Codex 自动读取，你直接说"帮我给这个函数补测试"就够了——上下文不用重复交代。
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>写 AGENTS.md 的三条原则</h4>
+      <ul>
+        <li><strong>篇幅控制在 400-700 字</strong>：太短没用，太长 Codex 会忽略细节，这个区间最有效；</li>
+        <li><strong>命令要可直接复制执行</strong>：写出能直接跑的命令，别写"运行测试"这种模糊描述；</li>
+        <li><strong>跟着代码演进</strong>：换框架、改目录结构时记得同步更新 AGENTS.md，过时的说明比没有说明更危险。</li>
+      </ul>
+    </div>
+
+    <div class="ref-links">
+      <h4>延伸阅读</h4>
+      <a href="https://github.com/openai/codex-cli#agentsmd" target="_blank">Codex CLI 官方 AGENTS.md 文档</a>
+      <a href="https://docs.anthropic.com/en/docs/claude-code/memory" target="_blank">Claude Code CLAUDE.md 参考</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-tags">
+      <span class="footer-tag">#AI视频生成</span>
+      <span class="footer-tag">#WiFi感知</span>
+      <span class="footer-tag">#代码知识图谱</span>
+      <span class="footer-tag">#AGENTS.md</span>
+      <span class="footer-tag">#Codex系列</span>
+      <span class="footer-tag">#开源精选</span>
+      <span class="footer-tag">#2026-05-31</span>
+    </div>
+    <div class="footer-summary">
+      今日一句：好工具的价值不在于它能做什么，而在于它把原本需要你记住的事情都替你记住了。
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

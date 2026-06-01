@@ -97,6 +97,72 @@
       "file": "2026-05-30-daily.html",
       "stars": 20412,
       "threshold": "total 20.4k > 10000"
+    },
+    {
+      "date": "2026-05-31",
+      "repo": "harry0703/MoneyPrinterTurbo",
+      "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "language": "Python",
+      "title": "harry0703/MoneyPrinterTurbo：输入主题一键生成带配音字幕的高清短视频",
+      "category": "AI 视频生成 / 内容创作自动化",
+      "file": "2026-05-31-daily.html",
+      "stars": 80985,
+      "threshold": "total 80.9k > 10000"
+    },
+    {
+      "date": "2026-05-31",
+      "repo": "ruvnet/RuView",
+      "url": "https://github.com/ruvnet/RuView",
+      "language": "Python",
+      "title": "ruvnet/RuView：用普通 WiFi 信号做空间感知，无需摄像头检测人员在场和生命体征",
+      "category": "硬件/IoT / 隐私感知 / 边缘AI",
+      "file": "2026-05-31-daily.html",
+      "stars": 34156,
+      "threshold": "total 34.1k > 10000"
+    },
+    {
+      "date": "2026-05-31",
+      "repo": "Lum1104/Understand-Anything",
+      "url": "https://github.com/Lum1104/Understand-Anything",
+      "language": "Python",
+      "title": "Lum1104/Understand-Anything：把任意代码库变成可交互知识图谱的 AI Agent 工具",
+      "category": "AI 编程工具 / 代码理解 / 知识图谱",
+      "file": "2026-05-31-daily.html",
+      "stars": 63481,
+      "threshold": "total 63.4k > 10000"
+    },
+    {
+      "date": "2026-06-01",
+      "repo": "farion1231/cc-switch",
+      "url": "https://github.com/farion1231/cc-switch",
+      "language": "TypeScript",
+      "title": "farion1231/cc-switch：一站式管理所有 AI 编程 CLI 的跨平台桌面工具",
+      "category": "开发工具 / AI 编程助手 / 桌面应用",
+      "file": "2026-06-01-daily.html",
+      "stars": 48631,
+      "threshold": "total 48.6k > 10000"
+    },
+    {
+      "date": "2026-06-01",
+      "repo": "run-llama/liteparse",
+      "url": "https://github.com/run-llama/liteparse",
+      "language": "Python",
+      "title": "run-llama/liteparse：LlamaIndex 出品的本地轻量级文档解析器，零云依赖",
+      "category": "文档处理 / RAG 工程 / 本地工具",
+      "file": "2026-06-01-daily.html",
+      "stars": 23316,
+      "threshold": "total 23.3k > 10000"
+    },
+    {
+      "date": "2026-06-01",
+      "repo": "esengine/DeepSeek-Reasonix",
+      "url": "https://github.com/esengine/DeepSeek-Reasonix",
+      "language": "Python",
+      "title": "esengine/DeepSeek-Reasonix：专为 DeepSeek 优化的终端 AI 编程 Agent，prefix-cache 省 token",
+      "category": "AI Agent / 终端工具 / DeepSeek 生态",
+      "file": "2026-06-01-daily.html",
+      "stars": 33023,
+      "threshold": "total 33k > 10000"
     }
   ]
 }

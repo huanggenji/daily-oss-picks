@@ -18,6 +18,20 @@
       "category": "codex",
       "title": "Codex CLI 配置文件与模型切换",
       "file": "2026-05-30-daily.html"
+    },
+    {
+      "date": "2026-05-31",
+      "topic_id": "codex-agents-md",
+      "category": "codex",
+      "title": "给项目写 AGENTS.md，让 Codex 懂你的代码库",
+      "file": "2026-05-31-daily.html"
+    },
+    {
+      "date": "2026-06-01",
+      "topic_id": "what-is-token",
+      "category": "ai_basics",
+      "title": "什么是 Token——AI 计费与上下文的基本单位",
+      "file": "2026-06-01-daily.html"
     }
   ]
 }
