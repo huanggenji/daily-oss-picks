@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-06-01</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.7;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    padding: 40px 24px 32px;
+    text-align: center;
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .header .date {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 18px;
+  }
+  .header .intro {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 15px;
+    opacity: 0.9;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 14px 20px;
+  }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 900px;
+    margin: 32px auto 16px;
+    padding: 0 20px;
+  }
+  .section-label .icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-label .icon.projects { background: #e8f4fd; }
+  .section-label .icon.learn { background: #f0faf0; }
+  .section-label h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+  .section-label .sub { font-size: 13px; color: #666; margin-top: 1px; }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 48px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #e8e8f0;
+  }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .card-num.n2 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+  .card-num.n3 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+  .card-title-block { flex: 1; }
+  .card-title-block h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .card-title-block h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title-block h3 a:hover { color: #667eea; }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f4f4fa;
+    border: 1px solid #e0e0ee;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+  }
+  .tag.lang { background: #fff3e0; border-color: #ffcc80; color: #e65100; }
+  .tag.stars { background: #fffde7; border-color: #fff176; color: #c6a700; }
+  .tag.cat { background: #e8f5e9; border-color: #a5d6a7; color: #2e7d32; }
+  .tagline {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    background: linear-gradient(90deg, #667eea15, transparent);
+    border-left: 3px solid #667eea;
+    padding: 8px 14px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 18px;
+  }
+  .section-block {
+    margin-bottom: 20px;
+  }
+  .section-block h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .section-block p, .section-block ul { font-size: 15px; color: #444; }
+  .section-block ul { padding-left: 20px; }
+  .section-block ul li { margin-bottom: 5px; }
+  .divider {
+    height: 1px;
+    background: #f0f0f5;
+    margin: 16px 0;
+  }
+  .highlight-box {
+    background: #f8f9ff;
+    border: 1px solid #e0e4ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box code {
+    background: #e8eaff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-family: "SF Mono", Consolas, monospace;
+    font-size: 13px;
+    color: #3949ab;
+  }
+  /* Learn card */
+  .learn-card {
+    background: linear-gradient(135deg, #f0faf4, #e8f5e9);
+    border: 1px solid #c8e6c9;
+  }
+  .learn-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .learn-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .learn-title h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1b5e20;
+    line-height: 1.3;
+  }
+  .learn-title .sub { font-size: 13px; color: #555; margin-top: 2px; }
+  pre {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-family: "SF Mono", Consolas, "Courier New", monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    margin: 12px 0;
+    line-height: 1.6;
+  }
+  pre .comment { color: #6c7086; }
+  pre .cmd { color: #89dceb; }
+  pre .val { color: #a6e3a1; }
+  pre .key { color: #f38ba8; }
+  pre .heading { color: #cba6f7; }
+  /* Token diagram */
+  .token-diagram {
+    background: #1e1e2e;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-family: "SF Mono", Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 2;
+    overflow-x: auto;
+  }
+  .token-diagram .label {
+    color: #6c7086;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .token-diagram .sentence {
+    color: #cdd6f4;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+  .tk {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin: 2px 1px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .tk-a { background: #45475a; color: #cba6f7; border: 1px solid #7c6f8c; }
+  .tk-b { background: #313244; color: #89dceb; border: 1px solid #45879a; }
+  .tk-c { background: #1e2030; color: #a6e3a1; border: 1px solid #407040; }
+  .tk-d { background: #302020; color: #f38ba8; border: 1px solid #803040; }
+  .tk-e { background: #302510; color: #fab387; border: 1px solid #806030; }
+  .token-diagram .arrow-row {
+    color: #6c7086;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  .token-diagram .id-row {
+    color: #6c7086;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 12px 0;
+  }
+  .cost-table th {
+    background: #f4f4fa;
+    border: 1px solid #e0e0ee;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 700;
+    color: #444;
+  }
+  .cost-table td {
+    border: 1px solid #e8e8f0;
+    padding: 8px 12px;
+    color: #555;
+  }
+  .cost-table tr:nth-child(even) td { background: #fafafa; }
+  .ref-links {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed #c8e6c9;
+  }
+  .ref-links h4 { font-size: 13px; color: #555; margin-bottom: 8px; font-weight: 600; }
+  .ref-links a {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #a5d6a7;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 13px;
+    color: #2e7d32;
+    text-decoration: none;
+    margin-right: 8px;
+    margin-bottom: 6px;
+  }
+  .ref-links a:hover { background: #e8f5e9; }
+  .footer {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .footer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .footer-tag {
+    background: #fff;
+    border: 1px solid #e0e0ee;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #666;
+  }
+  .footer-summary {
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+  }
+  @media (max-width: 600px) {
+    .header h1 { font-size: 22px; }
+    .card { padding: 20px; }
+    .card-title-block h3 { font-size: 17px; }
+    .token-diagram { font-size: 12px; padding: 14px 16px; }
+    .tk { font-size: 11px; padding: 1px 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">每日开源精选 · Daily OSS Picks</div>
+  <h1>GitHub 开源精选 + AI 学习日报</h1>
+  <div class="date">2026年6月1日 星期一</div>
+  <div class="intro">
+    今天精选：🖥️ AI 编程 CLI 全家桶桌面管家（开发工具） · 📄 本地闪速 PDF 解析神器（RAG 工程） · 🤖 DeepSeek 专属终端 Agent（AI 代理）<br>
+    今日学一招：<strong>AI 基础第 1 期——什么是 Token</strong>——看懂 AI 计费与上下文限制的底层逻辑
+  </div>
+</div>
+
+<div class="section-label">
+  <div class="icon projects">🔥</div>
+  <div>
+    <h2>今日精选项目</h2>
+    <div class="sub">共 3 个，覆盖 AI 编程工具管理 / 文档解析 / AI Agent 三大方向</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Project 1: cc-switch -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n1">1</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/farion1231/cc-switch" target="_blank">farion1231 / cc-switch</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">⚡ Electron / TypeScript</span>
+      <span class="tag stars">⭐ 48,631+</span>
+      <span class="tag cat">开发工具</span>
+      <span class="tag cat">AI 编程助手</span>
+      <span class="tag cat">桌面应用</span>
+    </div>
+    <div class="tagline">Claude Code、Codex、Gemini CLI……全装了却乱成一锅粥？一个桌面 App 统一管所有</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        AI 编程工具爆发的副作用是：开发者的机器上往往同时安装了 Claude Code、OpenAI Codex、OpenCode、Gemini CLI……每个工具都有自己的 API Key 配置方式、账号体系和 MCP 插件设置，切换时要不停地翻命令行、改配置文件，甚至同时登录多个账号时还会互相干扰。<br><br>
+        <strong>cc-switch</strong>（官网 ccswitch.io）是专门为这个痛点设计的桌面端管理器：一个统一界面管理你所有 AI 编程 CLI 工具，账号切换一键完成，API Key 加密保存，MCP 配置集中维护——告别到处翻配置文件的日子。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>多账号一键切换</strong>：同一个工具（比如 Claude Code）下挂多个账号（个人账号 / 公司账号 / 客户项目账号），下拉选择即切换，底层自动刷新凭证，不需要手动改任何文件。
+        </li>
+        <li>
+          <strong>API Key 集中管理</strong>：所有 Key 加密存储在本地，统一在 App 里新增、修改、删除；不同工具的 Key 按命名空间隔离，不怕混淆；还支持给 Key 设置备注标签，区分"个人测试"和"生产环境"。
+        </li>
+        <li>
+          <strong>MCP 配置管理</strong>：MCP（Model Context Protocol）是让 AI 工具接入外部能力（比如搜索、数据库、文件系统）的扩展协议。cc-switch 提供可视化界面管理每个工具的 MCP 插件配置，比手动编辑 JSON 配置文件直观得多。
+        </li>
+        <li>
+          <strong>跨平台 Electron 实现</strong>：基于 Electron + TypeScript 开发，macOS / Windows / Linux 全平台可用；界面简洁，启动后常驻系统托盘，随用随开。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：以前管理多个 AI 工具的账号配置，就像你有一堆不同品牌的门锁，每把锁的钥匙放在不同抽屉里，换房间还得换钥匙串。cc-switch 相当于一个智能钥匙管家：所有钥匙都放在一个盒子里，你只需说"我要去 B 房间"，它帮你找出对应的钥匙递给你。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>开发同学</strong>：如果你同时在用多个 AI 编程助手（哪怕只有两三个），这个工具能立竿见影地减少切换摩擦。尤其是在不同项目里需要用不同账号/Key 时，价值最明显。
+        </li>
+        <li>
+          <strong>测试 / DevOps 同学</strong>：关注它对 MCP 配置的管理方式——MCP 是当前 AI 工具接入外部系统的主流扩展协议，理解它的配置结构对后续用 AI Agent 集成内部工具很有帮助。
+        </li>
+        <li>
+          <strong>通用视角</strong>：工具越多，管理成本越高——这是所有"平台爆炸"时期的共同问题。cc-switch 这类"工具的工具"的出现，本身就说明 AI 编程生态已经进入了需要治理的成熟阶段。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 2: liteparse -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n2">2</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/run-llama/liteparse" target="_blank">run-llama / liteparse</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🐍 Python / WebAssembly</span>
+      <span class="tag stars">⭐ 23,316+</span>
+      <span class="tag cat">文档处理</span>
+      <span class="tag cat">RAG 工程</span>
+      <span class="tag cat">本地工具</span>
+    </div>
+    <div class="tagline">LlamaIndex 出品：本地极速解析 PDF，不上云、不付费、不让外人看你的文档</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        给 AI 喂文档是 RAG（检索增强生成）流水线的第一步，而 PDF 是最难啃的格式：有表格、有双栏布局、有扫描件、有嵌入图片……发到云端解析服务要花钱，还要担心敏感文件外泄；本地跑开源方案又往往慢得让人抓狂。<br><br>
+        <strong>liteparse</strong> 是 LlamaIndex 团队开源的本地轻量级文档解析器，核心卖点是"快 + 准 + 不出网"：WebAssembly 驱动，解析速度比同类 Python 方案快数倍，支持 CLI 一行命令用、Python 库调用、Node.js 绑定三种用法，还提供可选 OCR 处理扫描件——全程在本地跑，文件不离开你的机器。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>WebAssembly 核心引擎</strong>：解析逻辑编译成 WASM，性能接近原生编译代码，远超纯 Python 实现；跨语言绑定也因此变得简单——同一套 WASM 模块，Python 和 Node.js 共用，维护成本极低。
+        </li>
+        <li>
+          <strong>零云依赖，完全本地</strong>：不需要注册账号，不需要 API Key，不发送任何数据到外部服务器——对处理合同、财务报告、内部技术文档等敏感场景，这是刚需。
+        </li>
+        <li>
+          <strong>CLI + 多语言绑定</strong>：<code>liteparse doc.pdf</code> 一行命令直接输出结构化文本；也可以 <code>pip install liteparse</code> 在 Python 代码里调用；同样支持 <code>npm install liteparse</code> 用于 Node.js 项目，三种入口覆盖不同团队的技术栈。
+        </li>
+        <li>
+          <strong>可选 OCR</strong>：对于扫描版 PDF（图片化 PDF），加上 <code>--ocr</code> 参数即可启用文字识别，无需额外安装 Tesseract 等依赖——开箱即用。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：想象你需要把一摞旧纸质档案的内容录入电脑，有两个选择：一是把档案快递给一家扫描公司（快但档案离手），二是用自己的扫描仪在家完成（慢但安全）。liteparse 相当于把那台慢扫描仪换成了一台高速扫描仪——速度和云服务媲美，但档案从不离手。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>开发 / 数据同学</strong>：在搭建任何涉及 PDF 读取的 RAG 流水线时，liteparse 应该是第一个考虑的本地方案，尤其是有数据合规要求的场景（金融、法律、医疗）。
+        </li>
+        <li>
+          <strong>对技术感兴趣的同学</strong>：WebAssembly 把原来"要么用 Python 慢慢跑、要么调云 API"的二选一局面打破了——这是 WASM 在非浏览器场景（后端工具）发挥价值的典型案例，值得关注这个技术趋势。
+        </li>
+        <li>
+          <strong>通用视角</strong>：文档解析是 AI 落地企业内部的必经之路。"本地优先"不是保守，而是在数据安全与 AI 能力之间找到的务实平衡点——这类工具会越来越多。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 3: DeepSeek-Reasonix -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n3">3</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/esengine/DeepSeek-Reasonix" target="_blank">esengine / DeepSeek-Reasonix</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🐍 Python</span>
+      <span class="tag stars">⭐ 33,023+</span>
+      <span class="tag cat">AI Agent</span>
+      <span class="tag cat">终端工具</span>
+      <span class="tag cat">DeepSeek 生态</span>
+    </div>
+    <div class="tagline">专为 DeepSeek 调校的终端 AI 编程 Agent——大任务挂着跑，prefix-cache 砍掉大半 token 开销</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        DeepSeek 模型性价比极高，但用通用 AI Agent 框架驱动它时，往往有两个痛点：第一，长任务跑着跑着 prefix-cache 命中率下降，token 消耗飙升、成本失控；第二，任务跑到一半系统超时或中断，只能从头来过，浪费时间和费用。<br><br>
+        <strong>DeepSeek-Reasonix</strong> 针对这两个痛点从底层做了专项优化：内置 prefix-cache 预热机制，保证长任务全程高命中率，token 消耗稳定可控；同时支持任务长时间挂起运行（类似后台进程），专为"需要跑几十分钟甚至更长"的大型编程任务设计，terminal-first 的交互方式也让它适合 CI/CD 或无头服务器场景。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>prefix-cache 预热机制</strong>：DeepSeek API 的 prefix-cache 功能会把重复出现的提示词前缀缓存起来，命中缓存的 token 费率大幅低于普通调用（有时低至 1/10）。Reasonix 在任务开始前主动预热缓存，并在整个任务执行过程中维护缓存稳定性——这是它最核心的成本优化手段。
+        </li>
+        <li>
+          <strong>大任务挂起设计</strong>：普通 AI Agent 框架假设任务在几分钟内完成，对长时间运行支持欠佳。Reasonix 的任务调度器支持将进行中的任务持久化到磁盘，可以跨进程、跨时间段恢复——这对重构大型代码库、生成完整测试套件等重度任务非常关键。
+        </li>
+        <li>
+          <strong>terminal-first 交互</strong>：全程命令行操作，无 GUI 依赖，天然适合 SSH 远程服务器、Docker 容器、CI 流水线等无界面环境；输出格式结构化，便于脚本解析和自动化集成。
+        </li>
+        <li>
+          <strong>DeepSeek 生态深度适配</strong>：针对 DeepSeek 的 Reasoner 系列模型（推理链输出）做了专项解析，推理过程和最终答案分层展示，调试大任务时便于追踪 AI 的决策路径。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：普通 AI Agent 就像出租车计价器——你坐在车里等，表一直跳，堵车（模型思考绕路）照样收费。DeepSeek-Reasonix 更像一个精打细算的专车司机：提前规划好最优路线（prefix-cache 预热），走过的路不重复收费（缓存命中），还能接力跑——你下车他记住了走到哪，下次上车从原地继续。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>重度 DeepSeek 用户</strong>：如果你已经在用 DeepSeek API 跑编程任务，这个工具几乎是免费的升级——相同任务量，token 消耗可以显著降低，ROI 很高。
+        </li>
+        <li>
+          <strong>开发 / DevOps 同学</strong>：关注它的"挂起恢复"机制——这是 AI Agent 从"交互玩具"走向"生产级工具"必须解决的可靠性问题，未来所有严肃的 Agent 框架都会走这条路。
+        </li>
+        <li>
+          <strong>通用视角</strong>：AI 调用成本是很多团队深度使用 AI 工具的最大顾虑。prefix-cache 这类机制说明：聪明地用模型，远比盲目堆 token 更重要——理解"为什么同样的问题有时贵有时便宜"，是用好 AI 工具的基础。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- Learning Section -->
+<div class="section-label">
+  <div class="icon learn">📚</div>
+  <div>
+    <h2>今日学一招</h2>
+    <div class="sub">AI 基础系列 · 第 1 期</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card learn-card">
+    <div class="learn-title">
+      <div class="learn-icon">🧩</div>
+      <div>
+        <h3>什么是 Token——AI 计费和上下文限制的底层单位</h3>
+        <div class="sub">学完本篇，你就能看懂 AI 工具的账单，也不会再被"上下文窗口已满"搞懵</div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h4>先从一句话说起</h4>
+      <p>
+        AI 模型不像人类那样"读文字"——它实际上处理的是一串数字编号，每个编号对应一个文字片段，这个片段就叫 <strong>Token</strong>（令牌）。你输入给 AI 的每一个字、每一句话，都会先被切成若干 Token，再送进模型；模型的回复同样是一个个 Token 输出出来拼成句子。
+      </p>
+      <p style="margin-top: 10px;">
+        理解 Token，你就能明白：为什么 AI 有字数限制？为什么用英文有时比中文省钱？为什么同样内容换种说法费用不一样？
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>Token 长什么样——文字切分示意图</h4>
+      <p style="margin-bottom: 10px;">下面是一句英文和一句中文被切分成 Token 的真实样子（颜色块 = 一个 Token）：</p>
+
+      <div class="token-diagram">
+        <div class="label">▸ 英文示例：「Hello, how are you today?」</div>
+        <div style="margin: 6px 0 12px;">
+          <span class="tk tk-a">Hello</span><span class="tk tk-b">,</span><span class="tk tk-c"> how</span><span class="tk tk-d"> are</span><span class="tk tk-e"> you</span><span class="tk tk-a"> today</span><span class="tk tk-b">?</span>
+          <span style="color:#6c7086; font-size:11px; margin-left:10px;">→ 7 tokens</span>
+        </div>
+        <div class="label">▸ 中文示例：「今天天气怎么样？」</div>
+        <div style="margin: 6px 0 12px;">
+          <span class="tk tk-c">今天</span><span class="tk tk-d">天气</span><span class="tk tk-e">怎么</span><span class="tk tk-a">样</span><span class="tk tk-b">？</span>
+          <span style="color:#6c7086; font-size:11px; margin-left:10px;">→ 5 tokens</span>
+        </div>
+        <div class="label">▸ 单词内部也可以被拆开：</div>
+        <div style="margin: 6px 0 4px;">
+          <span class="tk tk-a">un</span><span class="tk tk-b">believ</span><span class="tk tk-c">able</span>
+          <span style="color:#6c7086; font-size:11px; margin-left:10px;">→ 3 tokens（不常见的长单词会被拆）</span>
+        </div>
+        <div style="margin: 6px 0 4px;">
+          <span class="tk tk-d">running</span>
+          <span style="color:#6c7086; font-size:11px; margin-left:10px;">→ 1 token（高频短词通常整词 1 个）</span>
+        </div>
+        <div style="margin-top: 14px; color: #585b70; font-size: 11px; border-top: 1px solid #313244; padding-top: 10px;">
+          每个彩色块 = 1 个 Token = 模型看到的 1 个最小单位 = 计费的 1 个计量单位
+        </div>
+      </div>
+
+      <p style="margin-top: 10px; font-size: 15px; color: #444;">
+        Token 的切分规则由"分词器"（Tokenizer）决定，不同模型的分词器略有差异，但规律相近：<strong>高频词、短词通常整词算一个 Token；生僻词、长词会被拆成几个 Token；标点符号通常各算一个 Token</strong>。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>英文 vs 中文：大概多少字符等于一个 Token？</h4>
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>语言</th>
+            <th>大概换算</th>
+            <th>举例</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>英文</td>
+            <td>约 4 个字符 ≈ 1 Token</td>
+            <td>"hello" = 1 token；"information" ≈ 2–3 tokens</td>
+          </tr>
+          <tr>
+            <td>中文</td>
+            <td>约 1–1.5 个汉字 ≈ 1 Token</td>
+            <td>"你好" = 约 2 tokens；"人工智能" = 约 2–4 tokens</td>
+          </tr>
+          <tr>
+            <td>数字/符号</td>
+            <td>每个字符通常 1 Token</td>
+            <td>"2026" = 约 4 tokens（逐位切分）</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 8px; font-size: 14px; color: #666;">
+        <em>注：以上为经验估算，实际数值因模型而异。OpenAI 提供了免费的 <a href="https://platform.openai.com/tokenizer" target="_blank" style="color:#2e7d32;">Tokenizer 工具</a>，可以粘贴文字查看精确 Token 数。</em>
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>Token 和你有什么关系？三个实际影响</h4>
+      <ul>
+        <li>
+          <strong>① 计费单位</strong>：几乎所有商用 AI API（Claude、GPT、DeepSeek……）都按 Token 数收费，分"输入 Token"（你发给 AI 的内容）和"输出 Token"（AI 回复的内容）。发一段长背景资料给 AI，就算 AI 只回了一句话，输入部分也要按 Token 计算费用。
+        </li>
+        <li>
+          <strong>② 上下文窗口限制</strong>：每个模型都有"上下文窗口"（Context Window），即它能"一次看到"的最大 Token 数。Claude 3 系列最大约 20 万 Token，GPT-4 系列约 12.8 万 Token——超出这个限制，早期的内容就会被"遗忘"。你和 AI 聊天聊到一半它开始"失忆"，就是上下文窗口满了。
+        </li>
+        <li>
+          <strong>③ 响应速度</strong>：模型生成 Token 是逐个输出的，输出越长越慢。所以让 AI"回答简洁一点"不只是省钱，也会让回复更快。
+        </li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>记住这三句话就够了</h4>
+      <div class="highlight-box">
+        <p>1. <strong>Token 是 AI 处理文字的最小单位</strong>，不是字、也不是词，介于两者之间。</p>
+        <p style="margin-top: 8px;">2. <strong>英文约 4 字符 1 Token，中文约 1–1.5 汉字 1 Token</strong>，中英文用 Token 算是差不多的。</p>
+        <p style="margin-top: 8px;">3. <strong>Token 数直接决定成本和上下文容量</strong>：发的越多花的越多，积累的越多越容易"忘事"。</p>
+      </div>
+    </div>
+
+    <div class="ref-links">
+      <h4>延伸阅读</h4>
+      <a href="https://platform.openai.com/tokenizer" target="_blank">OpenAI Tokenizer（可视化工具）</a>
+      <a href="https://docs.anthropic.com/en/docs/about-claude/models/overview" target="_blank">Claude 模型上下文窗口对照</a>
+      <a href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank">DeepSeek Tokenizer 说明</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-tags">
+      <span class="footer-tag">#AI编程工具</span>
+      <span class="footer-tag">#cc-switch</span>
+      <span class="footer-tag">#文档解析</span>
+      <span class="footer-tag">#liteparse</span>
+      <span class="footer-tag">#DeepSeek</span>
+      <span class="footer-tag">#AI-Agent</span>
+      <span class="footer-tag">#Token基础</span>
+      <span class="footer-tag">#AI基础系列</span>
+      <span class="footer-tag">#2026-06-01</span>
+    </div>
+    <div class="footer-summary">
+      今日一句：理解 Token，就像理解货币面值——只有搞清楚计量单位，你才能真正看懂 AI 工具的价格标签。
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
