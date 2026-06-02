@@ -163,6 +163,39 @@
       "file": "2026-06-01-daily.html",
       "stars": 33023,
       "threshold": "total 33k > 10000"
+    },
+    {
+      "date": "2026-06-02",
+      "repo": "AprilNEA/OpenLogi",
+      "url": "https://github.com/AprilNEA/OpenLogi",
+      "language": "Rust",
+      "title": "AprilNEA/OpenLogi：用 Rust 写的罗技鼠标开源驱动，无账号无遥测",
+      "category": "系统工具 / 开源驱动 / 隐私优先",
+      "file": "2026-06-02-daily.html",
+      "stars": 68310,
+      "threshold": "total 68.3k > 10000"
+    },
+    {
+      "date": "2026-06-02",
+      "repo": "D4Vinci/Scrapling",
+      "url": "https://github.com/D4Vinci/Scrapling",
+      "language": "Python",
+      "title": "D4Vinci/Scrapling：自适应网页爬虫，页面改版后自动重新定位元素",
+      "category": "数据 / 网页爬虫 / 反爬",
+      "file": "2026-06-02-daily.html",
+      "stars": 46656,
+      "threshold": "total 46.6k > 10000"
+    },
+    {
+      "date": "2026-06-02",
+      "repo": "chopratejas/headroom",
+      "url": "https://github.com/chopratejas/headroom",
+      "language": "Python",
+      "title": "chopratejas/headroom：LLM 应用 Context 压缩层，省 60~95% Token 费用不降质量",
+      "category": "AI 基础设施 / LLM 工程 / 成本优化",
+      "file": "2026-06-02-daily.html",
+      "stars": 30220,
+      "threshold": "total 30.2k > 10000"
     }
   ]
 }

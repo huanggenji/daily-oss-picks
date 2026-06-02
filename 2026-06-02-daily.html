@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-06-02</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.7;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    padding: 40px 24px 32px;
+    text-align: center;
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .header .date {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 18px;
+  }
+  .header .intro {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 15px;
+    opacity: 0.9;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 14px 20px;
+  }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 900px;
+    margin: 32px auto 16px;
+    padding: 0 20px;
+  }
+  .section-label .icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-label .icon.projects { background: #e8f4fd; }
+  .section-label .icon.learn { background: #f0faf0; }
+  .section-label h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+  .section-label .sub { font-size: 13px; color: #666; margin-top: 1px; }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 48px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #e8e8f0;
+  }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .card-num.n2 { background: linear-gradient(135deg, #11998e, #38ef7d); }
+  .card-num.n3 { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+  .card-title-block { flex: 1; }
+  .card-title-block h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .card-title-block h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title-block h3 a:hover { color: #f7971e; }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f4f4fa;
+    border: 1px solid #e0e0ee;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+  }
+  .tag.lang { background: #fff3e0; border-color: #ffcc80; color: #e65100; }
+  .tag.stars { background: #fffde7; border-color: #fff176; color: #c6a700; }
+  .tag.cat { background: #e8f5e9; border-color: #a5d6a7; color: #2e7d32; }
+  .tag.trend { background: #fce4ec; border-color: #f48fb1; color: #c62828; }
+  .tagline {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    background: linear-gradient(90deg, #f7971e15, transparent);
+    border-left: 3px solid #f7971e;
+    padding: 8px 14px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 18px;
+  }
+  .tagline.n2 {
+    background: linear-gradient(90deg, #11998e15, transparent);
+    border-left-color: #11998e;
+  }
+  .tagline.n3 {
+    background: linear-gradient(90deg, #8e2de215, transparent);
+    border-left-color: #8e2de2;
+  }
+  .section-block {
+    margin-bottom: 20px;
+  }
+  .section-block h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .section-block p, .section-block ul { font-size: 15px; color: #444; }
+  .section-block ul { padding-left: 20px; }
+  .section-block ul li { margin-bottom: 5px; }
+  .divider {
+    height: 1px;
+    background: #f0f0f5;
+    margin: 16px 0;
+  }
+  .highlight-box {
+    background: #f8f9ff;
+    border: 1px solid #e0e4ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box code {
+    background: #e8eaff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-family: "SF Mono", Consolas, monospace;
+    font-size: 13px;
+    color: #3949ab;
+  }
+  /* Learn card */
+  .learn-card {
+    background: linear-gradient(135deg, #f0faf4, #e8f5e9);
+    border: 1px solid #c8e6c9;
+  }
+  .learn-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .learn-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .learn-title h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1b5e20;
+    line-height: 1.3;
+  }
+  .learn-title .sub { font-size: 13px; color: #555; margin-top: 2px; }
+  pre {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-family: "SF Mono", Consolas, "Courier New", monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    margin: 12px 0;
+    line-height: 1.8;
+  }
+  pre .comment { color: #6c7086; }
+  pre .cmd { color: #89dceb; }
+  pre .val { color: #a6e3a1; }
+  pre .key { color: #f38ba8; }
+  pre .heading { color: #cba6f7; }
+  pre .dollar { color: #fab387; user-select: none; }
+  .copy-hint {
+    font-size: 12px;
+    color: #4caf50;
+    margin-top: -8px;
+    margin-bottom: 10px;
+    padding-left: 4px;
+  }
+  .step-list {
+    counter-reset: step;
+    list-style: none;
+    padding-left: 0;
+  }
+  .step-list li {
+    counter-increment: step;
+    padding-left: 36px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .step-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 22px;
+    text-align: center;
+  }
+  .ref-links {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed #c8e6c9;
+  }
+  .ref-links h4 { font-size: 13px; color: #555; margin-bottom: 8px; font-weight: 600; }
+  .ref-links a {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #a5d6a7;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 13px;
+    color: #2e7d32;
+    text-decoration: none;
+    margin-right: 8px;
+    margin-bottom: 6px;
+  }
+  .ref-links a:hover { background: #e8f5e9; }
+  .footer {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .footer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .footer-tag {
+    background: #fff;
+    border: 1px solid #e0e0ee;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #666;
+  }
+  .footer-summary {
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+  }
+  @media (max-width: 600px) {
+    .header h1 { font-size: 22px; }
+    .card { padding: 20px; }
+    .card-title-block h3 { font-size: 17px; }
+    pre { font-size: 12px; padding: 12px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">每日开源精选 · Daily OSS Picks</div>
+  <h1>GitHub 开源精选 + AI 学习日报</h1>
+  <div class="date">2026年6月2日 星期二</div>
+  <div class="intro">
+    今天精选：🦀 Logitech 鼠标本地开源驱动（系统工具） · 🕷️ 自适应网页爬虫再也不怕页面改版（数据工具） · 🗜️ 给 LLM 省下 60~95% Context 费用的压缩层（AI 基础设施）<br>
+    今日学一招：<strong>Codex CLI 第 4 期——与 git 集成，读 diff 写 commit message</strong>
+  </div>
+</div>
+
+<div class="section-label">
+  <div class="icon projects">🔥</div>
+  <div>
+    <h2>今日精选项目</h2>
+    <div class="sub">共 3 个，覆盖系统驱动 / 网页爬虫 / LLM 成本优化三大方向</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Project 1: OpenLogi -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">1</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/AprilNEA/OpenLogi" target="_blank">AprilNEA / OpenLogi</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🦀 Rust</span>
+      <span class="tag stars">⭐ 68,310+</span>
+      <span class="tag trend">🔥 Trendshift #7 今日</span>
+      <span class="tag cat">系统工具</span>
+      <span class="tag cat">开源驱动</span>
+      <span class="tag cat">隐私优先</span>
+    </div>
+    <div class="tagline">用 Rust 写的罗技鼠标官方驱动开源替代品——不注册账号、不联网、零遥测，数据永远在你自己机器上</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        你买了一只罗技鼠标，想调 DPI、重映射侧键。官方给的方案是安装 Logitech Options+——但这个软件要求你<strong>注册账号、持续后台联网</strong>，并且会把你的设备信息和使用数据发回罗技服务器，完全关不掉。对许多人来说，这是一个让人不舒服的交换：只是想调个鼠标，却交出了隐私。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>OpenLogi</strong> 就是这个问题的答案：纯 Rust 实现，通过 HID++（罗技私有硬件通信协议）直接与鼠标对话，支持重映射按键、调节 DPI、SmartShift 滚轮调节，TOML 配置文件管理所有设置；macOS 版本已有菜单栏 App，Linux / Windows 版本正在开发中。全程本地，不需要账号，没有网络请求。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>HID++ 协议直接通信</strong>：HID++（Human Interface Device Plus Plus）是罗技自研的扩展通信协议，允许主机软件读写鼠标的高级功能寄存器。OpenLogi 逆向工程实现了这套协议，不依赖任何官方 SDK，完全自主可控——这也是整个项目最硬核的技术部分。
+        </li>
+        <li>
+          <strong>Rust 带来的安全保证</strong>：直接操作硬件驱动层的软件一旦出现内存 Bug，轻则崩溃、重则导致系统不稳定。Rust 的所有权系统在编译阶段就消灭了 UAF（use-after-free）、空指针这类经典驱动层 Bug，资源占用也极低，开机常驻几乎感受不到。
+        </li>
+        <li>
+          <strong>TOML 配置文件</strong>：所有配置（哪个按键映射到什么、DPI 是多少）都存在一个人类可读的 TOML 文件里，可以版本控制、团队共享、跨机器同步。与官方 App 把配置锁在云端账号里形成鲜明对比。
+        </li>
+        <li>
+          <strong>macOS 菜单栏 App，开箱即用</strong>：macOS 用户已经有完整 GUI 界面，菜单栏图标常驻，点开即可调节——不是只有极客才能用的命令行玩具。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：官方的 Logitech Options+ 就像你买了一台咖啡机，但要调豆子研磨粗细，必须先用手机注册会员，让品牌知道你每天几点喝咖啡，才给你解锁调节按钮。OpenLogi 相当于一个开源改装套件：不需要会员，直接打开后盖，想怎么调就怎么调，数据从不离开你家厨房。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>使用罗技鼠标的同学</strong>：macOS 用户现在就可以试用，替换掉 Options+；Windows/Linux 用户可以 Watch 仓库，等待正式版发布。
+        </li>
+        <li>
+          <strong>对 Rust / 系统编程感兴趣的同学</strong>：这是一个非常好的「用 Rust 做实际系统工具」的学习案例——代码量不大，但覆盖了 HID USB 通信、协议解析、配置文件处理、macOS 系统托盘集成等完整链路，适合作为进阶项目研读。
+        </li>
+        <li>
+          <strong>通用视角</strong>：「隐私优先的开源替代品」是近两年的明确趋势。越来越多的人开始审视日常软件究竟在后台做什么——像 OpenLogi 这样把「零遥测」作为核心卖点的工具，会越来越受欢迎。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 2: Scrapling -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n2">2</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/D4Vinci/Scrapling" target="_blank">D4Vinci / Scrapling</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🐍 Python</span>
+      <span class="tag stars">⭐ 46,656+</span>
+      <span class="tag trend">🔥 Trendshift #12 今日</span>
+      <span class="tag cat">数据</span>
+      <span class="tag cat">网页爬虫</span>
+      <span class="tag cat">反爬</span>
+    </div>
+    <div class="tagline n2">自适应网页爬虫框架——页面改版后自动重新定位元素，CSS 选择器再也不用手动维护</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        任何做过爬虫的人都有这个噩梦：辛辛苦苦写好一套爬虫，对方网站一改版，所有 CSS 选择器全部失效，脚本哑火，维护工作量和写代码差不多大。这是传统爬虫的核心脆弱性——它依赖页面结构的稳定，而页面结构从来就不稳定。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>Scrapling</strong> 的核心创新是「自适应」：它会学习目标元素在页面上的多维位置特征（标签路径、相邻元素、文字内容特征等），当页面结构变动后，自动用新的路径重新定位同一个元素——不需要你手动更新任何选择器。在此基础上，它还内置了 Cloudflare Turnstile 等主流反爬机制的绕过能力、并发爬取、代理轮换、多 Session 管理，测试覆盖率达到 92%。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>自适应元素定位</strong>：这是 Scrapling 最独特的能力。它不只存一条 CSS 路径，而是用机器学习思路记录元素的「指纹」——位置、层级关系、周围文字……哪怕 DOM 结构大幅重构，只要目标元素还在页面上，它大概率能重新找到它。
+        </li>
+        <li>
+          <strong>内置反爬绕过</strong>：Cloudflare Turnstile 是当前最主流的 Bot 检测机制之一，普通 requests 或者 Playwright 直接被拦截。Scrapling 内置了相应的绕过策略，对于不涉及 JS 渲染的页面，可以在不启动完整浏览器的情况下通过检测，速度远快于 Selenium/Playwright 全量方案。
+        </li>
+        <li>
+          <strong>并发 + 暂停恢复</strong>：支持多个任务并发运行；爬取过程可以暂停、持久化状态、下次启动从断点继续——这对需要爬取大量页面的长时间任务至关重要。
+        </li>
+        <li>
+          <strong>代理轮换 + 多 Session</strong>：内置代理池集成和 Session 隔离，适合需要模拟多个独立用户身份的爬取场景，开箱即用，无需自行拼装。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：传统爬虫就像你凭记忆去超市找东西——你记住的是「酸奶在第三排左起第二个格子」。超市一调整陈列，你就找不到了，只能重新记。Scrapling 更像一个认识商品的购物助理：它记住的是酸奶长什么样、旁边通常放什么——不管超市怎么重新摆放，它都能帮你找到酸奶。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>有数据采集需求的同学</strong>：如果你有长期运行的爬虫（监控价格、采集内容、竞品分析），Scrapling 的自适应能力可以大幅降低维护成本，值得迁移试用。
+        </li>
+        <li>
+          <strong>对反爬感兴趣的同学</strong>：Scrapling 的源码是学习「主流反爬机制是如何工作的，以及如何合理绕过」的好材料——理解攻防双方的逻辑，是做好数据工程的基础知识。
+        </li>
+        <li>
+          <strong>通用视角</strong>：「自适应」是未来软件工具的大方向——不依赖固定规则、能自动应对变化，是从脆弱系统走向鲁棒系统的关键一步。爬虫只是最早出现这个需求的场景之一。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 3: headroom -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n3">3</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/chopratejas/headroom" target="_blank">chopratejas / headroom</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🐍 Python</span>
+      <span class="tag stars">⭐ 30,220+</span>
+      <span class="tag trend">🔥 Trendshift #14 今日</span>
+      <span class="tag cat">AI 基础设施</span>
+      <span class="tag cat">LLM 工程</span>
+      <span class="tag cat">成本优化</span>
+    </div>
+    <div class="tagline n3">LLM 应用的 Context 压缩层——把喂给 AI 的内容智能压缩 60~95%，费用和速度同步改善</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        当你让 AI 处理一段日志、一个工具调用的输出、或者一堆 RAG 检索结果时，这些内容往往塞满了 AI 根本不需要的冗余信息：重复的栈帧、样板代码、无关的 JSON 字段……结果就是大量 token 被浪费在「投喂给 AI 的噪音」上，账单膨胀，响应也变慢。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>headroom</strong> 是一个插在你的应用和 LLM 之间的「压缩层」：它不是粗暴截断，而是智能提取关键内容——错误信息、异常堆栈、与查询相关的代码段、RAG 里真正有用的 chunk——把无关的噪音去掉，压缩比可以达到 60~95%，而 AI 看到的信息质量基本不降。内置 OpenAI 兼容代理模式，只要把 <code>base_url</code> 改成 headroom 的地址，现有代码零改动接入；CacheAligner 模块还能稳定 KV Cache 命中率，进一步降低 API 成本。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>智能提取而非粗暴截断</strong>：headroom 会分析内容的结构和语义，针对不同内容类型用不同策略压缩：日志提取错误行 + 上下文；代码保留函数签名 + 关键逻辑；RAG chunks 按相关性打分过滤——和直接截取前 N 个 token 相比，保留的信息质量差别非常大。
+        </li>
+        <li>
+          <strong>OpenAI 兼容代理模式</strong>：这是工程集成最聪明的设计。headroom 可以作为一个 API 代理运行，对外暴露完全兼容 OpenAI 格式的接口。你只需要把现有代码里的 <code>base_url</code> 从 OpenAI 的地址改成 headroom 的本地地址，所有压缩逻辑自动生效，其他代码一行不改。
+        </li>
+        <li>
+          <strong>CacheAligner</strong>：LLM API 通常提供 KV Cache 功能——相同的前缀内容命中缓存后费率大幅降低。但如果每次请求的 prompt 前缀稍有变化，缓存就会失效。CacheAligner 通过标准化和稳定化 prompt 的固定部分，让缓存命中率最大化，和压缩一起叠加使用，节省效果更显著。
+        </li>
+        <li>
+          <strong>多场景覆盖</strong>：tool outputs（Agent 调用工具的返回结果）、日志、RAG chunks、代码、图片——常见的高 token 消耗场景都有对应的压缩策略，不是只解决一个点。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：给 AI 喂原始日志，就像你把一份 200 页的原始会议记录交给秘书，让他提炼成一份摘要给老板汇报。老板真正需要的其实只有 10 页的决策要点，其余 190 页都是过程细节。headroom 就是那个懂业务的秘书：它不是随机扔掉 190 页，而是认真读完，只保留老板真正需要的部分——老板（AI）做出的决策质量没变，但你不用为那 190 页多余的内容付打印费（token 费）了。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>在用 LLM API 的开发同学</strong>：如果你的应用有大量 tool calling、日志分析或 RAG 检索，headroom 可能是当前投入产出比最高的成本优化手段——代理模式接入几乎没有迁移成本。
+        </li>
+        <li>
+          <strong>对 LLM 工程感兴趣的同学</strong>：headroom 的内部实现是学习「如何针对不同内容类型设计压缩策略」的好材料。这里涉及的思路（结构化分析 + 相关性评分 + 缓存稳定化）是 LLM 应用工程的核心能力点。
+        </li>
+        <li>
+          <strong>通用视角</strong>：「AI 成本」正在变成 AI 落地的第一道门槛。聪明的压缩不是在质量和成本之间妥协——而是让两者同时变好。headroom 代表了一类新兴工具的方向：不是更强的模型，而是更聪明地用现有模型。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- Learning Section -->
+<div class="section-label">
+  <div class="icon learn">📚</div>
+  <div>
+    <h2>今日学一招</h2>
+    <div class="sub">Codex CLI 系列 · 第 4 期</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card learn-card">
+    <div class="learn-title">
+      <div class="learn-icon">⌨️</div>
+      <div>
+        <h3>Codex CLI × git 集成——读 diff、写 commit message，一行命令搞定</h3>
+        <div class="sub">学完本篇，你能让 Codex 自动读懂你的代码改动，生成规范的提交信息，还能挂进 git hook 全自动触发</div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h4>背景：为什么 commit message 总是写不好</h4>
+      <p>
+        提交代码时最难受的一步不是写代码，而是写 commit message。"fix bug"、"update"、"改了一下"……这些无意义的提交信息在几个月后回溯代码时几乎没有价值。写好 commit message 需要你在完成代码改动之后，重新用语言整理一遍「我改了什么、为什么改」——这既费时间，又容易被跳过。
+      </p>
+      <p style="margin-top: 10px;">
+        Codex CLI 和 git 组合起来，可以把这件事变成一行命令：让 Codex 读取你的 diff，自动生成符合 Conventional Commits 规范的提交信息，甚至直接帮你完成 commit。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>用法一：先理解改动，再决定要不要提交</h4>
+      <p style="margin-bottom: 8px;">先让 Codex 用中文解释这次 diff 做了什么，确认理解无误后再生成 message：</p>
+
+<pre><span class="dollar">$</span> <span class="cmd">git diff HEAD | codex</span> <span class="val">"解释这次 diff 做了什么，用中文简洁说明改动的目的和影响"</span>
+</pre>
+      <p class="copy-hint">↑ 可直接复制使用，把 git diff HEAD 替换成 git diff main 可以对比分支差异</p>
+
+      <p style="margin-bottom: 8px; margin-top: 14px;">如果只想看 staged（已 <code>git add</code>）的改动：</p>
+
+<pre><span class="dollar">$</span> <span class="cmd">git diff --staged | codex</span> <span class="val">"用一句话总结这次暂存的改动内容"</span>
+</pre>
+      <p class="copy-hint">↑ --staged 等价于 --cached，只分析已经加入暂存区的文件</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>用法二：直接生成 commit message 并提交</h4>
+      <p style="margin-bottom: 8px;">让 Codex 按 Conventional Commits 格式（<code>feat:</code> / <code>fix:</code> / <code>refactor:</code> 前缀）生成提交信息，并直接执行 commit：</p>
+
+<pre><span class="dollar">$</span> <span class="cmd">git diff --staged | codex</span> <span class="val">"根据这次 diff 生成一条符合 Conventional Commits 规范的 commit message，格式为 type(scope): subject，然后执行 git commit -m '&lt;message&gt;'"</span> <span class="comment">--auto-edit</span>
+</pre>
+      <p class="copy-hint">↑ --auto-edit 让 Codex 在沙箱中直接执行 shell 命令；去掉此参数则只输出 message 不自动提交</p>
+
+      <p style="margin-bottom: 8px; margin-top: 14px;">只想要 message 文本、自己决定要不要用：</p>
+
+<pre><span class="dollar">$</span> <span class="cmd">git diff --staged | codex</span> <span class="val">"输出一条 Conventional Commits 格式的 commit message，只输出 message 本身，不要任何解释"</span>
+<span class="comment"># 复制输出内容，然后：</span>
+<span class="dollar">$</span> <span class="cmd">git commit -m</span> <span class="val">"feat(auth): add OAuth2 refresh token rotation"</span>
+</pre>
+      <p class="copy-hint">↑ 两步走更安全：先看 Codex 给出的 message，满意了再手动 commit</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>进阶：用 git hook 全自动触发</h4>
+      <p style="margin-bottom: 8px;">把上面的命令挂进 <code>prepare-commit-msg</code> hook，每次 <code>git commit</code> 时自动调用 Codex 生成初稿，你在编辑器里确认后保存退出即提交：</p>
+
+<pre><span class="comment"># 在项目根目录执行，创建 hook 脚本</span>
+<span class="dollar">$</span> <span class="cmd">cat</span> &gt; .git/hooks/prepare-commit-msg &lt;&lt; <span class="val">'EOF'</span>
+<span class="heading">#!/bin/sh</span>
+<span class="comment"># 只在普通 commit 时触发（不处理 merge / amend）</span>
+[ "<span class="key">$2</span>" = "merge" ] || [ "<span class="key">$2</span>" = "commit" ] &amp;&amp; exit 0
+<span class="val">MSG</span>=$(git diff --staged | codex <span class="val">"输出一条 Conventional Commits 格式的 commit message，只输出 message，不要多余文字"</span> 2&gt;/dev/null)
+[ -n "<span class="key">$MSG</span>" ] &amp;&amp; echo "<span class="key">$MSG</span>" &gt; "<span class="key">$1</span>"
+<span class="val">EOF</span>
+<span class="dollar">$</span> <span class="cmd">chmod</span> +x .git/hooks/prepare-commit-msg
+</pre>
+      <p class="copy-hint">↑ 完整可复制，粘贴到终端执行即可；hook 写入后对当前仓库所有后续 commit 生效</p>
+
+      <p style="margin-top: 12px;">安装完成后，每次运行 <code>git commit</code>（不带 <code>-m</code>），编辑器会弹出 Codex 自动生成的 message 草稿，你直接确认或微调后保存退出，提交完成。</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>小贴士：让生成结果更准确</h4>
+      <ul class="step-list">
+        <li>
+          <strong>控制 diff 大小</strong>：Codex 一次能处理的上下文有限，一个提交改动 5~10 个文件效果最好；改动太多时先 <code>git add -p</code> 分批暂存，拆成多次小 commit。
+        </li>
+        <li>
+          <strong>在 prompt 里指定语言和格式</strong>：如果你的团队要求英文 message，在 prompt 里明确写"用英文输出"；如果有自定义前缀规范，也一起说清楚，Codex 会严格按要求生成。
+        </li>
+        <li>
+          <strong>对比 diff 模式</strong>：用 <code>git diff main...HEAD</code> 可以把整个 feature branch 的改动汇总成一个 diff 传给 Codex，让它生成一条概括整个分支工作的 PR 描述，比逐条 commit 更适合写 Pull Request 标题和 body。
+        </li>
+      </ul>
+    </div>
+
+    <div class="ref-links">
+      <h4>延伸阅读</h4>
+      <a href="https://www.conventionalcommits.org/zh-hans/" target="_blank">Conventional Commits 规范中文版</a>
+      <a href="https://git-scm.com/book/zh/v2/自定义-Git-Git-钩子" target="_blank">Git Hooks 官方文档</a>
+      <a href="https://github.com/openai/codex" target="_blank">Codex CLI 仓库</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-tags">
+      <span class="footer-tag">#OpenLogi</span>
+      <span class="footer-tag">#Rust驱动</span>
+      <span class="footer-tag">#隐私优先</span>
+      <span class="footer-tag">#Scrapling</span>
+      <span class="footer-tag">#自适应爬虫</span>
+      <span class="footer-tag">#反爬</span>
+      <span class="footer-tag">#headroom</span>
+      <span class="footer-tag">#LLM成本优化</span>
+      <span class="footer-tag">#Codex</span>
+      <span class="footer-tag">#git集成</span>
+      <span class="footer-tag">#2026-06-02</span>
+    </div>
+    <div class="footer-summary">
+      今日一句：好的工具有两种——一种帮你做更多，另一种帮你花更少。今天这三个项目，恰好各演示了一种。
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

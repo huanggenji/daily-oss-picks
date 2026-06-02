@@ -32,6 +32,13 @@
       "category": "ai_basics",
       "title": "什么是 Token——AI 计费与上下文的基本单位",
       "file": "2026-06-01-daily.html"
+    },
+    {
+      "date": "2026-06-02",
+      "topic_id": "codex-git-integration",
+      "category": "codex",
+      "title": "Codex CLI 与 git 集成：读 diff、写 commit message",
+      "file": "2026-06-02-daily.html"
     }
   ]
 }
