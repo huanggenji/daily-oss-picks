@@ -196,6 +196,39 @@
       "file": "2026-06-02-daily.html",
       "stars": 30220,
       "threshold": "total 30.2k > 10000"
+    },
+    {
+      "date": "2026-06-03",
+      "repo": "pewdiepie-archdaemon/odysseus",
+      "url": "https://github.com/pewdiepie-archdaemon/odysseus",
+      "language": "Python",
+      "title": "pewdiepie-archdaemon/odysseus：完全自托管的 AI 工作台，数据不出门",
+      "category": "自托管 / AI 工作台 / 隐私优先",
+      "file": "2026-06-03-daily.html",
+      "stars": 9300,
+      "threshold": "daily trending #1, rapid growth"
+    },
+    {
+      "date": "2026-06-03",
+      "repo": "t8y2/dbx",
+      "url": "https://github.com/t8y2/dbx",
+      "language": "Rust",
+      "title": "t8y2/dbx：15MB 零依赖跨平台数据库客户端，支持 40+ 数据库内置 AI 和 MCP",
+      "category": "开发工具 / 数据库客户端 / 轻量工具",
+      "file": "2026-06-03-daily.html",
+      "stars": 35724,
+      "threshold": "total 35.7k > 10000"
+    },
+    {
+      "date": "2026-06-03",
+      "repo": "supermemoryai/supermemory",
+      "url": "https://github.com/supermemoryai/supermemory",
+      "language": "TypeScript",
+      "title": "supermemoryai/supermemory：AI 时代的记忆引擎 API，让 AI 助手跨对话记住用户",
+      "category": "AI 基础设施 / 记忆引擎 / RAG",
+      "file": "2026-06-03-daily.html",
+      "stars": 53530,
+      "threshold": "total 53.5k > 10000"
     }
   ]
 }

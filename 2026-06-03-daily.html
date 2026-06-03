@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-06-03</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.7;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    padding: 40px 24px 32px;
+    text-align: center;
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .header .date {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 18px;
+  }
+  .header .intro {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 15px;
+    opacity: 0.9;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 14px 20px;
+  }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 900px;
+    margin: 32px auto 16px;
+    padding: 0 20px;
+  }
+  .section-label .icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-label .icon.projects { background: #e8f4fd; }
+  .section-label .icon.learn { background: #f0faf0; }
+  .section-label h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+  .section-label .sub { font-size: 13px; color: #666; margin-top: 1px; }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 48px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #e8e8f0;
+  }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .card-num.n2 { background: linear-gradient(135deg, #11998e, #38ef7d); }
+  .card-num.n3 { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+  .card-title-block { flex: 1; }
+  .card-title-block h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .card-title-block h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title-block h3 a:hover { color: #f7971e; }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f4f4fa;
+    border: 1px solid #e0e0ee;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+  }
+  .tag.lang { background: #fff3e0; border-color: #ffcc80; color: #e65100; }
+  .tag.stars { background: #fffde7; border-color: #fff176; color: #c6a700; }
+  .tag.cat { background: #e8f5e9; border-color: #a5d6a7; color: #2e7d32; }
+  .tag.trend { background: #fce4ec; border-color: #f48fb1; color: #c62828; }
+  .tagline {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    background: linear-gradient(90deg, #f7971e15, transparent);
+    border-left: 3px solid #f7971e;
+    padding: 8px 14px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 18px;
+  }
+  .tagline.n2 {
+    background: linear-gradient(90deg, #11998e15, transparent);
+    border-left-color: #11998e;
+  }
+  .tagline.n3 {
+    background: linear-gradient(90deg, #8e2de215, transparent);
+    border-left-color: #8e2de2;
+  }
+  .section-block {
+    margin-bottom: 20px;
+  }
+  .section-block h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .section-block p, .section-block ul { font-size: 15px; color: #444; }
+  .section-block ul { padding-left: 20px; }
+  .section-block ul li { margin-bottom: 5px; }
+  .divider {
+    height: 1px;
+    background: #f0f0f5;
+    margin: 16px 0;
+  }
+  .highlight-box {
+    background: #f8f9ff;
+    border: 1px solid #e0e4ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box code {
+    background: #e8eaff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-family: "SF Mono", Consolas, monospace;
+    font-size: 13px;
+    color: #3949ab;
+  }
+  /* Learn card */
+  .learn-card {
+    background: linear-gradient(135deg, #f0faf4, #e8f5e9);
+    border: 1px solid #c8e6c9;
+  }
+  .learn-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .learn-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .learn-title h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1b5e20;
+    line-height: 1.3;
+  }
+  .learn-title .sub { font-size: 13px; color: #555; margin-top: 2px; }
+  /* Vector space diagram */
+  .vector-diagram {
+    background: #1e1e2e;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 14px 0;
+    overflow-x: auto;
+  }
+  .vector-diagram pre {
+    background: transparent;
+    color: #cdd6f4;
+    font-family: "SF Mono", Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.9;
+    white-space: pre;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .vector-diagram .dim { color: #6c7086; }
+  .vector-diagram .hi { color: #a6e3a1; font-weight: 700; }
+  .vector-diagram .ann { color: #89dceb; }
+  .vector-diagram .axis { color: #fab387; }
+  .vector-diagram .dot-animal { color: #f38ba8; }
+  .vector-diagram .dot-vehicle { color: #cba6f7; }
+  .vector-diagram .dot-fruit { color: #a6e3a1; }
+  .vector-diagram .arrow { color: #f9e2af; }
+  pre {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-family: "SF Mono", Consolas, "Courier New", monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    margin: 12px 0;
+    line-height: 1.8;
+  }
+  pre .comment { color: #6c7086; }
+  pre .cmd { color: #89dceb; }
+  pre .val { color: #a6e3a1; }
+  pre .key { color: #f38ba8; }
+  pre .heading { color: #cba6f7; }
+  pre .dollar { color: #fab387; user-select: none; }
+  .step-list {
+    counter-reset: step;
+    list-style: none;
+    padding-left: 0;
+  }
+  .step-list li {
+    counter-increment: step;
+    padding-left: 36px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .step-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 22px;
+    text-align: center;
+  }
+  .ref-links {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed #c8e6c9;
+  }
+  .ref-links h4 { font-size: 13px; color: #555; margin-bottom: 8px; font-weight: 600; }
+  .ref-links a {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #a5d6a7;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 13px;
+    color: #2e7d32;
+    text-decoration: none;
+    margin-right: 8px;
+    margin-bottom: 6px;
+  }
+  .ref-links a:hover { background: #e8f5e9; }
+  .footer {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .footer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .footer-tag {
+    background: #fff;
+    border: 1px solid #e0e0ee;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #666;
+  }
+  .footer-summary {
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+  }
+  @media (max-width: 600px) {
+    .header h1 { font-size: 22px; }
+    .card { padding: 20px; }
+    .card-title-block h3 { font-size: 17px; }
+    .vector-diagram pre { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">每日开源精选 · Daily OSS Picks</div>
+  <h1>GitHub 开源精选 + AI 学习日报</h1>
+  <div class="date">2026年6月3日 星期二</div>
+  <div class="intro">
+    今天精选：自托管 AI 工作台让数据永不出门 · 15MB 零依赖数据库客户端完全替代 Navicat · AI 记忆引擎让助手跨对话记住你<br>
+    今日学一招：<strong>AI 基础第 2 期——什么是 Embedding（向量），为什么 RAG 离不开它</strong>
+  </div>
+</div>
+
+<div class="section-label">
+  <div class="icon projects">🔥</div>
+  <div>
+    <h2>今日精选项目</h2>
+    <div class="sub">共 3 个，覆盖自托管 AI 工作台 / 数据库客户端 / AI 记忆引擎三大方向</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Project 1: odysseus -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">1</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/pewdiepie-archdaemon/odysseus" target="_blank">pewdiepie-archdaemon / odysseus</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🐍 Python</span>
+      <span class="tag stars">⭐ 9,300+</span>
+      <span class="tag trend">🔥 Trendshift #1 今日</span>
+      <span class="tag cat">自托管</span>
+      <span class="tag cat">AI 工作台</span>
+      <span class="tag cat">隐私优先</span>
+    </div>
+    <div class="tagline">完全自托管的 AI 工作台——把 ChatGPT/Claude 的全套体验搬到自己服务器，对话数据绝不离开本地</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        每天在 ChatGPT 或 Claude 上处理工作内容，你有没有想过：那些对话、那些上传的文件，究竟存在谁的服务器上？对于企业用户、处理敏感数据的团队、或者只是不想把数据交给第三方的个人来说，这是一个绕不开的问题。商业方案要么价格昂贵，要么依然需要把数据送到云端。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>Odysseus</strong> 是这个问题的完整解答：一个完全可以自己部署的 AI 工作台，界面和体验对标 ChatGPT，但数据 100% 在你自己的机器上。它支持对接 Ollama、vLLM、OpenRouter、OpenAI 等多种模型后端；内置自主 Agent，带有 bash 执行、文件操作、网页浏览、持久记忆等工具，以及 MCP（Model Context Protocol）支持；还有一键部署的 270+ 模型目录，以及邮件/日历 AI 摘要与草稿生成功能。全程无遥测，代码开放可审计。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>本地优先 + 零遥测</strong>：所有对话记录、上传文件、模型配置都存在本地数据库里，没有任何内容会上传到开发者服务器。这不是靠信任来保证的，而是靠代码结构来保证的——审计源码即可验证。
+        </li>
+        <li>
+          <strong>自主 Agent 多步骤执行</strong>：内置 Agent 不只是聊天，可以规划并执行多步骤任务：先搜索网页获取信息，再写入文件，再运行 bash 命令验证结果……整个过程自动串联，不需要你手动一步步指挥。MCP 支持还允许接入更多外部工具。
+        </li>
+        <li>
+          <strong>270+ 模型一键部署目录</strong>：内置模型市场，常见开源模型（Llama、Qwen、Mistral、Gemma……）可以直接从界面选择部署，自动下载和配置，无需手动折腾 Ollama 命令行。
+        </li>
+        <li>
+          <strong>邮件 / 日历 AI 集成</strong>：可以连接你的邮箱，让 AI 自动读取邮件并生成摘要、起草回复；日历集成则支持用自然语言了解今天的日程安排。这些功能直接在本地处理，邮件内容不经过任何第三方。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：用 ChatGPT 处理工作文件，就像把重要文件交给一家便利店的复印机来处理——便利，但你不知道机器会不会存一份记录。Odysseus 相当于你自己家里摆了一台一模一样的复印机：操作界面相同、功能一模一样，但所有文件进出都在你家，钥匙在你自己口袋里。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>有数据隐私顾虑的团队</strong>：如果你们的业务涉及合同、代码、客户数据，Odysseus 提供了一条完全在自己基础设施上运行 AI 的可行路径，而不需要为企业版 ChatGPT 支付高额订阅费。
+        </li>
+        <li>
+          <strong>想了解 Agent 工作原理的同学</strong>：Odysseus 的 Agent 模块代码结构清晰，是学习「工具调用 + 多步骤规划」如何实现的好案例——从 tool 定义到 loop 执行逻辑，完整可读。
+        </li>
+        <li>
+          <strong>通用视角</strong>：「本地优先」是 AI 工具下一阶段的主要分水岭。随着本地模型质量越来越高，「数据主权」将成为越来越多企业和个人的首要选择标准。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 2: dbx -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n2">2</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/t8y2/dbx" target="_blank">t8y2 / dbx</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🦀 Rust</span>
+      <span class="tag lang">📘 TypeScript</span>
+      <span class="tag stars">⭐ 35,724+</span>
+      <span class="tag trend">🔥 Trendshift #24 今日</span>
+      <span class="tag cat">开发工具</span>
+      <span class="tag cat">数据库客户端</span>
+      <span class="tag cat">轻量工具</span>
+    </div>
+    <div class="tagline n2">15MB、零依赖、支持 40+ 数据库的跨平台客户端——内置 AI 助手和 MCP 服务，彻底替代 Navicat/DataGrip</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        Navicat 要几百美元一年；DataGrip 依赖 JVM，启动慢、占内存；DBeaver 功能强但界面复杂；免费选项往往在某个关键功能上留着缺口。数据库 GUI 工具这个品类，长期以来要么贵、要么慢、要么重。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>dbx</strong> 用一个完全不同的方向解决了这个问题：Rust 内核 + TypeScript 前端，单文件 15MB，没有任何运行时依赖（不需要 Java、不需要 Python、不需要 Node.js）。支持 MySQL、PostgreSQL、SQLite、Redis、MongoDB、DuckDB、ClickHouse、SQL Server 等 40+ 数据库，内嵌 CodeMirror 编辑器（语法高亮 + 自动补全），虚拟滚动处理百万级结果集，支持导出 CSV/JSON/Markdown/XLSX。更独特的是：内置 AI 助手可以用自然语言写 SQL，内置 MCP 服务让 Claude Code 或其他 AI 编程助手可以直接查询你的数据库——桌面应用、Docker 容器、Web 三种部署方式任选。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>15MB 单文件无依赖</strong>：这是整个项目最令人印象深刻的数字。Rust 编译出的 native 内核处理数据库连接和协议解析，Tauri 框架把 Web 前端打包成桌面应用，最终产物是一个 15MB 的可执行文件，双击就能跑，不需要任何额外安装步骤。相比之下，DataGrip 光 JVM 就要几百 MB。
+        </li>
+        <li>
+          <strong>内置 MCP 服务</strong>：这是让 dbx 在 AI 时代脱颖而出的关键功能。MCP（Model Context Protocol）是 Anthropic 主导的 AI 工具调用标准。dbx 内置 MCP 服务后，Claude Code、Codex 等 AI 编程助手可以直接「问」数据库：查表结构、执行 SQL、分析数据——不需要复制粘贴结果，AI 直接与数据库对话。
+        </li>
+        <li>
+          <strong>虚拟滚动大结果集</strong>：查询返回 100 万行结果时，传统工具要么卡死要么拒绝显示全部。dbx 用虚拟滚动技术：DOM 里永远只渲染视窗内可见的那几十行，内存占用极低，滚动流畅，无论多大的结果集都不怕。
+        </li>
+        <li>
+          <strong>40+ 数据库统一界面</strong>：从传统关系型（MySQL/PostgreSQL/SQL Server）到时序数据库、列式分析数据库（ClickHouse/DuckDB）、缓存（Redis）、文档型（MongoDB），一个工具统一界面管理，团队里不同角色的人不需要装不同的工具。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：Navicat 就像一把瑞士军刀豪华版——功能很多，但要买的话很贵，而且用之前得先找到装电池的地方才能用。dbx 更像一把高质量的单刀：不需要任何准备，拿出来就能用，刀刃锋利，还顺手刻了个二维码可以直接和你的 AI 助手通信。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>日常需要操作数据库的同学</strong>：无论是后端开发、数据分析还是运维，dbx 可以作为现有数据库工具的替代或补充，尤其值得尝试它的 AI 助手功能——用自然语言描述要查什么，让它帮你写 SQL。
+        </li>
+        <li>
+          <strong>在用 AI 编程助手的同学</strong>：如果你使用 Claude Code 或其他支持 MCP 的 AI 工具，配置 dbx 的 MCP 服务后，AI 助手就能直接查询你本地数据库，大幅减少「复制表结构 → 粘贴给 AI → 再复制 SQL 回来执行」这个低效循环。
+        </li>
+        <li>
+          <strong>通用视角</strong>：「零依赖」+「单文件分发」是 Rust 生态工具的核心竞争力之一。随着 Rust 工具链成熟，这类「比老牌工具小 10 倍但功能不少」的替代品会越来越多出现在各个品类。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 3: supermemory -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n3">3</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/supermemoryai/supermemory" target="_blank">supermemoryai / supermemory</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">📘 TypeScript</span>
+      <span class="tag stars">⭐ 53,530+</span>
+      <span class="tag trend">🔥 Trendshift #11 今日</span>
+      <span class="tag cat">AI 基础设施</span>
+      <span class="tag cat">记忆引擎</span>
+      <span class="tag cat">RAG</span>
+    </div>
+    <div class="tagline n3">AI 时代的记忆引擎 API——让你的 AI 助手跨对话记住用户，告别每次从零开始</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        用 ChatGPT 或者自己搭的 AI 客服时，你肯定遇到过这个尴尬：上次跟 AI 说了自己的偏好、说了自己的背景信息，下次打开新对话，AI 完全不记得了，一切从头来过。这不只是体验问题——对于需要个性化服务的 AI 产品，这是一个根本性的能力缺失。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>Supermemory</strong> 提供了一个 API，专门解决这个问题：它在对话过程中自动提取用户说过的事实（「我是素食主义者」「我在上海工作」「我不喜欢正式的语气」），构建并持续更新用户画像；当用户开启新对话时，它能在约 50ms 内检索出最相关的历史记忆，注入到当前上下文里。它还处理了知识矛盾（用户之前说喜欢 A，后来说不喜欢 A，应该以哪个为准）和知识更新（「我换工作了」意味着旧的工作信息应该失效）。内置 MCP 服务，让 Claude Code、Codex、Hermes 等 AI 编程助手直接拥有持久记忆能力。在 LongMemEval、LoCoMo、ConvoMem 三大记忆基准测试中排名第一。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>自动事实提取 + 用户画像构建</strong>：这是 Supermemory 最核心的能力。它不是简单地把对话存起来再全量塞回去（那样 token 消耗会爆炸），而是从对话中提取结构化的「事实点」，存进向量数据库，检索时只取出最相关的那几条。这才是真正可扩展的记忆方案。
+        </li>
+        <li>
+          <strong>处理记忆矛盾与更新</strong>：人的信息会变化，也会前后矛盾。Supermemory 的记忆管理逻辑会处理时效性（新信息优先）和矛盾消解（同一属性的多条记录如何取舍），而不是简单地堆叠所有历史信息。
+        </li>
+        <li>
+          <strong>混合搜索 + 约 50ms 响应</strong>：检索时同时使用向量相似度搜索（语义匹配）和关键词搜索（精确匹配），两路结果合并排序，响应时间约 50ms，不会对对话体验造成明显延迟。
+        </li>
+        <li>
+          <strong>一个 API 搞定全套流程</strong>：向量存储、Embedding 生成、检索、记忆管理——这些通常需要分别选型并拼装的能力，Supermemory 作为单一 API 提供，降低了在 AI 应用中接入记忆能力的门槛。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：没有记忆的 AI 就像每天换一个新服务员的餐厅：你每次来都要重新告诉他你不吃辣、不喝咖啡因、常点 A 餐。有了 Supermemory，AI 就像一个认识你多年的老朋友开的小馆子：你还没说话，老板已经说「老规矩？」——它记得你的所有习惯，还记得上周你说最近在减肥，今天主动给你推荐了低卡选项。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>在开发 AI 应用的同学</strong>：如果你的产品有复访用户，接入 Supermemory 是当前成本最低的个性化方案——不需要自己搭建向量数据库、写 Embedding 流水线，一个 API 调用就能让 AI 「认识」你的用户。
+        </li>
+        <li>
+          <strong>在用 Claude Code 的同学</strong>：配置 Supermemory 的 MCP 服务后，Claude Code 会在不同项目之间保持你的偏好记忆（你喜欢的代码风格、你常用的库、你不想被重复建议的东西）——这是现在就能用起来的实用功能。
+        </li>
+        <li>
+          <strong>通用视角</strong>：「记忆」是 AI 从工具升级为助手的关键一跃。现在市场上真正把这件事做好的产品极少，Supermemory 的三项基准测试第一说明它在这个方向上有真实的技术积累，值得关注。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- Learning Section -->
+<div class="section-label">
+  <div class="icon learn">📚</div>
+  <div>
+    <h2>今日学一招</h2>
+    <div class="sub">AI 基础系列 · 第 2 期</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card learn-card">
+    <div class="learn-title">
+      <div class="learn-icon">🧭</div>
+      <div>
+        <h3>什么是 Embedding（向量）——AI 是怎么理解「意思远近」的</h3>
+        <div class="sub">学完本篇，你能明白 RAG 为什么不是关键词搜索，以及「语义相似度」究竟是什么意思</div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h4>从一个问题开始</h4>
+      <p>
+        计算机很擅长比较数字（3 和 5 哪个大？），但它本来不懂「语言」。「猫」和「狗」在文字上没有任何字符重叠，但人一眼就知道它们意思相近；「猫」和「汽车」字面上同样没有重叠，但人知道它们差得很远。计算机怎么学会这种「意思远近」的判断？答案就是 <strong>Embedding</strong>。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>Embedding 是什么</h4>
+      <p>
+        Embedding（向量化/嵌入）的本质是：<strong>把一段文字变成一串数字</strong>，让计算机能用数学来衡量「意思的远近」。
+      </p>
+      <p style="margin-top: 10px;">
+        举个例子，AI 会把「猫」变成类似 <code>[0.82, 0.71, 0.15, ...]</code> 这样一串几百个数字，把「狗」变成类似 <code>[0.79, 0.68, 0.18, ...]</code>——这两串数字非常相近。而「汽车」可能会变成 <code>[0.12, 0.05, 0.91, ...]</code>——和「猫」差得很远。这串数字就是这个词在「意思空间」里的坐标。
+      </p>
+      <p style="margin-top: 10px;">
+        比较两个向量的距离（通常用余弦相似度），就得到了「意思的远近」——这是 AI 理解语义的基础工具。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>向量空间示意图</h4>
+      <p style="margin-bottom: 10px;">想象一张语义地图，每个词是地图上的一个点，意思相近的词住在彼此附近：</p>
+      <div class="vector-diagram">
+        <pre>
+  <span class="axis">高维语义空间（简化为 2D 示意）</span>
+
+  生物/动物方向 ↑
+                │
+           <span class="dot-animal">● 猫</span>   <span class="dot-animal">● 狗</span>
+                │   <span class="arrow">←─── 距离近（意思相近）──→</span>
+           <span class="dot-animal">● 鸟</span>   <span class="dot-animal">● 鱼</span>
+                │
+  ────────────────────────────────── 工具/机器方向 →
+                │
+           <span class="dot-vehicle">● 汽车</span>  <span class="dot-vehicle">● 飞机</span>
+                │   <span class="arrow">←─── 距离近（意思相近）──→</span>
+           <span class="dot-vehicle">● 火车</span>  <span class="dot-vehicle">● 轮船</span>
+                │
+                │            <span class="dot-fruit">● 苹果</span>
+                │            <span class="dot-fruit">● 香蕉</span>   <span class="dim">← 食物/植物方向</span>
+                │            <span class="dot-fruit">● 橙子</span>
+
+  <span class="dim">注：「猫」和「狗」的距离远小于「猫」和「汽车」的距离</span>
+  <span class="dim">    Embedding 就是给每个词在这张地图上分配一个坐标</span>
+        </pre>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>为什么 RAG 离不开 Embedding</h4>
+      <p>
+        RAG（检索增强生成）的核心动作是：用户提问 → 从知识库里找出最相关的内容片段 → 一起送给 AI 回答。问题是，「找出最相关的内容」怎么做？
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>关键词搜索的局限</strong>：用户问「怎么让猫咪吃药」，知识库里有一篇「给宠物喂药的技巧」。两者没有完全重叠的关键词，传统搜索找不到。但 Embedding 搜索会：「猫咪」「宠物」在向量空间里很近，「吃药」「喂药」也很近，语义相似度高，可以被准确召回。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>向量搜索的流程</strong>：把知识库里每段文字都提前算好 Embedding 存起来；用户提问时，把问题也算成 Embedding；在向量空间里找「坐标最近」的那几段文字，作为参考内容给 AI。整个过程不靠关键词匹配，靠的是「语义坐标的距离计算」——这就是为什么 RAG 依赖 Embedding 的根本原因。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>一句话总结</h4>
+      <ul class="step-list">
+        <li>
+          <strong>Embedding = 把文字变成坐标</strong>：让计算机能用数学距离来衡量意思远近。
+        </li>
+        <li>
+          <strong>意思相近 = 坐标靠近</strong>：「猫」和「狗」的向量坐标比「猫」和「汽车」近得多。
+        </li>
+        <li>
+          <strong>RAG 的检索 = 坐标距离查找</strong>：找向量空间里离问题「坐标」最近的知识片段，而不是关键词匹配。
+        </li>
+        <li>
+          <strong>今日三选中的关联</strong>：Supermemory 就是用 Embedding 来存储和检索用户记忆的——检索「最相关的历史信息」本质上就是向量相似度搜索。
+        </li>
+      </ul>
+    </div>
+
+    <div class="ref-links">
+      <h4>延伸了解</h4>
+      <a href="https://platform.openai.com/docs/guides/embeddings" target="_blank">OpenAI Embeddings 文档</a>
+      <a href="https://github.com/supermemoryai/supermemory" target="_blank">Supermemory（今日项目）</a>
+      <a href="https://en.wikipedia.org/wiki/Word2vec" target="_blank">Word2Vec（Embedding 的开创性工作）</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-tags">
+      <span class="footer-tag">#odysseus</span>
+      <span class="footer-tag">#自托管AI</span>
+      <span class="footer-tag">#本地优先</span>
+      <span class="footer-tag">#dbx</span>
+      <span class="footer-tag">#数据库客户端</span>
+      <span class="footer-tag">#零依赖</span>
+      <span class="footer-tag">#supermemory</span>
+      <span class="footer-tag">#AI记忆</span>
+      <span class="footer-tag">#RAG</span>
+      <span class="footer-tag">#Embedding向量</span>
+      <span class="footer-tag">#AI基础</span>
+      <span class="footer-tag">#2026-06-03</span>
+    </div>
+    <div class="footer-summary">
+      今日一句：数据在自己手里、工具装进口袋、记忆跨越对话——今天三个项目，分别把这三件事做到了极致。
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

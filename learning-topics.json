@@ -39,6 +39,13 @@
       "category": "codex",
       "title": "Codex CLI 与 git 集成：读 diff、写 commit message",
       "file": "2026-06-02-daily.html"
+    },
+    {
+      "date": "2026-06-03",
+      "topic_id": "embeddings-basics",
+      "category": "ai_basics",
+      "title": "什么是 Embedding（向量）——AI 理解语义的基础",
+      "file": "2026-06-03-daily.html"
     }
   ]
 }
