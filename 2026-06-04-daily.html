@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-06-04</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.7;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    padding: 40px 24px 32px;
+    text-align: center;
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .header .date {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 18px;
+  }
+  .header .intro {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 15px;
+    opacity: 0.9;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 14px 20px;
+  }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 900px;
+    margin: 32px auto 16px;
+    padding: 0 20px;
+  }
+  .section-label .icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-label .icon.projects { background: #e8f4fd; }
+  .section-label .icon.learn { background: #f0faf0; }
+  .section-label h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+  .section-label .sub { font-size: 13px; color: #666; margin-top: 1px; }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 48px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #e8e8f0;
+  }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .card-num.n2 { background: linear-gradient(135deg, #00b4db, #0083b0); }
+  .card-num.n3 { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+  .card-title-block { flex: 1; }
+  .card-title-block h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .card-title-block h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title-block h3 a:hover { color: #f7971e; }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f4f4fa;
+    border: 1px solid #e0e0ee;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+  }
+  .tag.lang { background: #fff3e0; border-color: #ffcc80; color: #e65100; }
+  .tag.stars { background: #fffde7; border-color: #fff176; color: #c6a700; }
+  .tag.cat { background: #e8f5e9; border-color: #a5d6a7; color: #2e7d32; }
+  .tag.trend { background: #fce4ec; border-color: #f48fb1; color: #c62828; }
+  .tagline {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    background: linear-gradient(90deg, #f7971e15, transparent);
+    border-left: 3px solid #f7971e;
+    padding: 8px 14px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 18px;
+  }
+  .tagline.n2 {
+    background: linear-gradient(90deg, #00b4db15, transparent);
+    border-left-color: #00b4db;
+  }
+  .tagline.n3 {
+    background: linear-gradient(90deg, #8e2de215, transparent);
+    border-left-color: #8e2de2;
+  }
+  .section-block {
+    margin-bottom: 20px;
+  }
+  .section-block h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .section-block p, .section-block ul { font-size: 15px; color: #444; }
+  .section-block ul { padding-left: 20px; }
+  .section-block ul li { margin-bottom: 5px; }
+  .divider {
+    height: 1px;
+    background: #f0f0f5;
+    margin: 16px 0;
+  }
+  .highlight-box {
+    background: #f8f9ff;
+    border: 1px solid #e0e4ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 15px;
+    color: #444;
+  }
+  .highlight-box code {
+    background: #e8eaff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-family: "SF Mono", Consolas, monospace;
+    font-size: 13px;
+    color: #3949ab;
+  }
+  /* Learn card */
+  .learn-card {
+    background: linear-gradient(135deg, #f0faf4, #e8f5e9);
+    border: 1px solid #c8e6c9;
+  }
+  .learn-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .learn-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .learn-title h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1b5e20;
+    line-height: 1.3;
+  }
+  .learn-title .sub { font-size: 13px; color: #555; margin-top: 2px; }
+  pre {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-family: "SF Mono", Consolas, "Courier New", monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    margin: 12px 0;
+    line-height: 1.8;
+  }
+  pre .comment { color: #6c7086; }
+  pre .cmd { color: #89dceb; }
+  pre .val { color: #a6e3a1; }
+  pre .key { color: #f38ba8; }
+  pre .heading { color: #cba6f7; }
+  pre .dollar { color: #fab387; user-select: none; }
+  pre .str { color: #a6e3a1; }
+  pre .kw { color: #cba6f7; }
+  .copy-block {
+    position: relative;
+    margin: 12px 0;
+  }
+  .copy-block pre {
+    margin: 0;
+  }
+  .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    color: #cdd6f4;
+    font-size: 11px;
+    padding: 3px 9px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .copy-btn:hover { background: rgba(255,255,255,0.22); }
+  .copy-btn.copied { color: #a6e3a1; border-color: #a6e3a133; }
+  .step-list {
+    counter-reset: step;
+    list-style: none;
+    padding-left: 0;
+  }
+  .step-list li {
+    counter-increment: step;
+    padding-left: 36px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .step-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 22px;
+    text-align: center;
+  }
+  .ref-links {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed #c8e6c9;
+  }
+  .ref-links h4 { font-size: 13px; color: #555; margin-bottom: 8px; font-weight: 600; }
+  .ref-links a {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #a5d6a7;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 13px;
+    color: #2e7d32;
+    text-decoration: none;
+    margin-right: 8px;
+    margin-bottom: 6px;
+  }
+  .ref-links a:hover { background: #e8f5e9; }
+  .footer {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .footer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .footer-tag {
+    background: #fff;
+    border: 1px solid #e0e0ee;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #666;
+  }
+  .footer-summary {
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+  }
+  .mode-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mode-box {
+    background: #1e1e2e;
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: #cdd6f4;
+    font-size: 13px;
+  }
+  .mode-box .mode-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: #fab387;
+  }
+  .mode-box.auto .mode-label { color: #a6e3a1; }
+  .mode-box ul {
+    padding-left: 16px;
+    color: #bac2de;
+    font-size: 13px;
+    line-height: 1.7;
+    list-style: disc;
+  }
+  @media (max-width: 600px) {
+    .header h1 { font-size: 22px; }
+    .card { padding: 20px; }
+    .card-title-block h3 { font-size: 17px; }
+    .mode-compare { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">每日开源精选 · Daily OSS Picks</div>
+  <h1>GitHub 开源精选 + AI 学习日报</h1>
+  <div class="date">2026年6月4日 星期三</div>
+  <div class="intro">
+    今天精选：开源 CapCut 完全在本地处理视频 · 30 元硬件把飞机投影到天花板 · Datawhale 出品零基础 Agent 中文教程<br>
+    今日学一招：<strong>Codex CLI 系列第 5 期——长任务拆解与子任务编排实战</strong>
+  </div>
+</div>
+
+<div class="section-label">
+  <div class="icon projects">🔥</div>
+  <div>
+    <h2>今日精选项目</h2>
+    <div class="sub">共 3 个，覆盖隐私视频编辑 / 硬件极客可视化 / 中文 AI Agent 教程三大方向</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Project 1: OpenCut -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">1</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/OpenCut-app/OpenCut" target="_blank">OpenCut-app / OpenCut</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">📘 TypeScript</span>
+      <span class="tag lang">🦀 Rust</span>
+      <span class="tag stars">⭐ 67,297</span>
+      <span class="tag trend">🔥 Trendshift #5 今日</span>
+      <span class="tag cat">创意工具</span>
+      <span class="tag cat">视频编辑</span>
+      <span class="tag cat">隐私优先</span>
+    </div>
+    <div class="tagline">开源的 CapCut 替代品——视频在本地剪，永不上传服务器，无水印无订阅费</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        CapCut 好用，但有两个绕不开的问题：视频会上传到字节跳动的服务器（隐私风险）；免费版的导出带水印，去水印要付订阅费。Adobe Premiere 等专业软件学习门槛高、价格昂贵，很多人只是需要一个「剪个短视频、加个字幕、拼几段素材」的日常工具。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>OpenCut</strong> 把 CapCut 的核心体验完整开源，并且做出了关键差异：视频文件从不上传到任何服务器，所有处理在用户本地完成。Web 端用 Next.js 构建，直接在浏览器里运行；桌面端（macOS/Windows/Linux）用 GPUI 框架（Rust 实现），底层用 Rust 核心做 GPU 合成，渲染性能稳定；移动端版本也在规划中。功能覆盖多轨道时间线编辑、实时预览、音视频分离、字幕添加；无水印、无账号、无订阅。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>隐私优先：处理完全在本地</strong>：这不是一句广告语，而是架构决策带来的必然结果。Web 版利用浏览器的 WebCodecs API 在客户端直接解码和编码视频，桌面版用本地 Rust 核心处理，整个流程没有任何与远程服务器交互的必要。你剪的婚礼视频、出差记录、工作演示，都不会经过任何第三方服务器。
+        </li>
+        <li>
+          <strong>Web 端 + 桌面端双架构</strong>：Web 版打开浏览器就能用，不需要安装任何软件，适合随手处理；桌面版基于 GPUI (Rust) 和 Tauri，调用本地 GPU 资源，适合处理大文件和长视频，性能更稳。两套界面统一设计语言，切换没有学习成本。
+        </li>
+        <li>
+          <strong>Rust 核心做 GPU 合成</strong>：视频合成是计算密集型操作，传统 Web 方案在 CPU 上跑很慢。OpenCut 的底层合成引擎用 Rust 编写，直接调用 GPU，多轨道叠加、滤镜、字幕渲染都在 GPU 上并行完成，实时预览流畅不卡顿。
+        </li>
+        <li>
+          <strong>界面与 CapCut 高度相似</strong>：左侧素材库、中间预览窗口、下方时间线——布局和操作逻辑对熟悉 CapCut 的用户几乎零学习成本，直接上手。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：用 CapCut 剪视频就像在便利店的自助打印机上处理照片——方便，但你不确定机器有没有留存你的图片记录。OpenCut 相当于你家里有了一台一模一样的打印机：操作界面相同，功能齐全，但你的视频素材从来不离开你的硬盘。而且这台打印机免费，还没有广告水印。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>有视频剪辑需求的同学</strong>：如果你的视频内容涉及商业机密、个人隐私或不希望数据离开本地，OpenCut 是目前最接近商业产品体验的开源方案，Web 版打开即用，门槛极低。
+        </li>
+        <li>
+          <strong>对技术栈感兴趣的同学</strong>：OpenCut 的架构是学习「Rust + Web 混合渲染」的好案例——Rust 做性能敏感的 GPU 合成内核，TypeScript/Next.js 做用户界面，GPUI 框架实现桌面端，这套组合在越来越多的现代工具中出现。
+        </li>
+        <li>
+          <strong>通用视角</strong>：「本地优先 + 隐私保护」正在成为工具类软件的核心卖点，尤其在视频、AI 对话、笔记等涉及个人内容的品类。67k 星标说明这个需求是真实且广泛的。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 2: skylight -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n2">2</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/cpaczek/skylight" target="_blank">cpaczek / skylight</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🐍 Python</span>
+      <span class="tag stars">⭐ 59,931</span>
+      <span class="tag trend">🔥 Trendshift #6 今日</span>
+      <span class="tag cat">硬件极客</span>
+      <span class="tag cat">可视化</span>
+      <span class="tag cat">SDR</span>
+    </div>
+    <div class="tagline n2">用 30 元的 RTL-SDR 无线电棒，把头顶实时飞过的飞机投影到天花板——顺带显示星空、月亮和 ISS</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        飞机飞过头顶时，会持续广播自己的位置、速度、航班号、机型——这叫 ADS-B（广播式自动相关监视）信号，任何人都可以用便宜的 SDR（软件定义无线电）硬件接收，不需要任何授权。Skylight 做的事情是：用一根 30 元的 RTL-SDR 接收棒接收这些信号，把飞机的实时位置渲染成星图风格的可视化（亮点在黑暗背景上），然后投影到天花板。
+      </p>
+      <p style="margin-top: 10px;">
+        效果是：关灯，投影仪开启，天花板变成一张动态星图——真实的星星和星座在各自的位置，月亮在当前角度，ISS（国际空间站）如果在头顶也会显示；飞机用发光的轨迹点标出，旁边附上航班号、机型、高度、速度。看着一个航班从地平线爬升、横跨天顶、消失在另一侧，是极客式的宁静体验。黑色投影背景让矩形光框消失，整个天花板都像真的在发光。如果不想买硬件，也可以切换到免费的 ADS-B Exchange 网络 API 模式，用网络实时数据代替本地无线电接收。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>30 元硬件实现的无线电接收</strong>：RTL-SDR 是一种廉价的 USB 无线电接收棒，原本是给电视信号设计的，被极客社区发现可以接收 1090MHz 的 ADS-B 信号。Skylight 用 dump1090（开源 ADS-B 解码器）处理信号，把原始字节解析成飞机位置数据。接收半径可以覆盖约 150-250 公里，能同时追踪几十到上百架飞机。
+        </li>
+        <li>
+          <strong>星图式坐标转换</strong>：飞机的位置是经纬度 + 高度，但投影到天花板需要把它转换成「相对于观察者的仰角 + 方位角」——和天文学里观测星星是同一套坐标系。Skylight 用 Python 的 ephem 库计算星星和月亮的位置，飞机位置用球面三角函数转换，两套数据叠加在同一个极坐标系上渲染。
+        </li>
+        <li>
+          <strong>飞机图标按机型区分</strong>：不是所有飞机都显示同一个点。宽体客机（Boeing 777、Airbus A380）是一种形状，窄体机（Boeing 737）是另一种，螺旋桨小飞机是第三种，直升机又不同。ADS-B 信号里包含机型代码（如 B77W、A320、C172），Skylight 根据这个代码选择对应的图标。
+        </li>
+        <li>
+          <strong>无硬件的网络 API 模式</strong>：不想买 SDR 的用户可以配置项目使用 ADS-B Exchange 或 OpenSky Network 的免费 API，覆盖全球，数据同样实时——这让项目的准入门槛降到几乎为零。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：通常我们知道飞机在天上飞，但从来不"看见"它们的轨迹——就像知道风在吹，但看不见风。Skylight 相当于给你一副能看见风的眼镜：它把头顶 200 公里范围内每架飞机的实时位置都变成发光的轨迹，投影到你家的天花板上，配上真实的星空背景——你第一次真正"看见"了头顶这片繁忙的空域。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>动手玩 SDR 的入口</strong>：RTL-SDR 是进入无线电极客世界最便宜的入门硬件。除了 ADS-B，同一根接收棒还能接收气象卫星图像（NOAA 系列）、业余无线电、FM 广播、船舶 AIS 信号等——Skylight 是一个很好的入坑理由。
+        </li>
+        <li>
+          <strong>对可视化和坐标系感兴趣的同学</strong>：Skylight 的坐标转换部分（地理坐标 → 观察者相对坐标 → 屏幕像素坐标）是一个完整且实用的球面几何应用示例，代码清晰可读，适合学习。
+        </li>
+        <li>
+          <strong>通用视角</strong>：「把公开广播的无线电信号变成可视化艺术装置」这个项目说明：有时候最有趣的项目不是解决某个工作问题，而是让平时不可见的信息变得可见。59k 星标的项目，背后是一个共同的好奇心——我们头顶的天空里，究竟在发生什么？
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 3: hello-agents -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n3">3</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/datawhalechina/hello-agents" target="_blank">datawhalechina / hello-agents</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🐍 Python</span>
+      <span class="tag stars">⭐ 47,247</span>
+      <span class="tag trend">🔥 Trendshift #23 今日</span>
+      <span class="tag cat">AI 学习</span>
+      <span class="tag cat">智能体教程</span>
+      <span class="tag cat">中文开源</span>
+    </div>
+    <div class="tagline n3">Datawhale 出品《从零开始构建智能体》——中文社区质量最高的 Agent 入门开源教程之一</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        「Agent（智能体）」是现在 AI 领域最热门的词之一，但大多数中文学习资源要么停留在概念介绍，要么直接跳进复杂的框架使用，缺少「理论清晰 + 动手可运行 + 系统完整」三项同时满足的入门教程。英文资料虽然丰富，但对很多初学者来说阅读门槛不低。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>hello-agents</strong> 是 Datawhale 社区出品的系统性 Agent 学习教程，定位是「从概念到实战的完整路径」。内容覆盖：Agent 基础概念（什么是 Agent，和普通 LLM 有何区别）、工具调用（Tool Use/Function Calling）、记忆系统（短期记忆 + 长期记忆）、规划能力（ReAct、CoT）、多 Agent 协作（AutoGen、Crew.AI 等框架）、完整实战项目。每个章节都配套 Jupyter Notebook，可以直接克隆运行，无需从零搭环境。Datawhale 在 GitHub 有 70k+ 关注者，是国内最活跃的 AI 开源教育社区之一，教程质量和维护水平有社区背书。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>理论 + 代码双管齐下</strong>：每个概念先用通俗语言解释清楚（Agent 的感知-规划-行动循环是什么？工具调用在底层是怎么工作的？），然后给出对应的 Python 代码实现，再用 Notebook 让你实际跑一遍。这种「先懂再做」的结构对初学者最友好。
+        </li>
+        <li>
+          <strong>覆盖多 Agent 协作框架</strong>：单个 Agent 的局限是处理复杂任务时容易出错或失去方向。多 Agent 协作让不同"专家" Agent 分工合作——教程覆盖 AutoGen、CrewAI 等主流框架的用法，并解释它们适合的场景差异，这是当前教程稀缺的内容。
+        </li>
+        <li>
+          <strong>面向不同背景的读者</strong>：有些章节专门为非技术背景的读者设计（只需理解概念，不需要写代码）；核心章节的代码示例从简单到复杂循序渐进，有编程基础的读者可以跟着完整实现一个可用的 Agent 系统。
+        </li>
+        <li>
+          <strong>配套实战项目</strong>：教程最后章节是完整的端到端项目，把前面学到的工具调用、记忆、规划、多 Agent 全部整合进一个真实场景，是学完能拿出手的作品。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：普通的大语言模型就像一位知识渊博的顾问：你问他什么，他回答什么，但他没有主动查资料、操作电脑、委托别人干活的能力。Agent 就是给这位顾问配上了手、眼、和助理团队——他可以自己上网查最新信息，可以操作工具执行任务，可以把子任务分配给专门的助理。hello-agents 就是教你从零开始搭建这样一个「配了手脚和团队的顾问系统」的完整课程。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>想系统学习 Agent 的同学</strong>：如果你对「如何让 AI 自主完成多步骤任务」感兴趣，hello-agents 是目前中文社区里结构最完整的入门路径——从第一章开始跟着走，一个月内可以有实际可运行的 Agent 项目。
+        </li>
+        <li>
+          <strong>产品 / 设计同学</strong>：即使不写代码，通读概念部分也能建立起对「Agent 能做什么、不能做什么、在哪里容易出错」的清晰认知，对规划 AI 产品功能非常有帮助。
+        </li>
+        <li>
+          <strong>通用视角</strong>：Agent 是「AI 从工具变成协作者」这个转变的核心技术。今年最热门的产品——Cursor、Claude Code、Devin——本质上都是 Agent。理解 Agent 的基本原理，是未来几年技术从业者的必备背景知识。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- Learning Section -->
+<div class="section-label">
+  <div class="icon learn">📚</div>
+  <div>
+    <h2>今日学一招</h2>
+    <div class="sub">Codex CLI 系列 · 第 5 期</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card learn-card">
+    <div class="learn-title">
+      <div class="learn-icon">⚙️</div>
+      <div>
+        <h3>长任务与子任务编排——让 Codex 处理复杂工程任务的正确姿势</h3>
+        <div class="sub">学完本篇，你能把大任务拆成可控的子步骤，并用 AGENTS.md 给 Codex 预设工作流</div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h4>核心问题：为什么大任务要拆成子任务</h4>
+      <p>
+        直接对 Codex 说「帮我重构整个认证模块」，往往结果不理想：它要么改得太激进（大刀阔斧但引入新问题），要么改得过于保守（浅尝辄止没触及核心）。根本原因是任务边界不清晰——Codex 在不确定的边界里会做出各种「自认为合理」的假设，而这些假设未必符合你的预期。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>正确做法</strong>：先让 Codex 列计划，确认计划后再逐步执行。这样每一步的范围明确，你能在每步之间检查结果，出问题也只影响当前步骤，不会扩散。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>第一步：让 Codex 先列计划，再动手</h4>
+      <p style="margin-bottom: 10px;">在任务提示里加一句「先列出你的执行计划，等我确认后再开始」，Codex 会输出子任务列表，你可以检查、修改、删减，然后再说「确认，开始执行第1步」。</p>
+
+      <div class="copy-block">
+        <pre><span class="comment"># 示例提示词——先规划后执行</span>
+<span class="val">请帮我把 src/auth/ 模块的 session 管理从 JWT 改为 httpOnly Cookie。</span>
+
+<span class="val">在开始修改任何文件之前，先列出你的完整执行计划：</span>
+<span class="val">- 需要修改哪些文件</span>
+<span class="val">- 每个文件改什么</span>
+<span class="val">- 预计影响哪些测试</span>
+
+<span class="val">等我确认计划后再开始执行。</span></pre>
+        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>第二步：理解 <code>--approval-mode</code> 的两个模式</h4>
+      <p style="margin-bottom: 12px;">Codex CLI 的审批模式决定它在执行时需要多少人工确认，选对场景很重要：</p>
+
+      <div class="mode-compare">
+        <div class="mode-box">
+          <div class="mode-label">auto-edit 模式</div>
+          <ul>
+            <li>可以自动读写文件</li>
+            <li>运行命令前需要确认</li>
+            <li>适合：代码修改、重构</li>
+            <li>风险低，推荐日常使用</li>
+          </ul>
+        </div>
+        <div class="mode-box auto">
+          <div class="mode-label">full-auto 模式</div>
+          <ul>
+            <li>文件操作 + 命令执行全自动</li>
+            <li>无需任何确认步骤</li>
+            <li>适合：CI/CD、脚本批处理</li>
+            <li>风险高，配合沙箱使用</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copy-block">
+        <pre><span class="comment"># 日常代码修改——用 auto-edit，命令执行前仍然确认</span>
+<span class="dollar">$ </span><span class="cmd">codex</span> <span class="val">--approval-mode auto-edit</span> <span class="str">"重构 src/utils/format.ts，把所有日期格式化函数提取到独立文件"</span>
+
+<span class="comment"># 在隔离环境批量处理——用 full-auto（慎用，建议配合 Docker）</span>
+<span class="dollar">$ </span><span class="cmd">codex</span> <span class="val">--approval-mode full-auto</span> <span class="str">"运行所有测试，修复所有 lint 错误，提交到 fix/lint-errors 分支"</span></pre>
+        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>第三步：用 AGENTS.md 预设子任务列表</h4>
+      <p>
+        和 CLAUDE.md 一样，AGENTS.md 是 Codex 在启动时自动读取的项目配置文件。在文件里用 <code>## Tasks</code> 区块定义标准子任务，后续只需说「执行任务 T-03」，Codex 就知道该做什么——不需要每次重复长篇提示词。
+      </p>
+
+      <div class="copy-block">
+        <pre><span class="comment"># AGENTS.md 示例——在项目根目录创建此文件</span>
+
+<span class="heading">## Project</span>
+<span class="val">这是一个 Next.js 全栈应用，使用 PostgreSQL + Prisma，测试框架为 Vitest。</span>
+<span class="val">修改任何文件后必须运行 `pnpm test` 确认测试通过。</span>
+
+<span class="heading">## Tasks</span>
+
+<span class="heading">### T-01: 添加新 API 路由</span>
+<span class="val">1. 在 src/app/api/ 下创建对应目录和 route.ts</span>
+<span class="val">2. 添加输入验证（使用 zod schema）</span>
+<span class="val">3. 添加对应的 Vitest 测试文件</span>
+<span class="val">4. 更新 src/types/api.ts 中的类型定义</span>
+
+<span class="heading">### T-02: 重构现有组件</span>
+<span class="val">1. 先列出将改动的文件和改动原因</span>
+<span class="val">2. 等待确认后再修改</span>
+<span class="val">3. 保持现有 props 接口不变（除非明确要求修改）</span>
+<span class="val">4. 运行 `pnpm test` 和 `pnpm lint` 验证</span>
+
+<span class="heading">### T-03: 数据库 Schema 变更</span>
+<span class="val">1. 修改 prisma/schema.prisma</span>
+<span class="val">2. 生成 migration：`pnpm prisma migrate dev --name [描述]`</span>
+<span class="val">3. 更新受影响的 Service 层代码</span>
+<span class="val">4. 不要直接修改已有 migration 文件</span></pre>
+        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+      </div>
+
+      <p style="margin-top: 10px;">
+        配置好 AGENTS.md 之后，日常使用就简单很多——直接说「执行 T-01，路由名为 /api/users/preferences」，Codex 会按预设步骤完整执行，不遗漏也不越界。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>一句话总结</h4>
+      <ul class="step-list">
+        <li>
+          <strong>大任务先规划再执行</strong>：在提示词里要求 Codex 先列计划、等你确认，每步结果可检查可纠正，不会一次改太多出了问题找不到根源。
+        </li>
+        <li>
+          <strong>按场景选审批模式</strong>：日常开发用 <code>auto-edit</code>（命令执行仍需确认），批处理或 CI 场景用 <code>full-auto</code>（配合沙箱环境保安全）。
+        </li>
+        <li>
+          <strong>AGENTS.md 是你的项目说明书</strong>：把常见任务的步骤预设进去，后续每次只需一句话引用任务编号，Codex 就知道该怎么做，减少重复提示的工作量。
+        </li>
+      </ul>
+    </div>
+
+    <div class="ref-links">
+      <h4>延伸了解</h4>
+      <a href="https://github.com/openai/codex" target="_blank">Codex CLI 官方仓库</a>
+      <a href="https://github.com/openai/codex/blob/main/codex-cli/AGENTS.md" target="_blank">AGENTS.md 官方示例</a>
+      <a href="https://github.com/datawhalechina/hello-agents" target="_blank">hello-agents（今日项目）</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-tags">
+      <span class="footer-tag">#OpenCut</span>
+      <span class="footer-tag">#视频编辑</span>
+      <span class="footer-tag">#隐私优先</span>
+      <span class="footer-tag">#本地优先</span>
+      <span class="footer-tag">#skylight</span>
+      <span class="footer-tag">#SDR无线电</span>
+      <span class="footer-tag">#ADS-B</span>
+      <span class="footer-tag">#硬件极客</span>
+      <span class="footer-tag">#hello-agents</span>
+      <span class="footer-tag">#Datawhale</span>
+      <span class="footer-tag">#Agent教程</span>
+      <span class="footer-tag">#CodexCLI</span>
+      <span class="footer-tag">#子任务编排</span>
+      <span class="footer-tag">#2026-06-04</span>
+    </div>
+    <div class="footer-summary">
+      今日一句：视频在本地剪、飞机投上天花板、Agent 从零学起——今天三个项目，分别把「隐私」「好奇心」和「学习路径」这三件事做到了极致。
+    </div>
+  </div>
+</div>
+
+<script>
+function copyCode(btn) {
+  const pre = btn.previousElementSibling;
+  const text = pre.innerText || pre.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '已复制';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '复制';
+      btn.classList.remove('copied');
+    }, 1800);
+  }).catch(() => {
+    btn.textContent = '复制失败';
+    setTimeout(() => { btn.textContent = '复制'; }, 1800);
+  });
+}
+</script>
+
+</body>
+</html>

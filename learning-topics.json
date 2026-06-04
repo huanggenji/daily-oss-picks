@@ -46,6 +46,13 @@
       "category": "ai_basics",
       "title": "什么是 Embedding（向量）——AI 理解语义的基础",
       "file": "2026-06-03-daily.html"
+    },
+    {
+      "date": "2026-06-04",
+      "topic_id": "codex-advanced-tasks",
+      "category": "codex",
+      "title": "Codex CLI 长任务与子任务编排：--mode 选用与任务拆解",
+      "file": "2026-06-04-daily.html"
     }
   ]
 }

@@ -229,6 +229,39 @@
       "file": "2026-06-03-daily.html",
       "stars": 53530,
       "threshold": "total 53.5k > 10000"
+    },
+    {
+      "date": "2026-06-04",
+      "repo": "OpenCut-app/OpenCut",
+      "url": "https://github.com/OpenCut-app/OpenCut",
+      "language": "TypeScript",
+      "title": "OpenCut-app/OpenCut：开源的 CapCut 替代品，本地处理无水印无订阅",
+      "category": "创意工具 / 视频编辑 / 隐私优先",
+      "file": "2026-06-04-daily.html",
+      "stars": 67297,
+      "threshold": "total 67.2k > 10000"
+    },
+    {
+      "date": "2026-06-04",
+      "repo": "cpaczek/skylight",
+      "url": "https://github.com/cpaczek/skylight",
+      "language": "Python",
+      "title": "cpaczek/skylight：用 RTL-SDR 把头顶飞机实时投影到天花板，附星空/ISS 图层",
+      "category": "硬件极客 / 可视化 / SDR",
+      "file": "2026-06-04-daily.html",
+      "stars": 59931,
+      "threshold": "total 59.9k > 10000"
+    },
+    {
+      "date": "2026-06-04",
+      "repo": "datawhalechina/hello-agents",
+      "url": "https://github.com/datawhalechina/hello-agents",
+      "language": "Python",
+      "title": "datawhalechina/hello-agents：Datawhale 出品《从零开始构建智能体》中文开源教程",
+      "category": "AI 学习 / 智能体教程 / 中文开源",
+      "file": "2026-06-04-daily.html",
+      "stars": 47247,
+      "threshold": "total 47.2k > 10000"
     }
   ]
 }
