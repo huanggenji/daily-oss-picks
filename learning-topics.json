@@ -53,6 +53,13 @@
       "category": "codex",
       "title": "Codex CLI 长任务与子任务编排：--mode 选用与任务拆解",
       "file": "2026-06-04-daily.html"
+    },
+    {
+      "date": "2026-06-05",
+      "topic_id": "codex-mcp-integration",
+      "category": "codex",
+      "title": "用 MCP 给 Codex 接上外部工具与数据源",
+      "file": "2026-06-05-daily.html"
     }
   ]
 }

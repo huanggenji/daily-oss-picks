@@ -262,6 +262,39 @@
       "file": "2026-06-04-daily.html",
       "stars": 47247,
       "threshold": "total 47.2k > 10000"
+    },
+    {
+      "date": "2026-06-05",
+      "repo": "lfnovo/open-notebook",
+      "url": "https://github.com/lfnovo/open-notebook",
+      "language": "TypeScript",
+      "title": "lfnovo/open-notebook：开源版 NotebookLM，自托管私有 AI 知识库",
+      "category": "私有知识库 / RAG / 自托管",
+      "file": "2026-06-05-daily.html",
+      "stars": 25000,
+      "threshold": "total 25k > 10000"
+    },
+    {
+      "date": "2026-06-05",
+      "repo": "PaddlePaddle/PaddleOCR",
+      "url": "https://github.com/PaddlePaddle/PaddleOCR",
+      "language": "Python",
+      "title": "PaddlePaddle/PaddleOCR：把任意 PDF/图片变成 AI 可读的结构化数据，支持 100+ 语言",
+      "category": "文档处理 / OCR / AI 数据管道",
+      "file": "2026-06-05-daily.html",
+      "stars": 80000,
+      "threshold": "total 80k > 10000"
+    },
+    {
+      "date": "2026-06-05",
+      "repo": "obra/superpowers",
+      "url": "https://github.com/obra/superpowers",
+      "language": "Shell",
+      "title": "obra/superpowers：给 AI 编程助手注入工程纪律的 Skills 框架",
+      "category": "AI 编程 / Skills 框架 / 开发方法论",
+      "file": "2026-06-05-daily.html",
+      "stars": 210500,
+      "threshold": "total 210.5k > 10000"
     }
   ]
 }

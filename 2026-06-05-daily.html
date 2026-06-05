@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-06-05</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.7;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    padding: 40px 24px 32px;
+    text-align: center;
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .header .date {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 18px;
+  }
+  .header .intro {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 15px;
+    opacity: 0.9;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 14px 20px;
+  }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 900px;
+    margin: 32px auto 16px;
+    padding: 0 20px;
+  }
+  .section-label .icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-label .icon.projects { background: #e8f4fd; }
+  .section-label .icon.learn { background: #f0faf0; }
+  .section-label h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+  .section-label .sub { font-size: 13px; color: #666; margin-top: 1px; }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 48px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #e8e8f0;
+  }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .card-num.n2 { background: linear-gradient(135deg, #00b4db, #0083b0); }
+  .card-num.n3 { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+  .card-title-block { flex: 1; }
+  .card-title-block h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .card-title-block h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title-block h3 a:hover { color: #f7971e; }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f4f4fa;
+    border: 1px solid #e0e0ee;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+  }
+  .tag.lang { background: #fff3e0; border-color: #ffcc80; color: #e65100; }
+  .tag.stars { background: #fffde7; border-color: #fff176; color: #c6a700; }
+  .tag.cat { background: #e8f5e9; border-color: #a5d6a7; color: #2e7d32; }
+  .tag.trend { background: #fce4ec; border-color: #f48fb1; color: #c62828; }
+  .tagline {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    background: linear-gradient(90deg, #f7971e15, transparent);
+    border-left: 3px solid #f7971e;
+    padding: 8px 14px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 18px;
+  }
+  .tagline.n2 {
+    background: linear-gradient(90deg, #00b4db15, transparent);
+    border-left-color: #00b4db;
+  }
+  .tagline.n3 {
+    background: linear-gradient(90deg, #8e2de215, transparent);
+    border-left-color: #8e2de2;
+  }
+  .section-block {
+    margin-bottom: 20px;
+  }
+  .section-block h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .section-block p, .section-block ul { font-size: 15px; color: #444; }
+  .section-block ul { padding-left: 20px; }
+  .section-block ul li { margin-bottom: 5px; }
+  .divider {
+    height: 1px;
+    background: #f0f0f5;
+    margin: 16px 0;
+  }
+  .highlight-box {
+    background: #f8f9ff;
+    border: 1px solid #e0e4ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 15px;
+    color: #444;
+  }
+  .highlight-box code {
+    background: #e8eaff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-family: "SF Mono", Consolas, monospace;
+    font-size: 13px;
+    color: #3949ab;
+  }
+  /* Learn card */
+  .learn-card {
+    background: linear-gradient(135deg, #f0faf4, #e8f5e9);
+    border: 1px solid #c8e6c9;
+  }
+  .learn-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .learn-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .learn-title h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1b5e20;
+    line-height: 1.3;
+  }
+  .learn-title .sub { font-size: 13px; color: #555; margin-top: 2px; }
+  pre {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-family: "SF Mono", Consolas, "Courier New", monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    margin: 12px 0;
+    line-height: 1.8;
+  }
+  pre .comment { color: #6c7086; }
+  pre .cmd { color: #89dceb; }
+  pre .val { color: #a6e3a1; }
+  pre .key { color: #f38ba8; }
+  pre .heading { color: #cba6f7; }
+  pre .dollar { color: #fab387; user-select: none; }
+  pre .str { color: #a6e3a1; }
+  pre .kw { color: #cba6f7; }
+  .copy-block {
+    position: relative;
+    margin: 12px 0;
+  }
+  .copy-block pre {
+    margin: 0;
+  }
+  .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    color: #cdd6f4;
+    font-size: 11px;
+    padding: 3px 9px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .copy-btn:hover { background: rgba(255,255,255,0.22); }
+  .copy-btn.copied { color: #a6e3a1; border-color: #a6e3a133; }
+  .step-list {
+    counter-reset: step;
+    list-style: none;
+    padding-left: 0;
+  }
+  .step-list li {
+    counter-increment: step;
+    padding-left: 36px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .step-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 22px;
+    text-align: center;
+  }
+  .ref-links {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed #c8e6c9;
+  }
+  .ref-links h4 { font-size: 13px; color: #555; margin-bottom: 8px; font-weight: 600; }
+  .ref-links a {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #a5d6a7;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 13px;
+    color: #2e7d32;
+    text-decoration: none;
+    margin-right: 8px;
+    margin-bottom: 6px;
+  }
+  .ref-links a:hover { background: #e8f5e9; }
+  .footer {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .footer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .footer-tag {
+    background: #fff;
+    border: 1px solid #e0e0ee;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #666;
+  }
+  .footer-summary {
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+  }
+  @media (max-width: 600px) {
+    .header h1 { font-size: 22px; }
+    .card { padding: 20px; }
+    .card-title-block h3 { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">每日开源精选 · Daily OSS Picks</div>
+  <h1>GitHub 开源精选 + AI 学习日报</h1>
+  <div class="date">2026年6月5日 星期五</div>
+  <div class="intro">
+    今天精选：开源版 NotebookLM 自建私有 AI 知识库 · 80k 星的文档 OCR 神器 PaddleOCR · 210k 星的 AI 编程方法论框架 superpowers<br>
+    今日学一招：<strong>Codex CLI 系列第 6 期——用 MCP 给 Codex 接上外部工具与数据源</strong>
+  </div>
+</div>
+
+<div class="section-label">
+  <div class="icon projects">🔥</div>
+  <div>
+    <h2>今日精选项目</h2>
+    <div class="sub">共 3 个，覆盖私有知识库 / 文档 OCR / AI 编程方法论三大方向</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Project 1: open-notebook -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">1</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/lfnovo/open-notebook" target="_blank">lfnovo / open-notebook</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">📘 TypeScript</span>
+      <span class="tag stars">⭐ 25,000+</span>
+      <span class="tag trend">🔥 Trendshift #10 今日</span>
+      <span class="tag cat">私有知识库</span>
+      <span class="tag cat">RAG</span>
+      <span class="tag cat">自托管</span>
+    </div>
+    <div class="tagline">开源版 NotebookLM——把 PDF、网页、音频丢进去建私有知识库，数据不出自己的服务器</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        Google 的 NotebookLM 很受欢迎：上传一堆资料，AI 帮你整理、问答、甚至生成播客。但它有两个限制：资料必须上传到 Google 的服务器（涉及公司机密或个人隐私的文档不敢传）；模型只能用 Google 自家的，没有选择权。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>open-notebook</strong> 是 NotebookLM 的开源实现，并且做得更灵活：支持 18+ 家 AI 提供商（OpenAI、Anthropic、Google、Ollama 本地模型等），可以完全自托管——资料存在自己的机器或服务器上，一份都不外流。支持的资料类型覆盖 PDF、网页链接、Office 文档、Markdown、音频、视频，统统可以丢进笔记本，然后基于这些资料提问、生成摘要、做笔记，甚至生成多人对话式播客（NotebookLM 的招牌功能它也有，且声音引擎可换）。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>模型完全自由切换</strong>：问答用 Claude、嵌入用 OpenAI、播客语音用 ElevenLabs，或者全部换成本地 Ollama 跑开源模型实现零成本+完全离线——每个环节的模型都可以独立配置，这是官方 NotebookLM 做不到的。
+        </li>
+        <li>
+          <strong>「上下文管理」是核心理念</strong>：它把「你给 AI 看什么资料」做成显式可控的——每次提问可以勾选哪些来源参与回答，AI 的每个回答都带引用出处，可以点回原文核对。这比把一切丢给聊天框更可靠。
+        </li>
+        <li>
+          <strong>三层笔记体系</strong>：来源（原始资料）→ 笔记（AI 生成或手写的整理）→ 聊天（基于以上内容问答），层次清晰。资料库会随着使用越积越多，成为长期资产。
+        </li>
+        <li>
+          <strong>Docker 一键部署</strong>：官方提供 docker-compose 配置，一条命令拉起全部服务，底层用 SurrealDB 存储，部署门槛低，NAS、家用服务器、云主机都能跑。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：NotebookLM 像把你的私人文件寄存到一家服务很好的图书馆——馆员帮你整理得很好，但文件毕竟放在别人那里。open-notebook 相当于把这位金牌馆员请到你家来：同样的整理、问答、播客服务，但所有文件始终锁在你自己的书房里，馆员用谁家的（AI 模型）你说了算。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>有资料管理需求的同学</strong>：如果你常需要消化大量 PDF/报告/论文，又不放心传到外部服务，open-notebook + 本地 Ollama 是目前体验最完整的私有方案，Docker 部署半小时内可以跑通。
+        </li>
+        <li>
+          <strong>想学 RAG 工程的同学</strong>：这是一个真实生产级的 RAG 应用——文档解析、分块、向量化、引用溯源全链路都有，代码比教程 demo 更值得读。
+        </li>
+        <li>
+          <strong>通用视角</strong>：「大厂产品的开源平替 + 自托管」是近一年最强的开源趋势之一（前有 OpenCut 替代 CapCut，今天是 open-notebook 替代 NotebookLM）。共同逻辑：功能向商业产品看齐，差异点全部押在隐私和可控性上。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 2: PaddleOCR -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n2">2</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/PaddlePaddle/PaddleOCR" target="_blank">PaddlePaddle / PaddleOCR</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🐍 Python</span>
+      <span class="tag stars">⭐ 80,000+</span>
+      <span class="tag trend">🔥 Trendshift #24 今日</span>
+      <span class="tag cat">文档处理</span>
+      <span class="tag cat">OCR</span>
+      <span class="tag cat">AI 数据管道</span>
+    </div>
+    <div class="tagline n2">把任意 PDF、扫描件、图片变成 AI 可直接读取的结构化数据，支持 100+ 种语言</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        大模型很聪明，但它读不懂扫描版 PDF、拍照的合同、截图里的表格——这些在机器眼里只是一堆像素。企业里大量关键信息恰恰锁在这类「图像化文档」里：发票、合同扫描件、老旧档案、手写表单。想让 AI 处理它们，第一步必须先做 OCR（光学字符识别），把像素变回文字和结构。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>PaddleOCR</strong> 是百度飞桨团队维护的开源 OCR 工具箱，已迭代多年，是全球最流行的 OCR 方案之一（80k 星）。它不只是「认字」：最新的 PP-StructureV3 能理解文档版面——识别出哪里是标题、哪里是表格、哪里是图片说明，然后把整页文档还原成保留结构的 Markdown 或 JSON，直接喂给大模型。支持 100+ 种语言，中文识别尤其强（毕竟出身百度），模型轻量到可以在手机和树莓派上跑。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>不止认字，还原版面结构</strong>：传统 OCR 输出一团乱序文字，表格变成一锅粥。PaddleOCR 的版面分析能区分标题/正文/表格/公式/印章，表格还原成规整的行列结构——这正是 RAG 和文档问答场景最需要的「AI-ready」格式。
+        </li>
+        <li>
+          <strong>轻量与精度兼得</strong>：提供从超轻量（几 MB，手机可跑）到高精度（服务器级）的多档模型，按场景选择。很多商业 App 的拍照识字功能背后就是它。
+        </li>
+        <li>
+          <strong>中文场景事实标准</strong>：竖排文字、手写体、生僻字、混排中英文——中文 OCR 的难点它都有专门优化，发票/票据识别有现成方案。
+        </li>
+        <li>
+          <strong>一行代码上手</strong>：<code>pip install paddleocr</code> 后三行代码完成第一次识别，也提供命令行工具和服务化部署方案，从实验到生产路径完整。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：大模型像一位学识渊博但高度近视的教授——你给他看打印清晰的电子书（纯文本）他对答如流，但递给他一张拍糊的合同照片，他只能干瞪眼。PaddleOCR 就是教授的眼镜加速记员：不仅把照片里的字看清楚念出来，还把「这是标题、这是表格第三行第二列」的结构信息一并整理好，教授拿到的是一份排版工整的讲义。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>有文档处理需求的同学</strong>：扫描件转文字、批量发票录入、老文档电子化，PaddleOCR 是免费且本地运行的首选——敏感文件不用传给在线 OCR 网站。
+        </li>
+        <li>
+          <strong>做 AI 应用的同学</strong>：「OCR → 结构化 → 喂给 LLM」是企业 AI 落地最高频的管道。PaddleOCR + 之前推荐过的 markitdown / crawl4ai，凑齐了「图像文档、Office 文档、网页」三类数据源的 AI 化方案。
+        </li>
+        <li>
+          <strong>通用视角</strong>：OCR 正在从「识字工具」升级为「AI 基础设施层」——AI 无法推理它读不懂的文档，所以谁掌握高质量的文档解析，谁就掌握 AI 落地的数据入口。这也是 80k 星老项目今天还能登上趋势榜的原因。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 3: superpowers -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num n3">3</div>
+      <div class="card-title-block">
+        <h3><a href="https://github.com/obra/superpowers" target="_blank">obra / superpowers</a></h3>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="tag lang">🐚 Shell</span>
+      <span class="tag stars">⭐ 210,500+</span>
+      <span class="tag trend">🔥 Trendshift #15 今日</span>
+      <span class="tag cat">AI 编程</span>
+      <span class="tag cat">Skills 框架</span>
+      <span class="tag cat">开发方法论</span>
+    </div>
+    <div class="tagline n3">给 AI 编程助手装上「工程纪律」的技能框架——先写规格、拆任务、TDD、验证后才算完成</div>
+
+    <div class="section-block">
+      <h4>它是什么、解决什么问题</h4>
+      <p>
+        用过 AI 编程助手的人都体会过同一种失望：它写代码很快，但经常「自信地写出错误的东西」——没搞清需求就动手、不写测试、改了 A 处弄坏 B 处、声称完成了但实际没验证。问题不在模型能力，而在工作方式：AI 默认像一个没受过工程训练的天才实习生。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>superpowers</strong> 是一套给 AI 编程 Agent 注入软件工程纪律的技能（Skills）框架，适用于 Claude Code、Codex、Cursor 等主流工具。它把资深工程师的工作习惯写成几十个可组合的技能模块：动手前先头脑风暴和写规格说明、把任务拆解成可验证的小步骤、测试驱动开发（先写测试再写实现）、系统化 debug（先找根因再改代码）、完成前必须跑验证。安装后这些纪律自动注入到 AI 的工作流程中，AI 会「先想清楚再动手」。210k 星，是目前 AI 编程生态里星数最高的方法论项目。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>亮点 / 技术看点</h4>
+      <ul>
+        <li>
+          <strong>方法论即代码</strong>：它最有意思的地方是把「软件工程最佳实践」做成了可安装的软件包。每个技能是一个 Markdown 文档 + 触发规则，AI 在对应场景自动调用——比如检测到要开始大改动时强制先输出计划，写新功能时强制 TDD 流程。
+        </li>
+        <li>
+          <strong>技能可组合、可裁剪</strong>：几十个技能模块互相独立，团队可以按自己的开发文化挑选启用哪些，也可以模仿它的格式写自己团队专属的技能——它实际上提供了一个「团队工程规范注入 AI」的模板。
+        </li>
+        <li>
+          <strong>跨工具通用</strong>：同一套技能在 Claude Code、Codex、Cursor、OpenCode 等多个 AI 编程工具上都能用，不绑定特定厂商——这正好呼应了 Skills 正在成为 AI 编程生态通用标准的趋势。
+        </li>
+        <li>
+          <strong>从 demo 到生产的完整链路</strong>：覆盖了头脑风暴 → 规格 → 拆解 → 实现 → 测试 → 验证 → 交付的全流程，不是零散技巧的堆砌，而是一套自洽的开发方法论。
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>生活类比</strong>：AI 编程助手像一位天赋极高但刚出校门的实习生——代码写得飞快，但不写测试、不问需求、说「做完了」时往往只完成了 70%。superpowers 相当于给这位实习生配了一本资深导师亲编的《工作守则》并要求严格执行：动手前先交方案、每步都要自测、说完成之前必须跑完验证清单。天赋没变，但产出的可靠性完全是两个量级。
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>学习要点</h4>
+      <ul>
+        <li>
+          <strong>日常使用 AI 编程工具的同学</strong>：一行命令安装后即可生效，对「AI 写的代码不敢直接用」的痛点改善明显——尤其是 TDD 和强制验证两个技能，建议先从这两个用起。
+        </li>
+        <li>
+          <strong>带团队的同学</strong>：它展示了如何把团队的工程规范「编译」成 AI 能执行的技能文件。与其在 Code Review 里反复纠正 AI 生成的代码，不如把规范前置注入 AI 的工作流。
+        </li>
+        <li>
+          <strong>通用视角</strong>：2026 年 AI 编程的竞争焦点已经从「模型谁更强」转向「工作流谁更可靠」。superpowers 210k 星说明社区共识正在形成：决定 AI 产出质量的，是约束和方法论，而不只是模型本身。
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- Learning Section -->
+<div class="section-label">
+  <div class="icon learn">📚</div>
+  <div>
+    <h2>今日学一招</h2>
+    <div class="sub">Codex CLI 系列 · 第 6 期</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card learn-card">
+    <div class="learn-title">
+      <div class="learn-icon">🔌</div>
+      <div>
+        <h3>用 MCP 给 Codex 接上外部工具——让它能查数据库、读文档、调浏览器</h3>
+        <div class="sub">学完本篇，你能看懂 MCP 是什么，并为 Codex CLI 配置第一个 MCP 服务器</div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h4>核心问题：Codex 为什么需要 MCP</h4>
+      <p>
+        默认情况下，Codex 只能做两类事：读写你项目里的文件、执行 shell 命令。但真实开发常常需要更多——查一下数据库表结构、读公司内部的 API 文档、看浏览器里页面报什么错。这些信息 Codex 拿不到，只能靠你手动复制粘贴给它，既麻烦又容易遗漏。
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>MCP（Model Context Protocol，模型上下文协议）</strong>就是为此而生的开放标准：它定义了 AI 工具和外部数据源/工具之间的统一接口。一个 MCP 服务器就是一个「能力插件」——数据库 MCP 让 Codex 能直接查表，浏览器 MCP 让它能看到页面真实状态（前两天推荐的 chrome-devtools-mcp 就是干这个的）。MCP 由 Anthropic 发起，现已被 OpenAI、Google 等主流厂商共同采用，配置一次到处通用。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>第一步：在 config.toml 里注册 MCP 服务器</h4>
+      <p style="margin-bottom: 10px;">Codex CLI 的 MCP 配置写在 <code>~/.codex/config.toml</code> 里。每个服务器一个 <code>[mcp_servers.名字]</code> 区块，指定启动命令即可：</p>
+
+      <div class="copy-block">
+        <pre><span class="comment"># ~/.codex/config.toml —— 注册两个常用 MCP 服务器</span>
+
+<span class="heading">[mcp_servers.filesystem]</span>
+<span class="comment"># 让 Codex 能访问项目目录之外的指定文件夹（比如共享文档目录）</span>
+<span class="key">command</span> = <span class="str">"npx"</span>
+<span class="key">args</span> = [<span class="str">"-y"</span>, <span class="str">"@modelcontextprotocol/server-filesystem"</span>, <span class="str">"/Users/me/docs"</span>]
+
+<span class="heading">[mcp_servers.postgres]</span>
+<span class="comment"># 让 Codex 能直接查询开发数据库的表结构和数据</span>
+<span class="key">command</span> = <span class="str">"npx"</span>
+<span class="key">args</span> = [<span class="str">"-y"</span>, <span class="str">"@modelcontextprotocol/server-postgres"</span>, <span class="str">"postgresql://localhost/mydb"</span>]</pre>
+        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+      </div>
+      <p style="margin-top: 10px;">
+        保存后重启 Codex，它启动时会自动连接这些服务器，把它们提供的工具加入自己的能力列表。也可以用命令行快捷添加：<code>codex mcp add 名字 -- 启动命令</code>。
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>第二步：验证连接并实际使用</h4>
+      <p style="margin-bottom: 10px;">配置好之后，先确认服务器连上了，然后就可以在对话里自然地使用新能力——不需要任何特殊语法，Codex 会自己判断什么时候调用哪个工具：</p>
+
+      <div class="copy-block">
+        <pre><span class="comment"># 查看已配置的 MCP 服务器及连接状态</span>
+<span class="dollar">$ </span><span class="cmd">codex</span> <span class="val">mcp list</span>
+
+<span class="comment"># 然后正常对话即可，Codex 会自动调用 MCP 工具：</span>
+<span class="dollar">$ </span><span class="cmd">codex</span> <span class="str">"查一下 users 表的结构，然后帮我写一个按注册时间分页查询的函数"</span>
+<span class="comment"># → Codex 通过 postgres MCP 真实读取表结构，再基于真实字段名写代码
+# → 而不是凭空猜测字段名（这是最常见的 AI 编码错误来源之一）</span></pre>
+        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>第三步：挑选 MCP 服务器的三个原则</h4>
+      <ul>
+        <li>
+          <strong>从「消除复制粘贴」的场景入手</strong>：回想你最常手动喂给 Codex 什么信息——数据库结构？接口文档？页面报错？对应的 MCP 服务器就是你的第一选择。
+        </li>
+        <li>
+          <strong>优先官方和高星社区服务器</strong>：MCP 服务器有权限访问你的数据，来源可信很重要。modelcontextprotocol 官方组织维护了一批参考实现，覆盖文件系统/数据库/Git/搜索等常用场景。
+        </li>
+        <li>
+          <strong>按最小权限配置</strong>：数据库用只读账号、文件系统只开放必要目录。MCP 让 Codex 能力变强的同时也扩大了它的触达范围，权限要收着给。
+        </li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+      <h4>一句话总结</h4>
+      <ul class="step-list">
+        <li>
+          <strong>MCP 是 AI 工具的「USB 接口」</strong>：统一标准，一次配置，让 Codex 能直接访问数据库、文档、浏览器等外部能力，告别手动复制粘贴上下文。
+        </li>
+        <li>
+          <strong>配置就三行</strong>：在 <code>~/.codex/config.toml</code> 加一个 <code>[mcp_servers.xxx]</code> 区块写明启动命令，重启即生效，<code>codex mcp list</code> 验证连接。
+        </li>
+        <li>
+          <strong>真实数据胜过猜测</strong>：让 Codex 基于真实表结构、真实页面状态写代码，是减少 AI 幻觉式错误最有效的手段之一——这正是 MCP 的核心价值。
+        </li>
+      </ul>
+    </div>
+
+    <div class="ref-links">
+      <h4>延伸了解</h4>
+      <a href="https://modelcontextprotocol.io/" target="_blank">MCP 官方文档</a>
+      <a href="https://github.com/openai/codex" target="_blank">Codex CLI 官方仓库</a>
+      <a href="https://github.com/modelcontextprotocol/servers" target="_blank">官方 MCP 服务器合集</a>
+      <a href="https://github.com/ChromeDevTools/chrome-devtools-mcp" target="_blank">chrome-devtools-mcp（往期项目）</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-tags">
+      <span class="footer-tag">#open-notebook</span>
+      <span class="footer-tag">#NotebookLM平替</span>
+      <span class="footer-tag">#私有知识库</span>
+      <span class="footer-tag">#PaddleOCR</span>
+      <span class="footer-tag">#文档OCR</span>
+      <span class="footer-tag">#AI数据管道</span>
+      <span class="footer-tag">#superpowers</span>
+      <span class="footer-tag">#AI编程方法论</span>
+      <span class="footer-tag">#Skills</span>
+      <span class="footer-tag">#CodexCLI</span>
+      <span class="footer-tag">#MCP</span>
+      <span class="footer-tag">#2026-06-05</span>
+    </div>
+    <div class="footer-summary">
+      今日一句：知识库握在自己手里、文档让 AI 读得懂、编程纪律注入 AI——三个项目共同指向一件事：AI 时代的竞争力，藏在数据入口和工作流里。
+    </div>
+  </div>
+</div>
+
+<script>
+function copyCode(btn) {
+  const pre = btn.previousElementSibling;
+  const text = pre.innerText || pre.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '已复制';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '复制';
+      btn.classList.remove('copied');
+    }, 1800);
+  }).catch(() => {
+    btn.textContent = '复制失败';
+    setTimeout(() => { btn.textContent = '复制'; }, 1800);
+  });
+}
+</script>
+
+</body>
+</html>
