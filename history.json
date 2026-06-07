@@ -295,6 +295,39 @@
       "file": "2026-06-05-daily.html",
       "stars": 210500,
       "threshold": "total 210.5k > 10000"
+    },
+    {
+      "date": "2026-06-07",
+      "repo": "CopilotKit/CopilotKit",
+      "url": "https://github.com/CopilotKit/CopilotKit",
+      "language": "TypeScript",
+      "title": "CopilotKit/CopilotKit：面向 AI Agent 的生成式 UI 前端框架，AG-UI 协议发起方",
+      "category": "AI Agent / 生成式 UI / 前端框架",
+      "file": "2026-06-07-daily.html",
+      "stars": 32800,
+      "threshold": "total 32.8k > 10000"
+    },
+    {
+      "date": "2026-06-07",
+      "repo": "MemPalace/mempalace",
+      "url": "https://github.com/MemPalace/mempalace",
+      "language": "Python",
+      "title": "MemPalace/mempalace：公开基准得分最高的开源 AI 记忆系统，让 Agent 跨会话记住你",
+      "category": "AI 基础设施 / 记忆系统 / 自托管",
+      "file": "2026-06-07-daily.html",
+      "stars": 41800,
+      "threshold": "total 41.8k > 10000"
+    },
+    {
+      "date": "2026-06-07",
+      "repo": "InsForge/InsForge",
+      "url": "https://github.com/InsForge/InsForge",
+      "language": "TypeScript",
+      "title": "InsForge/InsForge：面向编程 Agent 的一体化开源后端平台（Agent 版 Heroku）",
+      "category": "后端平台 / 全栈 Agent 开发 / MCP",
+      "file": "2026-06-07-daily.html",
+      "stars": 11500,
+      "threshold": "total 11.5k > 10000"
     }
   ]
 }
