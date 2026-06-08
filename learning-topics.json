@@ -67,6 +67,13 @@
       "category": "codex",
       "title": "给 Codex CLI 写自定义 Skill / Prompt，把重复活儿一键化",
       "file": "2026-06-07-daily.html"
+    },
+    {
+      "date": "2026-06-08",
+      "topic_id": "codex-sandbox-approval",
+      "category": "codex",
+      "title": "Codex CLI 的沙箱与审批模式：让 AI 既能干活又不乱来",
+      "file": "2026-06-08-daily.html"
     }
   ]
 }

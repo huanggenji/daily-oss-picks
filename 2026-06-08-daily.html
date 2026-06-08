@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日 GitHub 开源精选 + AI 学习日报 · 2026-06-08</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f0f2f5;
+    color: #1f2329;
+    line-height: 1.7;
+    padding: 0 0 48px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+  header {
+    background: linear-gradient(135deg, #0f2557 0%, #1e3a8a 55%, #2563eb 100%);
+    color: #fff;
+    padding: 40px 24px 34px;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 8px 24px rgba(15,37,87,.25);
+  }
+  header .inner { max-width: 760px; margin: 0 auto; }
+  header h1 { font-size: 26px; font-weight: 700; letter-spacing: .5px; }
+  header .date { margin-top: 8px; font-size: 15px; opacity: .85; }
+  header .sub { margin-top: 14px; font-size: 14px; opacity: .9; line-height: 1.6; }
+  .section-title {
+    font-size: 19px; font-weight: 700; margin: 34px 4px 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::before {
+    content: ""; width: 5px; height: 20px; border-radius: 3px;
+    background: linear-gradient(180deg, #2563eb, #1e3a8a);
+  }
+  .card {
+    background: #fff; border-radius: 16px; padding: 24px 24px 22px;
+    margin-bottom: 18px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.1); }
+  .card .top { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; }
+  .card h3 { font-size: 18px; font-weight: 700; }
+  .card h3 a { color: #1e3a8a; text-decoration: none; }
+  .card h3 a:hover { text-decoration: underline; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 14px; }
+  .tag {
+    font-size: 12px; padding: 3px 10px; border-radius: 20px;
+    background: #eef2ff; color: #1e3a8a; font-weight: 600;
+  }
+  .tag.lang { background: #e7f5ec; color: #137333; }
+  .tag.star { background: #fff4e5; color: #b06000; }
+  .card p { font-size: 15px; color: #3c4149; margin-bottom: 6px; }
+  .card .why { margin-top: 12px; padding: 12px 14px; background: #f7f9fc; border-left: 3px solid #2563eb; border-radius: 0 8px 8px 0; font-size: 14px; color: #424a55; }
+  .card .repo-link { display: inline-block; margin-top: 14px; font-size: 14px; color: #2563eb; text-decoration: none; font-weight: 600; }
+  .card .repo-link:hover { text-decoration: underline; }
+  .learn {
+    background: linear-gradient(135deg, #0b6b3a 0%, #149e5a 55%, #34c77b 100%);
+    color: #fff; border-radius: 18px; padding: 28px 26px;
+    box-shadow: 0 8px 24px rgba(11,107,58,.25);
+  }
+  .learn h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .learn .lead { font-size: 14px; opacity: .9; margin-bottom: 18px; }
+  .learn h4 { font-size: 16px; font-weight: 700; margin: 18px 0 8px; }
+  .learn p { font-size: 15px; opacity: .96; margin-bottom: 10px; }
+  .learn code {
+    background: rgba(255,255,255,.18); padding: 2px 7px; border-radius: 6px;
+    font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13px;
+  }
+  .learn pre {
+    background: rgba(0,0,0,.28); border-radius: 10px; padding: 14px 16px;
+    margin: 10px 0 14px; overflow-x: auto; font-size: 13px; line-height: 1.6;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+  }
+  .learn pre code { background: none; padding: 0; }
+  .learn ul { margin: 6px 0 12px 20px; }
+  .learn li { font-size: 14.5px; margin-bottom: 6px; opacity: .96; }
+  .learn .tip { margin-top: 16px; padding: 12px 14px; background: rgba(255,255,255,.15); border-radius: 10px; font-size: 14px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <h1>每日 GitHub 开源精选 + AI 学习日报</h1>
+    <div class="date">2026 年 6 月 8 日 · 星期一</div>
+    <div class="sub">今日精选 3 个正在升温的开源项目（覆盖 AI 编程方法论、系统工具、多智能体），外加一节可上手的 Codex 学习内容。</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="section-title">今日开源精选</div>
+
+  <div class="card">
+    <div class="top">
+      <h3><a href="https://github.com/github/spec-kit" target="_blank" rel="noopener">github/spec-kit</a></h3>
+    </div>
+    <div class="meta">
+      <span class="tag">AI 编程 / 规范驱动开发</span>
+      <span class="tag lang">Python</span>
+      <span class="tag star">★ 94.5k</span>
+    </div>
+    <p>GitHub 官方出品的「规范驱动开发」（Spec-Driven Development）工具箱。它把 vibe coding 的随性流程，换成一条清晰链路：先把想法写成可执行的规范，由 AI 据此生成开发计划，再落地为代码。</p>
+    <p>不绑定具体模型——主流 AI 编程 Agent（Claude Code、Codex、Cursor、Gemini CLI 等）都能接入，等于给任何 AI 助手套上一层「先想清楚再动手」的工作流。</p>
+    <div class="why">为什么值得看：当 AI 能一口气写完整个功能时，最大的风险不是写得慢，而是它在解决错误的问题。spec-kit 用规范把人类意图固定下来，让 AI 的产出可审、可控、可复用，是团队规模化用 AI 编程的务实路线。</div>
+    <a class="repo-link" href="https://github.com/github/spec-kit" target="_blank" rel="noopener">查看仓库 →</a>
+  </div>
+
+  <div class="card">
+    <div class="top">
+      <h3><a href="https://github.com/TauricResearch/TradingAgents" target="_blank" rel="noopener">TauricResearch/TradingAgents</a></h3>
+    </div>
+    <div class="meta">
+      <span class="tag">多智能体 / 金融</span>
+      <span class="tag lang">Python</span>
+      <span class="tag star">★ 65.3k</span>
+    </div>
+    <p>一个用多智能体（Multi-Agents）模拟真实交易公司的 LLM 金融分析框架。它把研究流程拆成不同角色——基本面分析师、情绪分析师、新闻分析师、技术面分析师，再加上看多/看空研究员相互辩论，最后由交易员和风控层汇总决策。</p>
+    <p>项目附带 arXiv 论文，本质是一套可复现的研究脚手架：你能看到每个角色如何分工、如何交换观点、如何收敛到一个结论。</p>
+    <div class="why">为什么值得看：它是「多智能体协作」这个抽象概念的一个完整、可读的落地案例。即使你不做量化，也能从中学到如何把一个复杂任务拆成多个有明确职责的 Agent，并让它们通过辩论而非单点判断来提升结论质量。注意：这是研究框架，不构成任何投资建议。</div>
+    <a class="repo-link" href="https://github.com/TauricResearch/TradingAgents" target="_blank" rel="noopener">查看仓库 →</a>
+  </div>
+
+  <div class="card">
+    <div class="top">
+      <h3><a href="https://github.com/GyulyVGC/sniffnet" target="_blank" rel="noopener">GyulyVGC/sniffnet</a></h3>
+    </div>
+    <div class="meta">
+      <span class="tag">系统工具 / 网络监控</span>
+      <span class="tag lang">Rust</span>
+      <span class="tag star">★ 38.4k</span>
+    </div>
+    <p>一个用 Rust 写的跨平台网络流量监控工具，界面友好、开箱即用。它能实时显示哪些应用正在占用你的网络带宽、连向了哪些地址、用的什么协议，并支持流量统计、地理位置标注和自定义告警。</p>
+    <p>最新版本主打「按应用区分带宽」，让你一眼看清是哪个进程在偷偷上传下载。</p>
+    <div class="why">为什么值得看：在 AI 工具满天飞的榜单里，这是一个返璞归真的优秀系统工具——没有云、没有遥测、没有订阅，纯本地运行。对关注隐私、想搞清楚自己机器到底在和谁通信的人来说非常实用，也是学习 Rust 桌面应用与底层网络编程的好范本。</div>
+    <a class="repo-link" href="https://github.com/GyulyVGC/sniffnet" target="_blank" rel="noopener">查看仓库 →</a>
+  </div>
+
+  <div class="section-title">今日学习 · Codex CLI</div>
+
+  <div class="learn">
+    <h3>Codex CLI 的沙箱与审批模式：让 AI 既能干活又不乱来</h3>
+    <div class="lead">前几期我们装好了 Codex、写了 AGENTS.md、接了 git 和 MCP。今天聊一个绕不开的核心机制——它执行命令前，到底问不问你？</div>
+
+    <h4>一、为什么需要沙箱和审批</h4>
+    <p>Codex 不只是写代码，它还会真的去跑命令：装依赖、改文件、执行测试、调用网络。这意味着一句模糊的指令，可能让它删掉不该删的文件，或访问不该访问的地方。沙箱（sandbox）限制它「能动什么」，审批（approval）控制它「动之前要不要先问你」。两者配合，决定了你和 AI 之间的信任边界。</p>
+
+    <h4>二、三种审批策略</h4>
+    <p>Codex CLI 通常提供由松到紧的几档，用 <code>--ask-for-approval</code>（或交互界面切换）控制：</p>
+    <ul>
+      <li><strong>untrusted / 每步都问</strong>：最谨慎。任何写文件或执行命令前都暂停，等你确认。适合在陌生或重要的仓库里第一次放手。</li>
+      <li><strong>on-failure / 失败才问</strong>：让它在沙箱里自由跑，只有当命令失败或需要更高权限时才来找你。日常开发最常用的平衡点。</li>
+      <li><strong>never / 全自动</strong>：完全不打断，配合受限沙箱使用。适合可重跑、可回滚的批量任务，但务必清楚自己开了什么。</li>
+    </ul>
+
+    <h4>三、沙箱权限档位</h4>
+    <p>沙箱常见三档，用 <code>--sandbox</code> 指定：</p>
+    <ul>
+      <li><code>read-only</code>：只能读，不能改文件、不能联网。最安全，适合让它先「看懂代码、给建议」。</li>
+      <li><code>workspace-write</code>：能改当前工作目录里的文件，但默认不能联网、不能动工作区外的东西。日常推荐。</li>
+      <li><code>danger-full-access</code>：放开所有限制。只在你完全理解后果时使用。</li>
+    </ul>
+
+    <h4>四、动手试一次</h4>
+    <p>在一个测试项目里，先用最安全的组合让它只读分析：</p>
+    <pre><code>codex --sandbox read-only \
+      "通读这个仓库，告诉我入口文件和主要模块"</code></pre>
+    <p>确认它理解正确后，再开放写权限、改成失败才问，让它真正动手：</p>
+    <pre><code>codex --sandbox workspace-write \
+      --ask-for-approval on-failure \
+      "给 utils.py 里的函数补上类型注解和 docstring"</code></pre>
+
+    <div class="tip">💡 一句话记住：<strong>沙箱管「能动什么」，审批管「动前问不问」。</strong>不熟悉的项目从 <code>read-only</code> + 每步都问起步，熟了再逐步放权到 <code>workspace-write</code> + 失败才问。永远不要在重要仓库里一上来就开全自动加完全访问。</div>
+  </div>
+
+</div>
+</body>
+</html>

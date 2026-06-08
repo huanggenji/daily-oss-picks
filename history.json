@@ -328,6 +328,39 @@
       "file": "2026-06-07-daily.html",
       "stars": 11500,
       "threshold": "total 11.5k > 10000"
+    },
+    {
+      "date": "2026-06-08",
+      "repo": "github/spec-kit",
+      "url": "https://github.com/github/spec-kit",
+      "language": "Python",
+      "title": "github/spec-kit：GitHub 官方规范驱动开发工具箱，让 AI 先想清楚再写代码",
+      "category": "AI 编程 / 规范驱动开发 / 方法论",
+      "file": "2026-06-08-daily.html",
+      "stars": 94500,
+      "threshold": "total 94.5k > 10000"
+    },
+    {
+      "date": "2026-06-08",
+      "repo": "TauricResearch/TradingAgents",
+      "url": "https://github.com/TauricResearch/TradingAgents",
+      "language": "Python",
+      "title": "TauricResearch/TradingAgents：用多智能体模拟交易公司的 LLM 金融分析框架",
+      "category": "多智能体 / 金融 / LLM 研究框架",
+      "file": "2026-06-08-daily.html",
+      "stars": 65300,
+      "threshold": "total 65.3k > 10000"
+    },
+    {
+      "date": "2026-06-08",
+      "repo": "GyulyVGC/sniffnet",
+      "url": "https://github.com/GyulyVGC/sniffnet",
+      "language": "Rust",
+      "title": "GyulyVGC/sniffnet：Rust 写的跨平台网络流量监控工具，无云无遥测纯本地",
+      "category": "系统工具 / 网络监控 / 隐私优先",
+      "file": "2026-06-08-daily.html",
+      "stars": 38400,
+      "threshold": "total 38.4k > 10000"
     }
   ]
 }
