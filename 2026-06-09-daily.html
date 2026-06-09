@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日 GitHub 开源精选 + AI 学习日报 · 2026-06-09</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f4f6fb;
+    color: #1f2933;
+    line-height: 1.7;
+    padding: 0 0 48px;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f2557 0%, #1e3a8a 55%, #2563eb 100%);
+    color: #fff;
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .date { margin-top: 12px; font-size: 15px; opacity: 0.85; }
+  .header .sub { margin-top: 8px; font-size: 14px; opacity: 0.7; }
+  .container { max-width: 760px; margin: -24px auto 0; padding: 0 16px; }
+  .section-title {
+    font-size: 18px; font-weight: 700; color: #0f2557;
+    margin: 32px 4px 16px; display: flex; align-items: center; gap: 8px;
+  }
+  .section-title .bar { width: 4px; height: 18px; background: #2563eb; border-radius: 2px; }
+  .card {
+    background: #fff; border-radius: 16px; padding: 24px 22px;
+    box-shadow: 0 6px 24px rgba(15, 37, 87, 0.07);
+    margin-bottom: 18px;
+  }
+  .card .repo-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .card h2 { font-size: 19px; color: #0f2557; font-weight: 700; }
+  .card h2 a { color: inherit; text-decoration: none; border-bottom: 2px solid #93c5fd; }
+  .meta { margin: 10px 0 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 12px; padding: 3px 10px; border-radius: 999px;
+    background: #eef2ff; color: #3730a3; font-weight: 600;
+  }
+  .tag.lang { background: #ecfdf5; color: #047857; }
+  .tag.star { background: #fff7ed; color: #c2410c; }
+  .card p { font-size: 15px; color: #374151; }
+  .card .why { margin-top: 12px; font-size: 14px; color: #4b5563; background: #f8fafc; border-left: 3px solid #2563eb; padding: 10px 14px; border-radius: 0 8px 8px 0; }
+  .card .link { margin-top: 14px; }
+  .card .link a { font-size: 14px; color: #2563eb; text-decoration: none; font-weight: 600; }
+  .learn-card {
+    background: linear-gradient(135deg, #065f46 0%, #059669 60%, #10b981 100%);
+    color: #fff; border-radius: 16px; padding: 26px 24px;
+    box-shadow: 0 8px 28px rgba(6, 95, 70, 0.18);
+  }
+  .learn-card .badge { font-size: 12px; font-weight: 700; background: rgba(255,255,255,0.22); padding: 4px 12px; border-radius: 999px; display: inline-block; }
+  .learn-card h2 { font-size: 21px; margin: 14px 0 10px; }
+  .learn-card p { font-size: 15px; opacity: 0.95; margin-bottom: 12px; }
+  .learn-card ul { margin: 8px 0 4px; padding-left: 20px; }
+  .learn-card li { font-size: 14.5px; margin-bottom: 8px; opacity: 0.96; }
+  .learn-card code { background: rgba(0,0,0,0.22); padding: 2px 7px; border-radius: 5px; font-size: 13.5px; }
+  .learn-card .tip { margin-top: 14px; font-size: 13.5px; background: rgba(255,255,255,0.14); padding: 10px 14px; border-radius: 10px; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>每日 GitHub 开源精选 + AI 学习日报</h1>
+    <div class="date">2026 年 6 月 9 日 · 星期二</div>
+    <div class="sub">3 个高星开源项目 · 1 个 AI 学习主题</div>
+  </div>
+
+  <div class="container">
+    <div class="section-title"><span class="bar"></span>今日开源精选</div>
+
+    <div class="card">
+      <div class="repo-head">
+        <h2><a href="https://github.com/Stirling-Tools/Stirling-PDF" target="_blank">Stirling-PDF</a></h2>
+      </div>
+      <div class="meta">
+        <span class="tag lang">Java / TypeScript</span>
+        <span class="tag star">★ 约 79.6k</span>
+        <span class="tag">文档处理</span>
+        <span class="tag">自托管</span>
+      </div>
+      <p>GitHub 上排名第一的开源 PDF 应用：合并、拆分、压缩、转换、OCR、加水印、表单填写、电子签名等 50+ 项操作全部本地完成，可一行 Docker 自托管。一个浏览器页面就能替代 Adobe Acrobat，文件不出本机。</p>
+      <div class="why">为什么值得关注：累计 30M+ 下载量，把零散的在线 PDF 工具网站全部收编进一个隐私安全、可离线部署的面板，是个人和企业摆脱付费 PDF 软件的成熟方案。</div>
+      <div class="link"><a href="https://github.com/Stirling-Tools/Stirling-PDF" target="_blank">→ 在 GitHub 上查看</a></div>
+    </div>
+
+    <div class="card">
+      <div class="repo-head">
+        <h2><a href="https://github.com/remotion-dev/remotion" target="_blank">remotion</a></h2>
+      </div>
+      <div class="meta">
+        <span class="tag lang">TypeScript</span>
+        <span class="tag star">★ 约 49k</span>
+        <span class="tag">视频生成</span>
+        <span class="tag">React 框架</span>
+      </div>
+      <p>用 React 以编程方式制作视频。把 CSS、Canvas、SVG、WebGL 当画笔，用变量、函数、API、算法驱动每一帧，再用 React 组件复用与组合能力批量产出。配合数据接口即可自动生成成百上千个个性化视频（年终报告、营销短片、数据可视化动画）。</p>
+      <div class="why">为什么值得关注：3M+ 安装量、300+ 贡献者。它把"视频"从手工剪辑变成可版本管理、可参数化、可 CI 渲染的工程产物，是程序化内容生产链路里被反复提及的基础设施。</div>
+      <div class="link"><a href="https://github.com/remotion-dev/remotion" target="_blank">→ 在 GitHub 上查看</a></div>
+    </div>
+
+    <div class="card">
+      <div class="repo-head">
+        <h2><a href="https://github.com/zylon-ai/private-gpt" target="_blank">private-gpt</a></h2>
+      </div>
+      <div class="meta">
+        <span class="tag lang">Python</span>
+        <span class="tag star">★ 约 57k</span>
+        <span class="tag">本地大模型</span>
+        <span class="tag">RAG</span>
+        <span class="tag">隐私优先</span>
+      </div>
+      <p>100% 私有地与你的文档对话：所有推理与检索都在本地完成，数据不上传任何云端。提供完整的 RAG 管线（文档摄取、向量化、检索增强问答）和一套 API/UI，可对接本地或自托管的大模型，适合处理合同、内部资料、医疗法律等敏感文档。</p>
+      <div class="why">为什么值得关注：早在 v0.5.0 就突破 50k 星，是"私有化文档问答"赛道最经典的开源参考实现，想理解 RAG 工程全貌从它的代码读起非常合适。</div>
+      <div class="link"><a href="https://github.com/zylon-ai/private-gpt" target="_blank">→ 在 GitHub 上查看</a></div>
+    </div>
+
+    <div class="section-title"><span class="bar"></span>今日 AI 学习</div>
+
+    <div class="learn-card">
+      <span class="badge">Codex 系列 · 工作流</span>
+      <h2>用 Codex CLI 做代码审查：让 AI 先帮你 review 再提 PR</h2>
+      <p>写代码靠 AI，审代码同样可以靠 AI。Codex CLI 能直接读取 git diff，从可读性、潜在 Bug、边界条件、安全风险几个维度给出逐行点评——相当于在提交 PR 之前先过一轮"机器同事评审"。</p>
+      <ul>
+        <li><strong>审本地改动：</strong>暂存或不暂存都行，先看 diff 再让它评审：<code>git diff | codex "扮演资深评审，逐行指出潜在 Bug、边界条件与可读性问题"</code></li>
+        <li><strong>审某个范围的提交：</strong><code>git diff main...HEAD | codex "总结这批改动的风险点，按严重程度排序"</code>，快速摸清一个分支整体质量。</li>
+        <li><strong>聚焦安全：</strong>给它一个明确视角，例如"只找注入、越权、空指针、并发安全问题"，输出会比泛泛而谈精准得多。</li>
+        <li><strong>让它给修改建议：</strong>评审完追问一句"针对最严重的两个问题，给出修改后的代码"，直接拿到可落地的 patch。</li>
+      </ul>
+      <div class="tip">小技巧：把常用的评审提示词写成一个自定义 Skill / Prompt（前几期讲过），以后一句 <code>codex /review</code> 就能跑完整套审查流程，团队风格也能统一。</div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -74,6 +74,13 @@
       "category": "codex",
       "title": "Codex CLI 的沙箱与审批模式：让 AI 既能干活又不乱来",
       "file": "2026-06-08-daily.html"
+    },
+    {
+      "date": "2026-06-09",
+      "topic_id": "codex-code-review",
+      "category": "codex",
+      "title": "用 Codex CLI 做代码审查：让 AI 先帮你 review 再提 PR",
+      "file": "2026-06-09-daily.html"
     }
   ]
 }

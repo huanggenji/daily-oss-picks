@@ -361,6 +361,39 @@
       "file": "2026-06-08-daily.html",
       "stars": 38400,
       "threshold": "total 38.4k > 10000"
+    },
+    {
+      "date": "2026-06-09",
+      "repo": "Stirling-Tools/Stirling-PDF",
+      "url": "https://github.com/Stirling-Tools/Stirling-PDF",
+      "language": "Java",
+      "title": "Stirling-Tools/Stirling-PDF：GitHub 第一的开源 PDF 应用，50+ 操作全本地完成可自托管",
+      "category": "文档处理 / PDF 工具 / 自托管",
+      "file": "2026-06-09-daily.html",
+      "stars": 79600,
+      "threshold": "total 79.6k > 10000"
+    },
+    {
+      "date": "2026-06-09",
+      "repo": "remotion-dev/remotion",
+      "url": "https://github.com/remotion-dev/remotion",
+      "language": "TypeScript",
+      "title": "remotion-dev/remotion：用 React 以编程方式制作视频，可参数化批量渲染",
+      "category": "视频生成 / React 框架 / 程序化内容",
+      "file": "2026-06-09-daily.html",
+      "stars": 49000,
+      "threshold": "total 49k > 10000"
+    },
+    {
+      "date": "2026-06-09",
+      "repo": "zylon-ai/private-gpt",
+      "url": "https://github.com/zylon-ai/private-gpt",
+      "language": "Python",
+      "title": "zylon-ai/private-gpt：100% 私有的本地文档问答，经典 RAG 工程参考实现",
+      "category": "本地大模型 / RAG / 隐私优先",
+      "file": "2026-06-09-daily.html",
+      "stars": 57000,
+      "threshold": "total 57k > 10000"
     }
   ]
 }
