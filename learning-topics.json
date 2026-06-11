@@ -81,6 +81,20 @@
       "category": "codex",
       "title": "用 Codex CLI 做代码审查：让 AI 先帮你 review 再提 PR",
       "file": "2026-06-09-daily.html"
+    },
+    {
+      "date": "2026-06-10",
+      "topic_id": "codex-image-input",
+      "category": "codex",
+      "title": "给 Codex CLI 喂截图：用图片输入做 UI 还原和读报错",
+      "file": "2026-06-10-daily.html"
+    },
+    {
+      "date": "2026-06-11",
+      "topic_id": "codex-at-file-context",
+      "category": "codex",
+      "title": "Codex CLI 用 @ 精准喂上下文：引用文件/目录省 token 提准确率",
+      "file": "2026-06-11-daily.html"
     }
   ]
 }

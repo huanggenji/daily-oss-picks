@@ -394,6 +394,72 @@
       "file": "2026-06-09-daily.html",
       "stars": 57000,
       "threshold": "total 57k > 10000"
+    },
+    {
+      "date": "2026-06-10",
+      "repo": "roboflow/supervision",
+      "url": "https://github.com/roboflow/supervision",
+      "language": "Python",
+      "title": "roboflow/supervision：可复用计算机视觉工具库，给任意模型套上标注/追踪/计数/可视化",
+      "category": "计算机视觉 / 工具库 / 工程基础设施",
+      "file": "2026-06-10-daily.html",
+      "stars": 38000,
+      "threshold": "total 38k > 10000"
+    },
+    {
+      "date": "2026-06-10",
+      "repo": "NousResearch/hermes-agent",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "language": "Python/TypeScript",
+      "title": "NousResearch/hermes-agent：会跨会话记住你、从使用中自我成长的开源 AI Agent",
+      "category": "AI Agent / 自学习 / 记忆系统",
+      "file": "2026-06-10-daily.html",
+      "stars": 170000,
+      "threshold": "total 170k > 10000"
+    },
+    {
+      "date": "2026-06-10",
+      "repo": "BuilderIO/mitosis",
+      "url": "https://github.com/BuilderIO/mitosis",
+      "language": "TypeScript",
+      "title": "BuilderIO/mitosis：组件写一次，编译到 React/Vue/Svelte/Solid/Angular/Qwik",
+      "category": "前端工程 / 跨框架编译 / 设计系统",
+      "file": "2026-06-10-daily.html",
+      "stars": 13800,
+      "threshold": "total 13.8k > 10000"
+    },
+    {
+      "date": "2026-06-11",
+      "repo": "mvanhorn/last30days-skill",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "language": "Python",
+      "title": "mvanhorn/last30days-skill：跨平台全网调研的 AI Agent 技能，自动汇总最近 30 天真实讨论",
+      "category": "AI Agent / 全网情报研究 / Web scraping",
+      "file": "2026-06-11-daily.html",
+      "stars": 32200,
+      "threshold": "total 32.2k > 10000"
+    },
+    {
+      "date": "2026-06-11",
+      "repo": "safishamsi/graphify",
+      "url": "https://github.com/safishamsi/graphify",
+      "language": "Python",
+      "title": "safishamsi/graphify：一条命令把整个项目变成 AI 可查询的代码知识图谱",
+      "category": "AI 编程 / 代码知识图谱 / 上下文工程",
+      "file": "2026-06-11-daily.html",
+      "stars": 63500,
+      "threshold": "total 63.5k > 10000"
+    },
+    {
+      "date": "2026-06-11",
+      "repo": "TapXWorld/ChinaTextbook",
+      "url": "https://github.com/TapXWorld/ChinaTextbook",
+      "language": "Roff",
+      "title": "TapXWorld/ChinaTextbook：小学到大学中文 PDF 教材集中整理开源",
+      "category": "教育资源 / 中文教材 / Curated list",
+      "file": "2026-06-11-daily.html",
+      "stars": 74000,
+      "threshold": "total 74k > 10000"
     }
   ]
 }

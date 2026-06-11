@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日 GitHub 开源精选 + AI 学习日报 · 2026-06-11</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f0f2f5;
+    color: #1f2329;
+    line-height: 1.7;
+    padding: 20px;
+  }
+  .container { max-width: 820px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 36px 32px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(30,58,138,0.25);
+  }
+  .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+  .header .date { font-size: 15px; opacity: 0.9; }
+  .header .subtitle { font-size: 14px; opacity: 0.85; margin-top: 10px; }
+  .section-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin: 32px 4px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .card .repo-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+  .card .repo-name { font-size: 18px; font-weight: 700; color: #1e3a8a; }
+  .card .repo-name a { color: inherit; text-decoration: none; }
+  .card .repo-name a:hover { text-decoration: underline; }
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .badge.stars { background: #fef3c7; color: #92400e; }
+  .badge.lang { background: #e0e7ff; color: #3730a3; }
+  .badge.cat { background: #dcfce7; color: #166534; }
+  .card .title-cn { font-size: 15.5px; font-weight: 600; color: #1f2329; margin: 8px 0; }
+  .card .desc { font-size: 14.5px; color: #4b5563; }
+  .card .desc p { margin-bottom: 8px; }
+  .card .desc p:last-child { margin-bottom: 0; }
+  .card .why { background: #f8fafc; border-left: 3px solid #2563eb; padding: 10px 14px; border-radius: 6px; margin-top: 12px; font-size: 14px; color: #374151; }
+  .learn-card {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    color: #fff;
+    border-radius: 14px;
+    padding: 28px 30px;
+    box-shadow: 0 6px 20px rgba(5,150,105,0.25);
+  }
+  .learn-card .learn-tag { font-size: 12px; background: rgba(255,255,255,0.25); padding: 3px 12px; border-radius: 20px; display: inline-block; margin-bottom: 12px; }
+  .learn-card h3 { font-size: 19px; margin-bottom: 14px; }
+  .learn-card p { font-size: 14.5px; margin-bottom: 12px; opacity: 0.97; }
+  .learn-card code {
+    background: rgba(0,0,0,0.25);
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 13px;
+  }
+  .learn-card pre {
+    background: rgba(0,0,0,0.3);
+    padding: 14px 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 12px 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .learn-card pre code { background: none; padding: 0; }
+  .learn-card .tip { background: rgba(255,255,255,0.18); border-radius: 8px; padding: 12px 16px; font-size: 13.5px; margin-top: 14px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>每日 GitHub 开源精选 + AI 学习日报</h1>
+    <div class="date">2026 年 6 月 11 日 · 星期四</div>
+    <div class="subtitle">从今日实时趋势榜中精选 3 个高星开源项目，外加一节 AI 实战学习</div>
+  </div>
+
+  <div class="section-title">🔥 今日开源精选</div>
+
+  <div class="card">
+    <div class="repo-line">
+      <span class="repo-name"><a href="https://github.com/mvanhorn/last30days-skill" target="_blank">mvanhorn/last30days-skill</a></span>
+      <span class="badge stars">⭐ 32.2k</span>
+      <span class="badge lang">Python</span>
+      <span class="badge cat">AI Agent · 全网情报研究</span>
+    </div>
+    <div class="title-cn">一个让 AI 跨平台「全网调研」的 Agent 技能，自动汇总最近 30 天的真实讨论</div>
+    <div class="desc">
+      <p>普通搜索引擎前几页常被 SEO 软文和 AI 洗稿占满，真正有价值的观点往往埋在 Reddit 评论、X 帖子或 Hacker News 讨论里——而这些来源没有任何一个搜索框能一次搜全。last30days-skill 把这件事变成一条命令。</p>
+      <p>它是一个 AI Agent 技能：给定一个主题，它会并行抓取 Reddit、X、YouTube、Hacker News、Polymarket、GitHub 等多个平台最近 30 天的内容，按真实热度打分排序，再合成一份带引用来源的总结报告，还能直接输出 HTML 简报。可配合 Claude Code、Codex、Cursor 等任何能跑 shell 命令的助手使用。</p>
+    </div>
+    <div class="why">适合谁：做市场调研、追技术热点、想快速摸清一个新项目口碑的人。把"到处翻评论区"的考古活儿，交给一个不睡觉的研究助手。</div>
+  </div>
+
+  <div class="card">
+    <div class="repo-line">
+      <span class="repo-name"><a href="https://github.com/safishamsi/graphify" target="_blank">safishamsi/graphify</a></span>
+      <span class="badge stars">⭐ 63.5k</span>
+      <span class="badge lang">Python</span>
+      <span class="badge cat">AI 编程 · 代码知识图谱</span>
+    </div>
+    <div class="title-cn">一条命令，把整个项目（代码 + 文档 + 截图 + 论文）变成 AI 可查询的知识图谱</div>
+    <div class="desc">
+      <p>用 AI 助手理解大项目时有个反复出现的痛点：每次提问，它都要重新读文件、找线索、拼上下文。代码在 src、文档在 docs、设计说明和截图散在别处，资料很多但彼此的关系从没沉淀下来。</p>
+      <p>graphify 是给 AI 编程助手用的技能：跑一次 <code>/graphify</code>，它就读一遍整个仓库——不只是代码，还有 SQL schema、shell 脚本、Markdown、PDF、论文甚至截图——抽出其中的概念和它们的连接关系，生成 graph.html、报告和 graph.json。之后 AI 先查这张关系图，再决定该读哪段上下文，少读文件、少绕弯路。支持 Claude Code、Codex、OpenCode、Cursor、Gemini CLI 等。</p>
+    </div>
+    <div class="why">适合谁：在大型或多语言仓库里用 AI 写代码的人。把"项目结构"一次性沉淀成图，让助手每次都从地图出发而不是从零开始。</div>
+  </div>
+
+  <div class="card">
+    <div class="repo-line">
+      <span class="repo-name"><a href="https://github.com/TapXWorld/ChinaTextbook" target="_blank">TapXWorld/ChinaTextbook</a></span>
+      <span class="badge stars">⭐ 74k</span>
+      <span class="badge lang">Roff</span>
+      <span class="badge cat">教育资源 · 中文教材</span>
+    </div>
+    <div class="title-cn">把小学到大学的中文 PDF 教材集中整理开源，自学和备课的连续资料入口</div>
+    <div class="desc">
+      <p>这是一个把中国小学、初中、高中到大学各阶段 PDF 教材集中整理的开源项目，目标是为基础薄弱地区和海外中文家庭提供可连续获取的教育资源。资料按学段组织，查找和下载都更集中。</p>
+      <p>它的价值不在技术，而在"系统性"：自学者能低成本拿到一整套连贯的教材补基础，家长能给孩子找到对应学段的系统资料，海外中文学习家庭也有了清晰的资料入口。和今天另两个 AI 工具放在一起，它提醒我们开源也可以是把公共知识更公平地铺开。</p>
+    </div>
+    <div class="why">适合谁：自学补基础、给孩子找系统教材、或做中文教学资料整理的人。一个把"散落的公共教育资源"集中起来的高星项目。</div>
+  </div>
+
+  <div class="section-title">📚 今日一学：Codex CLI 用 @ 精准喂上下文</div>
+
+  <div class="learn-card">
+    <span class="learn-tag">Codex 系列 · 上下文管理</span>
+    <h3>用 @ 引用文件，让 Codex 看你想让它看的那部分</h3>
+    <p>很多人用 Codex CLI 时习惯把需求一句话丢过去，然后抱怨它"没看懂代码"。问题往往不在模型，而在于你没告诉它该看哪里。Codex CLI 支持用 <code>@</code> 直接在对话里引用文件或目录，把精确的上下文塞进这一轮请求——这是省 token、提准确率最实用的一招。</p>
+    <p>在交互式会话里，输入 <code>@</code> 会触发文件路径补全。你可以引用单个文件，也可以引用整个目录：</p>
+    <pre><code>&gt; 解释一下 @src/auth/login.ts 的登录流程，
+  有没有可以简化的地方？
+
+&gt; 参照 @src/components/Button.tsx 的写法，
+  帮我给 @src/components/ 里缺测试的组件补单测</code></pre>
+    <p>这样做的好处很直接：Codex 只会把你点名的文件读进上下文，而不是把半个仓库塞进去。文件越精准，回答越贴题，token 也越省。当你只想让它改某一处时，引用那一个文件，比让它"自己去找"可靠得多。</p>
+    <div class="tip">💡 实战习惯：改动前先用 <code>@</code> 把相关文件和参照样例都点名给它（"照着 A 文件的风格改 B 文件"），再描述需求。给足精确上下文，往往一轮就能拿到能用的结果，而不是来回纠正三四次。</div>
+  </div>
+
+</div>
+</body>
+</html>
