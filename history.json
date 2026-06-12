@@ -460,6 +460,39 @@
       "file": "2026-06-11-daily.html",
       "stars": 74000,
       "threshold": "total 74k > 10000"
+    },
+    {
+      "date": "2026-06-12",
+      "repo": "addyosmani/agent-skills",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "language": "Shell",
+      "title": "addyosmani/agent-skills：给 AI 编程 Agent 装上「工程师级」可复用技能",
+      "category": "AI Agent / 编程技能框架 / 工程方法论",
+      "file": "2026-06-12-daily.html",
+      "stars": 52500,
+      "threshold": "total 52.5k > 10000"
+    },
+    {
+      "date": "2026-06-12",
+      "repo": "Open-LLM-VTuber/Open-LLM-VTuber",
+      "url": "https://github.com/Open-LLM-VTuber/Open-LLM-VTuber",
+      "language": "Python",
+      "title": "Open-LLM-VTuber：本地运行的语音对话 Live2D 数字人",
+      "category": "本地大模型 / 语音交互 / 数字人",
+      "file": "2026-06-12-daily.html",
+      "stars": 11000,
+      "threshold": "total 11k > 10000"
+    },
+    {
+      "date": "2026-06-12",
+      "repo": "imputnet/helium",
+      "url": "https://github.com/imputnet/helium",
+      "language": "C++",
+      "title": "imputnet/helium：隐私优先、纯净快速的开源浏览器",
+      "category": "系统工具 / 浏览器 / 隐私优先",
+      "file": "2026-06-12-daily.html",
+      "stars": 17300,
+      "threshold": "total 17.3k > 10000"
     }
   ]
 }

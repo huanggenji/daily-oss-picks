@@ -95,6 +95,13 @@
       "category": "codex",
       "title": "Codex CLI 用 @ 精准喂上下文：引用文件/目录省 token 提准确率",
       "file": "2026-06-11-daily.html"
+    },
+    {
+      "date": "2026-06-12",
+      "topic_id": "codex-multifile-refactor",
+      "category": "codex",
+      "title": "用 Codex CLI 做多文件批量重构：列计划、小步验证、配合 git 提交",
+      "file": "2026-06-12-daily.html"
     }
   ]
 }

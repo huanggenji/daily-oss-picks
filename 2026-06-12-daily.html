@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日 GitHub 开源精选 + AI 学习日报 · 2026-06-12</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f0f2f5;
+    color: #1f2933;
+    line-height: 1.7;
+    padding: 0 0 48px;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f2557 0%, #1d4ed8 100%);
+    color: #fff;
+    padding: 40px 24px 36px;
+    text-align: center;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .date { margin-top: 10px; font-size: 15px; opacity: 0.85; }
+  .header .sub { margin-top: 6px; font-size: 13px; opacity: 0.7; }
+  .container { max-width: 720px; margin: -20px auto 0; padding: 0 16px; }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 18px rgba(15, 37, 87, 0.08);
+  }
+  .card .rank {
+    display: inline-block;
+    background: #1d4ed8;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 2px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .card h2 { font-size: 19px; line-height: 1.45; margin-bottom: 10px; }
+  .card h2 a { color: #0f2557; text-decoration: none; }
+  .card h2 a:hover { text-decoration: underline; }
+  .meta { font-size: 13px; color: #64748b; margin-bottom: 14px; }
+  .meta span { display: inline-block; margin-right: 14px; }
+  .meta .stars { color: #d97706; font-weight: 600; }
+  .desc { font-size: 15px; color: #334155; margin-bottom: 14px; }
+  .why { font-size: 14px; color: #475569; background: #f8fafc; border-left: 3px solid #1d4ed8; padding: 10px 14px; border-radius: 6px; }
+  .why b { color: #0f2557; }
+  .repo-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 14px;
+    color: #1d4ed8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .repo-link:hover { text-decoration: underline; }
+  .learn-card {
+    background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 26px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 18px rgba(4, 120, 87, 0.18);
+  }
+  .learn-card .tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 12px;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+  .learn-card h2 { font-size: 20px; margin-bottom: 14px; }
+  .learn-card p { font-size: 15px; margin-bottom: 12px; opacity: 0.96; }
+  .learn-card .block { background: rgba(255,255,255,0.12); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; }
+  .learn-card .block h3 { font-size: 15px; margin-bottom: 8px; }
+  .learn-card code {
+    background: rgba(0,0,0,0.28);
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+  }
+  .learn-card pre {
+    background: rgba(0,0,0,0.32);
+    border-radius: 8px;
+    padding: 12px 14px;
+    overflow-x: auto;
+    margin: 10px 0;
+    font-size: 13px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    line-height: 1.6;
+  }
+  .learn-card .tip { font-size: 13.5px; opacity: 0.9; }
+  .section-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #475569;
+    margin: 8px 4px 14px;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>每日 GitHub 开源精选 + AI 学习日报</h1>
+    <div class="date">2026 年 6 月 12 日 · 星期五</div>
+    <div class="sub">实时榜单来源 Trendshift · 今日精选 3 项 + 学习 1 则</div>
+  </div>
+
+  <div class="container">
+
+    <div class="section-label">🔥 今日开源精选</div>
+
+    <div class="card">
+      <span class="rank">榜单 #1</span>
+      <h2><a href="https://github.com/addyosmani/agent-skills" target="_blank">addyosmani/agent-skills：给 AI 编程 Agent 装上「工程师级」可复用技能</a></h2>
+      <div class="meta">
+        <span class="stars">★ 52.5k</span>
+        <span>Shell</span>
+        <span>MIT License</span>
+        <span>AI Agent / 编程技能框架</span>
+      </div>
+      <div class="desc">
+        由 Google Chrome 团队的 Addy Osmani 发起，把资深工程师的决策流程编码成 AI 编程 Agent 可直接执行的「技能」：先写规范再写代码、先测试再合并、先度量再优化。每个技能是一份结构化的工作流脚本，Agent 加载后就按工程纪律办事，而不是靠一次性提示词碰运气。
+      </div>
+      <div class="why">
+        <b>为什么值得看：</b>它把「prompt 工程」升级成「专业知识打包」——真正被低估的不是技能本身，而是让 AI 把工程经验当成可复用软件来调用。今日 Trendshift 日榜第一，被称为 AI Agent 生态的「npm moment」。
+      </div>
+      <a class="repo-link" href="https://github.com/addyosmani/agent-skills" target="_blank">→ 在 GitHub 上查看</a>
+    </div>
+
+    <div class="card">
+      <span class="rank">榜单 #4</span>
+      <h2><a href="https://github.com/Open-LLM-VTuber/Open-LLM-VTuber" target="_blank">Open-LLM-VTuber：本地运行的语音对话 Live2D 数字人</a></h2>
+      <div class="meta">
+        <span class="stars">★ 11k</span>
+        <span>Python</span>
+        <span>本地大模型 / 语音 / 数字人</span>
+      </div>
+      <div class="desc">
+        和任意大模型做免手操作的语音对话，支持说话中途打断，配一个 Live2D 动态形象，全程在本地跨平台运行。它能看屏幕、听声音，说话前先把「内心想法」以文字展示出来，还有桌面宠物模式，可以一键替换底层 LLM。
+      </div>
+      <div class="why">
+        <b>为什么值得看：</b>把「本地大模型 + 语音 + 视觉 + 形象」拼成一个完整的离线 AI 伴侣，语音打断是真正改变体验的细节。想做本地多模态交互、虚拟主播或桌面助手的，是一份现成的工程参考。
+      </div>
+      <a class="repo-link" href="https://github.com/Open-LLM-VTuber/Open-LLM-VTuber" target="_blank">→ 在 GitHub 上查看</a>
+    </div>
+
+    <div class="card">
+      <span class="rank">榜单 #20</span>
+      <h2><a href="https://github.com/imputnet/helium" target="_blank">imputnet/helium：隐私优先、纯净快速的开源浏览器</a></h2>
+      <div class="meta">
+        <span class="stars">★ 17.3k</span>
+        <span>C++</span>
+        <span>GPL-3.0</span>
+        <span>系统工具 / 浏览器 / 隐私优先</span>
+      </div>
+      <div class="desc">
+        基于 Chromium 重新打磨的浏览器，主打隐私优先、公正的广告屏蔽，去掉冗余功能和噪音。近期发布了全平台自定义快捷键、Windows 自动更新、无边框模式等更新，保持 Manifest V2 扩展支持，是少数仍坚持「为人而非为数据」设计的浏览器之一。
+      </div>
+      <div class="why">
+        <b>为什么值得看：</b>在主流浏览器纷纷收紧扩展能力、堆叠 AI 与广告的当下，Helium 反其道而行，给重视隐私和速度的用户一个干净的 Chromium 替代品，也是研究浏览器定制工程的好样本。
+      </div>
+      <a class="repo-link" href="https://github.com/imputnet/helium" target="_blank">→ 在 GitHub 上查看</a>
+    </div>
+
+    <div class="section-label">📘 今日 AI 学习</div>
+
+    <div class="learn-card">
+      <span class="tag">CODEX 系列</span>
+      <h2>用 Codex CLI 做多文件批量重构：一次改对一整片代码</h2>
+      <p>
+        重构最痛的不是改单个函数，而是「改一个名字要同步改十几个文件」。手工改容易漏、容易引入笔误。Codex CLI 擅长这类跨文件的机械改动——你描述意图，它读懂调用关系，统一改完再让你审。
+      </p>
+
+      <div class="block">
+        <h3>1. 先把范围喂清楚</h3>
+        <p>用 <code>@</code> 把相关目录或文件交给 Codex，让它先建立全局认识，而不是盲改：</p>
+        <pre>codex "把 utils/ 下的 getUserData 重命名为
+fetchUserProfile，同步更新所有调用处" @src/utils @src/api @src/pages</pre>
+        <p class="tip">明确给出目录范围，比让它自己全库搜索更省 token、更不容易误伤同名但无关的代码。</p>
+      </div>
+
+      <div class="block">
+        <h3>2. 让它先列计划再动手</h3>
+        <p>大范围改动前，先要一份「会改哪些文件、改什么」的清单：</p>
+        <pre>codex "先别改代码，列出这次重命名会影响的
+所有文件和具体改动点，我确认后再执行"</pre>
+        <p class="tip">这一步能把「漏改」和「过度改」在执行前就拦下来，尤其适合涉及十几个文件的重构。</p>
+      </div>
+
+      <div class="block">
+        <h3>3. 小步提交，配合 git 验证</h3>
+        <p>每完成一类改动就让它跑测试 / 编译，再生成 commit：</p>
+        <pre>codex "重构完成后运行测试，全部通过再帮我
+写一条 commit message，按 conventional commits 格式"</pre>
+        <p class="tip">把大重构拆成「改 → 验 → 提交」的小循环，出问题时 <code>git diff</code> 一眼就能定位，回退也只丢一小步。</p>
+      </div>
+
+      <p class="tip">
+        💡 一句话记住：<b>范围讲清楚 → 先看计划 → 小步验证提交</b>。机械的批量改动交给 Codex，你只负责审关键决策。
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
