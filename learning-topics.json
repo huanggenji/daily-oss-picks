@@ -102,6 +102,13 @@
       "category": "codex",
       "title": "用 Codex CLI 做多文件批量重构：列计划、小步验证、配合 git 提交",
       "file": "2026-06-12-daily.html"
+    },
+    {
+      "date": "2026-06-13",
+      "topic_id": "codex-compact-context",
+      "category": "codex",
+      "title": "Codex CLI 长会话不爆 token：用 /compact 与上下文管理稳住状态",
+      "file": "2026-06-13-daily.html"
     }
   ]
 }

@@ -493,6 +493,39 @@
       "file": "2026-06-12-daily.html",
       "stars": 17300,
       "threshold": "total 17.3k > 10000"
+    },
+    {
+      "date": "2026-06-13",
+      "repo": "aaif-goose/goose",
+      "url": "https://github.com/aaif-goose/goose",
+      "language": "Rust",
+      "title": "aaif-goose/goose：能装环境、跑命令、改代码、跑测试的开源 AI Agent",
+      "category": "AI Agent / 自动化开发 / MCP",
+      "file": "2026-06-13-daily.html",
+      "stars": 49095,
+      "threshold": "total 49k > 10000"
+    },
+    {
+      "date": "2026-06-13",
+      "repo": "apple/container",
+      "url": "https://github.com/apple/container",
+      "language": "Swift",
+      "title": "apple/container：Apple 官方出品，在 Mac 上用轻量虚拟机跑 Linux 容器",
+      "category": "开发基础设施 / 容器 / Apple Silicon",
+      "file": "2026-06-13-daily.html",
+      "stars": 35051,
+      "threshold": "total 35k > 10000"
+    },
+    {
+      "date": "2026-06-13",
+      "repo": "aquasecurity/trivy",
+      "url": "https://github.com/aquasecurity/trivy",
+      "language": "Go",
+      "title": "aquasecurity/trivy：一条命令扫出容器、K8s、代码里的漏洞与密钥",
+      "category": "安全 / DevSecOps / 供应链",
+      "file": "2026-06-13-daily.html",
+      "stars": 36400,
+      "threshold": "total 36.4k > 10000"
     }
   ]
 }
