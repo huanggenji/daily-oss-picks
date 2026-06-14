@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日 GitHub 开源精选 + AI 学习日报 · 2026-06-14</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f0f2f5;
+    color: #1f2933;
+    line-height: 1.7;
+    padding: 0 0 48px;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f2557 0%, #1d4ed8 100%);
+    color: #fff;
+    padding: 40px 24px 36px;
+    text-align: center;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .date { margin-top: 10px; font-size: 15px; opacity: 0.85; }
+  .header .sub { margin-top: 6px; font-size: 13px; opacity: 0.7; }
+  .container { max-width: 720px; margin: -20px auto 0; padding: 0 16px; }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 18px rgba(15, 37, 87, 0.08);
+  }
+  .card .rank {
+    display: inline-block;
+    background: #1d4ed8;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 2px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .card h2 { font-size: 19px; line-height: 1.45; margin-bottom: 10px; }
+  .card h2 a { color: #0f2557; text-decoration: none; }
+  .card h2 a:hover { text-decoration: underline; }
+  .meta { font-size: 13px; color: #64748b; margin-bottom: 14px; }
+  .meta span { display: inline-block; margin-right: 14px; }
+  .meta .stars { color: #d97706; font-weight: 600; }
+  .desc { font-size: 15px; color: #334155; margin-bottom: 14px; }
+  .why { font-size: 14px; color: #475569; background: #f8fafc; border-left: 3px solid #1d4ed8; padding: 10px 14px; border-radius: 6px; }
+  .why b { color: #0f2557; }
+  .repo-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 14px;
+    color: #1d4ed8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .repo-link:hover { text-decoration: underline; }
+  .learn-card {
+    background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 26px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 18px rgba(4, 120, 87, 0.18);
+  }
+  .learn-card .tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 12px;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+  .learn-card h2 { font-size: 20px; margin-bottom: 14px; }
+  .learn-card p { font-size: 15px; margin-bottom: 12px; opacity: 0.96; }
+  .learn-card .block { background: rgba(255,255,255,0.12); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; }
+  .learn-card .block h3 { font-size: 15px; margin-bottom: 8px; }
+  .learn-card code {
+    background: rgba(0,0,0,0.28);
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+  }
+  .learn-card pre {
+    background: rgba(0,0,0,0.32);
+    border-radius: 8px;
+    padding: 12px 14px;
+    overflow-x: auto;
+    margin: 10px 0;
+    font-size: 13px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    line-height: 1.6;
+  }
+  .learn-card .tip { font-size: 13.5px; opacity: 0.9; }
+  .section-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #475569;
+    margin: 8px 4px 14px;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>每日 GitHub 开源精选 + AI 学习日报</h1>
+    <div class="date">2026 年 6 月 14 日 · 星期日</div>
+    <div class="sub">实时榜单来源 GitHub Trending · 今日精选 3 项 + 学习 1 则</div>
+  </div>
+
+  <div class="container">
+
+    <div class="section-label">🔥 今日开源精选</div>
+
+    <div class="card">
+      <span class="rank">日榜在榜</span>
+      <h2><a href="https://github.com/Panniantong/Agent-Reach" target="_blank">Panniantong/Agent-Reach：给 AI Agent 装上「看全网」的眼睛，一个 CLI 零 API 费用</a></h2>
+      <div class="meta">
+        <span class="stars">★ 27.4k</span>
+        <span>Python</span>
+        <span>开源协议</span>
+        <span>AI Agent / 全网信息读取</span>
+      </div>
+      <div class="desc">
+        Agent-Reach 让你的 AI Agent 能直接读取和搜索 Twitter、Reddit、YouTube、GitHub、B 站、小红书等平台内容——全部通过一个统一 CLI 完成，不需要逐个申请官方 API、也不用付 API 调用费。它把「抓全网公开信息」这件麻烦事封装成一条命令，Agent 拿到的就是结构化、可直接喂给大模型的数据。
+      </div>
+      <div class="why">
+        <b>为什么值得看：</b>大多数 Agent 的瓶颈不是推理，而是「拿不到新鲜的外部信息」。Agent-Reach 把多平台抓取统一成一个工具，零 API 费用又覆盖中英文社区，是给 Agent 补上「实时感知」能力的实用拼图。
+      </div>
+      <a class="repo-link" href="https://github.com/Panniantong/Agent-Reach" target="_blank">→ 在 GitHub 上查看</a>
+    </div>
+
+    <div class="card">
+      <span class="rank">日榜在榜</span>
+      <h2><a href="https://github.com/microsoft/PowerToys" target="_blank">microsoft/PowerToys：微软官方出品的 Windows 效率工具合集，30+ 实用小工具一站装</a></h2>
+      <div class="meta">
+        <span class="stars">★ 134.7k</span>
+        <span>C#</span>
+        <span>MIT</span>
+        <span>系统工具 / 效率增强 / Windows</span>
+      </div>
+      <div class="desc">
+        PowerToys 是微软为高级用户打造的 Windows 增强工具集，内置超过 30 个独立小工具：FancyZones 窗口分屏、PowerToys Run 快速启动、Color Picker 取色、PowerRename 批量改名、Text Extractor 屏幕取字、Command Palette 命令面板等等。每个都解决一个具体的日常痛点，开箱即用、可按需开关。
+      </div>
+      <div class="why">
+        <b>为什么值得看：</b>它是 Windows 上最成熟、迭代最活跃的开源效率工具之一，由微软官方维护。无论你是想提效，还是想研究一套大型 C# 桌面应用如何做模块化与插件体系，它都是高质量参考。
+      </div>
+      <a class="repo-link" href="https://github.com/microsoft/PowerToys" target="_blank">→ 在 GitHub 上查看</a>
+    </div>
+
+    <div class="card">
+      <span class="rank">日榜在榜</span>
+      <h2><a href="https://github.com/iptv-org/iptv" target="_blank">iptv-org/iptv：全球公开 IPTV 直播源大集合，一个 m3u 链接看遍世界频道</a></h2>
+      <div class="meta">
+        <span class="stars">★ 119.1k</span>
+        <span>JavaScript</span>
+        <span>Unlicense</span>
+        <span>媒体资源 / 直播源聚合 / 数据集</span>
+      </div>
+      <div class="desc">
+        iptv-org/iptv 汇集了来自全球、由版权方公开发布的 IPTV 网络电视频道链接，整理成可直接导入任意支持直播流播放器的 m3u 播放列表，并配套电子节目单（EPG）、频道数据库和 API。仓库本身不存储任何视频文件，只是把散落各处的公开流地址做了结构化整理和持续维护。
+      </div>
+      <div class="why">
+        <b>为什么值得看：</b>它是「社区协作维护大型公开数据集」的典范——清晰的目录划分、自动化校验、数据库与 API 分仓管理。即便不看电视，它在数据治理和开源协作流程上的工程实践也很有借鉴价值。
+      </div>
+      <a class="repo-link" href="https://github.com/iptv-org/iptv" target="_blank">→ 在 GitHub 上查看</a>
+    </div>
+
+    <div class="section-label">📘 今日 AI 学习</div>
+
+    <div class="learn-card">
+      <span class="tag">CODEX 系列</span>
+      <h2>用 Codex CLI 跑测试驱动开发（TDD）：先写测试，再让 AI 实现到通过</h2>
+      <p>
+        让 AI 写功能，最怕的是「看起来对、跑起来错」。一个稳妥的办法是反过来：先把期望写成测试，再让 Codex 去实现，直到测试全绿。测试既是需求说明，也是验收标准，Codex 有了明确的对错信号，跑偏的概率就大大降低。
+      </p>
+
+      <div class="block">
+        <h3>1. 先让 Codex 把需求写成失败的测试</h3>
+        <p>不要一上来就写实现，先把「做对了应该满足什么」固化成测试用例：</p>
+        <pre>codex "为 parse_amount(s) 写 pytest 测试：
+支持 '1,200.50'、负号、空字符串报错，先别写实现" @src/utils.py</pre>
+        <p class="tip">这一步逼着你和 AI 把边界条件想清楚。测试先红（失败）是正常的——因为功能还没实现。</p>
+      </div>
+
+      <div class="block">
+        <h3>2. 让它实现到测试通过为止</h3>
+        <p>把测试当成验收闸门，让 Codex 自己跑、自己改，直到全绿：</p>
+        <pre>codex "实现 parse_amount，让 tests/test_utils.py 全部通过，
+每改一版就运行 pytest 看结果" @src/utils.py @tests/test_utils.py</pre>
+        <p class="tip">在可执行测试的沙箱里，Codex 能看到失败用例的报错并迭代修复，比你来回粘贴报错高效得多。</p>
+      </div>
+
+      <div class="block">
+        <h3>3. 绿了之后再让它重构</h3>
+        <p>测试是安全网，有它兜底就能放心整理代码：</p>
+        <pre>codex "测试已全绿，在不改变行为的前提下重构 parse_amount，
+重构后重新跑 pytest 确认仍然全过"</pre>
+        <p class="tip">「红→绿→重构」是 TDD 的标准节奏。测试不变、行为不变，重构出问题立刻会被测试抓出来。</p>
+      </div>
+
+      <p class="tip">
+        💡 一句话记住：<b>先写测试定标准，再让 Codex 实现到全绿，最后靠测试兜底重构</b>。把验收标准前置，AI 写的代码才靠得住。
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>

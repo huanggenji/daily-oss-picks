@@ -109,6 +109,13 @@
       "category": "codex",
       "title": "Codex CLI 长会话不爆 token：用 /compact 与上下文管理稳住状态",
       "file": "2026-06-13-daily.html"
+    },
+    {
+      "date": "2026-06-14",
+      "topic_id": "codex-tdd-workflow",
+      "category": "codex",
+      "title": "用 Codex CLI 跑测试驱动开发（TDD）：先写测试，再让 AI 实现到通过",
+      "file": "2026-06-14-daily.html"
     }
   ]
 }

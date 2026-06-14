@@ -526,6 +526,39 @@
       "file": "2026-06-13-daily.html",
       "stars": 36400,
       "threshold": "total 36.4k > 10000"
+    },
+    {
+      "date": "2026-06-14",
+      "repo": "Panniantong/Agent-Reach",
+      "url": "https://github.com/Panniantong/Agent-Reach",
+      "language": "Python",
+      "title": "Panniantong/Agent-Reach：给 AI Agent 装上看全网的眼睛，一个 CLI 零 API 费用读遍 Twitter/Reddit/B站/小红书",
+      "category": "AI Agent / 全网信息读取 / Web scraping",
+      "file": "2026-06-14-daily.html",
+      "stars": 27386,
+      "threshold": "total 27.4k > 10000"
+    },
+    {
+      "date": "2026-06-14",
+      "repo": "microsoft/PowerToys",
+      "url": "https://github.com/microsoft/PowerToys",
+      "language": "C#",
+      "title": "microsoft/PowerToys：微软官方出品的 Windows 效率工具合集，30+ 实用小工具一站装",
+      "category": "系统工具 / 效率增强 / Windows",
+      "file": "2026-06-14-daily.html",
+      "stars": 134658,
+      "threshold": "total 134.6k > 10000"
+    },
+    {
+      "date": "2026-06-14",
+      "repo": "iptv-org/iptv",
+      "url": "https://github.com/iptv-org/iptv",
+      "language": "JavaScript",
+      "title": "iptv-org/iptv：全球公开 IPTV 直播源大集合，一个 m3u 链接看遍世界频道",
+      "category": "媒体资源 / 直播源聚合 / 公开数据集",
+      "file": "2026-06-14-daily.html",
+      "stars": 119074,
+      "threshold": "total 119k > 10000"
     }
   ]
 }
