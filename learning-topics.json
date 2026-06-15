@@ -116,6 +116,13 @@
       "category": "codex",
       "title": "用 Codex CLI 跑测试驱动开发（TDD）：先写测试，再让 AI 实现到通过",
       "file": "2026-06-14-daily.html"
+    },
+    {
+      "date": "2026-06-15",
+      "topic_id": "rag-basics",
+      "category": "ai_basics",
+      "title": "什么是 RAG（检索增强生成）——让大模型用上你自己的私有知识",
+      "file": "2026-06-15-daily.html"
     }
   ]
 }

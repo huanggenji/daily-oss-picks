@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日 GitHub 开源精选 + AI 学习日报 · 2026-06-15</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f0f2f5;
+    color: #1f2937;
+    line-height: 1.7;
+    padding-bottom: 40px;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f2c5c 0%, #1e3a8a 55%, #2563eb 100%);
+    color: #fff;
+    padding: 44px 24px 38px;
+    text-align: center;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .date { margin-top: 10px; font-size: 15px; opacity: 0.9; }
+  .header .sub { margin-top: 6px; font-size: 13px; opacity: 0.75; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+  .section-title {
+    font-size: 18px; font-weight: 700; color: #0f2c5c;
+    margin: 30px 6px 14px; display: flex; align-items: center; gap: 8px;
+  }
+  .card {
+    background: #fff; border-radius: 16px; padding: 22px 24px;
+    margin-top: 16px; box-shadow: 0 2px 12px rgba(15,44,92,0.07);
+  }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+  .card h3 { font-size: 17px; color: #111827; line-height: 1.45; flex: 1; min-width: 220px; }
+  .stars {
+    background: #fef3c7; color: #b45309; font-size: 13px; font-weight: 600;
+    padding: 3px 10px; border-radius: 999px; white-space: nowrap;
+  }
+  .meta { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 12px; padding: 3px 10px; border-radius: 999px;
+    background: #eef2ff; color: #3730a3;
+  }
+  .tag.lang { background: #ecfdf5; color: #047857; }
+  .desc { margin-top: 12px; font-size: 14.5px; color: #374151; }
+  .why { margin-top: 10px; font-size: 14px; color: #4b5563; }
+  .why b { color: #1e3a8a; }
+  .repo-link {
+    display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 600;
+    color: #2563eb; text-decoration: none;
+  }
+  .repo-link:hover { text-decoration: underline; }
+  .learn-card {
+    background: linear-gradient(135deg, #065f46 0%, #059669 60%, #10b981 100%);
+    color: #fff; border-radius: 16px; padding: 24px 26px; margin-top: 16px;
+    box-shadow: 0 4px 16px rgba(6,95,70,0.18);
+  }
+  .learn-card h3 { font-size: 18px; margin-bottom: 6px; }
+  .learn-badge {
+    display: inline-block; font-size: 12px; background: rgba(255,255,255,0.22);
+    padding: 2px 10px; border-radius: 999px; margin-bottom: 10px;
+  }
+  .learn-card p { font-size: 14.5px; margin-top: 10px; color: #f0fdf4; }
+  .learn-card .block-title { font-weight: 700; margin-top: 16px; font-size: 15px; }
+  .learn-card ul { margin: 8px 0 0 18px; }
+  .learn-card li { margin-top: 6px; font-size: 14px; }
+  .learn-card code {
+    background: rgba(0,0,0,0.22); padding: 1px 7px; border-radius: 5px;
+    font-size: 13px; font-family: "SF Mono", Consolas, monospace;
+  }
+  .divider { height: 1px; background: rgba(255,255,255,0.25); margin: 18px 0; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>每日 GitHub 开源精选 + AI 学习日报</h1>
+    <div class="date">2026 年 6 月 15 日 · 星期一</div>
+    <div class="sub">实时榜单来源 · 当日上升势头精选 · 覆盖不同方向</div>
+  </div>
+
+  <div class="container">
+    <div class="section-title">🔥 今日开源精选</div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>chatwoot/chatwoot：开源的客户沟通中台，一套系统替代 Intercom / Zendesk</h3>
+        <span class="stars">⭐ 31.2k</span>
+      </div>
+      <div class="meta">
+        <span class="tag lang">Ruby</span>
+        <span class="tag">客服 / 在线沟通</span>
+        <span class="tag">自托管</span>
+        <span class="tag">全渠道工单</span>
+      </div>
+      <div class="desc">把网站在线聊天、邮件支持、WhatsApp、社交私信等渠道汇聚到一个工作台，团队在同一界面里接待、分配、回复所有客户消息。功能上对标 Intercom、Zendesk、Salesforce Service Cloud，但完全开源、可 Docker 一键自托管，数据掌握在自己手里。</div>
+      <div class="why"><b>为什么值得看：</b>中小团队想要一套客户沟通系统，商业 SaaS 按坐席收费长期成本高且数据托管在别人那里。Chatwoot 把「全渠道客服台」做成可自建的开源方案，既能省订阅费，又能接入自有业务系统做二次开发，是自托管运营工具里成熟度很高的一个。</div>
+      <a class="repo-link" href="https://github.com/chatwoot/chatwoot" target="_blank">查看项目 →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>freeCodeCamp/freeCodeCamp：全球最大的免费编程学习平台，自带完整课程体系</h3>
+        <span class="stars">⭐ 447k</span>
+      </div>
+      <div class="meta">
+        <span class="tag lang">TypeScript</span>
+        <span class="tag">编程教育</span>
+        <span class="tag">课程体系</span>
+        <span class="tag">非营利</span>
+      </div>
+      <div class="desc">非营利组织 freeCodeCamp.org 的开源代码库与课程仓库，覆盖从数学、编程到计算机科学的系统化学习路径，配套可在浏览器里直接动手的练习和多门认证项目，全部免费。这是 GitHub 上星标最高的仓库之一。</div>
+      <div class="why"><b>为什么值得看：</b>想转码或系统补基础，最大的障碍往往是「没有一条靠谱的免费路线」。freeCodeCamp 把课程、练习、认证整套打通，且整个平台连同教学内容都开源，既能拿来自学，也能作为搭建编程教学平台的参考实现。</div>
+      <a class="repo-link" href="https://github.com/freeCodeCamp/freeCodeCamp" target="_blank">查看项目 →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>supertone-inc/supertonic：纯本地运行的多语言语音合成，基于 ONNX 极速出声</h3>
+        <span class="stars">⭐ 12.2k</span>
+      </div>
+      <div class="meta">
+        <span class="tag lang">Swift</span>
+        <span class="tag">语音合成 / TTS</span>
+        <span class="tag">端侧运行</span>
+        <span class="tag">多语言</span>
+      </div>
+      <div class="desc">一个主打「轻量、端上、快」的多语言文字转语音（TTS）模型，通过 ONNX Runtime 原生运行，可在手机、桌面、浏览器（WebGPU）等环境本地推理，无需联网调用云端 API。仓库提供了 C++、Rust、Swift、Java、Node、Python、Flutter 等多语言调用示例。</div>
+      <div class="why"><b>为什么值得看：</b>语音合成过去要么依赖云端付费 API，要么模型重、延迟高。Supertonic 把多语言 TTS 压到能在端侧实时跑，既保护隐私又省调用费，适合做离线语音播报、嵌入式设备和需要低延迟语音的 App。</div>
+      <a class="repo-link" href="https://github.com/supertone-inc/supertonic" target="_blank">查看项目 →</a>
+    </div>
+
+    <div class="section-title">📚 今日 AI 学习</div>
+
+    <div class="learn-card">
+      <span class="learn-badge">AI 基础 · 进阶必备</span>
+      <h3>什么是 RAG（检索增强生成）——让大模型用上你自己的私有知识</h3>
+      <p>大模型只「记得」训练时见过的公开数据，对你公司内部文档、最新资料、个人笔记一无所知，还可能一本正经地编造答案。RAG（Retrieval-Augmented Generation，检索增强生成）就是解决这个问题的主流方案：回答前先去你的知识库里「查资料」，把查到的内容连同问题一起交给模型，让它「看着资料作答」。</p>
+
+      <div class="block-title">一次 RAG 问答分三步</div>
+      <ul>
+        <li><b>① 检索（Retrieve）</b>：把用户问题转成向量，到向量库里找出语义最相近的几段资料（这一步用到的就是前几天讲的 Embedding）。</li>
+        <li><b>② 增强（Augment）</b>：把检索到的资料片段拼进提示词，组成「这是参考资料 + 这是用户问题」的上下文。</li>
+        <li><b>③ 生成（Generate）</b>：模型基于这段上下文作答，答案有据可依，还能附上来源出处。</li>
+      </ul>
+
+      <div class="block-title">为什么要用 RAG 而不是直接微调</div>
+      <ul>
+        <li>知识更新只需往知识库里加文档，<b>无需重新训练模型</b>，成本和门槛低得多。</li>
+        <li>答案能<b>溯源到具体文档</b>，可信度高、便于核对，明显减少「幻觉」。</li>
+        <li>私有数据留在自己的库里，<b>不必喂进模型权重</b>，更可控。</li>
+      </ul>
+
+      <div class="divider"></div>
+      <p style="font-size:13.5px;opacity:0.92;">💡 一句话记住：<b>微调改变模型「会什么」，RAG 改变模型「看到什么」。</b>多数「让 AI 读懂我的资料」的需求，先上 RAG 而不是先去微调。前面讲过的 Embedding 正是 RAG 检索这一步的基础。</p>
+    </div>
+  </div>
+</body>
+</html>

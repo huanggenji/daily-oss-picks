@@ -559,6 +559,39 @@
       "file": "2026-06-14-daily.html",
       "stars": 119074,
       "threshold": "total 119k > 10000"
+    },
+    {
+      "date": "2026-06-15",
+      "repo": "chatwoot/chatwoot",
+      "url": "https://github.com/chatwoot/chatwoot",
+      "language": "Ruby",
+      "title": "chatwoot/chatwoot：开源的客户沟通中台，一套系统替代 Intercom / Zendesk",
+      "category": "客服 / 全渠道沟通 / 自托管",
+      "file": "2026-06-15-daily.html",
+      "stars": 31206,
+      "threshold": "total 31.2k > 10000"
+    },
+    {
+      "date": "2026-06-15",
+      "repo": "freeCodeCamp/freeCodeCamp",
+      "url": "https://github.com/freeCodeCamp/freeCodeCamp",
+      "language": "TypeScript",
+      "title": "freeCodeCamp/freeCodeCamp：全球最大的免费编程学习平台，自带完整课程体系",
+      "category": "编程教育 / 课程体系 / 非营利",
+      "file": "2026-06-15-daily.html",
+      "stars": 447169,
+      "threshold": "total 447k > 10000"
+    },
+    {
+      "date": "2026-06-15",
+      "repo": "supertone-inc/supertonic",
+      "url": "https://github.com/supertone-inc/supertonic",
+      "language": "Swift",
+      "title": "supertone-inc/supertonic：纯本地运行的多语言语音合成，基于 ONNX 极速出声",
+      "category": "AI 语音合成 / TTS / 端侧运行",
+      "file": "2026-06-15-daily.html",
+      "stars": 12171,
+      "threshold": "total 12.2k > 10000"
     }
   ]
 }
