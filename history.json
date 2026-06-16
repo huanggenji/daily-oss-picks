@@ -592,6 +592,39 @@
       "file": "2026-06-15-daily.html",
       "stars": 12171,
       "threshold": "total 12.2k > 10000"
+    },
+    {
+      "date": "2026-06-16",
+      "repo": "labuladong/fucking-algorithm",
+      "url": "https://github.com/labuladong/fucking-algorithm",
+      "language": "Markdown",
+      "title": "labuladong/fucking-algorithm：用框架思维刷透 LeetCode 的中文算法教程顶流",
+      "category": "算法学习 / 数据结构 / 中文教程",
+      "file": "2026-06-16-daily.html",
+      "stars": 134300,
+      "threshold": "total 134.3k > 10000"
+    },
+    {
+      "date": "2026-06-16",
+      "repo": "google-research/timesfm",
+      "url": "https://github.com/google-research/timesfm",
+      "language": "Python",
+      "title": "google-research/timesfm：Google 出品的时间序列基础大模型，零样本通用预测",
+      "category": "时序预测 / 基础模型 / AI 工程",
+      "file": "2026-06-16-daily.html",
+      "stars": 20900,
+      "threshold": "total 20.9k > 10000"
+    },
+    {
+      "date": "2026-06-16",
+      "repo": "GorvGoyl/Clone-Wars",
+      "url": "https://github.com/GorvGoyl/Clone-Wars",
+      "language": "多语言",
+      "title": "GorvGoyl/Clone-Wars：100+ 知名应用开源克隆合集，附技术栈与演示",
+      "category": "全栈实战 / 项目克隆 / Curated list",
+      "file": "2026-06-16-daily.html",
+      "stars": 35900,
+      "threshold": "total 35.9k > 10000"
     }
   ]
 }

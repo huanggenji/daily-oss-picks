@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日 GitHub 开源精选 + AI 学习日报 · 2026-06-16</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.7;
+    padding: 20px;
+  }
+  .container { max-width: 880px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    color: #fff;
+    border-radius: 18px;
+    padding: 40px 36px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(15,32,39,0.25);
+    margin-bottom: 28px;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px; }
+  .header .date { font-size: 15px; opacity: 0.85; }
+  .header .sub { font-size: 14px; opacity: 0.7; margin-top: 8px; }
+  .section-title {
+    font-size: 19px; font-weight: 700; margin: 30px 4px 16px;
+    color: #203a43; display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::before { content: ""; width: 5px; height: 20px; background: linear-gradient(180deg,#2c5364,#0f2027); border-radius: 3px; }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+  .card-head { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+  .repo-name { font-size: 18px; font-weight: 700; color: #2c5364; }
+  .repo-name a { color: inherit; text-decoration: none; }
+  .repo-name a:hover { text-decoration: underline; }
+  .badge { font-size: 12px; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+  .badge.lang { background: #e3f2fd; color: #1565c0; }
+  .badge.star { background: #fff3e0; color: #e65100; }
+  .badge.cat { background: #ede7f6; color: #5e35b1; }
+  .card .title-cn { font-size: 16px; font-weight: 600; margin-bottom: 10px; color: #1a1a2e; }
+  .card p { font-size: 14.5px; color: #444; margin-bottom: 8px; }
+  .card .why { background: #f7f9fa; border-left: 3px solid #2c5364; padding: 10px 14px; border-radius: 8px; font-size: 14px; color: #37474f; margin-top: 10px; }
+  .card .link { display: inline-block; margin-top: 12px; font-size: 14px; color: #2c5364; text-decoration: none; font-weight: 600; }
+  .card .link:hover { text-decoration: underline; }
+  .learn-card {
+    background: linear-gradient(135deg, #134e5e 0%, #71b280 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 30px 30px;
+    box-shadow: 0 8px 24px rgba(19,78,94,0.25);
+  }
+  .learn-card .tag { display:inline-block; background: rgba(255,255,255,0.2); font-size:12px; padding:3px 12px; border-radius:20px; margin-bottom:12px; }
+  .learn-card h3 { font-size: 19px; margin-bottom: 14px; }
+  .learn-card p { font-size: 14.5px; margin-bottom: 12px; opacity: 0.96; }
+  .learn-card .block { background: rgba(255,255,255,0.12); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; }
+  .learn-card .block strong { display:block; margin-bottom:6px; font-size:14.5px; }
+  .learn-card code { background: rgba(0,0,0,0.25); padding: 2px 7px; border-radius: 5px; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13px; }
+  .learn-card pre { background: rgba(0,0,0,0.3); border-radius: 8px; padding: 12px 14px; overflow-x: auto; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13px; margin: 8px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>📈 每日 GitHub 开源精选 + AI 学习日报</h1>
+    <div class="date">2026 年 6 月 16 日 · 星期二</div>
+    <div class="sub">榜单来源 Trendshift 实时 Daily · 已去重 · 总星数均 &gt; 10k</div>
+  </div>
+
+  <div class="section-title">今日开源精选</div>
+
+  <div class="card">
+    <div class="card-head">
+      <span class="repo-name"><a href="https://github.com/labuladong/fucking-algorithm" target="_blank">labuladong/fucking-algorithm</a></span>
+      <span class="badge lang">Markdown</span>
+      <span class="badge star">⭐ 134.3k</span>
+      <span class="badge cat">算法学习</span>
+    </div>
+    <div class="title-cn">用「框架思维」刷透 LeetCode 的中文算法教程顶流</div>
+    <p>不是题解堆砌，而是把动态规划、回溯、BFS/DFS、滑动窗口等套路抽象成可复用的解题框架，强调「不仅讲怎么做，更讲为什么这么做」。中文社区算法学习的标杆项目，长期稳居 GitHub 中文榜前列。</p>
+    <div class="why">为什么值得看：面试刷题或夯实数据结构基础时，它能帮你从「背题」升级到「识别题型套路」，配合配套网站食用效果更佳。</div>
+    <a class="link" href="https://github.com/labuladong/fucking-algorithm" target="_blank">→ 在 GitHub 查看</a>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <span class="repo-name"><a href="https://github.com/google-research/timesfm" target="_blank">google-research/timesfm</a></span>
+      <span class="badge lang">Python</span>
+      <span class="badge star">⭐ 20.9k</span>
+      <span class="badge cat">时序预测 / 基础模型</span>
+    </div>
+    <div class="title-cn">Google 出品的时间序列「基础大模型」，零训练直接预测</div>
+    <p>TimesFM 是一个预训练的时间序列基础模型（decoder-only 架构），思路类似 NLP 大模型：在海量时序数据上预训练后，面对销量、流量、需求、营收等新序列无需重新训练即可零样本预测。把「为每个业务单独建模」变成「一个模型通用预测」。</p>
+    <div class="why">为什么值得看：做销量/流量/容量预测的团队，可以先用它跑出一条强基线，省去传统 ARIMA/Prophet 逐个调参的功夫。</div>
+    <a class="link" href="https://github.com/google-research/timesfm" target="_blank">→ 在 GitHub 查看</a>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <span class="repo-name"><a href="https://github.com/GorvGoyl/Clone-Wars" target="_blank">GorvGoyl/Clone-Wars</a></span>
+      <span class="badge lang">多语言</span>
+      <span class="badge star">⭐ 35.9k</span>
+      <span class="badge cat">全栈实战 / Curated</span>
+    </div>
+    <div class="title-cn">100+ 个知名应用的开源克隆合集，附技术栈与演示</div>
+    <p>把 Netflix、Spotify、Airbnb、Instagram、TikTok、YouTube、WhatsApp、Amazon 等上百个热门产品的开源克隆项目集中整理，每个条目都标注了源码地址、技术栈、教程链接和在线演示。相当于一张「全栈练手项目课程表」。</p>
+    <div class="why">为什么值得看：想找练手项目、研究大厂产品怎么实现、或为简历攒作品时，可以按技术栈直接挑一个对照学习。</div>
+    <a class="link" href="https://github.com/GorvGoyl/Clone-Wars" target="_blank">→ 在 GitHub 查看</a>
+  </div>
+
+  <div class="section-title">今日 AI 学习</div>
+
+  <div class="learn-card">
+    <span class="tag">Codex 实战 · 调试</span>
+    <h3>用 Codex CLI 从报错日志反查 Bug：把堆栈直接喂给它</h3>
+    <p>遇到测试失败或运行时报错时，与其自己一行行 grep 堆栈，不如把日志交给 Codex CLI，让它定位根因并给出修复。关键是「给足上下文、让它先解释再动手」。</p>
+
+    <div class="block">
+      <strong>① 把报错和相关代码一起喂进去</strong>
+      用 <code>@</code> 引用出错文件，再贴上完整堆栈，Codex 才能把日志行号和源码对上：
+      <pre>codex "下面这个测试报错，@tests/test_user.py 是用例，
+@src/user.py 是实现，帮我先解释报错原因再给修复方案：
+[贴上完整 traceback]"</pre>
+    </div>
+
+    <div class="block">
+      <strong>② 让它先「解释」再「改」</strong>
+      明确要求两步走，避免它跳过分析直接乱改：先说清楚是哪一行、为什么触发、影响范围，确认无误后再让它出 patch。这样你能 review 它的判断，而不是盲目接受。
+    </div>
+
+    <div class="block">
+      <strong>③ 用管道把日志直接灌给它</strong>
+      报错信息长时，可以把命令输出直接喂进来，省去手动复制：
+      <pre>pytest 2&gt;&amp;1 | codex "这是测试输出，定位失败用例的根因并修复"</pre>
+    </div>
+
+    <div class="block">
+      <strong>④ 修完让它补一条回归测试</strong>
+      根因修掉后，顺手让 Codex 针对这个 bug 写一个最小复现测试，防止同样的问题再回来——「修复 + 回归测试」一次做完。
+    </div>
+
+    <p style="opacity:0.9; font-size:13.5px;">💡 一句话总结：调 bug 时把<strong>完整堆栈 + 相关源码</strong>一起给 Codex，要求它<strong>先解释根因、再出修复、最后补回归测试</strong>，比单纯问「这报错怎么办」靠谱得多。</p>
+  </div>
+
+</div>
+</body>
+</html>

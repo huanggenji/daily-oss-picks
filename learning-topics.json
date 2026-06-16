@@ -123,6 +123,13 @@
       "category": "ai_basics",
       "title": "什么是 RAG（检索增强生成）——让大模型用上你自己的私有知识",
       "file": "2026-06-15-daily.html"
+    },
+    {
+      "date": "2026-06-16",
+      "topic_id": "codex-debug-from-logs",
+      "category": "codex",
+      "title": "用 Codex CLI 从报错日志反查 Bug：喂完整堆栈，先解释再修复再补回归测试",
+      "file": "2026-06-16-daily.html"
     }
   ]
 }
