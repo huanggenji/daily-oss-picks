@@ -625,6 +625,39 @@
       "file": "2026-06-16-daily.html",
       "stars": 35900,
       "threshold": "total 35.9k > 10000"
+    },
+    {
+      "date": "2026-06-17",
+      "repo": "mattpocock/skills",
+      "url": "https://github.com/mattpocock/skills",
+      "language": "Shell",
+      "title": "mattpocock/skills：把资深工程师的 .claude 目录开源，给 AI 编程助手装上真工程师级技能",
+      "category": "AI 编程 / Skills 框架 / 工程方法论",
+      "file": "2026-06-17-daily.html",
+      "stars": 132300,
+      "threshold": "total 132.3k > 10000"
+    },
+    {
+      "date": "2026-06-17",
+      "repo": "hugohe3/ppt-master",
+      "url": "https://github.com/hugohe3/ppt-master",
+      "language": "Python",
+      "title": "hugohe3/ppt-master：任意文档一键生成可在 PowerPoint 里直接编辑的原生 PPTX",
+      "category": "AI 工作流 / 文档处理 / 内容自动化",
+      "file": "2026-06-17-daily.html",
+      "stars": 20600,
+      "threshold": "total 20.6k > 10000"
+    },
+    {
+      "date": "2026-06-17",
+      "repo": "trycua/cua",
+      "url": "https://github.com/trycua/cua",
+      "language": "HTML",
+      "title": "trycua/cua：开源 Computer-Use Agent 基础设施，给 AI 一整台带沙箱的电脑操作完整桌面",
+      "category": "AI Agent / Computer-Use / 基础设施",
+      "file": "2026-06-17-daily.html",
+      "stars": 18400,
+      "threshold": "total 18.4k > 10000"
     }
   ]
 }

@@ -130,6 +130,13 @@
       "category": "codex",
       "title": "用 Codex CLI 从报错日志反查 Bug：喂完整堆栈，先解释再修复再补回归测试",
       "file": "2026-06-16-daily.html"
+    },
+    {
+      "date": "2026-06-17",
+      "topic_id": "codex-resume-session",
+      "category": "codex",
+      "title": "Codex CLI 会话恢复与历史管理：关掉终端也能 codex resume 接着干",
+      "file": "2026-06-17-daily.html"
     }
   ]
 }
