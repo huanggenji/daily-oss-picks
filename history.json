@@ -658,6 +658,39 @@
       "file": "2026-06-17-daily.html",
       "stars": 18400,
       "threshold": "total 18.4k > 10000"
+    },
+    {
+      "date": "2026-06-18",
+      "repo": "alibaba/zvec",
+      "url": "https://github.com/alibaba/zvec",
+      "language": "C++",
+      "title": "alibaba/zvec：阿里开源的轻量极速进程内向量数据库，不起服务就能加语义检索",
+      "category": "AI 基础设施 / 向量数据库 / 嵌入式",
+      "file": "2026-06-18-daily.html",
+      "stars": 31500,
+      "threshold": "total 31.5k > 10000"
+    },
+    {
+      "date": "2026-06-18",
+      "repo": "omnigent-ai/omnigent",
+      "url": "https://github.com/omnigent-ai/omnigent",
+      "language": "TypeScript",
+      "title": "omnigent-ai/omnigent：一处启动随处接续的本地工作 Agent，终端/浏览器/手机同一会话",
+      "category": "AI Agent / 远程协作 / 本地工作台",
+      "file": "2026-06-18-daily.html",
+      "stars": 50300,
+      "threshold": "total 50.3k > 10000"
+    },
+    {
+      "date": "2026-06-18",
+      "repo": "zai-org/GLM-5",
+      "url": "https://github.com/zai-org/GLM-5",
+      "language": "Python",
+      "title": "zai-org/GLM-5：智谱新一代大模型，从随手写代码走向具备工程能力的智能体",
+      "category": "大模型 / NLP / AI Agent",
+      "file": "2026-06-18-daily.html",
+      "stars": 18500,
+      "threshold": "total 18.5k > 10000"
     }
   ]
 }

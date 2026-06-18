@@ -137,6 +137,13 @@
       "category": "codex",
       "title": "Codex CLI 会话恢复与历史管理：关掉终端也能 codex resume 接着干",
       "file": "2026-06-17-daily.html"
+    },
+    {
+      "date": "2026-06-18",
+      "topic_id": "codex-exec-noninteractive",
+      "category": "codex",
+      "title": "Codex CLI 非交互模式（exec）：把任务塞进脚本和 CI 自动跑",
+      "file": "2026-06-18-daily.html"
     }
   ]
 }
