@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-06-20</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.7;
+    padding: 0 0 48px;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 0 16px; }
+  header {
+    background: linear-gradient(135deg, #0f2027 0%, #203a8f 55%, #2c5364 100%);
+    color: #fff;
+    padding: 48px 24px 40px;
+    text-align: center;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 8px 24px rgba(20, 40, 90, 0.25);
+  }
+  header h1 { font-size: 28px; font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; }
+  header .date { font-size: 15px; opacity: 0.85; letter-spacing: 2px; }
+  header .lead { font-size: 15px; opacity: 0.92; margin-top: 18px; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .section-title {
+    font-size: 18px; font-weight: 700; margin: 36px 0 16px; color: #203a8f;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::before { content: ""; width: 5px; height: 20px; background: linear-gradient(#203a8f, #2c5364); border-radius: 3px; }
+  .card {
+    background: #fff; border-radius: 16px; padding: 24px 26px; margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid #eef0f5;
+  }
+  .card .rank {
+    display: inline-block; font-size: 13px; font-weight: 700; color: #fff;
+    background: linear-gradient(135deg, #203a8f, #2c5364);
+    padding: 2px 12px; border-radius: 20px; margin-bottom: 12px;
+  }
+  .card h2 { font-size: 21px; font-weight: 800; margin-bottom: 6px; }
+  .card h2 a { color: #1a1a2e; text-decoration: none; }
+  .card h2 a:hover { color: #203a8f; }
+  .card .tagline { font-size: 15px; color: #444; margin-bottom: 14px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .badge { font-size: 13px; padding: 3px 12px; border-radius: 20px; font-weight: 600; }
+  .badge.star { background: #e8f5e9; color: #2e7d32; }
+  .badge.lang { background: #e3f2fd; color: #1565c0; }
+  .badge.rankb { background: #f3e5f5; color: #7b1fa2; }
+  .card ul { list-style: none; }
+  .card li { position: relative; padding-left: 22px; margin-bottom: 8px; font-size: 15px; color: #333; }
+  .card li::before { content: "▸"; position: absolute; left: 0; color: #203a8f; font-weight: 700; }
+  .card .link { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 600; color: #203a8f; text-decoration: none; }
+  .card .link:hover { text-decoration: underline; }
+  .learn {
+    background: linear-gradient(135deg, #0f9b6c 0%, #1fa97a 50%, #43c59e 100%);
+    color: #fff; border-radius: 18px; padding: 28px 28px; margin-top: 12px;
+    box-shadow: 0 8px 24px rgba(20, 120, 80, 0.22);
+  }
+  .learn .tag { font-size: 13px; font-weight: 700; letter-spacing: 1px; opacity: 0.9; text-transform: uppercase; }
+  .learn h2 { font-size: 22px; font-weight: 800; margin: 8px 0 14px; }
+  .learn p { font-size: 15px; opacity: 0.96; margin-bottom: 14px; }
+  .learn ul { list-style: none; }
+  .learn li { position: relative; padding-left: 24px; margin-bottom: 10px; font-size: 15px; }
+  .learn li::before { content: "✓"; position: absolute; left: 0; font-weight: 700; }
+  .learn code {
+    background: rgba(255,255,255,0.22); padding: 1px 7px; border-radius: 5px;
+    font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13.5px;
+  }
+  footer { text-align: center; margin-top: 40px; font-size: 13px; color: #999; }
+  footer a { color: #203a8f; text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>每日开源精选</h1>
+  <div class="date">2026 · 06 · 20</div>
+  <p class="lead">今日精选三个正在 Trendshift 榜单上升的项目：一站式开源编程 Agent 平台 Kilo Code、斯坦福出品自动写带引用长报告的研究系统 STORM、以及支持上千网站的全能命令行下载神器 yt-dlp。今日学一招：用 Codex CLI 安全管理环境变量与密钥，别把 API key 泄漏给模型。</p>
+</header>
+
+<div class="wrap">
+
+  <div class="section-title">今日开源精选</div>
+
+  <div class="card">
+    <span class="rank">Trendshift #5</span>
+    <h2><a href="https://github.com/Kilo-Org/kilocode" target="_blank">Kilo-Org/kilocode</a></h2>
+    <p class="tagline">一句话定位：一站式的开源编程 Agent 平台，让 AI 在 VS Code、JetBrains、CLI 等多个入口下统一构建、交付与迭代。</p>
+    <div class="meta">
+      <span class="badge star">⭐ 23,100+</span>
+      <span class="badge lang">TypeScript</span>
+      <span class="badge rankb">Trendshift #5</span>
+    </div>
+    <ul>
+      <li>把编码 Agent 做成跨入口的工程平台：一次接入，同一个 Agent 能跑在编辑器、IDE 插件、命令行等多处，省去到处配 key 和额度的麻烦。</li>
+      <li>主打「all-in-one」：内置代码生成、内联自动补全、多模型接入与任务编排，团队可以统一管理模型与用量，而不是各用各的散装工具。</li>
+      <li>MIT 协议、1000+ 贡献者活跃维护，定位是「最流行的开源编程 Agent」，适合想要可控、可自部署编程助手的团队直接上手。</li>
+    </ul>
+    <a class="link" href="https://github.com/Kilo-Org/kilocode" target="_blank">前往 GitHub →</a>
+  </div>
+
+  <div class="card">
+    <span class="rank">Trendshift #22</span>
+    <h2><a href="https://github.com/stanford-oval/storm" target="_blank">stanford-oval/storm</a></h2>
+    <p class="tagline">一句话定位：斯坦福出品的 LLM 知识整理系统，给个主题就能自动检索、整理并写出一篇带引用来源的长篇报告。</p>
+    <div class="meta">
+      <span class="badge star">⭐ 28,900+</span>
+      <span class="badge lang">Python</span>
+      <span class="badge rankb">Trendshift #22</span>
+    </div>
+    <ul>
+      <li>核心思路是「检索 + 多视角提问」：先从多个角度生成问题、联网检索资料，再据此组织大纲、撰写正文，最后产出带引用的完整文章。</li>
+      <li>被不少人视为比 OpenAI Deep Research 更早的「深度研究」雏形，适合写综述、调研报告、知识科普这类需要溯源的长文场景。</li>
+      <li>近 2.9 万星、MIT 协议、斯坦福 OVAL 实验室维护，既能当现成研究工具用，也是学习「AI 自动做研究」工程实现的好范本。</li>
+    </ul>
+    <a class="link" href="https://github.com/stanford-oval/storm" target="_blank">前往 GitHub →</a>
+  </div>
+
+  <div class="card">
+    <span class="rank">Trendshift #25</span>
+    <h2><a href="https://github.com/yt-dlp/yt-dlp" target="_blank">yt-dlp/yt-dlp</a></h2>
+    <p class="tagline">一句话定位：功能丰富的命令行音视频下载器，支持上千个网站，批量、多线程、外挂字幕、无损画质一把抓。</p>
+    <div class="meta">
+      <span class="badge star">⭐ 172,400+</span>
+      <span class="badge lang">Python</span>
+      <span class="badge rankb">Trendshift #25</span>
+    </div>
+    <ul>
+      <li>兼容 YouTube、B站、抖音、TikTok、X 等数千个平台，自动合并最高画质与最佳音轨，支持分段下载、多线程加速和直播录制。</li>
+      <li>纯命令行工具，参数极其灵活：可批量下载整个播放列表、自动提取字幕、按格式筛选，配合脚本就能搭出自己的素材采集管线。</li>
+      <li>17 万+ 星、1500+ 贡献者、Unlicense 协议，是 youtube-dl 的活跃后继者；不想敲命令也有 Stacher、Parabolic 等图形界面外壳可选。</li>
+    </ul>
+    <a class="link" href="https://github.com/yt-dlp/yt-dlp" target="_blank">前往 GitHub →</a>
+  </div>
+
+  <div class="section-title">今日学一招</div>
+
+  <div class="learn">
+    <div class="tag">CODEX CLI · 实战技巧</div>
+    <h2>用 Codex CLI 安全管理环境变量与密钥：别把 API key 泄漏给模型</h2>
+    <p>让 AI 帮你写代码、跑命令很方便，但项目里往往散落着数据库密码、API key、token 这类敏感信息。一旦它们被读进上下文发给模型，就等于把钥匙交了出去。安全用 Codex CLI 的关键，是让它能把活干完，又始终碰不到真正的密钥明文。</p>
+    <ul>
+      <li>密钥统一放进 <code>.env</code> 文件，并在 <code>.gitignore</code> 与 <code>.codexignore</code>（或等效忽略配置）里排除它，避免 AI 把整份密钥读进上下文。</li>
+      <li>代码里只引用变量名，例如 <code>os.environ["API_KEY"]</code>，把真实值留在环境变量里；让模型看到「用哪个 key」，而不是 key 本身长什么样。</li>
+      <li>需要联网或调用工具时，通过 shell 的 <code>export</code> 或运行时注入密钥，而不是写死在代码或贴进对话，命令里也尽量用 <code>$VAR</code> 引用。</li>
+      <li>用 <code>@</code> 精准喂上下文时，只引用需要改的源文件，别顺手把 <code>.env</code>、配置后端、私钥目录一起带进去。</li>
+      <li>万一怀疑某个 key 进过对话或被提交，第一反应是去服务商后台轮换（revoke 并重新生成），而不是寄希望于「应该没人看到」。</li>
+    </ul>
+  </div>
+
+  <footer>
+    <a href="https://huanggenji.github.io/daily-oss-picks/" target="_blank">查看历史归档</a>
+  </footer>
+
+</div>
+</body>
+</html>

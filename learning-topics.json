@@ -151,6 +151,13 @@
       "category": "codex",
       "title": "Codex CLI 用 profiles 管理多套配置：按项目/场景一键切换模型与审批策略",
       "file": "2026-06-19-daily.html"
+    },
+    {
+      "date": "2026-06-20",
+      "topic_id": "codex-secrets-env-safety",
+      "category": "codex",
+      "title": "用 Codex CLI 安全管理环境变量与密钥：别把 API key 泄漏给模型",
+      "file": "2026-06-20-daily.html"
     }
   ]
 }

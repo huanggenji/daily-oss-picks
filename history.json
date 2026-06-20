@@ -724,6 +724,39 @@
       "file": "2026-06-19-daily.html",
       "stars": 127700,
       "threshold": "total 127.7k > 10000"
+    },
+    {
+      "date": "2026-06-20",
+      "repo": "Kilo-Org/kilocode",
+      "url": "https://github.com/Kilo-Org/kilocode",
+      "language": "TypeScript",
+      "title": "Kilo-Org/kilocode：一站式开源编程 Agent 平台，VS Code/JetBrains/CLI 多入口统一构建迭代",
+      "category": "AI 编程 / 编程 Agent / 开发平台",
+      "file": "2026-06-20-daily.html",
+      "stars": 23100,
+      "threshold": "total 23.1k > 10000"
+    },
+    {
+      "date": "2026-06-20",
+      "repo": "stanford-oval/storm",
+      "url": "https://github.com/stanford-oval/storm",
+      "language": "Python",
+      "title": "stanford-oval/storm：斯坦福出品 LLM 知识整理系统，给主题自动检索并写出带引用长报告",
+      "category": "AI 研究 / 知识整理 / 自动写作",
+      "file": "2026-06-20-daily.html",
+      "stars": 28900,
+      "threshold": "total 28.9k > 10000"
+    },
+    {
+      "date": "2026-06-20",
+      "repo": "yt-dlp/yt-dlp",
+      "url": "https://github.com/yt-dlp/yt-dlp",
+      "language": "Python",
+      "title": "yt-dlp/yt-dlp：功能丰富的命令行音视频下载器，支持上千网站批量多线程下载",
+      "category": "系统工具 / 媒体下载 / 命令行",
+      "file": "2026-06-20-daily.html",
+      "stars": 172400,
+      "threshold": "total 172.4k > 10000"
     }
   ]
 }
