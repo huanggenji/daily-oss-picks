@@ -158,6 +158,20 @@
       "category": "codex",
       "title": "用 Codex CLI 安全管理环境变量与密钥：别把 API key 泄漏给模型",
       "file": "2026-06-20-daily.html"
+    },
+    {
+      "date": "2026-06-22",
+      "topic_id": "codex-codexignore-scope",
+      "category": "codex",
+      "title": "用 .codexignore 控制 Codex CLI 的可见范围：让 AI 只看该看的目录",
+      "file": "2026-06-22-daily.html"
+    },
+    {
+      "date": "2026-06-23",
+      "topic_id": "codex-diff-preview",
+      "category": "codex",
+      "title": "用 Codex CLI 的 /diff 在动手前看清 AI 到底要改什么",
+      "file": "2026-06-23-daily.html"
     }
   ]
 }

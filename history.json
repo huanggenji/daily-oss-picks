@@ -757,6 +757,72 @@
       "file": "2026-06-20-daily.html",
       "stars": 172400,
       "threshold": "total 172.4k > 10000"
+    },
+    {
+      "date": "2026-06-22",
+      "repo": "bytedance/deer-flow",
+      "url": "https://github.com/bytedance/deer-flow",
+      "language": "Python",
+      "title": "bytedance/deer-flow：字节出品的长任务 SuperAgent 框架，靠沙箱/记忆/工具/子智能体处理几分钟到几小时的复杂任务",
+      "category": "AI Agent / SuperAgent / 长任务编排",
+      "file": "2026-06-22-daily.html",
+      "stars": 30500,
+      "threshold": "total 30.5k > 10000"
+    },
+    {
+      "date": "2026-06-22",
+      "repo": "tursodatabase/turso",
+      "url": "https://github.com/tursodatabase/turso",
+      "language": "Rust",
+      "title": "tursodatabase/turso：用 Rust 重写的进程内 SQL 数据库，完全兼容 SQLite",
+      "category": "数据库 / 嵌入式 / Rust",
+      "file": "2026-06-22-daily.html",
+      "stars": 27600,
+      "threshold": "total 27.6k > 10000"
+    },
+    {
+      "date": "2026-06-22",
+      "repo": "penpot/penpot",
+      "url": "https://github.com/penpot/penpot",
+      "language": "Clojure",
+      "title": "penpot/penpot：面向设计与代码协作的开源设计工具，可自托管的 Figma 替代品",
+      "category": "设计工具 / 自托管 / 设计代码协作",
+      "file": "2026-06-22-daily.html",
+      "stars": 57700,
+      "threshold": "total 57.7k > 10000"
+    },
+    {
+      "date": "2026-06-23",
+      "repo": "topoteretes/cognee",
+      "url": "https://github.com/topoteretes/cognee",
+      "language": "Python",
+      "title": "topoteretes/cognee：面向 AI Agent 的开源记忆平台，用知识图谱让助手跨会话记住你",
+      "category": "AI 基础设施 / 记忆系统 / 知识图谱",
+      "file": "2026-06-23-daily.html",
+      "stars": 19400,
+      "threshold": "total 19.4k > 10000"
+    },
+    {
+      "date": "2026-06-23",
+      "repo": "kepano/obsidian-skills",
+      "url": "https://github.com/kepano/obsidian-skills",
+      "language": "Markdown",
+      "title": "kepano/obsidian-skills：教 AI Agent 操作 Obsidian 的技能包，帮你管理本地笔记库",
+      "category": "AI Agent / Skills 框架 / 知识管理",
+      "file": "2026-06-23-daily.html",
+      "stars": 36900,
+      "threshold": "total 36.9k > 10000"
+    },
+    {
+      "date": "2026-06-23",
+      "repo": "koala73/worldmonitor",
+      "url": "https://github.com/koala73/worldmonitor",
+      "language": "TypeScript",
+      "title": "koala73/worldmonitor：实时全球情报仪表盘，AI 聚合新闻、监控地缘与基础设施于一屏",
+      "category": "AI 应用 / 信息聚合 / 态势监控",
+      "file": "2026-06-23-daily.html",
+      "stars": 46800,
+      "threshold": "total 46.8k > 10000"
     }
   ]
 }

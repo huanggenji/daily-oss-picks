@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-06-23</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.7;
+    padding: 0 0 48px;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 0 16px; }
+  header {
+    background: linear-gradient(135deg, #0f2027 0%, #203a8f 55%, #2c5364 100%);
+    color: #fff;
+    padding: 48px 24px 40px;
+    text-align: center;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 8px 24px rgba(20, 40, 90, 0.25);
+  }
+  header h1 { font-size: 28px; font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; }
+  header .date { font-size: 15px; opacity: 0.85; letter-spacing: 2px; }
+  header .lead { font-size: 15px; opacity: 0.92; margin-top: 18px; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .section-title {
+    font-size: 18px; font-weight: 700; margin: 36px 0 16px; color: #203a8f;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::before { content: ""; width: 5px; height: 20px; background: linear-gradient(#203a8f, #2c5364); border-radius: 3px; }
+  .card {
+    background: #fff; border-radius: 16px; padding: 24px 26px; margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid #eef0f5;
+  }
+  .card .rank {
+    display: inline-block; font-size: 13px; font-weight: 700; color: #fff;
+    background: linear-gradient(135deg, #203a8f, #2c5364);
+    padding: 2px 12px; border-radius: 20px; margin-bottom: 12px;
+  }
+  .card h2 { font-size: 21px; font-weight: 800; margin-bottom: 6px; }
+  .card h2 a { color: #1a1a2e; text-decoration: none; }
+  .card h2 a:hover { color: #203a8f; }
+  .card .tagline { font-size: 15px; color: #444; margin-bottom: 14px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .badge { font-size: 13px; padding: 3px 12px; border-radius: 20px; font-weight: 600; }
+  .badge.star { background: #e8f5e9; color: #2e7d32; }
+  .badge.lang { background: #e3f2fd; color: #1565c0; }
+  .badge.rankb { background: #f3e5f5; color: #7b1fa2; }
+  .card ul { list-style: none; }
+  .card li { position: relative; padding-left: 22px; margin-bottom: 8px; font-size: 15px; color: #333; }
+  .card li::before { content: "▸"; position: absolute; left: 0; color: #203a8f; font-weight: 700; }
+  .card .link { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 600; color: #203a8f; text-decoration: none; }
+  .card .link:hover { text-decoration: underline; }
+  .learn {
+    background: linear-gradient(135deg, #0f9b6c 0%, #1fa97a 50%, #43c59e 100%);
+    color: #fff; border-radius: 18px; padding: 28px 28px; margin-top: 12px;
+    box-shadow: 0 8px 24px rgba(20, 120, 80, 0.22);
+  }
+  .learn .tag { font-size: 13px; font-weight: 700; letter-spacing: 1px; opacity: 0.9; text-transform: uppercase; }
+  .learn h2 { font-size: 22px; font-weight: 800; margin: 8px 0 14px; }
+  .learn p { font-size: 15px; opacity: 0.96; margin-bottom: 14px; }
+  .learn ul { list-style: none; }
+  .learn li { position: relative; padding-left: 24px; margin-bottom: 10px; font-size: 15px; }
+  .learn li::before { content: "✓"; position: absolute; left: 0; font-weight: 700; }
+  .learn code {
+    background: rgba(255,255,255,0.22); padding: 1px 7px; border-radius: 5px;
+    font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13.5px;
+  }
+  footer { text-align: center; margin-top: 40px; font-size: 13px; color: #999; }
+  footer a { color: #203a8f; text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>每日开源精选</h1>
+  <div class="date">2026 · 06 · 23</div>
+  <p class="lead">今日精选三个正在 Trendshift 榜单上升的项目：给 AI Agent 装上持久长期记忆的开源记忆平台 Cognee、教 AI 用 Obsidian 管理笔记的技能包 obsidian-skills、以及实时聚合全球新闻与态势的情报仪表盘 WorldMonitor。今日学一招：用 Codex CLI 的 /diff 在动手前看清 AI 到底要改什么。</p>
+</header>
+
+<div class="wrap">
+
+  <div class="section-title">今日开源精选</div>
+
+  <div class="card">
+    <span class="rank">Trendshift #7</span>
+    <h2><a href="https://github.com/topoteretes/cognee" target="_blank">topoteretes/cognee</a></h2>
+    <p class="tagline">一句话定位：面向 AI Agent 的开源记忆平台，用可自托管的知识图谱引擎，让助手跨会话记住你说过的话。</p>
+    <div class="meta">
+      <span class="badge star">⭐ 19,400+</span>
+      <span class="badge lang">Python</span>
+      <span class="badge rankb">Trendshift #7</span>
+    </div>
+    <ul>
+      <li>把对话、文档、数据沉淀成一张知识图谱，给 Agent 装上「长期记忆」，跨会话也能记住上下文，告别每次从零开始。</li>
+      <li>核心思路用图谱替代单纯的向量检索：实体之间的关系被显式建模，召回更准、可解释，适合做复杂场景的记忆与推理底座。</li>
+      <li>开源、可自托管、Apache 2.0，数据留在自己手里；1.9 万+ 星、社区活跃，是搭建私有 AI 记忆层时常被参考的工程实现。</li>
+    </ul>
+    <a class="link" href="https://github.com/topoteretes/cognee" target="_blank">前往 GitHub →</a>
+  </div>
+
+  <div class="card">
+    <span class="rank">Trendshift #19</span>
+    <h2><a href="https://github.com/kepano/obsidian-skills" target="_blank">kepano/obsidian-skills</a></h2>
+    <p class="tagline">一句话定位：一套教 AI Agent 操作 Obsidian 的技能包，让助手用 Obsidian CLI 和开放格式帮你管理笔记库。</p>
+    <div class="meta">
+      <span class="badge star">⭐ 36,900+</span>
+      <span class="badge lang">Markdown</span>
+      <span class="badge rankb">Trendshift #19</span>
+    </div>
+    <ul>
+      <li>由 Obsidian 团队成员 kepano 出品，把「怎么用 Obsidian」拆成一组 Agent 技能，让 AI 学会读写你的本地知识库。</li>
+      <li>围绕开放格式构建：Markdown、Bases、JSON Canvas 都能读写，加上 Obsidian CLI，AI 能新建笔记、整理结构、跨文件检索。</li>
+      <li>3.6 万+ 星、MIT 协议，是「Agent Skills」潮流落到笔记场景的代表，想让 AI 帮你打理个人知识管理的人值得一看。</li>
+    </ul>
+    <a class="link" href="https://github.com/kepano/obsidian-skills" target="_blank">前往 GitHub →</a>
+  </div>
+
+  <div class="card">
+    <span class="rank">Trendshift #15</span>
+    <h2><a href="https://github.com/koala73/worldmonitor" target="_blank">koala73/worldmonitor</a></h2>
+    <p class="tagline">一句话定位：实时全球情报仪表盘，用 AI 聚合新闻、监控地缘动态与基础设施，集中在一块态势感知界面里。</p>
+    <div class="meta">
+      <span class="badge star">⭐ 46,800+</span>
+      <span class="badge lang">TypeScript</span>
+      <span class="badge rankb">Trendshift #15</span>
+    </div>
+    <ul>
+      <li>把分散在各处的新闻源汇成一块「态势感知」大屏：AI 自动聚合、归类、提炼，让你一眼掌握全球正在发生什么。</li>
+      <li>覆盖地缘政治监控与基础设施追踪，支持接入本地大模型自己跑，信息处理可以不依赖外部 API、数据更可控。</li>
+      <li>4.6 万+ 星、TypeScript 实现、近期高速增长，既能当现成的情报看板，也是研究「AI + 信息聚合仪表盘」的好样本。</li>
+    </ul>
+    <a class="link" href="https://github.com/koala73/worldmonitor" target="_blank">前往 GitHub →</a>
+  </div>
+
+  <div class="section-title">今日学一招</div>
+
+  <div class="learn">
+    <div class="tag">CODEX CLI · 实战技巧</div>
+    <h2>用 Codex CLI 的 /diff 在动手前看清 AI 到底要改什么</h2>
+    <p>让 AI 改代码最怕的不是它改不动，而是它改了你没看见。Codex CLI 提供了查看变更差异的能力，在把改动落到磁盘、提交 git 之前，先把「AI 想动哪些文件、改了哪几行」摊开给你看。养成「先 diff 再确认」的习惯，能在出问题前一步拦住跑偏。</p>
+    <ul>
+      <li>在会话里用 <code>/diff</code> 查看当前这轮 AI 产生的改动：哪些文件被新增/修改/删除、具体改了哪几行，一目了然。</li>
+      <li>把它当成「落盘前的最后一道关」：先 <code>/diff</code> 审一遍，确认无误再批准写入，避免误改无关文件或埋下隐藏 bug。</li>
+      <li>配合审批模式使用——审批模式负责「要不要让它动手」，<code>/diff</code> 负责「动手前先看清动了什么」，一前一后形成双保险。</li>
+      <li>diff 看着不对就别急着接受：直接追加一句自然语言让 AI 修正，比改完落盘再用 git 回滚要省事得多。</li>
+      <li>改动确认后再交给 git：先 <code>/diff</code> 心里有数，再让 Codex 帮你写 commit message，提交记录也更干净可追溯。</li>
+    </ul>
+  </div>
+
+  <footer>
+    <a href="https://huanggenji.github.io/daily-oss-picks/" target="_blank">查看历史归档</a>
+  </footer>
+
+</div>
+</body>
+</html>
