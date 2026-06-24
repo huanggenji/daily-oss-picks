@@ -172,6 +172,13 @@
       "category": "codex",
       "title": "用 Codex CLI 的 /diff 在动手前看清 AI 到底要改什么",
       "file": "2026-06-23-daily.html"
+    },
+    {
+      "date": "2026-06-24",
+      "topic_id": "codex-model-reasoning-effort",
+      "category": "codex",
+      "title": "用 model_reasoning_effort 调节 Codex 思考深度，按任务难度省 token 提速度",
+      "file": "2026-06-24-daily.html"
     }
   ]
 }

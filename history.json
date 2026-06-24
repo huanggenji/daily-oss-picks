@@ -823,6 +823,39 @@
       "file": "2026-06-23-daily.html",
       "stars": 46800,
       "threshold": "total 46.8k > 10000"
+    },
+    {
+      "date": "2026-06-24",
+      "repo": "alibaba/page-agent",
+      "url": "https://github.com/alibaba/page-agent",
+      "language": "TypeScript",
+      "title": "alibaba/page-agent：浏览器内 GUI Agent，一段 JS 嵌进页面就能用自然语言操控网页",
+      "category": "AI Agent / 浏览器 GUI Agent / Web 自动化",
+      "file": "2026-06-24-daily.html",
+      "stars": 19300,
+      "threshold": "total 19.3k > 10000"
+    },
+    {
+      "date": "2026-06-24",
+      "repo": "jamiepine/voicebox",
+      "url": "https://github.com/jamiepine/voicebox",
+      "language": "TypeScript",
+      "title": "jamiepine/voicebox：开源 AI 语音工作室，克隆/听写/合成整合进一个全本地工具",
+      "category": "AI 语音 / TTS / 本地优先",
+      "file": "2026-06-24-daily.html",
+      "stars": 26600,
+      "threshold": "total 26.6k > 10000"
+    },
+    {
+      "date": "2026-06-24",
+      "repo": "calesthio/OpenMontage",
+      "url": "https://github.com/calesthio/OpenMontage",
+      "language": "Python",
+      "title": "calesthio/OpenMontage：开源智能体化视频制作系统，把 AI 编程助手变成视频生产工作室",
+      "category": "AI 视频生成 / Agent 工作流 / 内容自动化",
+      "file": "2026-06-24-daily.html",
+      "stars": 12700,
+      "threshold": "total 12.7k > 10000"
     }
   ]
 }
