@@ -179,6 +179,13 @@
       "category": "codex",
       "title": "用 model_reasoning_effort 调节 Codex 思考深度，按任务难度省 token 提速度",
       "file": "2026-06-24-daily.html"
+    },
+    {
+      "date": "2026-06-26",
+      "topic_id": "codex-issue-to-pr-workflow",
+      "category": "codex",
+      "title": "用 Codex CLI 打通从 issue 到 PR 的完整流程：拉分支、改代码、写 PR 描述",
+      "file": "2026-06-26-daily.html"
     }
   ]
 }

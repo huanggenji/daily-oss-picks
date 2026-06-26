@@ -856,6 +856,39 @@
       "file": "2026-06-24-daily.html",
       "stars": 12700,
       "threshold": "total 12.7k > 10000"
+    },
+    {
+      "date": "2026-06-26",
+      "repo": "opendatalab/MinerU",
+      "url": "https://github.com/opendatalab/MinerU",
+      "language": "Python",
+      "title": "opendatalab/MinerU：把 PDF/Office 等复杂文档转成 LLM 可读的 Markdown/JSON，专为 Agentic 工作流而生",
+      "category": "文档处理 / OCR / RAG 工程",
+      "file": "2026-06-26-daily.html",
+      "stars": 69100,
+      "threshold": "total 69.1k > 10000"
+    },
+    {
+      "date": "2026-06-26",
+      "repo": "anomalyco/opencode",
+      "url": "https://github.com/anomalyco/opencode",
+      "language": "TypeScript",
+      "title": "anomalyco/opencode：开源的终端编程 Agent，模型无关、自带 TUI 与多模型 OAuth",
+      "category": "AI 编程 / 编程 Agent / 终端工具",
+      "file": "2026-06-26-daily.html",
+      "stars": 164100,
+      "threshold": "total 164.1k > 10000"
+    },
+    {
+      "date": "2026-06-26",
+      "repo": "google-labs-code/design.md",
+      "url": "https://github.com/google-labs-code/design.md",
+      "language": "TypeScript",
+      "title": "google-labs-code/design.md：一份描述视觉风格的格式规范，让编程 Agent 持续理解你的设计系统",
+      "category": "设计系统 / 上下文工程 / AI 编程",
+      "file": "2026-06-26-daily.html",
+      "stars": 17400,
+      "threshold": "total 17.4k > 10000"
     }
   ]
 }

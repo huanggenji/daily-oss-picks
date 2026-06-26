@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-06-26</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f4f6fb; color: #1f2933; line-height: 1.7;
+    padding: 0 0 48px;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f2557 0%, #1d4ed8 100%);
+    color: #fff; padding: 44px 24px 38px; text-align: center;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .date { margin-top: 10px; font-size: 15px; opacity: 0.85; }
+  .header .lede { margin-top: 18px; font-size: 15px; opacity: 0.95; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .wrap { max-width: 780px; margin: -22px auto 0; padding: 0 18px; }
+  .card {
+    background: #fff; border-radius: 16px; padding: 26px 28px; margin-bottom: 22px;
+    box-shadow: 0 6px 22px rgba(15, 37, 87, 0.08);
+  }
+  .card .rank {
+    display: inline-block; font-size: 13px; font-weight: 600; color: #1d4ed8;
+    background: #e8efff; border-radius: 999px; padding: 3px 12px; margin-bottom: 12px;
+  }
+  .card h2 { font-size: 21px; font-weight: 700; margin-bottom: 6px; }
+  .card h2 a { color: #0f2557; text-decoration: none; }
+  .card h2 a:hover { text-decoration: underline; }
+  .card .tagline { font-size: 15px; color: #475569; margin-bottom: 14px; }
+  .meta { font-size: 13px; color: #64748b; margin-bottom: 16px; }
+  .meta .star { color: #16a34a; font-weight: 600; }
+  .meta .sep { margin: 0 8px; color: #cbd5e1; }
+  .card ul { list-style: none; }
+  .card li {
+    position: relative; padding-left: 20px; margin-bottom: 9px; font-size: 15px; color: #334155;
+  }
+  .card li::before {
+    content: ""; position: absolute; left: 2px; top: 11px;
+    width: 7px; height: 7px; border-radius: 50%; background: #1d4ed8;
+  }
+  .learn {
+    background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+    color: #fff; border-radius: 16px; padding: 28px 30px; margin-bottom: 8px;
+    box-shadow: 0 6px 22px rgba(4, 120, 87, 0.18);
+  }
+  .learn .badge {
+    display: inline-block; font-size: 13px; font-weight: 600;
+    background: rgba(255,255,255,0.2); border-radius: 999px; padding: 3px 12px; margin-bottom: 12px;
+  }
+  .learn h2 { font-size: 21px; font-weight: 700; margin-bottom: 10px; }
+  .learn .intro { font-size: 15px; opacity: 0.96; margin-bottom: 16px; }
+  .learn ul { list-style: none; }
+  .learn li {
+    position: relative; padding-left: 20px; margin-bottom: 11px; font-size: 15px;
+  }
+  .learn li::before {
+    content: ""; position: absolute; left: 2px; top: 11px;
+    width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.85);
+  }
+  .learn code, .card code {
+    background: rgba(0,0,0,0.18); color: #fff; padding: 1px 7px; border-radius: 5px;
+    font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13.5px;
+  }
+  .card code { background: #eef2ff; color: #4338ca; }
+  .links { text-align: center; margin-top: 26px; }
+  .links a {
+    display: inline-block; margin: 0 8px; color: #1d4ed8; text-decoration: none;
+    font-size: 14px; font-weight: 500;
+  }
+  .links a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>每日开源精选</h1>
+    <div class="date">2026 年 6 月 26 日 · 来源 Trendshift 实时榜单</div>
+    <div class="lede">今日精选：📄 把任意文档变成 LLM 可读结构化数据 · 🤖 16 万星的开源编程 Agent · 🎨 给编程 Agent 一份「设计语言说明书」。今日学一招：用 Codex CLI 打通从 issue 到 PR 的完整流程。</div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="card">
+      <span class="rank">① Trendshift #10</span>
+      <h2><a href="https://github.com/opendatalab/MinerU" target="_blank">opendatalab/MinerU</a></h2>
+      <div class="tagline">一句话定位：把 PDF / Office 等复杂文档转成 LLM 可直接读取的 Markdown / JSON，专为 Agentic 工作流而生。</div>
+      <div class="meta"><span class="star">⭐ 69,100+</span><span class="sep">|</span>Python<span class="sep">·</span>Trendshift #10</div>
+      <ul>
+        <li>能处理含表格、公式、多栏排版、扫描件的复杂文档，自动还原阅读顺序，输出干净结构化内容。</li>
+        <li>是 RAG、知识库、数据清洗管线的上游利器——文档进、可喂给大模型的 Markdown / JSON 出。</li>
+        <li>支持本地部署，多次登顶 GitHub Trending 与 Trendshift，是中文社区文档解析方向的标杆项目。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="rank">② Trendshift #24</span>
+      <h2><a href="https://github.com/anomalyco/opencode" target="_blank">anomalyco/opencode</a></h2>
+      <div class="tagline">一句话定位：开源的编程 Agent，在终端里读代码、改文件、跑命令，自带 TUI 与多模型 OAuth 支持。</div>
+      <div class="meta"><span class="star">⭐ 164,100+</span><span class="sep">|</span>TypeScript<span class="sep">·</span>Trendshift #24</div>
+      <ul>
+        <li>模型无关：可接 Claude、Codex、Grok 等多家供应商，用自己的订阅跑同一套编程 Agent。</li>
+        <li>终端原生体验：TUI diff 预览、shell 模式、会话管理，把 AI 编程留在你最熟悉的命令行里。</li>
+        <li>MIT 协议、迭代极快，已是开源编程 Agent 赛道里星数与活跃度都名列前茅的选项。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="rank">③ Trendshift #1</span>
+      <h2><a href="https://github.com/google-labs-code/design.md" target="_blank">google-labs-code/design.md</a></h2>
+      <div class="tagline">一句话定位：一份描述视觉风格的格式规范，让编程 Agent 持续、结构化地理解你的设计系统。</div>
+      <div class="meta"><span class="star">⭐ 17,400+</span><span class="sep">|</span>TypeScript<span class="sep">·</span>Trendshift #1</div>
+      <ul>
+        <li>思路类似 <code>AGENTS.md</code>：在仓库里放一份 <code>DESIGN.md</code>，把配色、字体、间距、组件规范固化成 AI 能读懂的格式。</li>
+        <li>解决 AI 生成 UI「风格漂移」的痛点——每次生成都参照同一份设计语言，输出更统一。</li>
+        <li>来自 Google Labs，Apache 2.0 协议，配套 Stitch 设计工具，是「上下文工程」在设计侧的落地范例。</li>
+      </ul>
+    </div>
+
+    <div class="learn">
+      <span class="badge">📘 今日学一招</span>
+      <h2>用 Codex CLI 打通从 issue 到 PR 的完整流程</h2>
+      <div class="intro">很多人用 Codex 只让它改一处代码，其实它能把「读需求 → 拉分支 → 改代码 → 写 PR 描述」串成一条流水线。关键是给够上下文、小步验证、让它产出可直接提交的成果。</div>
+      <ul>
+        <li>先用 <code>codex</code> 进入交互模式，把 issue 正文贴进去或用 <code>@</code> 引用相关文件，让它先复述需求并列出改动计划，确认无误再动手。</li>
+        <li>让它在新分支上工作：先 <code>git checkout -b feat/xxx</code>，每完成一小步就用 <code>/diff</code> 看清改动、跑测试，再让 Codex 生成符合规范的 commit message。</li>
+        <li>收尾时让 Codex 读完整 diff（<code>git diff main</code>）后写 PR 标题与描述：动机、改了什么、如何验证；自己审一遍再 <code>gh pr create</code> 提交，AI 出草稿、你把关。</li>
+      </ul>
+    </div>
+
+    <div class="links">
+      <a href="https://huanggenji.github.io/daily-oss-picks/2026-06-26-daily.html">本期链接</a>
+      <a href="https://huanggenji.github.io/daily-oss-picks/">查看历史归档</a>
+    </div>
+
+  </div>
+</body>
+</html>
