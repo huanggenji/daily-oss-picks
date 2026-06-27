@@ -889,6 +889,39 @@
       "file": "2026-06-26-daily.html",
       "stars": 17400,
       "threshold": "total 17.4k > 10000"
+    },
+    {
+      "date": "2026-06-27",
+      "repo": "simplex-chat/simplex-chat",
+      "url": "https://github.com/simplex-chat/simplex-chat",
+      "language": "Haskell",
+      "title": "simplex-chat/simplex-chat：第一个完全不依赖任何用户标识的隐私即时通讯网络",
+      "category": "隐私通讯 / 去中心化 / 端到端加密",
+      "file": "2026-06-27-daily.html",
+      "stars": 12400,
+      "threshold": "total 12.4k > 10000"
+    },
+    {
+      "date": "2026-06-27",
+      "repo": "IceWhaleTech/CasaOS",
+      "url": "https://github.com/IceWhaleTech/CasaOS",
+      "language": "Go",
+      "title": "IceWhaleTech/CasaOS：简单优雅的开源个人云系统，把旧电脑或 NAS 变成私有云",
+      "category": "自托管 / 个人云 / 家庭服务器",
+      "file": "2026-06-27-daily.html",
+      "stars": 35500,
+      "threshold": "total 35.5k > 10000"
+    },
+    {
+      "date": "2026-06-27",
+      "repo": "NanmiCoder/MediaCrawler",
+      "url": "https://github.com/NanmiCoder/MediaCrawler",
+      "language": "Python",
+      "title": "NanmiCoder/MediaCrawler：覆盖小红书/抖音/快手/B站/微博/贴吧/知乎的多平台内容与评论爬虫",
+      "category": "数据 / 网页爬虫 / 多平台采集",
+      "file": "2026-06-27-daily.html",
+      "stars": 52600,
+      "threshold": "total 52.6k > 10000"
     }
   ]
 }

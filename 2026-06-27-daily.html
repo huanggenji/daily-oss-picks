@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-06-27</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f4f6fb; color: #1f2933; line-height: 1.7;
+    padding: 0 0 48px;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f2557 0%, #1d4ed8 100%);
+    color: #fff; padding: 44px 24px 38px; text-align: center;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .date { margin-top: 10px; font-size: 15px; opacity: 0.85; }
+  .header .lede { margin-top: 18px; font-size: 15px; opacity: 0.95; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .wrap { max-width: 780px; margin: -22px auto 0; padding: 0 18px; }
+  .card {
+    background: #fff; border-radius: 16px; padding: 26px 28px; margin-bottom: 22px;
+    box-shadow: 0 6px 22px rgba(15, 37, 87, 0.08);
+  }
+  .card .rank {
+    display: inline-block; font-size: 13px; font-weight: 600; color: #1d4ed8;
+    background: #e8efff; border-radius: 999px; padding: 3px 12px; margin-bottom: 12px;
+  }
+  .card h2 { font-size: 21px; font-weight: 700; margin-bottom: 6px; }
+  .card h2 a { color: #0f2557; text-decoration: none; }
+  .card h2 a:hover { text-decoration: underline; }
+  .card .tagline { font-size: 15px; color: #475569; margin-bottom: 14px; }
+  .meta { font-size: 13px; color: #64748b; margin-bottom: 16px; }
+  .meta .star { color: #16a34a; font-weight: 600; }
+  .meta .sep { margin: 0 8px; color: #cbd5e1; }
+  .card ul { list-style: none; }
+  .card li {
+    position: relative; padding-left: 20px; margin-bottom: 9px; font-size: 15px; color: #334155;
+  }
+  .card li::before {
+    content: ""; position: absolute; left: 2px; top: 11px;
+    width: 7px; height: 7px; border-radius: 50%; background: #1d4ed8;
+  }
+  .learn {
+    background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+    color: #fff; border-radius: 16px; padding: 28px 30px; margin-bottom: 8px;
+    box-shadow: 0 6px 22px rgba(4, 120, 87, 0.18);
+  }
+  .learn .badge {
+    display: inline-block; font-size: 13px; font-weight: 600;
+    background: rgba(255,255,255,0.2); border-radius: 999px; padding: 3px 12px; margin-bottom: 12px;
+  }
+  .learn h2 { font-size: 21px; font-weight: 700; margin-bottom: 10px; }
+  .learn .intro { font-size: 15px; opacity: 0.96; margin-bottom: 16px; }
+  .learn ul { list-style: none; }
+  .learn li {
+    position: relative; padding-left: 20px; margin-bottom: 11px; font-size: 15px;
+  }
+  .learn li::before {
+    content: ""; position: absolute; left: 2px; top: 11px;
+    width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.85);
+  }
+  .learn code, .card code {
+    background: rgba(0,0,0,0.18); color: #fff; padding: 1px 7px; border-radius: 5px;
+    font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13.5px;
+  }
+  .card code { background: #eef2ff; color: #4338ca; }
+  .links { text-align: center; margin-top: 26px; }
+  .links a {
+    display: inline-block; margin: 0 8px; color: #1d4ed8; text-decoration: none;
+    font-size: 14px; font-weight: 500;
+  }
+  .links a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>每日开源精选</h1>
+    <div class="date">2026 年 6 月 27 日 · 来源 Trendshift 实时榜单</div>
+    <div class="lede">今日精选：🔒 无任何用户标识的隐私即时通讯网络 · ☁️ 一键搭建自己的个人云系统 · 🕷️ 一套覆盖国内主流平台的内容爬虫。今日学一招：让 Codex CLI 联网搜索，写代码前先查最新文档。</div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="card">
+      <span class="rank">① Trendshift #5</span>
+      <h2><a href="https://github.com/simplex-chat/simplex-chat" target="_blank">simplex-chat/simplex-chat</a></h2>
+      <div class="tagline">一句话定位：第一个完全不依赖任何用户标识的即时通讯网络，从设计上做到 100% 私密。</div>
+      <div class="meta"><span class="star">⭐ 12,400+</span><span class="sep">|</span>Haskell<span class="sep">·</span>Trendshift #5</div>
+      <ul>
+        <li>没有用户 ID、电话号、用户名甚至随机密钥作为身份标识——服务器看不到「谁在和谁聊天」，从根上消除元数据泄露。</li>
+        <li>采用一次性连接队列与双棘轮端到端加密，消息内容和社交图谱都不会被中转服务器掌握。</li>
+        <li>iOS、Android、桌面端全平台开源，可自建中继服务器，是注重隐私的去中心化通讯代表项目。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="rank">② Trendshift #13</span>
+      <h2><a href="https://github.com/IceWhaleTech/CasaOS" target="_blank">IceWhaleTech/CasaOS</a></h2>
+      <div class="tagline">一句话定位：简单优雅的开源个人云系统，把闲置的旧电脑或 NAS 变成自己的私有云。</div>
+      <div class="meta"><span class="star">⭐ 35,500+</span><span class="sep">|</span>Go<span class="sep">·</span>Trendshift #13</div>
+      <ul>
+        <li>以图形化「桌面」管理 Docker 应用，点几下就能装好 NAS、相册、影音、下载器等自托管服务，几乎零运维门槛。</li>
+        <li>内置应用商店与文件管理、磁盘管理，把零散的家庭服务器需求收拢进一个统一、好看的界面里。</li>
+        <li>Apache 2.0 协议，曾多次登顶 GitHub Trending，是自托管「个人云」入门最受欢迎的选择之一。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="rank">③ Trendshift #10</span>
+      <h2><a href="https://github.com/NanmiCoder/MediaCrawler" target="_blank">NanmiCoder/MediaCrawler</a></h2>
+      <div class="tagline">一句话定位：覆盖小红书、抖音、快手、B 站、微博、贴吧、知乎的多平台内容与评论爬虫。</div>
+      <div class="meta"><span class="star">⭐ 52,600+</span><span class="sep">|</span>Python<span class="sep">·</span>Trendshift #10</div>
+      <ul>
+        <li>基于 Playwright 无头浏览器抓取，复用登录态拿到真实页面数据，省去逆向签名算法的繁琐过程。</li>
+        <li>统一了多个平台的笔记/视频/帖子与评论采集接口，是做舆情分析、内容研究、数据集构建的常用上游工具。</li>
+        <li>请遵守各平台服务条款与法律法规，仅用于学习研究与合规场景，注意控制频率、尊重 robots 与隐私边界。</li>
+      </ul>
+    </div>
+
+    <div class="learn">
+      <span class="badge">📘 今日学一招</span>
+      <h2>让 Codex CLI 联网搜索，写代码前先查最新文档</h2>
+      <div class="intro">模型的知识有截止日期，遇到新版本库、刚改的 API，凭记忆写很容易出错。给 Codex 开上联网搜索，让它先查最新官方文档和示例，再动手写代码，能明显减少「一本正经地写错」的情况。</div>
+      <ul>
+        <li>在交互模式里用带搜索能力的命令启动（如 <code>codex --search</code>），让 Codex 在不确定时主动去查官方文档而不是硬编造。</li>
+        <li>提问时把意图说清楚：「先查一下 X 库最新版的写法，再据此实现」，并给出版本号，引导它以检索到的内容为准。</li>
+        <li>拿到结果后让它附上来源链接，自己抽查一两处再采纳；联网只补「最新事实」，代码逻辑仍要靠 <code>/diff</code> 和测试把关。</li>
+      </ul>
+    </div>
+
+    <div class="links">
+      <a href="https://huanggenji.github.io/daily-oss-picks/2026-06-27-daily.html">本期链接</a>
+      <a href="https://huanggenji.github.io/daily-oss-picks/">查看历史归档</a>
+    </div>
+
+  </div>
+</body>
+</html>

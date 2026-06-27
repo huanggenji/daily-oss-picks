@@ -186,6 +186,13 @@
       "category": "codex",
       "title": "用 Codex CLI 打通从 issue 到 PR 的完整流程：拉分支、改代码、写 PR 描述",
       "file": "2026-06-26-daily.html"
+    },
+    {
+      "date": "2026-06-27",
+      "topic_id": "codex-web-search",
+      "category": "codex",
+      "title": "让 Codex CLI 联网搜索：写代码前先查最新官方文档，少凭记忆写错",
+      "file": "2026-06-27-daily.html"
     }
   ]
 }
