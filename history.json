@@ -922,6 +922,39 @@
       "file": "2026-06-27-daily.html",
       "stars": 52600,
       "threshold": "total 52.6k > 10000"
+    },
+    {
+      "date": "2026-06-28",
+      "repo": "multica-ai/andrej-karpathy-skills",
+      "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+      "language": "Markdown",
+      "title": "multica-ai/andrej-karpathy-skills：把 Karpathy 对 AI 写码毛病的观察浓缩成一份 CLAUDE.md",
+      "category": "AI 编程 / CLAUDE.md / 上下文工程",
+      "file": "2026-06-28-daily.html",
+      "stars": 172100,
+      "threshold": "total 172.1k > 10000"
+    },
+    {
+      "date": "2026-06-28",
+      "repo": "JCodesMore/ai-website-cloner-template",
+      "url": "https://github.com/JCodesMore/ai-website-cloner-template",
+      "language": "TypeScript",
+      "title": "JCodesMore/ai-website-cloner-template：配合 AI 编程 Agent 用一条命令克隆任意网站",
+      "category": "AI 编程 / 网站克隆 / Agent 模板",
+      "file": "2026-06-28-daily.html",
+      "stars": 14100,
+      "threshold": "total 14.1k > 10000"
+    },
+    {
+      "date": "2026-06-28",
+      "repo": "ripienaar/free-for-dev",
+      "url": "https://github.com/ripienaar/free-for-dev",
+      "language": "HTML",
+      "title": "ripienaar/free-for-dev：汇总各类 SaaS/PaaS/IaaS 免费额度的开发者清单",
+      "category": "开发资源 / 免费服务 / Curated list",
+      "file": "2026-06-28-daily.html",
+      "stars": 124500,
+      "threshold": "total 124.5k > 10000"
     }
   ]
 }

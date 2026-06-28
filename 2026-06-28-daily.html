@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日开源精选 · 2026-06-28</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f4f6fb; color: #1f2933; line-height: 1.7;
+    padding: 0 0 48px;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f2557 0%, #1d4ed8 100%);
+    color: #fff; padding: 44px 24px 38px; text-align: center;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .date { margin-top: 10px; font-size: 15px; opacity: 0.85; }
+  .header .lede { margin-top: 18px; font-size: 15px; opacity: 0.95; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .wrap { max-width: 780px; margin: -22px auto 0; padding: 0 18px; }
+  .card {
+    background: #fff; border-radius: 16px; padding: 26px 28px; margin-bottom: 22px;
+    box-shadow: 0 6px 22px rgba(15, 37, 87, 0.08);
+  }
+  .card .rank {
+    display: inline-block; font-size: 13px; font-weight: 600; color: #1d4ed8;
+    background: #e8efff; border-radius: 999px; padding: 3px 12px; margin-bottom: 12px;
+  }
+  .card h2 { font-size: 21px; font-weight: 700; margin-bottom: 6px; }
+  .card h2 a { color: #0f2557; text-decoration: none; }
+  .card h2 a:hover { text-decoration: underline; }
+  .card .tagline { font-size: 15px; color: #475569; margin-bottom: 14px; }
+  .meta { font-size: 13px; color: #64748b; margin-bottom: 16px; }
+  .meta .star { color: #16a34a; font-weight: 600; }
+  .meta .sep { margin: 0 8px; color: #cbd5e1; }
+  .card ul { list-style: none; }
+  .card li {
+    position: relative; padding-left: 20px; margin-bottom: 9px; font-size: 15px; color: #334155;
+  }
+  .card li::before {
+    content: ""; position: absolute; left: 2px; top: 11px;
+    width: 7px; height: 7px; border-radius: 50%; background: #1d4ed8;
+  }
+  .learn {
+    background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+    color: #fff; border-radius: 16px; padding: 28px 30px; margin-bottom: 8px;
+    box-shadow: 0 6px 22px rgba(4, 120, 87, 0.18);
+  }
+  .learn .badge {
+    display: inline-block; font-size: 13px; font-weight: 600;
+    background: rgba(255,255,255,0.2); border-radius: 999px; padding: 3px 12px; margin-bottom: 12px;
+  }
+  .learn h2 { font-size: 21px; font-weight: 700; margin-bottom: 10px; }
+  .learn .intro { font-size: 15px; opacity: 0.96; margin-bottom: 16px; }
+  .learn ul { list-style: none; }
+  .learn li {
+    position: relative; padding-left: 20px; margin-bottom: 11px; font-size: 15px;
+  }
+  .learn li::before {
+    content: ""; position: absolute; left: 2px; top: 11px;
+    width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.85);
+  }
+  .learn code, .card code {
+    background: rgba(0,0,0,0.18); color: #fff; padding: 1px 7px; border-radius: 5px;
+    font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13.5px;
+  }
+  .card code { background: #eef2ff; color: #4338ca; }
+  .links { text-align: center; margin-top: 26px; }
+  .links a {
+    display: inline-block; margin: 0 8px; color: #1d4ed8; text-decoration: none;
+    font-size: 14px; font-weight: 500;
+  }
+  .links a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>每日开源精选</h1>
+    <div class="date">2026 年 6 月 28 日 · 来源 Trendshift 实时榜单</div>
+    <div class="lede">今日精选：🧠 4 行规则就让 Claude Code 少犯错的 CLAUDE.md · 🌐 一条命令克隆任意网站的 AI 模板 · 💸 收录全网带免费额度的开发者服务清单。今日学一招：提示词工程入门，把模糊指令写成大模型能精准执行的提示。</div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="card">
+      <span class="rank">① Trendshift #21</span>
+      <h2><a href="https://github.com/multica-ai/andrej-karpathy-skills" target="_blank">multica-ai/andrej-karpathy-skills</a></h2>
+      <div class="tagline">一句话定位：把 Karpathy 对 AI 写代码常见毛病的观察，浓缩成一份可直接放进项目的 CLAUDE.md。</div>
+      <div class="meta"><span class="star">⭐ 172,100+</span><span class="sep">|</span>Markdown<span class="sep">·</span>Trendshift #21</div>
+      <ul>
+        <li>核心只是一份几十行的 CLAUDE.md：四条原则——动手前先想清楚、保持简单、只改必须改的、目标驱动，约束 AI 别过度设计和乱动文件。</li>
+        <li>针对 LLM 写代码的典型陷阱（瞎做假设、堆砌抽象、改了不该改的代码）给出对策，被大量开发者反馈能明显提升 Claude Code / Codex 的输出质量。</li>
+        <li>零成本、即插即用：复制到项目根目录就能生效，是「上下文工程」最轻量的入门范本，也适合作为自己写规则文件的起点。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="rank">② Trendshift #12</span>
+      <h2><a href="https://github.com/JCodesMore/ai-website-cloner-template" target="_blank">JCodesMore/ai-website-cloner-template</a></h2>
+      <div class="tagline">一句话定位：一个配合 AI 编程 Agent 的模板，用一条命令把任意网站克隆成可运行的代码。</div>
+      <div class="meta"><span class="star">⭐ 14,100+</span><span class="sep">|</span>TypeScript<span class="sep">·</span>Trendshift #12</div>
+      <ul>
+        <li>把「让 AI 复刻一个网站」这件事流程化：预设好提示与项目结构，编程 Agent 据此抓取页面、还原布局与样式并生成前端代码。</li>
+        <li>适合快速做竞品页面参考、落地页原型或学习他人实现，省去从零搭脚手架和反复描述需求的时间。</li>
+        <li>本质是一套面向 Agent 的工程模板，体现了「模板 + AI 编程助手」这种新的快速开发范式；克隆他人站点请注意版权与合规边界。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="rank">③ Trendshift #10</span>
+      <h2><a href="https://github.com/ripienaar/free-for-dev" target="_blank">ripienaar/free-for-dev</a></h2>
+      <div class="tagline">一句话定位：长期维护的开发者「免费额度」清单，汇总各类 SaaS / PaaS / IaaS 的免费层。</div>
+      <div class="meta"><span class="star">⭐ 124,500+</span><span class="sep">|</span>HTML<span class="sep">·</span>Trendshift #10</div>
+      <ul>
+        <li>按类别整理出大量对个人开发者和小团队有用、且带永久或慷慨免费额度的在线服务，从托管、数据库到监控、邮件一应俱全。</li>
+        <li>近 2000 名贡献者持续更新，信息时效性强，是搭建副业项目、做原型、控制基础设施成本时的常用查表清单。</li>
+        <li>配套网站 free-for.dev 提供更好的浏览体验，收藏一份能在「这个功能有没有免费方案」时快速找到答案。</li>
+      </ul>
+    </div>
+
+    <div class="learn">
+      <span class="badge">📘 今日学一招</span>
+      <h2>提示词工程入门：把模糊指令写成大模型能精准执行的提示</h2>
+      <div class="intro">同样一个需求，提示写得好不好，模型输出质量能差出一大截。提示词工程不是玄学，核心就是把「你脑子里默认知道、但没说出口」的信息补全，让模型不用猜。掌握几条基本结构，就能稳定拿到更靠谱的结果。</div>
+      <ul>
+        <li>讲清角色 + 任务 + 约束 + 输出格式：与其说「帮我写个函数」，不如说「你是资深 Python 工程师，写一个校验邮箱的函数，用标准库、加类型注解，只返回代码」。</li>
+        <li>给示例胜过讲道理：想要固定格式时，直接给一两个「输入→输出」样例（few-shot），比用文字描述格式更不容易跑偏。</li>
+        <li>让它先想再答、复杂任务拆步骤：加一句「先列出思路，再给结论」往往更准；同样的技巧用在 <code>codex</code> 或 Claude Code 上，把需求写细、给上下文，AI 写代码也会少返工。</li>
+      </ul>
+    </div>
+
+    <div class="links">
+      <a href="https://huanggenji.github.io/daily-oss-picks/2026-06-28-daily.html">本期链接</a>
+      <a href="https://huanggenji.github.io/daily-oss-picks/">查看历史归档</a>
+    </div>
+
+  </div>
+</body>
+</html>
