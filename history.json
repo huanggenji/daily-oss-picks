@@ -955,6 +955,39 @@
       "file": "2026-06-28-daily.html",
       "stars": 124500,
       "threshold": "total 124.5k > 10000"
+    },
+    {
+      "date": "2026-06-29",
+      "repo": "DietrichGebert/ponytail",
+      "url": "https://github.com/DietrichGebert/ponytail",
+      "language": "JavaScript",
+      "title": "DietrichGebert/ponytail：给 AI 编程助手注入「最懒资深开发」思维，最好的代码是你没写的代码",
+      "category": "AI 编程 / Agent 约束 / 上下文工程",
+      "file": "2026-06-29-daily.html",
+      "stars": 52600,
+      "threshold": "total 52.6k > 10000"
+    },
+    {
+      "date": "2026-06-29",
+      "repo": "browser-use/video-use",
+      "url": "https://github.com/browser-use/video-use",
+      "language": "Python",
+      "title": "browser-use/video-use：用编程 Agent 以自然语言直接剪视频",
+      "category": "AI 视频编辑 / Agent 工具 / 内容自动化",
+      "file": "2026-06-29-daily.html",
+      "stars": 11000,
+      "threshold": "total 11k > 10000"
+    },
+    {
+      "date": "2026-06-29",
+      "repo": "usestrix/strix",
+      "url": "https://github.com/usestrix/strix",
+      "language": "Python",
+      "title": "usestrix/strix：开源 AI 白帽黑客，自动扫描并修复应用安全漏洞",
+      "category": "安全 / AI 渗透测试 / DevSecOps",
+      "file": "2026-06-29-daily.html",
+      "stars": 26800,
+      "threshold": "total 26.8k > 10000"
     }
   ]
 }

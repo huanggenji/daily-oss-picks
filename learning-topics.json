@@ -200,6 +200,13 @@
       "category": "ai_basics",
       "title": "提示词工程入门——把模糊指令写成大模型能精准执行的提示",
       "file": "2026-06-28-daily.html"
+    },
+    {
+      "date": "2026-06-29",
+      "topic_id": "codex-address-review-comments",
+      "category": "codex",
+      "title": "用 Codex CLI 逐条落实 PR 评审意见：把 reviewer 的 comment 喂给 AI 改",
+      "file": "2026-06-29-daily.html"
     }
   ]
 }
